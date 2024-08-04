@@ -27,7 +27,7 @@ nav {
         color: unset;
     }
 
-    &:hover {
+    &:hover, &.active {
         font-weight: bold;
     }
 }

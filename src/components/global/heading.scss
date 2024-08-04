@@ -1,14 +1,14 @@
 @import "@/styles/helpers.scss";
 
-.page-title__wrapper {
+.heading__wrapper {
     width: 100%;
-    margin: 10rem 0 5rem 0;
+    margin: 15rem 0 5rem 0;
     display: flex;
     justify-content: center;
 }
 
-.page-title__container {
-    h1 {
+.heading__container {
+    h1, h2, h3 {
         text-transform: uppercase;
         font-size: 5rem;
         font-weight: bold;

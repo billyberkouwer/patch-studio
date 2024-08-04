@@ -4,6 +4,7 @@ import "@/styles/global.scss";
 import CSSEnhancements from "@/utils/CSSEnhancements";
 import Navbar from "@/components/nav/Navbar";
 import { navItems } from "@/utils/constants";
+import Footer from "@/components/footer/Footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -23,6 +24,7 @@ export default function RootLayout({
         <CSSEnhancements />
         <Navbar navItems={navItems} />
         {children}
+        <Footer pages={navItems} />
       </body>
     </html>
   );

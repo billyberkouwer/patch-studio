@@ -1,6 +1,6 @@
 import Button from "../global/Button";
-import ShootDescription from "./ShootDescription";
-import ShootDetails from "./ShootDetails";
+import ShootDescription from "../global/ShootDescription";
+import ShootDetails from "../global/ShootDetails";
 import "./shoot-info-section.scss";
 
 export default function ShootInfoSection() {

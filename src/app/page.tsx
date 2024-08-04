@@ -26,7 +26,6 @@ export default function Home() {
       <ShootInfoSection />
       <ScrollingImages images={images} />
       <ShootInfoSection />
-      <Footer pages={navItems} />
       <div className="fixed-book-button__wrapper">
         <Button text="Book Headshot" state="invert" slug="/" />
       </div>
