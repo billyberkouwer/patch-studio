@@ -1,0 +1,16 @@
+@import "@/styles/helpers.scss";
+
+.footer__wrapper {
+    display: block;
+    width: 100%;
+    padding: 0.8rem;
+    box-sizing: border-box;
+    color: $blue;
+    font-size: 1.2rem;
+}
+
+.footer__container {
+    display: flex;
+    justify-content: space-between;
+    align-items:flex-end;
+}

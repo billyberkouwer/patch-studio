@@ -1,0 +1,16 @@
+@import "@/styles/helpers.scss";
+
+.parallax-header__container {
+    position: relative;
+    background-color: $blue;
+    white-space: nowrap;
+    overflow: hidden;
+    margin: 0rem 0.8rem 0 0.8rem;
+
+    .image__wrapper {
+        position: relative;
+        height: 100%;
+        width: 500px;
+        display: inline-block;
+    }
+}

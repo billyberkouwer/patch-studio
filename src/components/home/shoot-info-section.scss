@@ -1,0 +1,24 @@
+@import "@/styles/helpers.scss";
+
+.shoot-info__wrapper {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 5rem;
+    padding-right: 0.8rem;
+    padding-left: 0.8rem;
+    box-sizing: border-box;
+}
+
+.shoot-info__container {
+    display: flex;
+    align-items: center;
+    gap: 5rem;
+    flex-direction: column;
+    @include md {
+        flex-direction: unset;
+    }
+}
+
+.shoot-details__wrapper {
+    max-width: 400px;
+}

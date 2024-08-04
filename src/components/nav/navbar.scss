@@ -1,0 +1,43 @@
+@import "@/styles/helpers.scss";
+
+.navbar {
+    display: flex;
+    width: 100%;
+    position: fixed;
+    padding: 0.8rem;
+    box-sizing: border-box;
+    justify-content: center;
+    top: 0;
+    z-index: 9;
+}
+
+.mobile-menu-button__wrapper {
+    display: block;
+    position: absolute;
+    right: 0;
+    margin-right: 0.8rem;
+}
+
+.nav-logo__wrapper {
+    position: absolute;
+    left: 0;
+    margin-left: 0.8rem;
+}
+
+.bookings-button__wrapper {
+    position: absolute;
+    right: 0;
+    margin-right: 0.8rem;
+    display: none;
+
+    @include sm {
+        display: block;
+    }
+}
+
+.mob-nav--visible {
+    display: none;
+    @include sm {
+        display: block;
+    }
+}

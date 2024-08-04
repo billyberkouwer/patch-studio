@@ -1,0 +1,14 @@
+.column-text__wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10rem;
+}
+
+.column-text__container {
+    display: grid;
+    gap: 3.2rem;
+    width: 1200px;
+    font-size: 1.6rem;
+}

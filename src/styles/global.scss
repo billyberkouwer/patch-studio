@@ -1,0 +1,33 @@
+@import '_helpers.scss';
+@import '_fonts.scss';
+
+:root {
+    --real-viewport-height: 100svh;
+    --nav-height: 42px;
+}
+
+html {
+    font-size: 10px;
+}
+
+body { 
+    margin: 0;
+    background-color: $light;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+    color: unset;
+    line-height: unset;
+    position: relative;
+}
+
+.page__wrapper {
+    overflow: hidden;
+}

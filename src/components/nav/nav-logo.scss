@@ -1,0 +1,10 @@
+@import "@/styles/helpers.scss";
+
+.patch-logo {
+    font-weight: bold;
+    font-size: 2rem;
+    color: $blue;
+    height: fit-content;
+    align-self: center;
+    text-transform: uppercase;
+}

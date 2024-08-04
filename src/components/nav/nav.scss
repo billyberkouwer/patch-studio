@@ -1,0 +1,33 @@
+@import "@/styles/helpers.scss";
+
+nav {
+    position: relative;
+    align-self: center;
+    justify-self: center;
+}
+
+.nav-list {
+    display: flex;
+    border: 1px solid $blue;
+    background-color: $light-75;
+    backdrop-filter: blur(20px);
+    padding: 0.5rem 1rem;
+    margin: 0;
+    gap: 1rem;
+}
+
+.nav-item {
+    color: $blue;
+    font-size: 1.6rem;
+    list-style-type: none;
+    text-transform: uppercase;
+
+    a {
+        text-decoration: none;
+        color: unset;
+    }
+
+    &:hover {
+        font-weight: bold;
+    }
+}

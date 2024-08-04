@@ -1,0 +1,50 @@
+@mixin unstyle-button {
+    background-color: transparent;
+    border-width: 0;
+    font-family: inherit;
+    font-size: inherit;
+    font-style: inherit;
+    font-weight: inherit;
+    line-height: inherit;
+    padding: 0;
+    color: $black;
+}
+
+@mixin section-height-100 {
+    height: calc(75vh - 2em);
+    height: calc(75dvh - 2em);
+
+    @include md {
+        height: calc(100vh - 4em);
+        height: calc(100vh - 4em);
+    }
+}
+
+@mixin section-header {
+    height: calc(75dvh - 1em - 100px);
+    height: calc(75vh - 1em - 100px);
+
+    @include md {
+        height: calc(100vh - 2em - 100px);
+        height: calc(100dvh - 2em - 100px);
+    }
+}
+
+@mixin box-shadow {
+    border-radius: 0.5rem;
+    box-shadow: 0.2em 0.2em 0.2em 0em #00000065;
+
+    @include md {
+        box-shadow: 0.25em 0.25em 0.25em 0em #00000065;
+    }
+
+    @include lg {
+        box-shadow: 0.3em 0.3em 0.3em 0em #00000065;
+    }
+
+    // transition: box-shadow $fast, transform $fast;
+
+    // &:hover {
+    //     box-shadow: 0.2em 0.2em 0.2em 0em #00000065;
+    // }
+}
