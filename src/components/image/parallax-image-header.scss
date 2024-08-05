@@ -1,11 +1,31 @@
 @import "@/styles/helpers.scss";
 
+.parallax-header__wrapper {
+    position: relative;
+    padding: var(--nav-height) 0.8rem 0.8rem 0.8rem;
+    height: var(--real-viewport-height);
+    box-sizing: border-box;
+}
+
 .parallax-header__container {
     position: relative;
+    box-sizing: border-box;
     background-color: $blue;
-    white-space: nowrap;
     overflow: hidden;
-    margin: 0rem 0.8rem 0 0.8rem;
+    opacity: 0;
+    height: 100%;
+    transition: opacity $fast;
+
+    &.visible {
+        opacity: 1;
+    }
+
+
+}
+
+.images__container {
+    white-space: nowrap;
+    height: 100%;
 
     .image__wrapper {
         position: relative;

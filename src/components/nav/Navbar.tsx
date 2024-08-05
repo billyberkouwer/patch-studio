@@ -26,10 +26,10 @@ export default function Navbar({
         <Nav navItems={navItems} />
       </div>
       <div className="mobile-menu-button__wrapper">
-        <Button state="bold" text="Menu +" callback={handleSetIsMenuOpen} />
+        <Button state="bold" callback={handleSetIsMenuOpen}>Menu +</Button>
       </div>
       <div className="bookings-button__wrapper">
-        <Button state="bold" text="Bookings" slug="/" />
+        <Button state="bold" slug="/">Bookings</Button>
       </div>
     </div>
   );

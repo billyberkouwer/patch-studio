@@ -1,0 +1,36 @@
+.three-images__wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20rem;
+}
+
+.three-images__container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 16rem;
+}
+
+.images__wrapper {
+    position: relative;
+    width: 500px;
+    height: 700px;
+    overflow: hidden;
+
+    .image__wrapper {
+        width: inherit;
+        height: inherit;
+        position: relative;
+        overflow: hidden;
+        transition: top 0.5s;
+        top: -100%;
+
+        img {
+            object-fit: cover;
+            position: relative;
+        }
+    }
+
+}

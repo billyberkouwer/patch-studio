@@ -14,8 +14,8 @@ export default function BookingCard({
 }: {
   shootType: "editorial" | "headshot";
   name: string;
-  image: { src: string; alt: string };
-  shootDetails: { title: string; details: string[] }[];
+  image: Image;
+  shootDetails: { title: string; details: TextArray }[];
   isSelected: boolean;
   callback: (currentValue: string) => void;
 }) {

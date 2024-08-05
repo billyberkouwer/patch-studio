@@ -1,9 +1,9 @@
 export const navItems = [
   { title: "Home", slug: "/" },
   { title: "Editorial", slug: "/editorial" },
-  { title: "Headshots", slug: "#" },
+  { title: "Headshots", slug: "/headshots" },
   { title: "Team", slug: "#" },
-  { title: "Contact", slug: "#" },
+  { title: "Contact", slug: "/contact" },
 ];
 
 export const columnText = [
@@ -15,11 +15,35 @@ export const columnText = [
         Reprehenderit amet, tempora officiis iure totam animi libero tenetur
         facilis delectus fuga non ratione commodi?
         Nisi voluptates similique aut cumque! `,
-  // `Lorem ipsum dolor sit amet
-  //       consectetur adipisicing elit. Quidem ab laudantium, harum dignissimos
-  //       amet similique esse vel adipisci inventore praesentium sapiente fugit
-  //       dolores laborum dolorem provident. Esse pariatur placeat tempore.`,
+  `Lorem ipsum dolor sit amet
+        consectetur adipisicing elit. Quidem ab laudantium, harum dignissimos
+        amet similique esse vel adipisci inventore praesentium sapiente fugit
+        dolores laborum dolorem provident. Esse pariatur placeat tempore.`,
 ];
+
+export const headshotShootDetails = [
+  {
+    title: "Type",
+    details: [
+      "Actor",
+      "Commercial"
+    ]
+  },
+  {
+    title: "Type",
+    details: [
+      "Actor",
+      "Commercial"
+    ]
+  },
+  {
+    title: "Type",
+    details: [
+      "Actor",
+      "Commercial"
+    ]
+  },
+]
 
 export const images = [
   {

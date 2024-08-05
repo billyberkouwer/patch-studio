@@ -6,7 +6,8 @@
     padding: 0.5rem 1rem;
     border: 1px solid $blue;
     color: $blue;
-    background-color: $light;
+    background-color: $light-75;
+    backdrop-filter: blur(10px);
     font-size: 1.6rem;
     cursor: pointer;
     height: fit-content;
@@ -24,5 +25,16 @@
 
     &.bold {
         font-weight: bold;
+    }
+
+    &.inactive {
+        color: $mid-grey;
+        border-color: $mid-grey;
+        cursor: unset;
+
+        &:hover {
+            background-color: unset;
+            font-weight: unset;
+        }
     }
 }

@@ -14,7 +14,7 @@ function createColumns(number: number) {
 export default function ColumnText({
   textArr,
 }: {
-  textArr: string[];
+  textArr: TextArray;
 }) {
   return (
     <div className="column-text__wrapper">

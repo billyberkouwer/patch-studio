@@ -26,6 +26,10 @@ a {
     color: unset;
     line-height: unset;
     position: relative;
+
+    &:hover {
+        color: $blue;
+    }
 }
 
 h1,
@@ -39,4 +43,29 @@ h6 {
 
 .page__wrapper {
     overflow: hidden;
+    box-sizing: border-box;
+
+    &.--fixed-height {
+        @include md {
+            padding-top: var(--nav-height);
+            height: var(--real-viewport-height);
+        }
+    }
+}
+
+.see-portfolio__wrapper {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    padding: 0.8rem;
+    box-sizing: border-box;
+    z-index: 9;
+}
+
+address {
+    font-style: normal;
+    font-size: 1.6rem;
 }

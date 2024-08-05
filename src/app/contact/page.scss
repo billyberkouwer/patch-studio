@@ -1,0 +1,39 @@
+@import "@/styles/helpers.scss";
+
+.contact__wrapper {
+    // background-color: $blue;
+    height: 100%;
+}
+
+.contact__container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    height: 100%;
+}
+
+.block-1__wrapper {
+    border-bottom: 1px solid $dark;
+}
+
+.block-2__wrapper {
+    border-bottom: 1px solid $dark;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.block-3__wrapper {
+    border-bottom: 1px solid $dark;
+}
+
+.block-4__wrapper {
+    border-bottom: 1px solid $dark;
+}
+
+.social-links__wrapper {
+    a {
+        display: block;
+        font-size: 1.6rem;
+    }
+}

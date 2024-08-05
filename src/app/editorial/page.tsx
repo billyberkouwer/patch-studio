@@ -1,4 +1,5 @@
 import ContainerBookingCards from "@/components/booking/ContainerBookingCards";
+import Button from "@/components/global/Button";
 import ColumnText from "@/components/global/ColumnText";
 import Heading from "@/components/global/Heading";
 import Tagline from "@/components/global/Tagline";
@@ -20,8 +21,8 @@ export default function EditorialPage() {
           aspernatur consequatur perferendis saepe unde itaque quam aliquid.
         </Tagline>
         <ScrollingImages images={images} />
-        <ColumnText textArr={columnText} />
-        <ColumnText textArr={columnText.slice(1)} />
+        <ColumnText textArr={columnText.slice(1,3)} />
+        <ColumnText textArr={columnText.slice(2)} />
         <ScrollingImages isContained images={logos} height={100} />
       </section>
       <section>
@@ -30,6 +31,12 @@ export default function EditorialPage() {
           shootType="editorial"
           bookingOptions={bookingOptionsEditorial}
         />
+      </section>
+      <div className="see-portfolio__wrapper">
+        <Button state="bold">See Portfolio</Button>
+      </div>
+      <section>
+        <Heading>FAQs</Heading>
       </section>
     </div>
   );

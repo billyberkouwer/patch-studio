@@ -10,11 +10,7 @@ export default function ContainerBookingCards({
   bookingOptions,
 }: {
   shootType: "editorial" | "headshot";
-  bookingOptions: {
-    name: string;
-    image: { src: string; alt: string };
-    shootDetails: { title: string; details: string[] }[];
-  }[];
+  bookingOptions: BookingOption[];
 }) {
   const [currentSelectionValue, setCurrentSelectionValue] = useState<
     string | undefined
@@ -41,7 +37,16 @@ export default function ContainerBookingCards({
           ))}
         </div>
         <div className="submit__wrapper">
-          <input type="submit" className="button" />
+          <input
+            type="submit"
+            className={`button ${currentSelectionValue ? "bold" : "inactive"}`}
+            value={
+              currentSelectionValue
+                ? `Book ${currentSelectionValue}`
+                : `Select Session to Book`
+            }
+            disabled={currentSelectionValue ? false : true}
+          />
         </div>
       </form>
     </div>

@@ -5,7 +5,7 @@ import Tagline from "@/components/global/Tagline";
 import ShootInfoSection from "@/components/home/ShootInfoSection";
 import ParallaxImageHeader from "@/components/image/ParallaxImageHeader";
 import ScrollingImages from "@/components/image/ScrollingImages";
-import { images, navItems } from "@/utils/constants";
+import { headshotShootDetails, images, navItems } from "@/utils/constants";
 import "./page.scss";
 
 export default function Home() {
@@ -22,12 +22,26 @@ export default function Home() {
         Laboriosam, nobis eligendi reprehenderit ipsa amet nemo similique totam
         dolorum velit aliquam?
       </Tagline>
+      <ScrollingImages scrollDirection="right" images={images} />
+      <ShootInfoSection
+        shootDetails={headshotShootDetails}
+        description={`Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
+          Iste odit nesciunt enim doloremque repudiandae, unde omnis ipsam rerum reprehenderit nobis ullam aspernatur tenetur culpa dolore quam pariatur deserunt dolorum! 
+          Vitae. Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus quo molestias odit assumenda ullam modi suscipit necessitatibus repellendus, facere, labore animi beatae culpa nisi ipsam exercitationem minus, totam non nesciunt. 
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse corporis soluta officiis incidunt eveniet veniam in necessitatibus error blanditiis ipsum distinctio, perferendis, ea, laudantium sequi magni rerum nihil sint? Aliquid!`}
+      />
       <ScrollingImages images={images} />
-      <ShootInfoSection />
-      <ScrollingImages images={images} />
-      <ShootInfoSection />
+      <ShootInfoSection
+        shootDetails={headshotShootDetails}
+        description={`Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
+        Iste odit nesciunt enim doloremque repudiandae, unde omnis ipsam rerum reprehenderit nobis ullam aspernatur tenetur culpa dolore quam pariatur deserunt dolorum! 
+        Vitae. Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus quo molestias odit assumenda ullam modi suscipit necessitatibus repellendus, facere, labore animi beatae culpa nisi ipsam exercitationem minus, totam non nesciunt. 
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse corporis soluta officiis incidunt eveniet veniam in necessitatibus error blanditiis ipsum distinctio, perferendis, ea, laudantium sequi magni rerum nihil sint? Aliquid!`}
+      />
       <div className="fixed-book-button__wrapper">
-        <Button text="Book Headshot" state="invert" slug="/" />
+        <Button state="invert" slug="/">
+          Book Headshot
+        </Button>
       </div>
     </div>
   );

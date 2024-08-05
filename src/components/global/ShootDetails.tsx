@@ -5,8 +5,8 @@ export default function ShootDetails({
   details,
   centerText,
 }: {
-  title: string;
-  details: string[];
+  title: ShootDetails["title"];
+  details: ShootDetails["details"];
   centerText?: boolean;
 }) {
   return (

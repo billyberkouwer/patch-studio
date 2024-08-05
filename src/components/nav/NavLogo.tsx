@@ -1,5 +1,6 @@
+import Link from "next/link";
 import "./nav-logo.scss";
 
 export default function NavLogo() {
-  return <span className={`patch-logo`}>Patch Studio</span>;
+  return <Link href={"/"} className={`patch-logo`}>Patch Studio</Link>;
 }

@@ -1,0 +1,41 @@
+.contact-form__wrapper {
+    width: 100%;
+    height: 100%;
+}
+
+.contact-form__container {
+    width: 100%;
+    height: 100%;
+    padding: 0.8rem;
+    box-sizing: border-box;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    gap: 0.8rem;
+
+    .name__container {
+        display: flex;
+        flex-grow: 1;
+        gap: 0.8rem;
+        
+
+        .first-name, .last-name {
+            width: 100%;
+        }
+    }
+
+    .email {
+        flex-grow: 1;
+    }
+
+    .subject {
+        flex-grow: 1;
+    }
+
+    .message {
+        flex-grow: 20;
+    }
+}

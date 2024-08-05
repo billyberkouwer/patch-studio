@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import "./button.scss";
+import { ReactNode } from "react";
 
 const stateStyle = {
   inactive: "inactive",
@@ -12,11 +13,11 @@ const stateStyle = {
 export default function Button({
   state,
   isLarge,
-  text,
+  children,
   slug,
   callback,
 }: {
-  text: string;
+  children: ReactNode,
   state?: "inactive" | "bold" | "invert";
   isLarge?: boolean;
   slug?: string;
@@ -29,7 +30,7 @@ export default function Button({
         href={slug}
         className={`button ${state ? stateStyle[state] : ""} ${isLarge ? "large" : ""}`}
       >
-        {text}
+        {children}
       </Link>
     );
   }
@@ -39,7 +40,7 @@ export default function Button({
       className={`button ${state ? stateStyle[state] : ""} ${isLarge ? "large" : ""}`}
       onClick={() => (callback ? callback() : null)}
     >
-      {text}
+      {children}
     </button>
   );
 }
