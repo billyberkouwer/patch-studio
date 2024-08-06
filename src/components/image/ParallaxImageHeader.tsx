@@ -15,27 +15,31 @@ export default function ParallaxImageHeader({ images }: { images: Images }) {
   const imagesRef = useRef<HTMLDivElement>(null);
   
   useGSAP(() => {
-    gsap.to(imagesRef.current, {
+    gsap.fromTo(imagesRef.current, {
+      x: 0
+    },{
       scrollTrigger: {
         trigger: wrapperRef.current,
         start: "top top",
-        end: "+=3000",
-        scrub: 2,
+        end: () => "+=3000",
+        scrub: 0.2,
       },
       x: -1000,
     });
-    gsap.to(containerRef.current, {
+    gsap.fromTo(containerRef.current, {
+      scale: 1
+    },{
       scrollTrigger: {
         trigger: wrapperRef.current,
         pin: true,
         start: "top top",
-        end: "+=1000",
-        scrub: 1,
+        end: () => "+=1000",
+        scrub: 0.2,
+        anticipatePin: 1,
       },
       scale: 0.65,
-      boxShadow: "0rem 0.4rem 3.2rem rgba(194, 194, 194, 1)",
     });
-  }, []);
+  });
 
   useLayoutEffect(() => {
     if (containerRef.current) {

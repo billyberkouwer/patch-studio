@@ -10,7 +10,6 @@
 .parallax-header__container {
     position: relative;
     box-sizing: border-box;
-    background-color: $blue;
     overflow: hidden;
     opacity: 0;
     height: 100%;
@@ -19,8 +18,6 @@
     &.visible {
         opacity: 1;
     }
-
-
 }
 
 .images__container {

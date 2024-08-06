@@ -1,9 +1,11 @@
+@import "@/styles/helpers.scss";
+
 .tagline__wrapper {
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 20rem;
+    margin-bottom: 15rem;
     position: relative;
     padding-left: 0.8rem;
     padding-right: 0.8rem;
@@ -15,7 +17,11 @@
 
     h2 {
         font-weight: 300;
-        font-size: 5rem;
+        font-size: 3rem;
         text-align: center;
+
+        @include md {
+            font-size: 5rem;
+        }
     }
 }

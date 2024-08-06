@@ -3,11 +3,15 @@ import "./three-scrolling-images.scss";
 
 export default function ThreeScrollingImages({
   imageSlides,
+  marginBottom,
 }: {
   imageSlides: [Images, Images, Images];
+  marginBottom?: "small" | "medium" | "large";
 }) {
   return (
-    <div className="three-images__wrapper">
+    <div
+      className={`three-images__wrapper ${marginBottom ? marginBottom : ""}`}
+    >
       <div className="three-images__container">
         {imageSlides.map((images) => (
           <div key={images[0].src} className="images__wrapper">

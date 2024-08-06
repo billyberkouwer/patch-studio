@@ -26,15 +26,15 @@ export default function ScrollingImages({
     gsap.fromTo(
       imagesRef.current,
       {
-        x: scrollDirection === "right" ? -1000 : 0,
+        x: scrollDirection === "right" ? -500 : 0,
       },
       {
         scrollTrigger: {
           trigger: wrapperRef.current,
           end: "+=3000",
-          scrub: 1,
+          scrub: 0.2,
         },
-        x: scrollDirection === "right" ? 0 : -1000,
+        x: scrollDirection === "right" ? 0 : -500,
       }
     );
   }, []);
@@ -43,7 +43,7 @@ export default function ScrollingImages({
     <section
       className="scrolling-images__wrapper"
       ref={wrapperRef}
-      style={{ height: height ? height + "px" : undefined }}
+      style={{ height: height ? height + "px" : "500px" }}
     >
       <div className="scrolling-images__container" ref={imagesRef}>
         {images.map((image) => (

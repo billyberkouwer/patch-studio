@@ -6,6 +6,9 @@
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 9;
+    mix-blend-mode: unset;
+    color: $blue;
+    transition: color $fast;
 
     &.invert {
         mix-blend-mode: difference;
@@ -14,7 +17,13 @@
 }
 
 .center-logo {
-    font-size: 4rem;
-    font-weight: 300;
+    font-size: 6rem;
+    font-weight: normal;
     text-transform: uppercase;
+    text-align: center;
+
+    @include md {
+        font-size: 8rem;
+
+    }
 }

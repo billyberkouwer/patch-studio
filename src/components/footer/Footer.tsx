@@ -7,7 +7,7 @@ export default function Footer({
   pages: { title: string; slug: string }[];
 }) {
   return (
-    <nav className="footer__wrapper">
+    <nav className="footer__wrapper" id="footer">
       <div className="footer__container">
         <ul className="page-links__container">
           {pages.map((page) => (

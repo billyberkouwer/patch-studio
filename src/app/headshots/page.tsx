@@ -2,6 +2,7 @@ import ContainerBookingCards from "@/components/booking/ContainerBookingCards";
 import Button from "@/components/global/Button";
 import ColumnText from "@/components/global/ColumnText";
 import Heading from "@/components/global/Heading";
+import SeePortfolioButton from "@/components/global/SeePortfolioButton";
 import Tagline from "@/components/global/Tagline";
 import ThreeScrollingImages from "@/components/image/ThreeScrollingImages";
 import { bookingOptionsEditorial, columnText, images } from "@/utils/constants";
@@ -21,6 +22,7 @@ export default function Page() {
             [images[3], images[4], images[5]],
             [images[6], images[7], images[0]],
           ]}
+          marginBottom="medium"
         />
         <ColumnText textArr={columnText.slice(2)} />
         <Heading>Bookings</Heading>
@@ -32,9 +34,7 @@ export default function Page() {
       <section>
         <Heading>FAQs</Heading>
       </section>
-      <div className="see-portfolio__wrapper">
-        <Button state="bold">See Portfolio</Button>
-      </div>
+      <SeePortfolioButton />
     </div>
   );
 }

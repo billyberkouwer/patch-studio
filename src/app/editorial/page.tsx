@@ -2,6 +2,7 @@ import ContainerBookingCards from "@/components/booking/ContainerBookingCards";
 import Button from "@/components/global/Button";
 import ColumnText from "@/components/global/ColumnText";
 import Heading from "@/components/global/Heading";
+import SeePortfolioButton from "@/components/global/SeePortfolioButton";
 import Tagline from "@/components/global/Tagline";
 import ScrollingImages from "@/components/image/ScrollingImages";
 import {
@@ -23,7 +24,7 @@ export default function EditorialPage() {
         <ScrollingImages images={images} />
         <ColumnText textArr={columnText.slice(1,3)} />
         <ColumnText textArr={columnText.slice(2)} />
-        <ScrollingImages isContained images={logos} height={100} />
+        <ScrollingImages isContained images={[...logos, ...logos]} height={100} scrollDirection={"right"} />
       </section>
       <section>
         <Heading>Bookings</Heading>
@@ -32,12 +33,10 @@ export default function EditorialPage() {
           bookingOptions={bookingOptionsEditorial}
         />
       </section>
-      <div className="see-portfolio__wrapper">
-        <Button state="bold">See Portfolio</Button>
-      </div>
       <section>
         <Heading>FAQs</Heading>
       </section>
+      <SeePortfolioButton />
     </div>
   );
 }

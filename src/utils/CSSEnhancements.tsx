@@ -15,7 +15,6 @@ export default function CSSEnhancements() {
     function setNavHeightVariable() {
       const root = document.documentElement;
       const nav = document.getElementById("navbar");
-      console.log(nav);
       if (nav) {
         const height = nav.getBoundingClientRect().height + "px";
         root.style.setProperty("--nav-height", height);
