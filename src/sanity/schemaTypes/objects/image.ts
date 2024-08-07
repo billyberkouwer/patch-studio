@@ -2,7 +2,7 @@ import { defineType, defineField } from "sanity";
 
 export const image = defineType({
     name: "imageWithAlt",
-    title: "Image",
+    title: "Image With Alt Text",
     type: "object",
     fields: [
         defineField({

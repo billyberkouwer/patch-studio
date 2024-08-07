@@ -29,7 +29,6 @@ function getCenterTextFromClasslist(classList: DOMTokenList) {
 
 export default function Homepage() {
   const [isLogoBlue, setIsLogoBlue] = useState(false);
-  const [isBookButtonVisible, setIsBookButtonVisible] = useState(false);
   const [centerTextContent, setCenterTextContent] = useState("Patch Studio");
 
   useGSAP(() => {

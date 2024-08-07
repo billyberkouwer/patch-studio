@@ -1,7 +1,5 @@
 import ContainerBookingCards from "@/components/booking/ContainerBookingCards";
-import CustomAccordion from "@/components/faq/CustomAccordion";
 import FAQAccordion from "@/components/faq/FAQAccordion";
-import Button from "@/components/global/Button";
 import ColumnText from "@/components/global/ColumnText";
 import Heading from "@/components/global/Heading";
 import SeePortfolioButton from "@/components/global/SeePortfolioButton";
