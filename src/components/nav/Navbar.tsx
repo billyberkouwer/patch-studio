@@ -5,6 +5,7 @@ import Button from "../global/Button";
 import Nav from "./Nav";
 import NavLogo from "./NavLogo";
 import "./navbar.scss";
+import { usePathname } from "next/navigation";
 
 export default function Navbar({
   navItems,
@@ -12,6 +13,11 @@ export default function Navbar({
   navItems: { title: string; slug: string }[];
 }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const pathname = usePathname();
+
+  if (pathname.includes("admin")) {
+    return null;
+  }
 
   function handleSetIsMenuOpen() {
     setIsMenuOpen(!isMenuOpen);
@@ -26,10 +32,14 @@ export default function Navbar({
         <Nav navItems={navItems} />
       </div>
       <div className="mobile-menu-button__wrapper">
-        <Button state="bold" callback={handleSetIsMenuOpen}>Menu +</Button>
+        <Button state="bold" callback={handleSetIsMenuOpen}>
+          Menu +
+        </Button>
       </div>
       <div className="bookings-button__wrapper">
-        <Button state="bold" slug="/">Bookings</Button>
+        <Button state="bold" slug="/">
+          Bookings
+        </Button>
       </div>
     </div>
   );

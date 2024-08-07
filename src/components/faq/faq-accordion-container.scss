@@ -1,0 +1,12 @@
+.accordion__wrapper {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10rem;
+}
+
+.accordion__container {
+    display: flex;
+    gap: 0.8rem;
+    flex-direction: column;
+    max-width: 600px;
+}

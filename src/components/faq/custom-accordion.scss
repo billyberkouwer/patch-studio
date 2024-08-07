@@ -1,0 +1,60 @@
+@import "@/styles/helpers.scss";
+
+.custom-accordion__container {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid $dark;
+    color: $dark;
+    padding: 0.4rem;
+    box-sizing: border-box;
+}
+
+.custom-accordion__header {
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+    align-items: center;
+
+    button {
+        font-size: 10rem;
+        line-height: 1rem;
+        font-weight: 300 !important;
+        width: 5rem;
+        height: 5rem;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    h6 {
+        font-weight: 400;
+        font-family: var(--hvFont);
+        font-size: 2.5rem;
+    }
+}
+
+.custom-accordion__body {
+    display: grid;
+    grid-template-rows: 0fr;
+    overflow: hidden;
+    transition: grid 1s;
+
+    p {
+        min-height: 0;
+        transition: visibility 1s, opacity 1s;
+        visibility: hidden;
+        margin: 0;
+        font-size: 1.6rem;
+        opacity: 0;
+    }
+
+    &.expanded {
+        grid-template-rows: 1fr;
+
+        p {
+            visibility: visible;
+            opacity: 1;
+        }
+    }
+}

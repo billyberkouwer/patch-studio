@@ -1,11 +1,20 @@
+"use client";
+
 import Link from "next/link";
 import "./footer.scss";
+import { usePathname } from "next/navigation";
 
 export default function Footer({
   pages,
 }: {
   pages: { title: string; slug: string }[];
 }) {
+  const pathname = usePathname();
+
+  if (pathname.includes("admin")) {
+    return null;
+  }
+
   return (
     <nav className="footer__wrapper" id="footer">
       <div className="footer__container">

@@ -4,10 +4,11 @@
 :root {
     --real-viewport-height: 100svh;
     --nav-height: 42px;
+    --rem-size: 10px;
 }
 
 html {
-    font-size: 10px;
+    font-size: var(--rem-size);
 }
 
 body {

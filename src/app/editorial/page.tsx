@@ -1,4 +1,5 @@
 import ContainerBookingCards from "@/components/booking/ContainerBookingCards";
+import FAQAccordion from "@/components/faq/FAQAccordion";
 import Button from "@/components/global/Button";
 import ColumnText from "@/components/global/ColumnText";
 import Heading from "@/components/global/Heading";
@@ -35,6 +36,9 @@ export default function EditorialPage() {
       </section>
       <section>
         <Heading>FAQs</Heading>
+      </section>
+      <section>
+        <FAQAccordion />
       </section>
       <SeePortfolioButton />
     </div>

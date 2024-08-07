@@ -1,8 +1,11 @@
 "use client";
 
+import { usePathname } from "next/navigation";
 import { useEffect, useLayoutEffect } from "react";
 
 export default function CSSEnhancements() {
+  const pathname = usePathname();
+
   useLayoutEffect(() => {
     function setViewportHeightVariable() {
       const root = document.documentElement;
@@ -36,6 +39,16 @@ export default function CSSEnhancements() {
       document.removeEventListener("scroll", setVariables);
     };
   }, []);
+
+  useEffect(() => {
+    const root = document.documentElement;
+
+    if (pathname.includes("admin")) {
+      root.style.setProperty("--rem-size", 16 + "px");
+    } else {
+      root.style.setProperty("--rem-size", 10 + "px");
+    }
+  }, [pathname]);
 
   return null;
 }
