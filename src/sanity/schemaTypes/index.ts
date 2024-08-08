@@ -13,6 +13,7 @@ import { page } from "./pages/page";
 import { pageBuilder } from "./pages/pageBuilder";
 import { directionOfScroll } from "./objects/directionOfScroll";
 import { home } from "./pages/home";
+import { centerTextContent } from "./objects/centerTextContent";
 
 export const schemaTypes = [
     button,
@@ -29,5 +30,6 @@ export const schemaTypes = [
     internalLink,
     externalLink,
     directionOfScroll,
-    home
+    home,
+    centerTextContent
 ]

@@ -24,7 +24,7 @@ export const button = defineType({
           title: "Link to an external website",
         }),
       ],
-      validation: Rule => Rule.length(1)
+      validation: (Rule) => Rule.length(1),
     }),
   ],
 });

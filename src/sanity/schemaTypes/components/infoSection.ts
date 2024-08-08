@@ -33,17 +33,19 @@ export const infoSection = defineType({
       name: "button",
       title: "Button",
     }),
+    defineField({
+      type: "centerTextContent",
+      name: "centerTextContent",
+      title: "Center Text Content Overlay",
+    }),
   ],
   preview: {
     select: {
       title: "title",
-      subtitle: "sectionText"
+      subtitle: "sectionText",
     },
-    prepare({title, subtitle}) {
-
-      const block = subtitle?.find(
-        (block: any) => block._type === "block"
-      );
+    prepare({ title, subtitle }) {
+      const block = subtitle?.find((block: any) => block._type === "block");
 
       return {
         title: title + " Info Section" || "Untitled Info Section",

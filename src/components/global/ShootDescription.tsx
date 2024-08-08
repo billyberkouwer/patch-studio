@@ -8,7 +8,7 @@ export default function ShootDescription({
 }) {
   return (
     <div className="shoot-description__container">
-      <p>{children}</p>
+      {children}
     </div>
   );
 }

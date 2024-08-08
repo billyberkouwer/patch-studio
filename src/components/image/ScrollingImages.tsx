@@ -5,6 +5,7 @@ import "./scrolling-images.scss";
 import Image from "next/image";
 import gsap, { ScrollTrigger } from "gsap/all";
 import { useGSAP } from "@gsap/react";
+import { SanityImageAssetDocument } from "next-sanity";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
@@ -14,11 +15,12 @@ export default function ScrollingImages({
   height,
   isContained,
 }: {
-  images: Images;
+  images: SanityImageAssetDocument[];
   scrollDirection?: undefined | null | "left" | "right";
   height?: number;
   isContained?: boolean;
 }) {
+  console.log(images)
   const wrapperRef = useRef<HTMLDivElement>(null);
   const imagesRef = useRef<HTMLDivElement>(null);
 
@@ -49,14 +51,16 @@ export default function ScrollingImages({
         {images.map((image) => (
           <div
             className="image__wrapper"
-            key={image.src}
+            key={image.url}
             style={{ width: height ? height / 1.2 + "px" : undefined }}
           >
             <Image
               fill
-              src={image.src}
+              src={image.url}
               style={{ objectFit: isContained ? "contain" : "cover" }}
               alt={image.alt}
+              sizes="350px"
+              quality={60}
             />
           </div>
         ))}

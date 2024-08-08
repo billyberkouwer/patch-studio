@@ -3,7 +3,6 @@ import { structureTool } from "sanity/structure";
 import { visionTool } from "@sanity/vision";
 import { schemaTypes } from "@/sanity/schemaTypes";
 import { media } from "sanity-plugin-media";
-import { singletonPlugin } from "@/sanity/plugins/singletonPlugin";
 
 const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || "";
 const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET || "production";
@@ -18,7 +17,6 @@ export const structure = (S: any, context: any) => {
   return S.list()
     .title("Content")
     .items(
-      // List all document types except "siteSettings"
       [
         S.listItem().title("Home").id("home").child(
           // Instead of rendering a list of documents, we render a single

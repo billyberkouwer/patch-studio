@@ -23,18 +23,23 @@ export const horizontalScrollImages = defineType({
     defineField({
       name: "directionOfHorizontalImageScroll",
       title: "Direction of hotizontally scrolling images",
-      type: "directionOfScroll"
-    })
+      type: "directionOfScroll",
+    }),
+    defineField({
+      type: "centerTextContent",
+      name: "centerTextContent",
+      title: "Center Text Content Overlay",
+    }),
   ],
   preview: {
     select: {
-      title: 'title',
+      title: "title",
     },
-    prepare({title}) {
+    prepare({ title }) {
       return {
-        title: title || 'Untitled',
-        subtitle: 'Horizontally Scrolling Images',
-      }
+        title: title || "Untitled",
+        subtitle: "Horizontally Scrolling Images",
+      };
     },
   },
 });

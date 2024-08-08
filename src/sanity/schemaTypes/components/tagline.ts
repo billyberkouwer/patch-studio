@@ -10,16 +10,21 @@ export const tagline = defineType({
       title: "Tagline text",
       type: "string",
     }),
+    defineField({
+      type: "centerTextContent",
+      name: "centerTextContent",
+      title: "Center Text Content Overlay",
+    }),
   ],
   preview: {
     select: {
-      title: 'text',
+      title: "text",
     },
-    prepare({title}) {
+    prepare({ title }) {
       return {
-        title: title || 'Untitled',
-        subtitle: 'Tagline',
-      }
+        title: title || "Untitled",
+        subtitle: "Tagline",
+      };
     },
   },
 });

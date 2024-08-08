@@ -15,16 +15,21 @@ export const parallaxImageHeader = defineType({
       title: "Selection of Images",
       type: "imageArray",
     }),
+    defineField({
+      type: "centerTextContent",
+      name: "centerTextContent",
+      title: "Center Text Content Overlay",
+    }),
   ],
   preview: {
     select: {
-      title: 'title',
+      title: "title",
     },
-    prepare({title}) {
+    prepare({ title }) {
       return {
-        title: title || 'Untitled',
-        subtitle: 'Parallax Image Header',
-      }
+        title: title || "Untitled",
+        subtitle: "Parallax Image Header",
+      };
     },
   },
 });

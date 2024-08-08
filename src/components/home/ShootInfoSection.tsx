@@ -1,14 +1,16 @@
+import { PortableText, PortableTextBlock } from "next-sanity";
 import Button from "../global/Button";
 import ShootDescription from "../global/ShootDescription";
 import ShootDetails from "../global/ShootDetails";
 import "./shoot-info-section.scss";
+import { KeyInfoBlockType } from "@/types";
 
 export default function ShootInfoSection({
   shootDetails,
   description,
 }: {
-  shootDetails: ShootDetails[];
-  description: string;
+  shootDetails: KeyInfoBlockType[];
+  description: PortableTextBlock[];
 }) {
   return (
     <section className="shoot-info__wrapper">
@@ -23,7 +25,9 @@ export default function ShootInfoSection({
           ))}
         </div>
         <div className="shoot-description__wrapper">
-          <ShootDescription>{description}</ShootDescription>
+          <ShootDescription>
+            <PortableText value={description} />
+          </ShootDescription>
         </div>
         <Button state="bold">Learn More</Button>
       </div>
