@@ -2,7 +2,7 @@ export const navItems = [
   { title: "Home", slug: "/" },
   { title: "Editorial", slug: "/editorial" },
   { title: "Headshots", slug: "/headshots" },
-  { title: "Team", slug: "#" },
+  { title: "Studio", slug: "#" },
   { title: "Contact", slug: "/contact" },
 ];
 

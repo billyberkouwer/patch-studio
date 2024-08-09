@@ -15,5 +15,6 @@ export const centerTextContent = defineType({
             title: "Headshots",
             value: "headshots"
         },]
-    }
+    },
+    initialValue: "patch-studio"
 })

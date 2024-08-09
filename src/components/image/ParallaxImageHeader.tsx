@@ -52,13 +52,13 @@ export default function ParallaxImageHeader({ images }: { images:  SanityAssetDo
     <section className="parallax-header__wrapper" ref={wrapperRef}>
       <div className="parallax-header__container" ref={containerRef}>
         <div className="images__container" ref={imagesRef}>
-          {images.map((image) => (
+          {images.map((image, i) => (
             <div className="image__wrapper" key={image.url}>
               <Image
                 fill
                 style={{ objectFit: "cover" }}
                 src={image.url}
-                alt={image.alt}
+                alt={"Selected portfolio image " + (i + 1)}
                 sizes="25vw"
                 quality={90}
               />

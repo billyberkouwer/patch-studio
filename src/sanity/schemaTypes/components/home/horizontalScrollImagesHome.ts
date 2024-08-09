@@ -1,7 +1,7 @@
 import { defineField, defineType } from "sanity";
 
-export const horizontalScrollImages = defineType({
-  name: "horizontalScrollImages",
+export const horizontalScrollImagesHome = defineType({
+  name: "horizontalScrollImagesHome",
   type: "object",
   title: "Horizontally Scrolling Images",
   fields: [
@@ -9,6 +9,11 @@ export const horizontalScrollImages = defineType({
       name: "title",
       type: "string",
       title: "Title",
+    }),
+    defineField({
+      type: "centerTextContent",
+      name: "centerTextContent",
+      title: "Center Text Content Overlay",
     }),
     defineField({
       name: "selectionOfImages",
@@ -24,11 +29,6 @@ export const horizontalScrollImages = defineType({
       name: "directionOfHorizontalImageScroll",
       title: "Direction of hotizontally scrolling images",
       type: "directionOfScroll",
-    }),
-    defineField({
-      type: "centerTextContent",
-      name: "centerTextContent",
-      title: "Center Text Content Overlay",
     }),
   ],
   preview: {

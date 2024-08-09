@@ -25,7 +25,7 @@ type BookingOption = {
 type ParallaxImageHeaderType = {
   selectionOfImages: SanityImageAssetDocument[];
   title: string;
-  _type: "parallaxImageHeader";
+  _type: "parallaxImageHeaderHome";
   _key: string;
   centerTextContent: string | undefined;
 };
@@ -36,12 +36,12 @@ type HorizontalScrollImageType = {
   selectionOfImages: SanityImageAssetDocument[];
   centerTextContent: string | undefined;
   title: string;
-  _type: "horizontalScrollImages";
+  _type: "horizontalScrollImagesHome";
   _key: string;
 };
 
 type InfoSectionType = {
-  _type: "infoSection";
+  _type: "infoSectionHome";
   _key: string;
   title: string;
   keyInfoBlocks: KeyInfoBlockType[];
@@ -53,7 +53,7 @@ type InfoSectionType = {
 type TaglineType = {
   text: string;
   _key: string;
-  _type: "tagline";
+  _type: "taglineHome";
   centerTextContent: string | undefined;
 };
 
@@ -79,7 +79,7 @@ type HomepageComponentTypes = (
 type HomepageDataType = {
   _type: "home",
   title: string;
-  pageBuilder: HomepageComponentTypes[];
+  pageBuilderHome: HomepageComponentTypes[];
   slug: string;
   _rev: string;
 }

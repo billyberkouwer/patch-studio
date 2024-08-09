@@ -12,15 +12,16 @@ gsap.registerPlugin(useGSAP, ScrollTrigger);
 export default function ScrollingImages({
   images,
   scrollDirection = "left",
+  title,
   height,
   isContained,
 }: {
   images: SanityImageAssetDocument[];
+  title: string;
   scrollDirection?: undefined | null | "left" | "right";
   height?: number;
   isContained?: boolean;
 }) {
-  console.log(images)
   const wrapperRef = useRef<HTMLDivElement>(null);
   const imagesRef = useRef<HTMLDivElement>(null);
 
@@ -48,7 +49,7 @@ export default function ScrollingImages({
       style={{ height: height ? height + "px" : "500px" }}
     >
       <div className="scrolling-images__container" ref={imagesRef}>
-        {images.map((image) => (
+        {images.map((image, i) => (
           <div
             className="image__wrapper"
             key={image.url}
@@ -58,7 +59,7 @@ export default function ScrollingImages({
               fill
               src={image.url}
               style={{ objectFit: isContained ? "contain" : "cover" }}
-              alt={image.alt}
+              alt={`Selected ${title} image ${i + 1}`}
               sizes="350px"
               quality={60}
             />

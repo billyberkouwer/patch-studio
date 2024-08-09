@@ -8,7 +8,7 @@
     z-index: 9;
     mix-blend-mode: unset;
     color: $blue;
-    transition: color $fast;
+    transition: color $v-fast, mix-blend-mode $v-fast;
 
     &.invert {
         mix-blend-mode: difference;

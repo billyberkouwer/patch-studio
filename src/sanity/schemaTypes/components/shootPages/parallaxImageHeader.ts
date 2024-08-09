@@ -9,16 +9,13 @@ export const parallaxImageHeader = defineType({
       name: "title",
       type: "string",
       title: "Title",
+      description:
+        "A name for this component. This title doesn't show up on the site - it's just for convenience.",
     }),
     defineField({
       name: "selectionOfImages",
       title: "Selection of Images",
       type: "imageArray",
-    }),
-    defineField({
-      type: "centerTextContent",
-      name: "centerTextContent",
-      title: "Center Text Content Overlay",
     }),
   ],
   preview: {

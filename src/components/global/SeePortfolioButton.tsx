@@ -11,7 +11,6 @@ gsap.registerPlugin(ScrollTrigger, useGSAP);
 export default function SeePortfolioButton() {
   useGSAP(() => {
     const footer = document.getElementById("footer");
-    console.log(footer);
     if (footer) {
       gsap.to("#see-portfolio-button", {
         scrollTrigger: {

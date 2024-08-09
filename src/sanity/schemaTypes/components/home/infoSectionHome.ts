@@ -1,7 +1,7 @@
 import { defineField, defineType } from "sanity";
 
-export const infoSection = defineType({
-  name: "infoSection",
+export const infoSectionHome = defineType({
+  name: "infoSectionHome",
   title: "Info Section",
   type: "object",
   fields: [
@@ -9,6 +9,11 @@ export const infoSection = defineType({
       type: "string",
       name: "title",
       title: "Title",
+    }),
+    defineField({
+      type: "centerTextContent",
+      name: "centerTextContent",
+      title: "Center Text Content Overlay",
     }),
     defineField({
       type: "array",
@@ -32,11 +37,6 @@ export const infoSection = defineType({
       type: "buttonWithLink",
       name: "button",
       title: "Button",
-    }),
-    defineField({
-      type: "centerTextContent",
-      name: "centerTextContent",
-      title: "Center Text Content Overlay",
     }),
   ],
   preview: {

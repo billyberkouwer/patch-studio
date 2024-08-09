@@ -4,6 +4,8 @@ export const pageBuilder = defineType({
   name: "pageBuilder",
   type: "array",
   title: "Page Builder",
+  description:
+    "This section is used to add components to the homepage. You can add a selection of four component types in any order you would like.",
   of: [
     defineArrayMember({
       type: "parallaxImageHeader",
@@ -16,6 +18,15 @@ export const pageBuilder = defineType({
     }),
     defineArrayMember({
       type: "tagline",
+    }),
+    defineArrayMember({
+      type: "bookingSection",
+    }),
+    defineArrayMember({
+      type: "textColumns",
+    }),
+    defineArrayMember({
+      type: "faqSection",
     }),
   ],
 });

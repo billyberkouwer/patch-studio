@@ -7,54 +7,17 @@ import ShootInfoSection from "@/components/home/ShootInfoSection";
 import ParallaxImageHeader from "@/components/image/ParallaxImageHeader";
 import ScrollingImages from "@/components/image/ScrollingImages";
 import {
-  HomepageComponentTypes,
-  HomepageDataType,
-  HorizontalScrollImageType,
-  InfoSectionType,
-  ParallaxImageHeaderType,
-  TaglineType,
-} from "@/types";
-import { headshotShootDetails, images } from "@/utils/constants";
+  assignClasses,
+  getCenterTextFromClasslist,
+  getEndPositionFromClasslist,
+} from "@/helpers";
+import { HomepageComponentTypes } from "@/types";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
 import { useEffect, useState } from "react";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
-
-function assignClasses(componentData: HomepageComponentTypes) {
-  return componentData.centerTextContent !== "patch-studio" &&
-  componentData.centerTextContent
-    ? componentData.centerTextContent
-    : "hide-button patch-studio";
-}
-
-function extractNumbersFromArray(stringsArray: string[]) {
-  const numbers = [];
-
-  for (let str of stringsArray) {
-    const match = str.match(/-(\d+)$/);
-    if (match) {
-      numbers.push(parseInt(match[1], 10));
-    }
-  }
-
-  return numbers;
-}
-
-function getEndPositionFromClasslist(classList: DOMTokenList) {
-  const classArr = Array.from(classList);
-  const scaleAmount = extractNumbersFromArray(classArr);
-  if (scaleAmount.length) {
-    return `bottom ${scaleAmount[0]}%`;
-  }
-  return "bottom 50%";
-}
-
-function getCenterTextFromClasslist(classList: DOMTokenList) {
-  const formatTitle = classList[classList.length - 1].replace(/-/g, " ");
-  return formatTitle;
-}
 
 export default function Homepage({
   pageData,
@@ -103,7 +66,7 @@ export default function Homepage({
       });
     }
 
-    const gsapSections = document.querySelectorAll(".gsap-section");
+    const gsapSections = document.querySelectorAll(".animation-trigger");
 
     for (let i = 0; i < gsapSections.length; i++) {
       gsap.to("#page-wrapper", {
@@ -146,45 +109,45 @@ export default function Homepage({
     <div className="page__wrapper" id="page-wrapper">
       <CenterLogo isLogoBlue={isLogoBlue} text={centerTextContent} />
       {pageData.map((componentData) => {
-        if (componentData._type === "horizontalScrollImages") {
+        if (componentData._type === "horizontalScrollImagesHome") {
           return (
             <div
               key={componentData._key}
-              className={`gsap-section is-colorful ${assignClasses(componentData)}`}
+              className={`animation-trigger is-colorful ${assignClasses(componentData)}`}
             >
               <ScrollingImages
                 scrollDirection={componentData.directionOfHorizontalImageScroll}
                 images={componentData.selectionOfImages}
+                title={componentData.title}
               />
             </div>
           );
         }
-        if (componentData._type === "parallaxImageHeader") {
+        if (componentData._type === "parallaxImageHeaderHome") {
           return (
             <div
               key={componentData._key}
-              className={`gsap-section is-colorful scales-65 ${assignClasses(componentData)}`}
+              className={`animation-trigger is-colorful scales-65 ${assignClasses(componentData)}`}
             >
               <ParallaxImageHeader images={componentData.selectionOfImages} />
             </div>
           );
         }
-        if (componentData._type === "tagline") {
+        if (componentData._type === "taglineHome") {
           return (
             <div
               key={componentData._key}
-              className={`gsap-section ${assignClasses(componentData)}`}
+              className={`animation-trigger ${assignClasses(componentData)}`}
             >
               <Tagline>{componentData.text}</Tagline>
             </div>
           );
         }
-        if (componentData._type === "infoSection") {
-          console.log(componentData);
+        if (componentData._type === "infoSectionHome") {
           return (
             <section
               key={componentData._key}
-              className={`gsap-section ${assignClasses(componentData)}`}
+              className={`animation-trigger ${assignClasses(componentData)}`}
             >
               <ShootInfoSection
                 shootDetails={componentData.keyInfoBlocks}

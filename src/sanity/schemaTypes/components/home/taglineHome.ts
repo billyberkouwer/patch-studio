@@ -1,14 +1,14 @@
 import { defineType, defineField } from "sanity";
 
-export const tagline = defineType({
-  name: "tagline",
+export const taglineHome = defineType({
+  name: "taglineHome",
   title: "Tagline",
   type: "object",
   fields: [
     defineField({
-      name: "text",
+      name: "taglineText",
       title: "Tagline text",
-      type: "string",
+      type: "text",
     }),
     defineField({
       type: "centerTextContent",
@@ -18,12 +18,12 @@ export const tagline = defineType({
   ],
   preview: {
     select: {
-      title: "text",
+      text: "text",
     },
-    prepare({ title }) {
+    prepare({ text }) {
       return {
-        title: title || "Untitled",
-        subtitle: "Tagline",
+        title: "Tagline",
+        subtitle: text,
       };
     },
   },
