@@ -9,7 +9,7 @@ import { bookingOptionsEditorial, columnText, images } from "@/utils/constants";
 
 export default function Page() {
   return (
-    <div className="page__wrapper">
+    <div className="page__wrapper top-padding">
       <section>
         <Heading headingType="h1">Headshots</Heading>
         <Tagline>
@@ -26,10 +26,10 @@ export default function Page() {
         />
         <ColumnText textArr={columnText.slice(2)} />
         <Heading>Bookings</Heading>
-        <ContainerBookingCards
+        {/* <ContainerBookingCards
           shootType="editorial"
           bookingOptions={bookingOptionsEditorial}
-        />
+        /> */}
       </section>
       <section>
         <Heading>FAQs</Heading>

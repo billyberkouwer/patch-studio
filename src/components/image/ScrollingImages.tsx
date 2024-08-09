@@ -12,12 +12,14 @@ gsap.registerPlugin(useGSAP, ScrollTrigger);
 export default function ScrollingImages({
   images,
   scrollDirection = "left",
+  isFixed,
   title,
   height,
   isContained,
 }: {
   images: SanityImageAssetDocument[];
   title: string;
+  isFixed?: boolean;
   scrollDirection?: undefined | null | "left" | "right";
   height?: number;
   isContained?: boolean;
@@ -29,15 +31,17 @@ export default function ScrollingImages({
     gsap.fromTo(
       imagesRef.current,
       {
-        x: scrollDirection === "right" ? -500 : 0,
+        x: scrollDirection === "right" ? (isFixed ? "-85%" : "-500px") : 0,
       },
       {
         scrollTrigger: {
           trigger: wrapperRef.current,
+          start: isFixed ? "middle 25%" : "top bottom",
+          pin: isFixed,
           end: "+=3000",
-          scrub: 0.2,
+          scrub: 0.1,
         },
-        x: scrollDirection === "right" ? 0 : -500,
+        x: scrollDirection === "right" ? 0 : (isFixed ? "-100%" : "-500px"),
       }
     );
   }, []);

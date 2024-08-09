@@ -1,3 +1,4 @@
+import { KeyInfoBlockType } from "@/types";
 import "./shoot-details.scss";
 
 export default function ShootDetails({
@@ -5,8 +6,8 @@ export default function ShootDetails({
   details,
   centerText,
 }: {
-  title: ShootDetails["title"];
-  details: ShootDetails["details"];
+  title: KeyInfoBlockType["title"];
+  details: KeyInfoBlockType["details"];
   centerText?: boolean;
 }) {
   return (

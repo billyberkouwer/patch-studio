@@ -2,8 +2,6 @@ import { PortableTextBlock, SanityImageAssetDocument } from "next-sanity";
 
 type TextArray = string[];
 
-type StringArray = string[];
-
 type Image = {
   src: string;
   alt: string;
@@ -11,21 +9,60 @@ type Image = {
 
 type Images = Image[];
 
-type ShootDetails = {
+type KeyInfoBlockType = {
   title: string;
-  details: StringArray;
+  details: string[];
+  _key: string;
+  _type: "keyInfoBlock"
 };
 
 type BookingOption = {
-  name: string;
-  image: Image;
-  shootDetails: ShootDetails[];
+  bookingImage: SanityImageAssetDocument
+  bookingInfoBlock: KeyInfoBlockType[];
+  _type: 'bookingCard';
+  bookingTypeTitle: string;
+  _key: string;
+};
+
+type ParallaxImageHeaderHomeType = {
+  selectionOfImages: SanityImageAssetDocument[];
+  title: string;
+  _type: "parallaxImageHeaderHome";
+  _key: string;
+  centerTextContent: string | undefined;
+};
+
+type HorizontalScrollImageHomeType = {
+  directionOfHorizontalImageScroll: "left" | "right";
+  sizeOfHorizontalScrollImages: "small" | "medium" | "large";
+  selectionOfImages: SanityImageAssetDocument[];
+  centerTextContent: string | undefined;
+  title: string;
+  _type: "horizontalScrollImagesHome";
+  _key: string;
+};
+
+type InfoSectionHomeType = {
+  _type: "infoSectionHome";
+  _key: string;
+  title: string;
+  keyInfoBlocks: KeyInfoBlockType[];
+  button: ButtonWithLinkType;
+  sectionText: PortableTextBlock[];
+  centerTextContent: string | undefined;
+};
+
+type TaglineHomeType = {
+  text: string;
+  _key: string;
+  _type: "taglineHome";
+  centerTextContent: string | undefined;
 };
 
 type ParallaxImageHeaderType = {
   selectionOfImages: SanityImageAssetDocument[];
   title: string;
-  _type: "parallaxImageHeaderHome";
+  _type: "parallaxImageHeader";
   _key: string;
   centerTextContent: string | undefined;
 };
@@ -36,12 +73,12 @@ type HorizontalScrollImageType = {
   selectionOfImages: SanityImageAssetDocument[];
   centerTextContent: string | undefined;
   title: string;
-  _type: "horizontalScrollImagesHome";
+  _type: "horizontalScrollImages";
   _key: string;
 };
 
 type InfoSectionType = {
-  _type: "infoSectionHome";
+  _type: "infoSection";
   _key: string;
   title: string;
   keyInfoBlocks: KeyInfoBlockType[];
@@ -51,9 +88,9 @@ type InfoSectionType = {
 };
 
 type TaglineType = {
-  text: string;
+  taglineText: string;
   _key: string;
-  _type: "taglineHome";
+  _type: "tagline";
   centerTextContent: string | undefined;
 };
 
@@ -70,10 +107,46 @@ type KeyInfoBlockType = {
 };
 
 type HomepageComponentTypes = (
+  | ParallaxImageHeaderHomeType
+  | TaglineHomeType
+  | HorizontalScrollImageHomeType
+  | InfoSectionHomeType
+);
+
+type TextColumn = {
+  columnText: string[];
+  _type: "textColumns";
+  _key: string
+}
+
+type BookingSection = {
+  title: string;
+  _type: "bookingSection";
+  _key: string;
+  bookingCards: BookingOption[]
+}
+
+type DropdownItemType = {
+  _type: "dropdownItem";
+  dropdownContent: PortableTextBlock[]
+  dropdownTitle: string;
+  _key: string;
+}
+
+type FAQSectionType = {
+  _type: "faqSection";
+  faqItem: dropdownItem[];
+  _key: string;
+}
+
+type PageComponentTypes = (
   | ParallaxImageHeaderType
   | TaglineType
   | HorizontalScrollImageType
   | InfoSectionType
+  | BookingSection
+  | FAQSection
+  | TextColumn
 );
 
 type HomepageDataType = {
@@ -83,3 +156,17 @@ type HomepageDataType = {
   slug: string;
   _rev: string;
 }
+
+type PageDataType = {
+  _type: "page",
+  title: string;
+  pageBuilder: PageComponentTypes[];
+  slug: string;
+  _rev: string;
+}
+
+type NavItem = {
+  slug: {
+    current: string;
+  };
+};

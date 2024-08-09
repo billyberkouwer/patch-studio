@@ -1,7 +1,7 @@
 import { ReactNode } from "react";
 import "./heading.scss";
 
-export default function PageTitle({
+export default function Heading({
   children,
   headingType,
 }: {

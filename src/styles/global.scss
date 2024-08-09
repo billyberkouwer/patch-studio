@@ -52,6 +52,10 @@ a {
     overflow: hidden;
     box-sizing: border-box;
 
+    &.top-padding {
+        padding-top: 10rem;
+    }
+
     &.--fixed-height {
         @include md {
             padding-top: var(--nav-height);

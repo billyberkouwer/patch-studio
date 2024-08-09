@@ -4,6 +4,7 @@ import { useState } from "react";
 import BookingCard from "./BookingCard";
 import "./container-booking-cards.scss";
 import "@/components/global/button.scss";
+import { BookingOption } from "@/types";
 
 export default function ContainerBookingCards({
   shootType,
@@ -24,14 +25,14 @@ export default function ContainerBookingCards({
     <div className="booking-cards__wrapper">
       <form className="booking-cards__form">
         <div className="booking-cards__container">
-          {bookingOptions.map((bookingOption) => (
+          {bookingOptions.map((bookingCard) => (
             <BookingCard
               shootType={shootType}
-              key={bookingOption.name}
-              name={bookingOption.name}
-              image={bookingOption.image}
-              shootDetails={bookingOption.shootDetails}
-              isSelected={currentSelectionValue === bookingOption.name}
+              key={bookingCard._key}
+              bookingTypeTitle={bookingCard.bookingTypeTitle}
+              bookingImage={bookingCard.bookingImage}
+              bookingInfoBlock={bookingCard.bookingInfoBlock}
+              isSelected={currentSelectionValue === bookingCard.bookingTypeTitle}
               callback={handleChangeSelection}
             />
           ))}

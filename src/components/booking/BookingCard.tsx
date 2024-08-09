@@ -3,60 +3,67 @@
 import Image from "next/image";
 import "./booking-card.scss";
 import ShootDetails from "../global/ShootDetails";
+import { SanityImageAssetDocument } from "next-sanity";
+import { BookingOption } from "@/types";
 
 export default function BookingCard({
   shootType,
-  name,
-  image,
-  shootDetails,
+  bookingTypeTitle,
+  bookingImage,
+  bookingInfoBlock,
   isSelected,
   callback,
 }: {
   shootType: "editorial" | "headshot";
-  name: string;
-  image: Image;
-  shootDetails: { title: string; details: TextArray }[];
+  bookingTypeTitle: string;
+  bookingImage: SanityImageAssetDocument;
+  bookingInfoBlock: BookingOption["bookingInfoBlock"];
   isSelected: boolean;
   callback: (currentValue: string) => void;
 }) {
+
+  console.log(bookingInfoBlock)
+
   return (
     <label className={`booking-card__wrapper ${isSelected ? "selected" : ""}`}>
       <input
         type="radio"
         name={shootType}
-        value={name}
-        onClick={() => callback(name)}
+        value={bookingTypeTitle}
+        onClick={() => callback(bookingTypeTitle)}
       />
       <div className="booking-card__container">
-        <h4>{name}</h4>
+        <h4>{bookingTypeTitle}</h4>
         <div className="booking-card-image__wrapper">
-          <Image src={image.src} alt={image.alt} fill />
+          <Image src={bookingImage.url} alt={shootType + " picture"} fill />
         </div>
-        {shootDetails.map((shootDetail, i) => {
-          if (i < shootDetails.length - 1) {
-            return (
-              <div
-                key={shootDetail.title}
-                className="shoot-details__wrapper--underline"
-              >
-                <ShootDetails
-                  title={shootDetail.title}
-                  details={shootDetail.details}
-                  centerText
-                />
-              </div>
-            );
-          } else {
-            return (
-              <ShootDetails
-                title={shootDetail.title}
-                details={shootDetail.details}
-                key={shootDetail.title}
-                centerText
-              />
-            );
-          }
-        })}
+        {bookingInfoBlock
+          ? bookingInfoBlock.map((bookingBlock, i) => {
+              if (i < bookingInfoBlock.length - 1) {
+                return (
+                  <div
+                    key={bookingTypeTitle + i}
+                    className="shoot-details__wrapper--underline"
+                  >
+                    <ShootDetails
+                      title={bookingBlock.title}
+                      details={bookingBlock.details}
+                      centerText
+                    />
+                  </div>
+                );
+              } else {
+                return (
+                  <ShootDetails
+                    title={bookingBlock.title}
+                    details={bookingBlock.details}
+                    centerText
+                    key={bookingBlock._key}
+                  />
+                );
+              }
+            })
+          : null}
       </div>
     </label>
   );
