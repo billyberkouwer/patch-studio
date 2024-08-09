@@ -8,7 +8,7 @@ async function getAllProjectSlugs() {
   const projectSlugs = await sanityFetch({
     query: allProjectSlugs,
     revalidate: false,
-  });
+  }) as {slug: string}[];
   return projectSlugs;
 }
 
