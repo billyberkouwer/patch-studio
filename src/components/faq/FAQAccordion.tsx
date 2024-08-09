@@ -7,13 +7,15 @@ export default function FAQAccordion({
 }: {
   faqItems: DropdownItemType[];
 }) {
-  console.log(faqItems);
+
   return (
     <div className="accordion__wrapper">
       <div className="accordion__container">
-        {faqItems.map((faqItem) => (
-          <CustomAccordion faqItem={faqItem} key={faqItem._key} />
-        ))}
+        {faqItems?.length
+          ? faqItems.map((faqItem) => (
+              <CustomAccordion faqItem={faqItem} key={faqItem._key} />
+            ))
+          : null}
       </div>
     </div>
   );

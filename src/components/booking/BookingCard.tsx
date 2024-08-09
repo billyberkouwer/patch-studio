@@ -22,8 +22,6 @@ export default function BookingCard({
   callback: (currentValue: string) => void;
 }) {
 
-  console.log(bookingInfoBlock)
-
   return (
     <label className={`booking-card__wrapper ${isSelected ? "selected" : ""}`}>
       <input

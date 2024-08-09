@@ -11,6 +11,7 @@ const mFont = localFont({
   preload: true,
   variable: "--mFont",
 });
+
 const nhFont = localFont({
   src: [
     { path: "./fonts/nh/nhdr.ttf", style: "normal", weight: "400" },
@@ -31,6 +32,7 @@ const nhFont = localFont({
   preload: true,
   variable: "--nhFont",
 });
+
 const hvFont = localFont({
   src: [
     {

@@ -1,4 +1,5 @@
 import { PortableTextBlock, SanityImageAssetDocument } from "next-sanity";
+import { Slug } from "sanity";
 
 type TextArray = string[];
 
@@ -152,7 +153,7 @@ type PageComponentTypes = (
 type HomepageDataType = {
   _type: "home",
   title: string;
-  pageBuilderHome: HomepageComponentTypes[];
+  pageBuilderHome: HomepageComponentTypes[];s
   slug: string;
   _rev: string;
 }
@@ -164,9 +165,3 @@ type PageDataType = {
   slug: string;
   _rev: string;
 }
-
-type NavItem = {
-  slug: {
-    current: string;
-  };
-};

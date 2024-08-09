@@ -17,7 +17,6 @@ export default function PageWrapper({
   pageData: PageComponentTypes[];
 }) {
 
-  console.log(pageData)
   return (
     <div className="page__wrapper top-padding">
       <Heading>{title}</Heading>

@@ -35,7 +35,7 @@ export default function Page() {
         <Heading>FAQs</Heading>
       </section>
       <section>
-        <FAQAccordion />
+        {/* <FAQAccordion /> */}
       </section>
       <SeePortfolioButton />
     </div>
