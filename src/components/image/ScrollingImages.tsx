@@ -36,7 +36,7 @@ export default function ScrollingImages({
       {
         scrollTrigger: {
           trigger: wrapperRef.current,
-          start: isFixed ? "middle 25%" : "top bottom",
+          start: isFixed ? "50% 50%" : "top bottom",
           pin: isFixed,
           end: "+=3000",
           scrub: 0.1,

@@ -13,8 +13,8 @@ async function getAllProjectSlugs() {
 }
 
 export async function generateStaticParams() {
-  // const slugs = await getAllProjectSlugs();
-  return  [{ slug: "editorial" }];
+  const slugs = await getAllProjectSlugs();
+  return slugs;
 }
 
 export default async function Page({ params }: { params: { slug: string } }) {
