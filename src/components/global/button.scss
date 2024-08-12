@@ -9,7 +9,7 @@
     background-color: $light-75;
     backdrop-filter: blur(2px);
     font-size: 1.6rem;
-    cursor: pointer;
+    cursor: url("/pointer.svg") 0 0, pointer;
     height: fit-content;
     text-transform: uppercase;
     box-sizing: border-box;
@@ -20,7 +20,9 @@
     &.invert {
         background-color: $blue;
         color: $white;
-        font-weight: 500;   
+        font-weight: 500;
+        cursor: url("/pointer.svg") 0 0, pointer;
+
     }
 
     &.bold {
@@ -30,7 +32,7 @@
     &.inactive {
         color: $mid-grey;
         border-color: $mid-grey;
-        cursor: unset;
+        cursor: default;
 
         &:hover {
             background-color: unset;

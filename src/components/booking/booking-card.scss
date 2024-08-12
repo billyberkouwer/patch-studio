@@ -5,7 +5,7 @@
     padding: 0.4rem;
     color: $dark;
     width: 400px;
-    cursor: pointer;
+    cursor: url("/pointer.svg") 0 0, pointer;
     height: fit-content;
     font-family: var(--hvFont);
     background-color: $light;

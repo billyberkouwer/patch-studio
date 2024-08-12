@@ -1,6 +1,28 @@
+@import "@/styles/helpers.scss";
+
 .contact-form__wrapper {
     width: 100%;
     height: 100%;
+
+    input[type=text], input[type=email], textarea {
+        font-family: var(--hvFont);
+        font-size: 1.6rem;
+        appearance: none;
+        border: none;
+        border-radius: 0;
+    }
+    
+    input[type=text], input[type=email], textarea { 
+        border: 1px solid $dark;
+        background: $light;
+
+
+        &:focus {
+            outline: 1px solid $blue;
+
+        }
+
+    }
 }
 
 .contact-form__container {
@@ -16,26 +38,37 @@
     height: 100%;
     gap: 0.8rem;
 
+
     .name__container {
         display: flex;
         flex-grow: 1;
         gap: 0.8rem;
-        
 
-        .first-name, .last-name {
+
+        .first-name,
+        .last-name {
             width: 100%;
         }
     }
 
     .email {
+
         flex-grow: 1;
+
+
     }
 
     .subject {
         flex-grow: 1;
+
+
     }
 
+
     .message {
+
         flex-grow: 20;
+        align-content: baseline;
+        justify-content: center;
     }
 }

@@ -9,6 +9,8 @@
 
 html {
     font-size: var(--rem-size);
+    cursor: url("/cursor.svg") 0 0,
+        default;
 }
 
 body {
@@ -42,6 +44,7 @@ a {
     color: unset;
     line-height: unset;
     position: relative;
+    cursor: url("/pointer.svg") 0 0, pointer;
 
     &:hover {
         color: $blue;
@@ -79,6 +82,7 @@ address {
     font-size: 1.6rem;
 }
 
-section, div {
+section,
+div {
     z-index: 1;
 }
