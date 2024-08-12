@@ -1,4 +1,6 @@
 import { defineField, defineType } from "sanity";
+import { RiHome2Fill } from "react-icons/ri";
+
 
 export const home = defineType({
   name: "home",

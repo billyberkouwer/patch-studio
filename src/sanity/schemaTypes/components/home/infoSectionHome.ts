@@ -1,9 +1,11 @@
 import { defineField, defineType } from "sanity";
+import { RiFileTextLine } from "react-icons/ri";
 
 export const infoSectionHome = defineType({
   name: "infoSectionHome",
   title: "Info Section",
   type: "object",
+  icon: RiFileTextLine,
   fields: [
     defineField({
       type: "string",

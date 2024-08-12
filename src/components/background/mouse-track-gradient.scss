@@ -15,4 +15,5 @@
     background: radial-gradient(circle, rgba(255,252,227,1) 0%, rgba(227,255,253,0.25) 45%, rgba(227,255,253,0) 50%);
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#fffce3",endColorstr="#e3fffd",GradientType=1);
     z-index: 0;
+    pointer-events: none;
 }

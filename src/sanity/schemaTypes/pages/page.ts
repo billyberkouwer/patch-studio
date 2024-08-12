@@ -1,9 +1,11 @@
+import { RiPagesLine } from "react-icons/ri";
 import { defineField, defineType } from "sanity";
 
 export const page = defineType({
   type: "document",
   name: "page",
   title: "Page",
+  icon: RiPagesLine,
   fields: [
     defineField({
       name: "title",
@@ -21,7 +23,8 @@ export const page = defineType({
                              .toLowerCase()
                              .replace(/\s+/g, '-')
                              .slice(0, 200)
-      }
+      },
+      description: `A slug is required to display the page on the website. It is used in the URL. For example, if the slug is "editorial", it will be linked under patchstudio.uk/editorial`
     }),
     defineField({
       name: "pageBuilder",

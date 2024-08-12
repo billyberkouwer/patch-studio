@@ -1,9 +1,12 @@
 import { defineType, defineField } from "sanity";
+import { RiImage2Fill } from "react-icons/ri";
+
 
 export const parallaxImageHeaderHome = defineType({
   name: "parallaxImageHeaderHome",
   title: "Parallax Image Header",
   type: "object",
+  icon: RiImage2Fill,
   fields: [
     defineField({
       name: "title",

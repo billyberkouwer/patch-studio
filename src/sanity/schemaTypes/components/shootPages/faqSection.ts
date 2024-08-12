@@ -1,9 +1,11 @@
 import { defineArrayMember, defineField, defineType } from "sanity";
+import { RiQuestionAnswerLine } from "react-icons/ri";
 
 export const faqSection = defineType({
   name: "faqSection",
   title: "FAQ Section",
   type: "object",
+  icon: RiQuestionAnswerLine,
   fields: [
     defineField({
       type: "array",

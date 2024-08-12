@@ -20,6 +20,26 @@ export const fetchHomepageData = groq`
     }
 `;
 
+export const fetchEditorialData = groq`
+    *[_type == "page"][0] {
+        ...,
+        pageBuilder[]{
+            ...,
+            _type == "parallaxImageHeader" => 
+                @{"selectionOfImages": selectionOfImages[].asset->},
+            _type == "horizontalScrollImages" => 
+                @{"selectionOfImages": selectionOfImages[].asset->},
+            _type == "bookingSection" => {
+                ...,
+                bookingCards[] {
+                ...,
+                    "bookingImage": bookingImage.asset->
+                }
+            }
+        },
+    }
+`;
+
 export const fetchPageData = groq`
     *[_type == "page" && slug.current == $slug][0] {
         ...,

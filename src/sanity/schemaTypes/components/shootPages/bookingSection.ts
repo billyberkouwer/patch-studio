@@ -1,9 +1,11 @@
 import { defineArrayMember, defineField, defineType } from "sanity";
+import { RiCalendarCheckLine } from "react-icons/ri";
 
 export const bookingSection = defineType({
   name: "bookingSection",
   title: "Booking Section",
   type: "object",
+  icon: RiCalendarCheckLine,
   fields: [
     defineField({
       type: "string",

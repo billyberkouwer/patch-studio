@@ -1,13 +1,16 @@
 import PageWrapper from "@/components/page/PageWrapper";
-import { sanityFetch } from "@/sanity/config/client";
+import { client, sanityFetch } from "@/sanity/config/client";
 import { allProjectSlugs, fetchPageData } from "@/sanity/queries";
 import { PageDataType } from "@/types";
+import { notFound } from "next/navigation";
 
 async function getAllProjectSlugs() {
-  const projectSlugs = await sanityFetch({
-    query: allProjectSlugs,
-    revalidate: false,
-  }) as {slug: string}[];
+  const projectSlugs = (await client.fetch(
+    allProjectSlugs,
+    {},
+    { perspective: "published" }
+  ));
+  
   return projectSlugs;
 }
 
@@ -17,7 +20,6 @@ export async function generateStaticParams() {
 }
 
 export default async function Page({ params }: { params: { slug: string } }) {
-
   const pageData = await sanityFetch<PageDataType>({
     query: fetchPageData,
     params: {
@@ -26,6 +28,9 @@ export default async function Page({ params }: { params: { slug: string } }) {
     revalidate: 60,
   });
 
+  if (!pageData) {
+    return notFound();
+  }
 
   return <PageWrapper title={pageData.title} pageData={pageData.pageBuilder} />;
 }

@@ -6,6 +6,9 @@ import { navItems } from "@/utils/constants";
 import Footer from "@/components/footer/Footer";
 import localFont from "next/font/local";
 import MouseTrackGradient from "@/components/background/MouseTrackGradient";
+import { VisualEditing } from "next-sanity";
+import { draftMode } from "next/headers";
+import Button from "@/components/global/Button";
 
 const mFont = localFont({
   src: [{ path: "./fonts/m.ttf", style: "regular" }],
@@ -61,13 +64,18 @@ export default function RootLayout({
       className={`${nhFont.variable} ${hvFont.variable} ${mFont.variable}`}
     >
       <body>
-      <MouseTrackGradient />
-
+        <MouseTrackGradient />
         <CSSEnhancements />
         <Navbar navItems={navItems} />
         {children}
         <Footer pages={navItems} />
-
+        {draftMode().isEnabled ? <VisualEditing /> : null}
+        {draftMode().isEnabled ? (
+          <div className="disable-preview__wrapper">
+            <p>You are viewing a preview version of this site</p>
+            <Button slug="/api/draft-mode/disable">Disable preview mode</Button>
+          </div>
+        ) : null}
       </body>
     </html>
   );

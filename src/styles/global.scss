@@ -86,3 +86,23 @@ section,
 div {
     z-index: 1;
 }
+
+#sanity {
+    cursor: default;
+}
+
+.disable-preview__wrapper {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    padding: 1rem;
+    z-index: 9999999999999;
+    display: flex;
+    gap: 1rem;
+    font-size: 2rem;
+    align-items: center;
+
+    p {
+        margin: 0;
+    }
+}

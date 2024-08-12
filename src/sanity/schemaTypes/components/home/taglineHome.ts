@@ -1,9 +1,12 @@
 import { defineType, defineField } from "sanity";
+import { RiTextBlock } from "react-icons/ri";
+
 
 export const taglineHome = defineType({
   name: "taglineHome",
   title: "Tagline",
   type: "object",
+  icon: RiTextBlock,
   fields: [
     defineField({
       name: "taglineText",

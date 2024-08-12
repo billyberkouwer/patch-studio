@@ -5,7 +5,7 @@ export const pageBuilder = defineType({
   type: "array",
   title: "Page Builder",
   description:
-    "This section is used to add components to the homepage. You can add a selection of four component types in any order you would like.",
+    "This section is used to add components to the homepage. You can add a selection of component types in any order you would like.",
   of: [
     defineArrayMember({
       type: "parallaxImageHeader",

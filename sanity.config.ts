@@ -3,6 +3,9 @@ import { structureTool } from "sanity/structure";
 import { visionTool } from "@sanity/vision";
 import { schemaTypes } from "@/sanity/schemaTypes";
 import { media } from "sanity-plugin-media";
+import { RiHome2Line } from "react-icons/ri";
+import { RiPagesLine } from "react-icons/ri";
+import { presentationTool } from 'sanity/presentation';
 
 const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || "";
 const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET || "production";
@@ -18,7 +21,7 @@ export const structure = (S: any, context: any) => {
     .title("Content")
     .items(
       [
-        S.listItem().title("Home").id("home").child(
+        S.listItem().title("Home").id("home").icon(RiHome2Line).child(
           // Instead of rendering a list of documents, we render a single
           // document, specifying the `documentId` manually to ensure
           // that we're editing the single instance of the document
@@ -26,6 +29,7 @@ export const structure = (S: any, context: any) => {
         ),
         S.listItem()
           .title("Pages")
+          .icon(RiPagesLine)
           .child(
             S.documentTypeList("page")
               .title("Page")
@@ -42,7 +46,13 @@ export default defineConfig({
   title: "patch-studio",
   projectId: projectId,
   dataset: dataset,
-  plugins: [structureTool({ structure }), visionTool(), media()],
+  plugins: [structureTool({ structure }), visionTool(), media(), presentationTool({
+      previewUrl: {
+        draftMode: {
+          enable: '/api/draft-mode/enable',
+        },
+      },
+    }),],
   schema: {
     types: schemaTypes, // Filter out singleton types from the global “New document” menu options
     templates: (templates) =>

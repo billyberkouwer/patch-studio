@@ -1,9 +1,11 @@
 import { defineField, defineType } from "sanity";
+import { RiImageAddLine } from "react-icons/ri";
 
 export const horizontalScrollImages = defineType({
   name: "horizontalScrollImages",
   type: "object",
   title: "Horizontally Scrolling Images",
+  icon: RiImageAddLine,
   fields: [
     defineField({
       name: "title",
