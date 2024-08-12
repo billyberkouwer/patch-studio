@@ -38,7 +38,7 @@
     display: grid;
     grid-template-rows: 0fr;
     overflow: hidden;
-    transition: grid 1s;
+    transition: grid $fast;
 
     p {
         min-height: 0;

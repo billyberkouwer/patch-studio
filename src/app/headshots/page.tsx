@@ -1,3 +1,5 @@
+"use client"
+
 import ContainerBookingCards from "@/components/booking/ContainerBookingCards";
 import FAQAccordion from "@/components/faq/FAQAccordion";
 import ColumnText from "@/components/global/ColumnText";
