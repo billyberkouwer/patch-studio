@@ -1,8 +1,7 @@
 import PageWrapper from "@/components/page/PageWrapper";
 import { sanityFetch } from "@/sanity/config/client";
 import { allProjectSlugs, fetchPageData } from "@/sanity/queries";
-import { PageComponentTypes, PageDataType } from "@/types";
-import { groq } from "next-sanity";
+import { PageDataType } from "@/types";
 
 async function getAllProjectSlugs() {
   const projectSlugs = await sanityFetch({

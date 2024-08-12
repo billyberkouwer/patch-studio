@@ -28,20 +28,33 @@ export default function ScrollingImages({
   const imagesRef = useRef<HTMLDivElement>(null);
 
   useGSAP(() => {
+    function calculateScrollAmount(container: HTMLDivElement | null) {
+      return (
+        parseInt(`${container?.getBoundingClientRect().width}`) -
+        window.innerWidth
+      );
+    }
+
     gsap.fromTo(
       imagesRef.current,
       {
-        x: scrollDirection === "right" ? (isFixed ? "-85%" : "-500px") : 0,
+        x:
+          scrollDirection === "right"
+            ? () => -calculateScrollAmount(imagesRef.current)
+            : 0,
       },
       {
         scrollTrigger: {
           trigger: wrapperRef.current,
           start: isFixed ? "50% 50%" : "top bottom",
           pin: isFixed,
-          end: "+=3000",
+          end: "+=2000",
           scrub: 0.1,
         },
-        x: scrollDirection === "right" ? 0 : (isFixed ? "-100%" : "-500px"),
+        x:
+          scrollDirection === "right"
+            ? 0
+            : () => -calculateScrollAmount(imagesRef.current),
       }
     );
   }, []);
