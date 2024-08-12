@@ -5,6 +5,7 @@ import Navbar from "@/components/nav/Navbar";
 import { navItems } from "@/utils/constants";
 import Footer from "@/components/footer/Footer";
 import localFont from "next/font/local";
+import MouseTrackGradient from "@/components/background/MouseTrackGradient";
 
 const mFont = localFont({
   src: [{ path: "./fonts/m.ttf", style: "regular" }],
@@ -60,10 +61,13 @@ export default function RootLayout({
       className={`${nhFont.variable} ${hvFont.variable} ${mFont.variable}`}
     >
       <body>
+      <MouseTrackGradient />
+
         <CSSEnhancements />
         <Navbar navItems={navItems} />
         {children}
         <Footer pages={navItems} />
+
       </body>
     </html>
   );

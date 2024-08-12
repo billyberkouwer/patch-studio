@@ -45,6 +45,7 @@ export default function ThreeScrollingImages({
               pin: true,
               end: "+=1000",
               scrub: 0.4,
+              invalidateOnRefresh: true
             },
           }
         );
@@ -67,13 +68,14 @@ export default function ThreeScrollingImages({
                 trigger: imagesWrapperRef.current,
                 start: "50% 50%",
                 end: "+=1000",
-                scrub: 0.3,
+                scrub: 0.4,
+                invalidateOnRefresh: true
               },
-              y: -calculateScrollAmount(
+              y: () => -calculateScrollAmount(
                 imageContainers[i] as HTMLDivElement,
                 imageRef.current
               ),
-              stagger: 0.02
+              stagger: 0.03
             }
           );
         }

@@ -8,6 +8,7 @@
     cursor: pointer;
     height: fit-content;
     font-family: var(--hvFont);
+    background-color: $light;
 
     input[type="radio"] {
         visibility: hidden;

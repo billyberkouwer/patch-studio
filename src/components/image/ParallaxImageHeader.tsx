@@ -24,6 +24,7 @@ export default function ParallaxImageHeader({ images }: { images:  SanityAssetDo
         start: "top top",
         end: () => "+=3000",
         scrub: 0.2,
+        invalidateOnRefresh: true
       },
       x: -1000,
     });
@@ -37,6 +38,7 @@ export default function ParallaxImageHeader({ images }: { images:  SanityAssetDo
         end: () => "+=1000",
         scrub: 0.2,
         anticipatePin: 1,
+        invalidateOnRefresh: true
       },
       scale: 0.65,
     });

@@ -49,7 +49,8 @@ export default function ScrollingImages({
           start: isFixed ? "50% 50%" : "top bottom",
           pin: isFixed,
           end: "+=1500",
-          scrub: 0.1,
+          scrub: 0.4,
+          invalidateOnRefresh: true
         },
         x:
           scrollDirection === "right"

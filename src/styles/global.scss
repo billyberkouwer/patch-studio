@@ -57,10 +57,8 @@ a {
     }
 
     &.--fixed-height {
-        @include md {
-            padding-top: var(--nav-height);
-            height: var(--real-viewport-height);
-        }
+        padding-top: var(--nav-height);
+        height: var(--real-viewport-height);
     }
 }
 
@@ -79,4 +77,8 @@ a {
 address {
     font-style: normal;
     font-size: 1.6rem;
+}
+
+section, div {
+    z-index: 1;
 }

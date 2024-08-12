@@ -19,6 +19,6 @@
         display: inline-block;
         object-fit: cover;
         margin-right: 1rem;
+        @include drop-shadow;
     }
 }
-
