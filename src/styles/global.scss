@@ -2,7 +2,7 @@
 @import '_fonts.scss';
 
 :root {
-    --real-viewport-height: 100svh;
+    --real-viewport-height: 100vh;
     --nav-height: 42px;
     --rem-size: 10px;
 }
@@ -62,6 +62,10 @@ a {
     &.--fixed-height {
         padding-top: var(--nav-height);
         height: var(--real-viewport-height);
+    }
+
+    &.--no-height {
+        height: 0px;
     }
 }
 

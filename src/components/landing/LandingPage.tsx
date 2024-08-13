@@ -38,7 +38,7 @@ export default function LandingPage() {
       centerText?.classList.remove("invert");
 
       if (pageWrapper) {
-        pageWrapper.style.height = "0px";
+        pageWrapper.classList.add("--no-height");
       }
 
       setTimeout(
@@ -50,8 +50,7 @@ export default function LandingPage() {
           console.log(pageWrapper);
           centerText?.classList.add("invert");
           if (pageWrapper) {
-            pageWrapper.style.height = "auto";
-          }
+            pageWrapper.classList.remove("--no-height");          }
         },
         pathname === "/" ? 3000 : 10
       );
