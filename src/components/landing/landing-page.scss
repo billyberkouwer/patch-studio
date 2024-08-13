@@ -8,4 +8,6 @@
     left: 0;
     background-color: $light;
     opacity: 1;
+    pointer-events: none;
+    user-select: none;
 }

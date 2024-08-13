@@ -10,6 +10,7 @@
     font-family: var(--hvFont);
     background-color: $light;
     transition: filter $fast;
+    pointer-events: all;
     @include drop-shadow;
 
     input[type="radio"] {
