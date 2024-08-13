@@ -9,6 +9,7 @@ import MouseTrackGradient from "@/components/background/MouseTrackGradient";
 import { VisualEditing } from "next-sanity";
 import { draftMode } from "next/headers";
 import Button from "@/components/global/Button";
+import LandingPage from "@/components/landing/LandingPage";
 
 const mFont = localFont({
   src: [{ path: "./fonts/m.ttf", style: "regular" }],
@@ -76,6 +77,7 @@ export default function RootLayout({
             <Button slug="/api/draft-mode/disable">Disable preview mode</Button>
           </div>
         ) : null}
+        {draftMode().isEnabled === false ? <LandingPage /> : null}
       </body>
     </html>
   );

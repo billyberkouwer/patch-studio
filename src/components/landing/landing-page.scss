@@ -1,0 +1,11 @@
+@import "@/styles/helpers.scss";
+
+.landing-page__wrapper {
+    height: var(--real-viewport-height);
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: $light;
+    opacity: 1;
+}

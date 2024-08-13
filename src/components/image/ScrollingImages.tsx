@@ -50,7 +50,7 @@ export default function ScrollingImages({
           trigger: wrapperRef.current,
           start: isFixed ? "50% 50%" : "top 50%",
           pin: isFixed,
-          end: () => "+=" + 2000 * (window.innerHeight / window.innerWidth),
+          end: () => "+=" + 2000 * ((window.innerHeight / window.innerWidth / 3) + 0.5),
           scrub: 0.4,
           invalidateOnRefresh: true,
         },
