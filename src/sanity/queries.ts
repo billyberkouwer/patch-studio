@@ -49,6 +49,8 @@ export const fetchPageData = groq`
                 @{"selectionOfImages": selectionOfImages[].asset->},
             _type == "horizontalScrollImages" => 
                 @{"selectionOfImages": selectionOfImages[].asset->},
+                                    _type == "verticalScrollImages" => 
+                @{"selectionOfImages": selectionOfImages[].asset->},
             _type == "bookingSection" => {
                 ...,
                 bookingCards[] {

@@ -24,6 +24,7 @@ import { dropdownItem } from "./components/shootPages/dropdownItem";
 import { bookingCard } from "./components/shootPages/bookingCard";
 import { columnText } from "./components/shootPages/columnText";
 import { bookingSection } from "./components/shootPages/bookingSection";
+import { verticalScrollImages } from "./components/shootPages/verticalScrollImages";
 
 export const schemaTypes = [
   pageBuilderHome,
@@ -52,4 +53,5 @@ export const schemaTypes = [
   directionOfScroll,
   home,
   centerTextContent,
+  verticalScrollImages
 ];

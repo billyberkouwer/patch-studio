@@ -6,6 +6,7 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
 import { useEffect, useRef } from "react";
+import { SanityImageAssetDocument } from "next-sanity";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
@@ -13,7 +14,7 @@ export default function ThreeScrollingImages({
   imageSlides,
   marginBottom,
 }: {
-  imageSlides: { src: string; alt: string }[][];
+  imageSlides: SanityImageAssetDocument[][];
   marginBottom?: "small" | "medium" | "large";
 }) {
   const imagesWrapperRef = useRef<HTMLDivElement>(null);
@@ -94,11 +95,11 @@ export default function ThreeScrollingImages({
     >
       <div className="three-images__container" ref={threeImagesContainer}>
         {imageSlides.map((images, i) => (
-          <div key={images[i].src} className="images__wrapper">
+          <div key={images[i]._id} className="images__wrapper">
             <div className="images__container">
               {images.map((image) => (
-                <div className="image__wrapper" key={image.src} ref={imageRef}>
-                  <Image fill src={image.src} alt={image.alt} />
+                <div className="image__wrapper" key={image._id + image.url} ref={imageRef}>
+                  <Image fill src={image.url} alt="" placeholder="blur" blurDataURL={image.metadata.lqip} />
                 </div>
               ))}
             </div>

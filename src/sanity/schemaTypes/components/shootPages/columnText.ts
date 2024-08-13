@@ -1,9 +1,11 @@
 import { defineArrayMember, defineField, defineType } from "sanity";
+import { ImParagraphJustify } from "react-icons/im";
 
 export const columnText = defineType({
   name: "textColumns",
   type: "object",
   title: "Text Columns",
+  icon: ImParagraphJustify,
   description:
     "The text blocks you add here will automatically be turned into columns. Two blocks will be split in two columns, three in three, etc.",
   fields: [

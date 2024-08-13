@@ -78,6 +78,13 @@ type HorizontalScrollImageType = {
   _key: string;
 };
 
+type VerticalScrollImageType = {
+  selectionOfImages: SanityImageAssetDocument[];
+  title: string;
+  _type: "verticalScrollImages";
+  _key: string;
+};
+
 type InfoSectionType = {
   _type: "infoSection";
   _key: string;
@@ -148,6 +155,7 @@ type PageComponentTypes = (
   | BookingSection
   | FAQSection
   | TextColumn
+  | VerticalScrollImageType
 );
 
 type HomepageDataType = {

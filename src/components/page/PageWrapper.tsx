@@ -8,6 +8,8 @@ import ShootInfoSection from "../home/ShootInfoSection";
 import Heading from "../global/Heading";
 import ContainerBookingCards from "../booking/ContainerBookingCards";
 import FAQAccordion from "../faq/FAQAccordion";
+import ThreeScrollingImages from "../image/ThreeScrollingImages";
+import { splitArrayIntoSubArrays } from "@/helpers";
 
 export default function PageWrapper({
   title,
@@ -36,6 +38,14 @@ export default function PageWrapper({
           return (
             <div key={componentData._key}>
               <ParallaxImageHeader images={componentData.selectionOfImages} />
+            </div>
+          );
+        }
+        if (componentData._type === "verticalScrollImages") {
+          const imgArray = splitArrayIntoSubArrays(componentData.selectionOfImages, 3)
+          return (
+            <div key={componentData._key}>
+              <ThreeScrollingImages imageSlides={imgArray} />
             </div>
           );
         }

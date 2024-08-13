@@ -14,6 +14,9 @@ export const pageBuilder = defineType({
       type: "horizontalScrollImages",
     }),
     defineArrayMember({
+      type: "verticalScrollImages",
+    }),
+    defineArrayMember({
       type: "infoSection",
     }),
     defineArrayMember({
