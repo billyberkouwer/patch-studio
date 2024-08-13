@@ -9,6 +9,8 @@
     height: fit-content;
     font-family: var(--hvFont);
     background-color: $light;
+    transition: filter $fast;
+    @include drop-shadow;
 
     input[type="radio"] {
         visibility: hidden;
@@ -23,6 +25,7 @@
         background-color: $blue;
         color: $light;
         border: 1px solid $light;
+        filter: unset;
 
         .shoot-details__wrapper--underline {
             border-bottom: 1px solid $light;

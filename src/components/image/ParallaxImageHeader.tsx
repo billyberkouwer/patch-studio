@@ -6,11 +6,12 @@ import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
 import { useGSAP } from "@gsap/react";
-import { SanityAssetDocument } from "next-sanity";
+import { SanityAssetDocument, SanityImageAssetDocument } from "next-sanity";
+import SizedImage from "./SizedImage";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
-export default function ParallaxImageHeader({ images }: { images:  SanityAssetDocument[]}) {
+export default function ParallaxImageHeader({ images }: { images:  SanityImageAssetDocument[]}) {
   const containerRef = useRef<HTMLDivElement>(null);
   const wrapperRef = useRef<HTMLDivElement>(null);
   const imagesRef = useRef<HTMLDivElement>(null);
@@ -55,16 +56,13 @@ export default function ParallaxImageHeader({ images }: { images:  SanityAssetDo
       <div className="parallax-header__container" ref={containerRef}>
         <div className="images__container" ref={imagesRef}>
           {images.map((image, i) => (
-            <div className="image__wrapper" key={image.url}>
-              <Image
-                fill
-                style={{ objectFit: "cover" }}
-                src={image.url}
-                alt={"Selected portfolio image " + (i + 1)}
-                sizes="25vw"
-                quality={90}
-              />
-            </div>
+            <SizedImage
+              key={image._id}
+              image={image}
+              alt={"Selected portfolio image " + (i + 1)}
+              size="large"
+              quality={90}
+            />
           ))}
         </div>
       </div>

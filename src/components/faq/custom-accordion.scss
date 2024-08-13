@@ -8,6 +8,7 @@
     padding: 0.4rem;
     box-sizing: border-box;
     background-color: $light;
+    @include drop-shadow--sm;
 }
 
 .custom-accordion__header {

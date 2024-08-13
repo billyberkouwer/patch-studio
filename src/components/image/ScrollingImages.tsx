@@ -6,6 +6,8 @@ import Image from "next/image";
 import gsap, { ScrollTrigger } from "gsap/all";
 import { useGSAP } from "@gsap/react";
 import { SanityImageAssetDocument } from "next-sanity";
+import SizedImage from "./SizedImage";
+import { getSizeFromString } from "@/helpers";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
@@ -14,14 +16,14 @@ export default function ScrollingImages({
   scrollDirection = "left",
   isFixed,
   title,
-  height,
+  size = "medium",
   isContained,
 }: {
   images: SanityImageAssetDocument[];
   title: string;
   isFixed?: boolean;
   scrollDirection?: undefined | null | "left" | "right";
-  height?: number;
+  size?: "small" | "medium" | "large";
   isContained?: boolean;
 }) {
   const wrapperRef = useRef<HTMLDivElement>(null);
@@ -46,11 +48,11 @@ export default function ScrollingImages({
       {
         scrollTrigger: {
           trigger: wrapperRef.current,
-          start: isFixed ? "50% 50%" : "top bottom",
+          start: isFixed ? "50% 50%" : "top 50%",
           pin: isFixed,
-          end: "+=1500",
+          end: () => "+=" + 2000 * (window.innerHeight / window.innerWidth),
           scrub: 0.4,
-          invalidateOnRefresh: true
+          invalidateOnRefresh: true,
         },
         x:
           scrollDirection === "right"
@@ -64,24 +66,10 @@ export default function ScrollingImages({
     <section
       className="scrolling-images__wrapper"
       ref={wrapperRef}
-      style={{ height: height ? height + "px" : "500px" }}
     >
-      <div className="scrolling-images__container" ref={imagesRef}>
+      <div className={`scrolling-images__container --${size}`} ref={imagesRef}>
         {images.map((image, i) => (
-          <div
-            className="image__wrapper"
-            key={image.url}
-            style={{ width: height ? height / 1.2 + "px" : undefined }}
-          >
-            <Image
-              fill
-              src={image.url}
-              style={{ objectFit: isContained ? "contain" : "cover" }}
-              alt={`Selected ${title} image ${i + 1}`}
-              sizes="350px"
-              quality={60}
-            />
-          </div>
+          <SizedImage key={image._id} image={image} alt="" />
         ))}
       </div>
     </section>

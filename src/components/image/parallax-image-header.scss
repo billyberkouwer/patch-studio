@@ -19,16 +19,17 @@
     &.visible {
         opacity: 1;
     }
-}
 
-.images__container {
-    white-space: nowrap;
-    height: 100%;
-
-    .image__wrapper {
-        position: relative;
+    .images__container {
+        white-space: nowrap;
         height: 100%;
-        width: 500px;
-        display: inline-block;
+    
+        .image__wrapper {
+            position: relative;
+            height: 100%;
+            width: 500px;
+            display: inline-block;
+        }
     }
 }
+
