@@ -16,6 +16,7 @@
     "@mui/icons-material": "^5.16.6",
     "@mui/material": "^5.16.6",
     "@portabletext/react": "^3.1.0",
+    "@sanity/orderable-document-list": "^1.2.1",
     "@sanity/vision": "^3.52.4",
     "gsap": "^3.12.5",
     "next": "14.2.5",

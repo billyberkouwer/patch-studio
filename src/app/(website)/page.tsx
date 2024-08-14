@@ -11,5 +11,5 @@ export default async function Home() {
     query: fetchHomepageData,
     tags: ["page"]
   });
-  return <Homepage pageData={data.pageBuilderHome} />;
+  return <Homepage pageData={data?.pageBuilderHome} />;
 }

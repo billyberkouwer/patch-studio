@@ -6,6 +6,11 @@ import { media } from "sanity-plugin-media";
 import { RiHome2Line } from "react-icons/ri";
 import { RiPagesLine } from "react-icons/ri";
 import { presentationTool } from 'sanity/presentation';
+import {
+  orderRankField,
+  orderRankOrdering,
+  orderableDocumentListDeskItem,
+} from "@sanity/orderable-document-list";
 
 const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || "";
 const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET || "production";
@@ -21,21 +26,13 @@ export const structure = (S: any, context: any) => {
     .title("Content")
     .items(
       [
+        orderableDocumentListDeskItem({ type: "page", title: "Pages", S, context, icon: RiPagesLine }),
         S.listItem().title("Home").id("home").icon(RiHome2Line).child(
           // Instead of rendering a list of documents, we render a single
           // document, specifying the `documentId` manually to ensure
           // that we're editing the single instance of the document
           S.document().schemaType("home").documentId("home").title("Home")
         ),
-        S.listItem()
-          .title("Pages")
-          .icon(RiPagesLine)
-          .child(
-            S.documentTypeList("page")
-              .title("Page")
-              .filter("_type == $type")
-              .params({ type: "page" })
-          ),
       ]
     );
 };

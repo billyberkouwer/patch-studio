@@ -7,15 +7,13 @@ export default function SizedImage({
   image,
   alt,
   size = "medium",
-  quality = 75,
+  quality = 80,
 }: {
   image: SanityImageAssetDocument | null;
   alt: string;
   size?: "small" | "medium" | "large";
   quality?: number;
 }) {
-  const [src, setSrc] = useState<string | null>(null);
-
   const wrapper = useRef<HTMLDivElement>(null);
   const nextImage = useRef<HTMLImageElement>(null);
 
@@ -32,12 +30,6 @@ export default function SizedImage({
     };
   }, [image, size]);
 
-  useLayoutEffect(() => {
-    if (src === image?.url && nextImage.current) {
-      nextImage.current.classList.add("--unblur");
-    }
-  }, [src, image]);
-
   if (image?.metadata?.lqip && image?.url) {
     return (
       <div ref={wrapper} className="image__wrapper">
@@ -45,9 +37,13 @@ export default function SizedImage({
           fill
           ref={nextImage}
           alt={alt}
-          src={src || `${image?.metadata?.lqip}`}
+          src={image?.url}
+          placeholder="blur"
+          blurDataURL={image?.metadata?.lqip}
           quality={quality}
-          onLoad={() => setSrc(image.url)}
+          onLoad={(e) => {
+            (e.target as HTMLImageElement).classList.add("--unblur");
+          }}
           sizes={getNextImageSizes(size)}
         />
       </div>

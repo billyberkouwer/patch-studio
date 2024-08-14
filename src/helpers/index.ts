@@ -65,7 +65,7 @@ export function getNextImageSizes(size: "small" | "medium" | "large"): string {
     return "(max-width: 768px) 60vw, (max-width: 1200px) 15vw, 5vw";
   }
   if (size === "medium") {
-    return "(max-width: 768px) 70vw, (max-width: 1200px) 20vw, 10vw";
+    return "(max-width: 768px) 70vw, (max-width: 1200px) 50vw, 33vw";
   }
   if (size === "large") {
     return "(max-width: 768px) 90vw, (max-width: 1200px) 30vw, 15vw";

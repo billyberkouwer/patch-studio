@@ -22,7 +22,7 @@ gsap.registerPlugin(ScrollTrigger, useGSAP);
 export default function Homepage({
   pageData,
 }: {
-  pageData: HomepageComponentTypes[];
+  pageData: HomepageComponentTypes[] | null;
 }) {
   const [isLogoBlue, setIsLogoBlue] = useState(false);
   const [centerTextContent, setCenterTextContent] = useState("patch studio");
@@ -116,56 +116,62 @@ export default function Homepage({
   return (
     <div className="page__wrapper" id="page-wrapper">
       <CenterLogo isLogoBlue={isLogoBlue} text={centerTextContent} />
-      {pageData.map((componentData) => {
-        if (componentData._type === "horizontalScrollImagesHome") {
-          return (
-            <div
-              key={componentData._key}
-              className={`animation-trigger is-colorful ${assignClasses(componentData)}`}
-            >
-              <ScrollingImages
-                scrollDirection={componentData.directionOfHorizontalImageScroll}
-                images={componentData.selectionOfImages}
-                title={componentData.title}
-                isFixed
-              />
-            </div>
-          );
-        }
-        if (componentData._type === "parallaxImageHeaderHome") {
-          return (
-            <div
-              key={componentData._key}
-              className={`animation-trigger is-colorful scales-65 ${assignClasses(componentData)}`}
-            >
-              <ParallaxImageHeader images={componentData.selectionOfImages} />
-            </div>
-          );
-        }
-        if (componentData._type === "taglineHome") {
-          return (
-            <div
-              key={componentData._key}
-              className={`animation-trigger ${assignClasses(componentData)}`}
-            >
-              <Tagline>{componentData.text}</Tagline>
-            </div>
-          );
-        }
-        if (componentData._type === "infoSectionHome") {
-          return (
-            <section
-              key={componentData._key}
-              className={`animation-trigger ${assignClasses(componentData)}`}
-            >
-              <ShootInfoSection
-                shootDetails={componentData.keyInfoBlocks}
-                description={componentData.sectionText}
-              />
-            </section>
-          );
-        }
-      })}
+      {pageData?.length
+        ? pageData.map((componentData) => {
+            if (componentData._type === "horizontalScrollImagesHome") {
+              return (
+                <div
+                  key={componentData._key}
+                  className={`animation-trigger is-colorful ${assignClasses(componentData)}`}
+                >
+                  <ScrollingImages
+                    scrollDirection={
+                      componentData.directionOfHorizontalImageScroll
+                    }
+                    images={componentData.selectionOfImages}
+                    title={componentData.title}
+                    isFixed
+                  />
+                </div>
+              );
+            }
+            if (componentData._type === "parallaxImageHeaderHome") {
+              return (
+                <div
+                  key={componentData._key}
+                  className={`animation-trigger is-colorful scales-65 ${assignClasses(componentData)}`}
+                >
+                  <ParallaxImageHeader
+                    images={componentData.selectionOfImages}
+                  />
+                </div>
+              );
+            }
+            if (componentData._type === "taglineHome") {
+              return (
+                <div
+                  key={componentData._key}
+                  className={`animation-trigger ${assignClasses(componentData)}`}
+                >
+                  <Tagline>{componentData.text}</Tagline>
+                </div>
+              );
+            }
+            if (componentData._type === "infoSectionHome") {
+              return (
+                <section
+                  key={componentData._key}
+                  className={`animation-trigger ${assignClasses(componentData)}`}
+                >
+                  <ShootInfoSection
+                    shootDetails={componentData.keyInfoBlocks}
+                    description={componentData.sectionText}
+                  />
+                </section>
+              );
+            }
+          })
+        : null}
       <div id="book-button" className="fixed-book-button__wrapper">
         <Button state="invert" slug="/">
           Book {centerTextContent}
