@@ -23,7 +23,7 @@ export default function PageWrapper({
   return (
     <div className="page__wrapper top-padding">
       <Heading>{title}</Heading>
-      {pageData.map((componentData) => {
+      {pageData?.length ? pageData.map((componentData) => {
         if (componentData._type === "horizontalScrollImages") {
           return (
             <div key={componentData._key}>
@@ -92,7 +92,7 @@ export default function PageWrapper({
               </section>
             )
         }
-      })}
+      }) : null}
     </div>
   );
 }

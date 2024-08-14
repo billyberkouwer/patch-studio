@@ -28,9 +28,6 @@ export const structure = (S: any, context: any) => {
       [
         orderableDocumentListDeskItem({ type: "page", title: "Pages", S, context, icon: RiPagesLine }),
         S.listItem().title("Home").id("home").icon(RiHome2Line).child(
-          // Instead of rendering a list of documents, we render a single
-          // document, specifying the `documentId` manually to ensure
-          // that we're editing the single instance of the document
           S.document().schemaType("home").documentId("home").title("Home")
         ),
       ]

@@ -1,7 +1,7 @@
 import { groq } from "next-sanity";
 
 export const allProjectSlugs = groq`
-    *[_type == 'page'][] {
+    *[_type == 'page'] | order(orderRank)[]{
         title,
         "slug": slug.current,
     } 
