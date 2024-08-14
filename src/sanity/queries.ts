@@ -2,6 +2,7 @@ import { groq } from "next-sanity";
 
 export const allProjectSlugs = groq`
     *[_type == 'page'][] {
+        title,
         "slug": slug.current,
     } 
 `;

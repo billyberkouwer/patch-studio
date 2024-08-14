@@ -10,6 +10,7 @@ import { VisualEditing } from "next-sanity";
 import { draftMode } from "next/headers";
 import Button from "@/components/global/Button";
 import LandingPage from "@/components/landing/LandingPage";
+import NavbarWrapper from "@/components/nav/NavbarWrapper";
 
 const mFont = localFont({
   src: [{ path: "./fonts/m.ttf", style: "regular" }],
@@ -67,7 +68,7 @@ export default function RootLayout({
       <body>
         <MouseTrackGradient />
         <CSSEnhancements />
-        <Navbar navItems={navItems} />
+        <NavbarWrapper />
         {children}
         <Footer pages={navItems} />
         {draftMode().isEnabled ? <VisualEditing /> : null}

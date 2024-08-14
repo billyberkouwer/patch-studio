@@ -21,7 +21,7 @@ export default function Nav({
         {navItems.map((navItem) => (
           <li
             key={navItem.title + navItem.slug}
-            className={`nav-item ${pathname === navItem.slug ? "active" : ""}`}
+            className={`nav-item ${pathname === "/" + navItem.slug ? "active" : ""}`}
           >
             <Link href={navItem.slug}>{navItem.title}</Link>
           </li>
