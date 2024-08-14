@@ -6,17 +6,17 @@ export default function ShootDetails({
   details,
   centerText,
 }: {
-  title: KeyInfoBlockType["title"];
-  details: KeyInfoBlockType["details"];
+  title: KeyInfoBlockType["title"] | null;
+  details: KeyInfoBlockType["details"] | null;
   centerText?: boolean;
 }) {
   return (
     <div className={`shoot-details__container ${centerText ? "centered" : ""}`}>
       <h6>{title}</h6>
       <ul>
-        {details.map((detail) => (
-          <li key={detail}>{detail}</li>
-        ))}
+        {details?.length
+          ? details.map((detail) => <li key={detail}>{detail}</li>)
+          : null}
       </ul>
     </div>
   );

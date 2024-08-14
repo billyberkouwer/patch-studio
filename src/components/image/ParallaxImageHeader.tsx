@@ -11,38 +11,50 @@ import SizedImage from "./SizedImage";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
-export default function ParallaxImageHeader({ images }: { images:  SanityImageAssetDocument[]}) {
+export default function ParallaxImageHeader({
+  images,
+}: {
+  images: SanityImageAssetDocument[] | null;
+}) {
   const containerRef = useRef<HTMLDivElement>(null);
   const wrapperRef = useRef<HTMLDivElement>(null);
   const imagesRef = useRef<HTMLDivElement>(null);
-  
+
   useGSAP(() => {
-    gsap.fromTo(imagesRef.current, {
-      x: 0
-    },{
-      scrollTrigger: {
-        trigger: wrapperRef.current,
-        start: "top top",
-        end: () => "+=3000",
-        scrub: 0.2,
-        invalidateOnRefresh: true
+    gsap.fromTo(
+      imagesRef.current,
+      {
+        x: 0,
       },
-      x: -1000,
-    });
-    gsap.fromTo(containerRef.current, {
-      scale: 1
-    },{
-      scrollTrigger: {
-        trigger: wrapperRef.current,
-        pin: true,
-        start: "top top",
-        end: () => "+=1000",
-        scrub: 0.2,
-        anticipatePin: 1,
-        invalidateOnRefresh: true
+      {
+        scrollTrigger: {
+          trigger: wrapperRef.current,
+          start: "top top",
+          end: () => "+=3000",
+          scrub: 0.2,
+          invalidateOnRefresh: true,
+        },
+        x: -1000,
+      }
+    );
+    gsap.fromTo(
+      containerRef.current,
+      {
+        scale: 1,
       },
-      scale: 0.65,
-    });
+      {
+        scrollTrigger: {
+          trigger: wrapperRef.current,
+          pin: true,
+          start: "top top",
+          end: () => "+=1000",
+          scrub: 0.2,
+          anticipatePin: 1,
+          invalidateOnRefresh: true,
+        },
+        scale: 0.65,
+      }
+    );
   });
 
   useLayoutEffect(() => {
@@ -55,15 +67,17 @@ export default function ParallaxImageHeader({ images }: { images:  SanityImageAs
     <section className="parallax-header__wrapper" ref={wrapperRef}>
       <div className="parallax-header__container" ref={containerRef}>
         <div className="images__container" ref={imagesRef}>
-          {images.map((image, i) => (
-            <SizedImage
-              key={image._id}
-              image={image}
-              alt={"Selected portfolio image " + (i + 1)}
-              size="large"
-              quality={90}
-            />
-          ))}
+          {images?.length
+            ? images.map((image, i) => (
+                <SizedImage
+                  key={image?._id + i}
+                  image={image}
+                  alt={"Selected portfolio image " + (i + 1)}
+                  size="large"
+                  quality={90}
+                />
+              ))
+            : null}
         </div>
       </div>
     </section>

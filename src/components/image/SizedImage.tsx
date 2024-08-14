@@ -9,7 +9,7 @@ export default function SizedImage({
   size = "medium",
   quality = 75,
 }: {
-  image: SanityImageAssetDocument;
+  image: SanityImageAssetDocument | null;
   alt: string;
   size?: "small" | "medium" | "large";
   quality?: number;
@@ -20,12 +20,11 @@ export default function SizedImage({
   const nextImage = useRef<HTMLImageElement>(null);
 
   useLayoutEffect(() => {
-    ImageSizing(image, wrapper.current, size);
-
     function handleResize() {
       ImageSizing(image, wrapper.current, size);
-      console.log("resize-image");
     }
+
+    ImageSizing(image, wrapper.current, size);
 
     window.addEventListener("resize", handleResize);
     return () => {
@@ -34,22 +33,26 @@ export default function SizedImage({
   }, [image, size]);
 
   useLayoutEffect(() => {
-    if (src === image.url && nextImage.current) {
+    if (src === image?.url && nextImage.current) {
       nextImage.current.classList.add("--unblur");
     }
   }, [src, image]);
 
-  return (
-    <div ref={wrapper} className="image__wrapper">
-      <Image
-        fill
-        ref={nextImage}
-        alt={alt}
-        src={src || `${image.metadata.lqip}`}
-        quality={quality}
-        onLoad={() => setSrc(image.url)}
-        sizes={getNextImageSizes(size)}
-      />
-    </div>
-  );
+  if (src || image?.metadata?.lqip) {
+    return (
+      <div ref={wrapper} className="image__wrapper">
+        <Image
+          fill
+          ref={nextImage}
+          alt={alt}
+          src={src || `${image?.metadata?.lqip}`}
+          quality={quality}
+          onLoad={() => setSrc(image.url)}
+          sizes={getNextImageSizes(size)}
+        />
+      </div>
+    );
+  }
+
+  return null;
 }

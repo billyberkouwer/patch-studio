@@ -5,8 +5,9 @@ import "./three-scrolling-images.scss";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { SanityImageAssetDocument } from "next-sanity";
+import { splitArrayIntoSubArrays } from "@/helpers";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
@@ -14,12 +15,15 @@ export default function ThreeScrollingImages({
   imageSlides,
   marginBottom,
 }: {
-  imageSlides: SanityImageAssetDocument[][];
+  imageSlides: SanityImageAssetDocument[] | null;
   marginBottom?: "small" | "medium" | "large";
 }) {
   const imagesWrapperRef = useRef<HTMLDivElement>(null);
   const threeImagesContainer = useRef(null);
   const imageRef = useRef<HTMLDivElement>(null);
+  const [imageSlidesSub, setImageSlidesSub] = useState(
+    imageSlides?.length ? splitArrayIntoSubArrays(imageSlides, 3) : null
+  );
 
   useEffect(() => {
     const imageContainers = document.querySelectorAll(".images__container");
@@ -46,7 +50,7 @@ export default function ThreeScrollingImages({
               pin: true,
               end: "+=1000",
               scrub: 0.4,
-              invalidateOnRefresh: true
+              invalidateOnRefresh: true,
             },
           }
         );
@@ -70,13 +74,14 @@ export default function ThreeScrollingImages({
                 start: "50% 50%",
                 end: "+=1000",
                 scrub: 0.4,
-                invalidateOnRefresh: true
+                invalidateOnRefresh: true,
               },
-              y: () => -calculateScrollAmount(
-                imageContainers[i] as HTMLDivElement,
-                imageRef.current
-              ),
-              stagger: 0.03
+              y: () =>
+                -calculateScrollAmount(
+                  imageContainers[i] as HTMLDivElement,
+                  imageRef.current
+                ),
+              stagger: 0.03,
             }
           );
         }
@@ -86,25 +91,35 @@ export default function ThreeScrollingImages({
     return () => ctx.revert();
   }, []);
 
-  useGSAP(() => {});
-
   return (
     <div
       className={`three-images__wrapper ${marginBottom ? marginBottom : ""}`}
       ref={imagesWrapperRef}
     >
       <div className="three-images__container" ref={threeImagesContainer}>
-        {imageSlides.map((images, i) => (
-          <div key={images[i]._id} className="images__wrapper">
-            <div className="images__container">
-              {images.map((image) => (
-                <div className="image__wrapper" key={image._id + image.url} ref={imageRef}>
-                  <Image fill src={image.url} alt="" placeholder="blur" blurDataURL={image.metadata.lqip} />
+        {imageSlidesSub?.length
+          ? imageSlidesSub.map((images, i) => (
+              <div key={images[i]?._id} className="images__wrapper">
+                <div className="images__container">
+                  {images.map((image) => (
+                    <div
+                      className="image__wrapper"
+                      key={image?._id + image?.url}
+                      ref={imageRef}
+                    >
+                      <Image
+                        fill
+                        src={image?.url}
+                        alt=""
+                        placeholder={image?.metadata?.lqip ? "blur" : undefined}
+                        blurDataURL={image?.metadata?.lqip}
+                      />
+                    </div>
+                  ))}
                 </div>
-              ))}
-            </div>
-          </div>
-        ))}
+              </div>
+            ))
+          : null}
       </div>
     </div>
   );

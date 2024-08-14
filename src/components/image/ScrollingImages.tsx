@@ -19,7 +19,7 @@ export default function ScrollingImages({
   size = "medium",
   isContained,
 }: {
-  images: SanityImageAssetDocument[];
+  images: SanityImageAssetDocument[] | null;
   title: string;
   isFixed?: boolean;
   scrollDirection?: undefined | null | "left" | "right";
@@ -50,7 +50,8 @@ export default function ScrollingImages({
           trigger: wrapperRef.current,
           start: isFixed ? "50% 50%" : "top 50%",
           pin: isFixed,
-          end: () => "+=" + 2000 * ((window.innerHeight / window.innerWidth / 3) + 0.5),
+          end: () =>
+            "+=" + 2000 * (window.innerHeight / window.innerWidth / 3 + 0.5),
           scrub: 0.4,
           invalidateOnRefresh: true,
         },
@@ -63,14 +64,13 @@ export default function ScrollingImages({
   }, []);
 
   return (
-    <section
-      className="scrolling-images__wrapper"
-      ref={wrapperRef}
-    >
+    <section className="scrolling-images__wrapper" ref={wrapperRef}>
       <div className={`scrolling-images__container --${size}`} ref={imagesRef}>
-        {images.map((image, i) => (
-          <SizedImage key={image._id} image={image} alt="" />
-        ))}
+        {images?.length
+          ? images.map((image, i) => (
+              <SizedImage key={image?._id + i} image={image} alt="" />
+            ))
+          : null}
       </div>
     </section>
   );

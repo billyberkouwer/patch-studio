@@ -16,7 +16,7 @@ export default function ContainerBookingCards({
   bookingOptions,
 }: {
   shootType: "editorial" | "headshot";
-  bookingOptions: BookingOption[];
+  bookingOptions: BookingOption[] | null;
 }) {
   const [currentSelectionValue, setCurrentSelectionValue] = useState<
     string | undefined
@@ -50,7 +50,11 @@ export default function ContainerBookingCards({
           isSwiped = true;
         }
 
-        if (direction === "left" && swipePosition < numBookingEls - 1 && !isSwiped) {
+        if (
+          direction === "left" &&
+          swipePosition < numBookingEls - 1 &&
+          !isSwiped
+        ) {
           swipePosition = swipePosition + 1;
           gsap.to(bookingContainer.current, {
             x: "-=" + parseInt(`${swipeAmount}`),
@@ -86,19 +90,21 @@ export default function ContainerBookingCards({
     <div className="booking-cards__wrapper">
       <form className="booking-cards__form">
         <div className="booking-cards__container" ref={bookingContainer}>
-          {bookingOptions.map((bookingCard) => (
-            <BookingCard
-              shootType={shootType}
-              key={bookingCard._key}
-              bookingTypeTitle={bookingCard.bookingTypeTitle}
-              bookingImage={bookingCard.bookingImage}
-              bookingInfoBlock={bookingCard.bookingInfoBlock}
-              isSelected={
-                currentSelectionValue === bookingCard.bookingTypeTitle
-              }
-              callback={handleChangeSelection}
-            />
-          ))}
+          {bookingOptions?.length
+            ? bookingOptions.map((bookingCard) => (
+                <BookingCard
+                  shootType={shootType}
+                  key={bookingCard._key}
+                  bookingTypeTitle={bookingCard.bookingTypeTitle}
+                  bookingImage={bookingCard.bookingImage}
+                  bookingInfoBlock={bookingCard.bookingInfoBlock}
+                  isSelected={
+                    currentSelectionValue === bookingCard.bookingTypeTitle
+                  }
+                  callback={handleChangeSelection}
+                />
+              ))
+            : null}
         </div>
         <div className="submit__wrapper">
           <input

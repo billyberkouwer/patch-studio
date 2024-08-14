@@ -10,6 +10,7 @@ import ContainerBookingCards from "../booking/ContainerBookingCards";
 import FAQAccordion from "../faq/FAQAccordion";
 import ThreeScrollingImages from "../image/ThreeScrollingImages";
 import { splitArrayIntoSubArrays } from "@/helpers";
+import ColumnText from "../global/ColumnText";
 
 export default function PageWrapper({
   title,
@@ -42,10 +43,9 @@ export default function PageWrapper({
           );
         }
         if (componentData._type === "verticalScrollImages") {
-          const imgArray = splitArrayIntoSubArrays(componentData.selectionOfImages, 3)
           return (
             <div key={componentData._key}>
-              <ThreeScrollingImages imageSlides={imgArray} />
+              <ThreeScrollingImages imageSlides={componentData.selectionOfImages} />
             </div>
           );
         }
@@ -53,6 +53,13 @@ export default function PageWrapper({
           return (
             <div key={componentData._key}>
               <Tagline>{componentData.taglineText}</Tagline>
+            </div>
+          );
+        }
+        if (componentData._type === "textColumns") {
+          return (
+            <div key={componentData._key}>
+              <ColumnText textArr={componentData.columnText}></ColumnText>
             </div>
           );
         }
@@ -85,35 +92,7 @@ export default function PageWrapper({
               </section>
             )
         }
-        // if (pageComponent._type === "horizontalScrollImages") {
-        //     return ()
-        // }
-        // if (pageComponent._type === "horizontalScrollImages") {
-        //     return ()
-        // }
-        // if (pageComponent._type === "horizontalScrollImages") {
-        //     return ()
-        // }
       })}
-      {/* <section>
-        <Heading headingType="h1">Headshots</Heading>
-        <Tagline>
-          Lorem ipsum dolor sit amet consectetur est cupiditate labore
-          voluptatibus dicta aspernatur.
-        </Tagline>
-        <ThreeScrollingImages
-          imageSlides={[
-            [images[0], images[1], images[2]],
-            [images[3], images[4], images[5]],
-            [images[6], images[7], images[0]],
-          ]}
-          marginBottom="medium"
-        />
-        <ColumnText textArr={columnText.slice(2)} />
-
-      </section>
-      
-      <SeePortfolioButton /> */}
     </div>
   );
 }

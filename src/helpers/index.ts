@@ -36,11 +36,11 @@ export function getCenterTextFromClasslist(classList: DOMTokenList) {
 }
 
 export function ImageSizing(
-  image: SanityImageAssetDocument,
+  image: SanityImageAssetDocument | null,
   wrapper: HTMLDivElement | null,
   size: "small" | "medium" | "large"
 ) {
-  if (wrapper) {
+  if (wrapper && image) {
     wrapper.classList.add("--" + size);
     const height = Math.round(parseInt(getComputedStyle(wrapper).height));
     wrapper.style.width = image.metadata.dimensions.aspectRatio * height + "px";

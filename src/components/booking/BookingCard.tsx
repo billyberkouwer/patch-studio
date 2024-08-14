@@ -33,9 +33,9 @@ export default function BookingCard({
       <div className="booking-card__container">
         <h4>{bookingTypeTitle}</h4>
         <div className="booking-card-image__wrapper">
-          <Image src={bookingImage.url} alt={shootType + " picture"} fill />
+          <Image src={bookingImage?.url} alt={shootType + " picture"} fill />
         </div>
-        {bookingInfoBlock
+        {bookingInfoBlock?.length
           ? bookingInfoBlock.map((bookingBlock, i) => {
               if (i < bookingInfoBlock.length - 1) {
                 return (
@@ -44,8 +44,8 @@ export default function BookingCard({
                     className="shoot-details__wrapper--underline"
                   >
                     <ShootDetails
-                      title={bookingBlock.title}
-                      details={bookingBlock.details}
+                      title={bookingBlock?.title}
+                      details={bookingBlock?.details}
                       centerText
                     />
                   </div>
@@ -53,10 +53,10 @@ export default function BookingCard({
               } else {
                 return (
                   <ShootDetails
-                    title={bookingBlock.title}
-                    details={bookingBlock.details}
+                    title={bookingBlock?.title}
+                    details={bookingBlock?.details}
                     centerText
-                    key={bookingBlock._key}
+                    key={bookingBlock?._key}
                   />
                 );
               }
