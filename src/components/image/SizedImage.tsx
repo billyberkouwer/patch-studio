@@ -38,7 +38,7 @@ export default function SizedImage({
     }
   }, [src, image]);
 
-  if (src || image?.metadata?.lqip) {
+  if (image?.metadata?.lqip && image?.url) {
     return (
       <div ref={wrapper} className="image__wrapper">
         <Image
