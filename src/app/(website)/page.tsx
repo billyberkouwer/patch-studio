@@ -9,7 +9,7 @@ import { fetchHomepageData } from "@/sanity/queries";
 export default async function Home() {
   const data = await sanityFetch<HomepageDataType>({
     query: fetchHomepageData,
-    revalidate: false,
+    tags: ["page"]
   });
   return <Homepage pageData={data.pageBuilderHome} />;
 }
