@@ -105,8 +105,10 @@ div {
     gap: 1rem;
     font-size: 2rem;
     align-items: center;
+    background-color: $light;
 
     p {
         margin: 0;
+        font-weight: 600;
     }
 }

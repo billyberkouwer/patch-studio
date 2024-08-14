@@ -74,8 +74,8 @@ export default function RootLayout({
         {draftMode().isEnabled ? <VisualEditing /> : null}
         {draftMode().isEnabled ? (
           <div className="disable-preview__wrapper">
-            <p>You are viewing a preview version of this site</p>
-            <Button slug="/api/draft-mode/disable">Disable preview mode</Button>
+            <p>You are viewing the unpublished preview version of this site</p>
+            <Button state="bold" slug="/api/draft-mode/disable">Disable preview mode</Button>
           </div>
         ) : null}
         {draftMode().isEnabled === false ? <LandingPage /> : null}
