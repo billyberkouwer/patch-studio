@@ -9,24 +9,26 @@ export default function ShootInfoSection({
   shootDetails,
   description,
 }: {
-  shootDetails: KeyInfoBlockType[];
-  description: PortableTextBlock[];
+  shootDetails: KeyInfoBlockType[] | null;
+  description: PortableTextBlock[] | null;
 }) {
   return (
     <section className="shoot-info__wrapper">
       <div className="shoot-info__container">
         <div className="shoot-details__wrapper">
-          {shootDetails.map((shootDetail, i) => (
-            <ShootDetails
-              key={shootDetail.details[0] + shootDetail.title + i}
-              title={shootDetail.title}
-              details={shootDetail.details}
-            />
-          ))}
+          {shootDetails?.length
+            ? shootDetails.map((shootDetail, i) => (
+                <ShootDetails
+                  key={shootDetail?.details[0] + shootDetail?.title + i}
+                  title={shootDetail?.title}
+                  details={shootDetail?.details}
+                />
+              ))
+            : null}
         </div>
         <div className="shoot-description__wrapper">
           <ShootDescription>
-            <PortableText value={description} />
+            {description?.length ? <PortableText value={description} /> : null}
           </ShootDescription>
         </div>
         <Button state="bold">Learn More</Button>
