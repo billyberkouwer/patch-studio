@@ -8,7 +8,7 @@ async function getAllProjectSlugs() {
   const projectSlugs = (await client.fetch(
     allProjectSlugs,
     {},
-    { perspective: "published" }
+    { perspective: "published", tag: "page" }
   ));
   
   return projectSlugs;
