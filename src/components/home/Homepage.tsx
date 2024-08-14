@@ -28,17 +28,35 @@ export default function Homepage({
   const [centerTextContent, setCenterTextContent] = useState("patch studio");
 
   useEffect(() => {
-    if (centerTextContent == "patch studio") {
-      gsap.to("#book-button", {
-        opacity: 0,
-        duration: 0.2,
-      });
-    } else {
-      gsap.to("#book-button", {
-        opacity: 1,
-        duration: 0.2,
-      });
-    }
+    const scrollEvent = () => {
+      const pxToScrollBottom =
+        parseInt(`${document.scrollingElement?.scrollHeight}`) -
+        window.scrollY -
+        window.innerHeight;
+      if (pxToScrollBottom < 50) {
+        gsap.to("#book-button", {
+          opacity: 0,
+          duration: 0.2,
+        });
+      }
+    };
+
+    document.addEventListener("scroll", scrollEvent);
+
+    const ctx = gsap.context(() => {
+      if (centerTextContent == "patch studio") {
+      } else {
+        gsap.to("#book-button", {
+          opacity: 1,
+          duration: 0.2,
+        });
+      }
+    });
+
+    return () => {
+      ctx.clear();
+      document.removeEventListener("scroll", scrollEvent);
+    };
   }, [centerTextContent]);
 
   useGSAP(() => {
@@ -89,20 +107,6 @@ export default function Homepage({
         },
       });
     }
-
-    gsap.fromTo(
-      "#book-button",
-      { opacity: 0 },
-      {
-        scrollTrigger: {
-          trigger: "#footer",
-          start: "top bottom",
-          toggleActions: "reverse reverse play play",
-        },
-        opacity: 1,
-        duration: 0.2,
-      }
-    );
   }, []);
 
   return (
