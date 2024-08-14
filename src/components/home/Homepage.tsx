@@ -45,6 +45,10 @@ export default function Homepage({
 
     const ctx = gsap.context(() => {
       if (centerTextContent == "patch studio") {
+        gsap.to("#book-button", {
+          opacity: 0,
+          duration: 0.2,
+        });
       } else {
         gsap.to("#book-button", {
           opacity: 1,
