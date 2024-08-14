@@ -2,7 +2,7 @@ import { revalidateTag } from "next/cache";
 import { type NextRequest, NextResponse } from "next/server";
 import { parseBody } from "next-sanity/webhook";
 
-const hookSecret = process.env.SANITY_HOOK_SECRET;
+const hookSecret = process.env.SANITY_WEBHOOK_SECRET;
 
 export async function POST(req: NextRequest) {
   try {
@@ -19,8 +19,9 @@ export async function POST(req: NextRequest) {
       return new Response("Bad Request", { status: 400 });
     }
 
+    console.log(body?._type);
     revalidateTag(body._type);
-    
+
     return NextResponse.json({
       status: 200,
       revalidated: true,

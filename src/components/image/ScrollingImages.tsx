@@ -37,13 +37,14 @@ export default function ScrollingImages({
       );
     }
 
+    console.log(-calculateScrollAmount(imagesRef.current))
     gsap.fromTo(
       imagesRef.current,
       {
         x:
           scrollDirection === "right"
             ? () => -calculateScrollAmount(imagesRef.current)
-            : 0,
+            : "0px",
       },
       {
         scrollTrigger: {
@@ -57,11 +58,11 @@ export default function ScrollingImages({
         },
         x:
           scrollDirection === "right"
-            ? 0
+            ? "0px"
             : () => -calculateScrollAmount(imagesRef.current),
       }
     );
-  }, []);
+  }, [scrollDirection]);
 
   return (
     <section className="scrolling-images__wrapper" ref={wrapperRef}>
