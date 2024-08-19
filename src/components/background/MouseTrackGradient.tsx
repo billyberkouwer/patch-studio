@@ -3,6 +3,10 @@
 import { useEffect, useRef } from "react";
 import "./mouse-track-gradient.scss";
 import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+import { Observer } from "gsap/all";
+
+gsap.registerPlugin(useGSAP, Observer)
 
 export default function MouseTrackGradient({
   zIndex = 0,
@@ -12,13 +16,12 @@ export default function MouseTrackGradient({
   disableAfterDelay?: boolean;
 }) {
   const gradient = useRef<HTMLDivElement>(null);
-  useEffect(() => {
-    document.addEventListener("mousemove", mouseMoveFunc);
-
-    function mouseMoveFunc(e: MouseEvent) {
+  
+  useGSAP(() => {
+    function mouseMoveFunc(e: Observer) {
       const depth = 1;
-      const moveX = e.clientX / depth;
-      const moveY = e.clientY / depth;
+      const moveX = e.x || 0 / depth;
+      const moveY = e.y || 0 / depth;
 
       gsap.to(gradient.current, {
         x: moveX,
@@ -29,19 +32,14 @@ export default function MouseTrackGradient({
       });
     }
 
-    if (disableAfterDelay) {
-      const timeout = setTimeout(() => {
-        document.removeEventListener("mousemove", mouseMoveFunc);
-      }, 2000);
-
-      return () => {
-        clearTimeout(timeout);
-        document.removeEventListener("mousemove", mouseMoveFunc);
-      };
-    }
+    const observer = Observer.create({
+      target: window,
+      onChange: e => mouseMoveFunc(e),
+      type: "pointer, touch"
+    })
 
     return () => {
-      document.removeEventListener("mousemove", mouseMoveFunc);
+      observer.kill();
     };
   }, [disableAfterDelay]);
 

@@ -5,11 +5,15 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 15rem;
+    margin-bottom: 10rem;
     position: relative;
     padding-left: 0.8rem;
     padding-right: 0.8rem;
     box-sizing: border-box;
+
+    @include lg {
+        margin-bottom: 15rem;
+    }
 }
 
 .tagline__container {

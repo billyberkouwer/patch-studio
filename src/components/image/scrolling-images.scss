@@ -3,7 +3,12 @@
 .scrolling-images__wrapper {
     margin-top: 0.8rem;
     overflow: visible;
-    margin-bottom: 15rem;
+    margin-bottom: 10rem;
+
+    @include lg {
+        margin-bottom: 15rem;
+
+    }
 }
 
 .scrolling-images__container {
@@ -58,5 +63,5 @@
         }
     }
 
-    
+
 }
