@@ -32,10 +32,17 @@ export default function ThreeScrollingImages({
       container: HTMLDivElement | null,
       imageEl: HTMLDivElement | null
     ): number {
-      return (
-        parseInt(`${container?.getBoundingClientRect().height}`) -
-        parseInt(`${imageEl?.getBoundingClientRect().height}`)
-      );
+      if (container) {
+        console.log(
+          parseInt(`${container?.getBoundingClientRect().height}`) *
+            (container.children.length - 2)
+        );
+        return (
+          parseInt(`${container?.getBoundingClientRect().height}`) *
+          (container.children.length - 2)
+        );
+      }
+      return 0;
     }
 
     let ctx = gsap.context(() => {
@@ -56,15 +63,6 @@ export default function ThreeScrollingImages({
         );
 
         for (let i = 0; i < imageContainers.length; i++) {
-          console.log(
-            calculateScrollAmount(
-              imageContainers[i] as HTMLDivElement,
-              imageRef.current
-            )
-          );
-
-          console.log(imageContainers[i]);
-
           gsap.fromTo(
             imageContainers,
             { y: 0 },
@@ -89,7 +87,7 @@ export default function ThreeScrollingImages({
     });
 
     return () => ctx.revert();
-  }, []);
+  }, [imageSlidesSub]);
 
   return (
     <div
