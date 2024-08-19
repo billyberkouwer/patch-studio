@@ -29,7 +29,8 @@ export const verticalScrollImages = defineType({
           }
           if (val.length % 3 !== 0) {
             return {
-              message: "These images are split into 3 so you must have a multiple of 3 images, e.g. 3/6/9/12 images, etc.",
+              message:
+                "These images are split into 3 so you must have a multiple of 3 images, e.g. 3/6/9/12 images, etc.",
               level: "error",
             };
           }
@@ -37,16 +38,17 @@ export const verticalScrollImages = defineType({
         });
       },
     }),
-    
   ],
   preview: {
     select: {
       title: "title",
+      image: "selectionOfImages.0.asset",
     },
-    prepare({ title }) {
+    prepare({ title, image }) {
       return {
         title: title || "Untitled",
         subtitle: "Three Vertical Scrolling Image Blocks",
+        media: image,
       };
     },
   },

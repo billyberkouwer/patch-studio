@@ -21,6 +21,7 @@ export const horizontalScrollImages = defineType({
       name: "sizeOfHorizontalScrollImages",
       title: "Size of horizontal scroll images",
       type: "sizeOfObject",
+      description: "Choose a size for these images on the page. Larger images will automatically convert to higher resolution."
     }),
     defineField({
       name: "directionOfHorizontalImageScroll",
@@ -31,11 +32,13 @@ export const horizontalScrollImages = defineType({
   preview: {
     select: {
       title: "title",
+      image: "selectionOfImages.0.asset",
     },
-    prepare({ title }) {
+    prepare({ title, image }) {
       return {
         title: title || "Untitled",
         subtitle: "Horizontally Scrolling Images",
+        media: image
       };
     },
   },

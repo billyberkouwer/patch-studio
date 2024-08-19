@@ -54,7 +54,7 @@ type InfoSectionHomeType = {
 };
 
 type TaglineHomeType = {
-  text: string;
+  taglineText: string;
   _key: string;
   _type: "taglineHome";
   centerTextContent: string | undefined;

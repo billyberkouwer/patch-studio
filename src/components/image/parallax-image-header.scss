@@ -28,6 +28,12 @@
             position: relative;
             height: 100%;
             display: inline-block;
+            object-fit: cover;
+            max-width: 50vw;
+
+            img {
+                object-fit: cover;
+            }
         }
     }
 }

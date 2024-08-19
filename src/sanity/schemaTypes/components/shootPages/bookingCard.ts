@@ -9,6 +9,7 @@ export const bookingCard = defineType({
             type: "string",
             name: "bookingTypeTitle",
             title: "Booking Type Title",
+            description: "The name of this booking type, e.g. Editorial Style Shoot."
         }),
         defineField({
             type: "image",

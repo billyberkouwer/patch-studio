@@ -148,12 +148,13 @@ export default function Homepage({
               );
             }
             if (componentData._type === "taglineHome") {
+              console.log(componentData)
               return (
                 <div
                   key={componentData._key}
                   className={`animation-trigger ${assignClasses(componentData)}`}
                 >
-                  <Tagline>{componentData.text}</Tagline>
+                  <Tagline>{componentData.taglineText}</Tagline>
                 </div>
               );
             }

@@ -23,11 +23,13 @@ export const parallaxImageHeader = defineType({
   preview: {
     select: {
       title: "title",
+      image: "selectionOfImages.0.asset",
     },
-    prepare({ title }) {
+    prepare({ title, image }) {
       return {
         title: title || "Untitled",
         subtitle: "Parallax Image Header",
+        media: image
       };
     },
   },

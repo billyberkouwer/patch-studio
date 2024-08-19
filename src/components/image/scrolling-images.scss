@@ -12,34 +12,6 @@
     white-space: nowrap;
     min-width: fit-content;
 
-    &.--small {
-        .image__wrapper {
-            height: 20rem;
-
-            @include md {
-                height: 40rem;
-            }
-        }
-    }
-
-    &.--medium {
-
-        .image__wrapper {
-            height: 30rem;
-
-            @include md {
-                height: 50rem;
-            }
-        }
-    }
-
-    &.--large {
-
-        .image__wrapper {
-            height: 70rem;
-        }
-    }
-
     .image__wrapper {
         position: relative;
         display: inline-block;
@@ -57,4 +29,34 @@
             }
         }
     }
+
+    &.--small {
+        .image__wrapper {
+            height: 20rem;
+
+            @include md {
+                height: 40rem;
+            }
+        }
+    }
+
+    &.--medium {
+
+        .image__wrapper {
+            height: 40rem;
+
+            @include md {
+                height: 50rem;
+            }
+        }
+    }
+
+    &.--large {
+
+        .image__wrapper {
+            height: 70rem;
+        }
+    }
+
+    
 }
