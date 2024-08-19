@@ -3,10 +3,12 @@
 .navbar {
     display: flex;
     width: 100%;
+    min-height: 4.2rem;
     position: fixed;
     padding: 0.8rem;
     box-sizing: border-box;
     justify-content: center;
+    align-items: center;
     top: 0;
     z-index: 9;
     cursor: url("/pointer.svg") 0 0, pointer;
@@ -34,6 +36,7 @@
     margin-left: 0.8rem;
     z-index: 2;
     color: $blue;
+    transition: color $fast;
 
     &.mob-nav--visible {
         color: $light;
@@ -56,28 +59,25 @@
 }
 
 .mob-nav {
-    display: none;
     width: 100%;
     height: var(--real-viewport-height);
     position: absolute;
     top: 0;
     background-color: $blue;
     color: $blue;
+    transition: color $fast;
 
     &.--visible {
-        display: block;
         color: $light;
     }
 
     @include md {
-        display: block;
         height: unset;
         width: unset;
         position: relative;
         background-color: unset;
 
         &.--visible {
-            display: block;
             color: $blue;
         }
     }

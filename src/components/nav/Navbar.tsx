@@ -6,6 +6,10 @@ import Nav from "./Nav";
 import NavLogo from "./NavLogo";
 import "./navbar.scss";
 import { usePathname } from "next/navigation";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+
+gsap.registerPlugin(useGSAP);
 
 export default function Navbar({
   navItems,
@@ -14,6 +18,41 @@ export default function Navbar({
 }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const pathname = usePathname();
+
+  useEffect(() => {
+    const nav = document.querySelector(".mob-nav");
+
+    const ctx = gsap.context(() => {
+      let mm = gsap.matchMedia();
+
+      // add a media query. When it matches, the associated function will run
+      mm.add("(max-width: 768px)", () => {
+        if (isMenuOpen) {
+          gsap.fromTo(
+            nav,
+            { y: "-100%" },
+            {
+              y: "0%",
+            }
+          );
+        } else {
+          gsap.to(nav, {
+            y: "-100%",
+          });
+        }
+      });
+
+      mm.add("min-width: 768px", () => {
+        gsap.to(nav, {
+          y: "0%",
+        });
+      });
+    });
+
+    return () => {
+      ctx.revert();
+    };
+  }, [isMenuOpen]);
 
   useEffect(() => {
     setIsMenuOpen(false);

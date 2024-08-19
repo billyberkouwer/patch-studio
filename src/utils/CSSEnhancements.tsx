@@ -32,11 +32,9 @@ export default function CSSEnhancements() {
     setVariables();
 
     window.addEventListener("resize", setVariables);
-    document.addEventListener("scroll", setVariables);
 
     return () => {
       window.removeEventListener("resize", setVariables);
-      document.removeEventListener("scroll", setVariables);
     };
   }, []);
 
