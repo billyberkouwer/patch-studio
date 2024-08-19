@@ -63,8 +63,9 @@ export default function ContainerBookingCards({
         }
       }
       const observer = Observer.create({
-        target: window, // can be any element (selector text is fine)
+        target: bookingContainer.current, // can be any element (selector text is fine)
         type: "pointer,touch", // comma-delimited list of what to listen for ("wheel,touch,scroll,pointer")
+        tolerance: 100,
         onRight: (el) => {
           swipe("right");
         },

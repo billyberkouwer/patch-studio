@@ -20,7 +20,6 @@ export default function ColumnText({
     <div className="column-text__wrapper">
       <div
         className={`column-text__container`}
-        style={{ gridTemplateColumns: createColumns(textArr.length) }}
       >
         {textArr.map((text) => (
           <p key={text}>{text}</p>

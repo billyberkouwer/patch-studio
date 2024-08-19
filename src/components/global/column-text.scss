@@ -1,3 +1,5 @@
+@import "@/styles/helpers.scss";
+
 .column-text__wrapper {
     width: 100%;
     display: flex;
@@ -7,18 +9,29 @@
 }
 
 .column-text__container {
-    display: grid;
-    gap: 3.2rem;
+    display: flex;
+    gap: 0.8rem;
     width: 1600px;
     font-size: 1.6rem;
     padding: 0.8rem;
-}
+    flex-flow: column;
 
-.column-text__container {
-    display: flex;
-    justify-content: center;
+
+    @include xs {
+        gap: 1.6rem;
+    }
+
+    @include sm {
+        gap: 2rem;
+        flex-flow: row;
+    }
+
+    @include md {
+        gap: 3.2rem;
+    }
+
     p {
-        max-width: 1000px;
-        font-size: 1.6rem;
+        width: fit-content;
+        flex: 1;
     }
 }

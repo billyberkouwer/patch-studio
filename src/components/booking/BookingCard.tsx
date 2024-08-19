@@ -21,7 +21,6 @@ export default function BookingCard({
   isSelected: boolean;
   callback: (currentValue: string) => void;
 }) {
-
   return (
     <label className={`booking-card__wrapper ${isSelected ? "selected" : ""}`}>
       <input
@@ -33,7 +32,15 @@ export default function BookingCard({
       <div className="booking-card__container">
         <h4>{bookingTypeTitle}</h4>
         <div className="booking-card-image__wrapper">
-          <Image src={bookingImage?.url} alt={shootType + " picture"} fill />
+          <Image
+            src={bookingImage?.url}
+            alt={shootType + " picture"}
+            fill
+            onDragStart={(e) => {
+              e.preventDefault();
+              return false;
+            }}
+          />
         </div>
         {bookingInfoBlock?.length
           ? bookingInfoBlock.map((bookingBlock, i) => {
