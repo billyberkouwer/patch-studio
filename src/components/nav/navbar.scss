@@ -9,6 +9,12 @@
     justify-content: center;
     top: 0;
     z-index: 9;
+    cursor: url("/pointer.svg") 0 0, pointer;
+
+    @include md {
+        cursor: url("/cursor.svg") 0 0,
+        default;
+    }
 }
 
 .mobile-menu-button__wrapper {
@@ -16,12 +22,26 @@
     position: absolute;
     right: 0;
     margin-right: 0.8rem;
+
+    @include md {
+        display: none;
+    }
 }
 
 .nav-logo__wrapper {
     position: absolute;
     left: 0;
     margin-left: 0.8rem;
+    z-index: 2;
+    color: $blue;
+
+    &.mob-nav--visible {
+        color: $light;
+
+        @include md {
+            color: $blue;
+        }
+    }
 }
 
 .bookings-button__wrapper {
@@ -30,14 +50,35 @@
     margin-right: 0.8rem;
     display: none;
 
-    @include sm {
+    @include md {
         display: block;
     }
 }
 
-.mob-nav--visible {
+.mob-nav {
     display: none;
-    @include sm {
+    width: 100%;
+    height: var(--real-viewport-height);
+    position: absolute;
+    top: 0;
+    background-color: $blue;
+    color: $blue;
+
+    &.--visible {
         display: block;
+        color: $light;
+    }
+
+    @include md {
+        display: block;
+        height: unset;
+        width: unset;
+        position: relative;
+        background-color: unset;
+
+        &.--visible {
+            display: block;
+            color: $blue;
+        }
     }
 }

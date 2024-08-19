@@ -4,30 +4,44 @@ nav {
     position: relative;
     align-self: center;
     justify-self: center;
+    height: 100%;
 }
 
 .nav-list {
     display: flex;
-    border: 1px solid $blue;
-    background-color: $light-75;
+    align-items: center;
+    justify-content: center;
     backdrop-filter: blur(2px);
     padding: 0.5rem 1rem;
     margin: 0;
     gap: 1rem;
+    flex-direction: column;
+    height: 100%;
+
+    @include md {
+        flex-direction: row;
+        border: 1px solid $blue;
+        background-color: $light-75;
+        padding: 0.15rem 0.5rem;
+    }
+
 }
 
 .nav-item {
-    color: $blue;
-    font-size: 1.6rem;
+    font-size: 3rem;
     list-style-type: none;
     text-transform: uppercase;
 
-    a {
-        text-decoration: none;
-        color: unset;
+    @include md {
+        font-size: 1.6rem;
     }
 
-    &:hover, &.active {
+    a {
+        text-decoration: none;
+    }
+
+    &:hover,
+    &.active {
         font-weight: 500;
     }
 }

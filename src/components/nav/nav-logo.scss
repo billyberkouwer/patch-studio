@@ -3,9 +3,13 @@
 .patch-logo {
     font-weight: normal;
     font-size: 3rem;
-    color: $blue;
     height: fit-content;
     align-self: center;
     text-transform: uppercase;
     font-family: var(--mFont);
+    position: relative;
+
+    &:hover {
+        font-weight: bold;
+    }
 }

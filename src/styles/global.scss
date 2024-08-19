@@ -45,10 +45,6 @@ a {
     line-height: unset;
     position: relative;
     cursor: url("/pointer.svg") 0 0, pointer;
-
-    &:hover {
-        color: $blue;
-    }
 }
 
 .page__wrapper {

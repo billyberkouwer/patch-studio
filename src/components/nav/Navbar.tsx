@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Button from "../global/Button";
 import Nav from "./Nav";
 import NavLogo from "./NavLogo";
@@ -15,6 +15,10 @@ export default function Navbar({
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const pathname = usePathname();
 
+  useEffect(() => {
+    setIsMenuOpen(false);
+  }, [pathname]);
+
   if (pathname.includes("admin")) {
     return null;
   }
@@ -25,10 +29,12 @@ export default function Navbar({
 
   return (
     <div id="navbar" className="navbar">
-      <div className="nav-logo__wrapper">
+      <div
+        className={`nav-logo__wrapper ${isMenuOpen ? "mob-nav--visible" : ""}`}
+      >
         <NavLogo />
       </div>
-      <div className={isMenuOpen ? "mob-nav--visible" : ""}>
+      <div className={isMenuOpen ? "mob-nav --visible" : "mob-nav"}>
         <Nav navItems={navItems} />
       </div>
       <div className="mobile-menu-button__wrapper">
