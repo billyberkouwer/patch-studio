@@ -25,7 +25,7 @@ export default function ThreeScrollingImages({
     imageSlides?.length ? splitArrayIntoSubArrays(imageSlides, 3) : null
   );
 
-  useEffect(() => {
+  useGSAP(() => {
     const imageContainers = document.querySelectorAll(".images__container");
 
     function calculateScrollAmount(
@@ -34,11 +34,11 @@ export default function ThreeScrollingImages({
     ): number {
       if (container) {
         console.log(
-          parseInt(`${container?.getBoundingClientRect().height}`) *
+          parseInt(`${imageEl?.getBoundingClientRect().height}`) *
             (container.children.length - 2)
         );
         return (
-          parseInt(`${container?.getBoundingClientRect().height}`) *
+          parseInt(`${imageEl?.getBoundingClientRect().height}`) *
           (container.children.length - 2)
         );
       }

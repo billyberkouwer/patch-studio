@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Button from "../global/Button";
 import Nav from "./Nav";
 import NavLogo from "./NavLogo";
@@ -36,9 +36,12 @@ export default function Navbar({
             }
           );
         } else {
-          gsap.to(nav, {
-            y: "-100%",
-          });
+          gsap.to(
+            nav,
+            {
+              y: "-100%",
+            }
+          );
         }
       });
 
@@ -50,7 +53,7 @@ export default function Navbar({
     });
 
     return () => {
-      ctx.revert();
+      ctx.kill();
     };
   }, [isMenuOpen]);
 

@@ -35,6 +35,7 @@ export default function MouseTrackGradient({
     const observer = Observer.create({
       target: window,
       onChange: e => mouseMoveFunc(e),
+      onMove: e => mouseMoveFunc(e),
       type: "pointer, touch"
     })
 

@@ -66,6 +66,7 @@
     background-color: $blue;
     color: $blue;
     transition: color $fast;
+    transform: translateY(-100%);
 
     &.--visible {
         color: $light;
@@ -76,6 +77,7 @@
         width: unset;
         position: relative;
         background-color: unset;
+        transform: unset;
 
         &.--visible {
             color: $blue;
