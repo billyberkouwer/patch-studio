@@ -21,6 +21,7 @@ function outputTextWithNewLine(text: string) {
 export default async function Page() {
   const contactData = await sanityFetch<ContactPageData>({
     query: fetchContactData,
+    tags: ["contact"]
   });
 
   return (
