@@ -30,7 +30,8 @@ export const page = defineType({
                              .replace(/\s+/g, '-')
                              .slice(0, 200)
       },
-      description: `A slug is required to display the page on the website. It is used in the URL. For example, if the slug is "editorial", it will be linked under patchstudio.uk/editorial`
+      description: `A slug is required to display the page on the website. It is used in the URL. For example, if the slug is "editorial", it will be linked under patchstudio.uk/editorial`,
+      validation: Rule => Rule.required()
     }),
     orderRankField({ type: "project", newItemPosition: "before" }),
     defineField({

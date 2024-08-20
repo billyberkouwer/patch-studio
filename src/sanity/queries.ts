@@ -21,6 +21,13 @@ export const fetchHomepageData = groq`
     }
 `;
 
+export const fetchContactData = groq`
+    *[_type == "contact"][0] {
+    ...,
+    "locationImages": locationImages[].asset->,
+    }
+`
+
 export const fetchEditorialData = groq`
     *[_type == "page"][0] {
         ...,

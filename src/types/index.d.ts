@@ -173,3 +173,20 @@ type PageDataType = {
   slug: string;
   _rev: string;
 }
+
+type SocialLink = {
+  _key: string;
+  title: string;
+  _type: string;
+  link: string;
+  linkType: string;
+}
+
+type ContactPageData = {
+  googleEmbedMap: string;
+  _id: string;
+  location: string;
+  locationImages: SanityImageAssetDocument[];
+  _type: "contact";
+  socialLinks: SocialLink[]
+}

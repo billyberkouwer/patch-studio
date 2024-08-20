@@ -4,21 +4,20 @@
     width: 100%;
     height: 100%;
 
-    input[type=text], input[type=email], textarea {
+    input[type=text],
+    input[type=email],
+    textarea {
         font-family: var(--hvFont);
         font-size: 1.6rem;
         appearance: none;
         border: none;
         border-radius: 0;
-    }
-    
-    input[type=text], input[type=email], textarea { 
         border: 1px solid $dark;
         background: $light;
 
-
         &:focus {
             border: 1px solid $blue;
+            outline: none;
         }
 
     }
@@ -27,7 +26,6 @@
 .contact-form__container {
     width: 100%;
     height: 100%;
-    padding: 0.8rem;
     box-sizing: border-box;
 }
 

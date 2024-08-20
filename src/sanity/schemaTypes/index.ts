@@ -25,6 +25,8 @@ import { bookingCard } from "./components/shootPages/bookingCard";
 import { columnText } from "./components/shootPages/columnText";
 import { bookingSection } from "./components/shootPages/bookingSection";
 import { verticalScrollImages } from "./components/shootPages/verticalScrollImages";
+import { contactPage } from "./pages/contact";
+import { contactLinks } from "./objects/contactLinks";
 
 export const schemaTypes = [
   pageBuilderHome,
@@ -53,5 +55,7 @@ export const schemaTypes = [
   directionOfScroll,
   home,
   centerTextContent,
-  verticalScrollImages
+  verticalScrollImages,
+  contactPage,
+  contactLinks,
 ];

@@ -57,7 +57,10 @@ a {
 
     &.--fixed-height {
         padding-top: var(--nav-height);
-        height: var(--real-viewport-height);
+
+        @include md {
+            height: var(--real-viewport-height);
+        }
     }
 
     &.--no-height {
@@ -75,11 +78,6 @@ a {
     padding: 0.8rem;
     box-sizing: border-box;
     z-index: 9;
-}
-
-address {
-    font-style: normal;
-    font-size: 1.6rem;
 }
 
 section,

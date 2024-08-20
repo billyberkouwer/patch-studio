@@ -5,7 +5,6 @@ import {
 
 export const resolve: PresentationPluginOptions["resolve"] = {
   locations: {
-    // Add more locations for other post types
     page: defineLocations({
       select: {
         title: "title",
@@ -17,8 +16,25 @@ export const resolve: PresentationPluginOptions["resolve"] = {
             title: doc?.title || "Untitled",
             href: `/${doc?.slug}`,
           },
-          { title: "Home", href: `/` },
         ],
+      }),
+    }),
+    home: defineLocations({
+      select: {
+        title: "title",
+        slug: "/",
+      },
+      resolve: (doc) => ({
+        locations: [{ title: doc?.title || "Home", href: "/" }],
+      }),
+    }),
+    contact: defineLocations({
+      select: {
+        title: "title",
+        slug: "slug.current",
+      },
+      resolve: (doc) => ({
+        locations: [{ title: doc?.title || "Contact", href: "/" + doc?.slug }],
       }),
     }),
   },

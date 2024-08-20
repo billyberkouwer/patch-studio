@@ -75,26 +75,60 @@ export function getNextImageSizes(size: "small" | "medium" | "large"): string {
 
 export function splitArrayIntoSubArrays(arr: any[], n: number) {
   var rest = arr.length % n, // how much to divide
-      restUsed = rest, // to keep track of the division over the elements
-      partLength = Math.floor(arr.length / n),
-      result = [];
+    restUsed = rest, // to keep track of the division over the elements
+    partLength = Math.floor(arr.length / n),
+    result = [];
 
-  for(var i = 0; i < arr.length; i += partLength) {
-      var end = partLength + i,
-          add = false;
+  for (var i = 0; i < arr.length; i += partLength) {
+    var end = partLength + i,
+      add = false;
 
-      if(rest !== 0 && restUsed) { // should add one element for the division
-          end++;
-          restUsed--; // we've used one division element now
-          add = true;
-      }
+    if (rest !== 0 && restUsed) {
+      // should add one element for the division
+      end++;
+      restUsed--; // we've used one division element now
+      add = true;
+    }
 
-      result.push(arr.slice(i, end)); // part of the array
+    result.push(arr.slice(i, end)); // part of the array
 
-      if(add) {
-          i++; // also increment i in the case we added an extra element for division
-      }
+    if (add) {
+      i++; // also increment i in the case we added an extra element for division
+    }
   }
 
   return result;
+}
+
+export function filterSrc(iframeString: string | null | undefined) {
+  // Regular expression to match the src attribute
+  if (iframeString) {
+    const match = iframeString.match(/src="([^"]+)"/);
+    if (match) {
+      return match[1];
+    }
+  }
+
+  return null;
+}
+
+export function formatContactLink(link: string, linkType: string) {
+  switch (linkType) {
+      case "Email address":
+          return 'mailto:' + link;
+          break;
+      case "Telephone number":
+          return 'tel:' + link;
+          break;
+      case "Website link":
+          if (!link.includes('http://') && !link.includes('https://')) {
+              return 'https://' + link;
+          } else {
+              return link;
+          }
+          break;
+      default:
+          return '#';
+          break
+  }
 }

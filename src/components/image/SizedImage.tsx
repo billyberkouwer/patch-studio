@@ -45,7 +45,6 @@ export default function SizedImage({
             (e.target as HTMLImageElement).classList.add("--unblur");
           }}
           sizes={getNextImageSizes(size)}
-          onDragStart={e => {e.preventDefault(); return false}}
         />
       </div>
     );
