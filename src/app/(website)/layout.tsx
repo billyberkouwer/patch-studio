@@ -11,6 +11,7 @@ import { draftMode } from "next/headers";
 import Button from "@/components/global/Button";
 import LandingPage from "@/components/landing/LandingPage";
 import NavbarWrapper from "@/components/nav/NavbarWrapper";
+import Script from "next/script";
 
 const mFont = localFont({
   src: [{ path: "./fonts/m.ttf", style: "regular" }],
@@ -75,7 +76,9 @@ export default function RootLayout({
         {draftMode().isEnabled ? (
           <div className="disable-preview__wrapper">
             <p>You are viewing the unpublished preview version of this site</p>
-            <Button state="bold" slug="/api/draft-mode/disable">Disable preview mode</Button>
+            <Button state="bold" slug="/api/draft-mode/disable">
+              Disable preview mode
+            </Button>
           </div>
         ) : null}
         {draftMode().isEnabled === false ? <LandingPage /> : null}

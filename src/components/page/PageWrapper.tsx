@@ -21,7 +21,7 @@ export default function PageWrapper({
 }) {
 
   return (
-    <div className="page__wrapper top-padding">
+    <div className="page__wrapper --top-padding">
       <Heading>{title}</Heading>
       {pageData?.length ? pageData.map((componentData) => {
         if (componentData._type === "horizontalScrollImages") {

@@ -35,6 +35,9 @@ export default function BookingCard({
           <Image
             src={bookingImage?.url}
             alt={shootType + " picture"}
+            placeholder="blur"
+            blurDataURL={bookingImage?.metadata?.lqip}
+            sizes="(max-width: 768px) 200px, 400px"
             fill
             onDragStart={(e) => {
               e.preventDefault();

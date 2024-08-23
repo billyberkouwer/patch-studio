@@ -11,6 +11,20 @@ html {
     font-size: var(--rem-size);
     cursor: url("/cursor.svg") 0 0,
         default;
+
+    &.--hide-scrollbar {
+
+        /* Hide scrollbar for Chrome, Safari and Opera */
+        &::-webkit-scrollbar {
+            display: none;
+        }
+
+        /* Hide scrollbar for IE, Edge and Firefox */
+        -ms-overflow-style: none;
+        /* IE and Edge */
+        scrollbar-width: none;
+        /* Firefox */
+    }
 }
 
 body {
@@ -51,7 +65,21 @@ a {
     overflow: hidden;
     box-sizing: border-box;
 
-    &.top-padding {
+    &.--hide-navbar {
+
+        /* Hide scrollbar for Chrome, Safari and Opera */
+        &::-webkit-scrollbar {
+            display: none;
+        }
+
+        /* Hide scrollbar for IE, Edge and Firefox */
+        -ms-overflow-style: none;
+        /* IE and Edge */
+        scrollbar-width: none;
+        /* Firefox */
+    }
+
+    &.--top-padding {
         padding-top: 10rem;
     }
 

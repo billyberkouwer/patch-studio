@@ -85,7 +85,7 @@ export default function Navbar({
         </Button>
       </div>
       <div className="bookings-button__wrapper">
-        <Button state="bold" slug="/">
+        <Button state="bold" slug="/bookings">
           Bookings
         </Button>
       </div>

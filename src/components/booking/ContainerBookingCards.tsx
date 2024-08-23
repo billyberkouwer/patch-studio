@@ -45,7 +45,7 @@ export default function ContainerBookingCards({
         if (direction === "right" && swipePosition > 0 && !isSwiped) {
           swipePosition = swipePosition - 1;
           gsap.to(bookingContainer.current, {
-            x: "+=" + parseInt(`${swipeAmount}`),
+            x: "+=" + (parseInt(`${swipeAmount}`) + 8),
           });
           isSwiped = true;
         }
@@ -57,7 +57,7 @@ export default function ContainerBookingCards({
         ) {
           swipePosition = swipePosition + 1;
           gsap.to(bookingContainer.current, {
-            x: "-=" + parseInt(`${swipeAmount}`),
+            x: "-=" + (parseInt(`${swipeAmount}`) + 8),
           });
           isSwiped = true;
         }
