@@ -3,6 +3,7 @@
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { useRef, useState } from "react";
+import "./booking-iframe.scss";
 
 gsap.registerPlugin(useGSAP);
 
