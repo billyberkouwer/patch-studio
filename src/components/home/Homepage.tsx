@@ -154,7 +154,7 @@ export default function Homepage({
                   key={componentData._key}
                   className={`animation-trigger ${assignClasses(componentData)}`}
                 >
-                  <Tagline>{componentData.taglineText}</Tagline>
+                  <Tagline marginBottom={componentData.marginBottom}>{componentData.taglineText}</Tagline>
                 </div>
               );
             }

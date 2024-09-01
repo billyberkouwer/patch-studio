@@ -59,6 +59,7 @@ type TaglineHomeType = {
   _key: string;
   _type: "taglineHome";
   centerTextContent: string | undefined;
+  marginBottom: "normal" | "small" | undefined;
 };
 
 type ParallaxImageHeaderType = {
@@ -101,6 +102,7 @@ type TaglineType = {
   _key: string;
   _type: "tagline";
   centerTextContent: string | undefined;
+  marginBottom: "normal" | "small" | undefined;
 };
 
 type ButtonWithLinkType = {

@@ -3,11 +3,11 @@ import "./tagline.scss";
 import { ReactNode } from "react";
 
 export default function Tagline({
-  marginBottom,
   children,
+  marginBottom,
 }: {
-  marginBottom: "normal" | "small";
   children: ReactNode;
+  marginBottom?: "normal" | "small";
 }) {
   return (
     <div
