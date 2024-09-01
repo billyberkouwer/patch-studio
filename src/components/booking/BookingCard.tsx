@@ -11,6 +11,7 @@ export default function BookingCard({
   bookingTypeTitle,
   bookingImage,
   bookingInfoBlock,
+  bookingType,
   isSelected,
   callback,
 }: {
@@ -18,8 +19,9 @@ export default function BookingCard({
   bookingTypeTitle: string;
   bookingImage: SanityImageAssetDocument;
   bookingInfoBlock: BookingOption["bookingInfoBlock"];
+  bookingType: string;
   isSelected: boolean;
-  callback: (currentValue: string) => void;
+  callback: (currentValue: { value: string; at: string }) => void;
 }) {
   return (
     <label className={`booking-card__wrapper ${isSelected ? "selected" : ""}`}>
@@ -27,7 +29,7 @@ export default function BookingCard({
         type="radio"
         name={shootType}
         value={bookingTypeTitle}
-        onClick={() => callback(bookingTypeTitle)}
+        onClick={() => callback({ value: bookingTypeTitle, at: bookingType })}
       />
       <div className="booking-card__container">
         <h4>{bookingTypeTitle}</h4>

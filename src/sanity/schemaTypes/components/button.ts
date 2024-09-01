@@ -1,9 +1,11 @@
+import { RiLink } from "react-icons/ri";
 import { defineArrayMember, defineField, defineType } from "sanity";
 
 export const button = defineType({
   name: "buttonWithLink",
   type: "object",
   title: "Button With Link",
+  icon: RiLink,
   fields: [
     defineField({
       name: "text",

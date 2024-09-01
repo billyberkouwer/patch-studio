@@ -3,7 +3,7 @@ import { RiCalendarCheckLine } from "react-icons/ri";
 
 export const bookingSection = defineType({
   name: "bookingSection",
-  title: "Booking Section",
+  title: "Acuity Booking",
   type: "object",
   icon: RiCalendarCheckLine,
   fields: [

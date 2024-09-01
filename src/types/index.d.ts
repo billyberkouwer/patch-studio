@@ -20,6 +20,7 @@ type KeyInfoBlockType = {
 type BookingOption = {
   bookingImage: SanityImageAssetDocument
   bookingInfoBlock: KeyInfoBlockType[];
+  appointmentType: string;
   _type: 'bookingCard';
   bookingTypeTitle: string;
   _key: string;

@@ -12,6 +12,18 @@ export const tagline = defineType({
       title: "Tagline text",
       type: "text",
     }),
+    defineField({
+      name: "marginBottom",
+      title: "Bottom Margin",
+      type: "string",
+      options: {
+        list: [
+          { title: "Normal", value: "normal" },
+          { title: "Small", value: "small" },
+        ],
+      },
+      initialValue: "normal",
+    }),
   ],
   preview: {
     select: {

@@ -27,6 +27,7 @@ import { bookingSection } from "./components/shootPages/bookingSection";
 import { verticalScrollImages } from "./components/shootPages/verticalScrollImages";
 import { contactPage } from "./pages/contact";
 import { contactLinks } from "./objects/contactLinks";
+import { sectionHeader } from "./components/shootPages/sectionHeader";
 
 export const schemaTypes = [
   pageBuilderHome,
@@ -58,4 +59,5 @@ export const schemaTypes = [
   verticalScrollImages,
   contactPage,
   contactLinks,
+  sectionHeader
 ];

@@ -8,6 +8,7 @@ import { BookingOption } from "@/types";
 import gsap from "gsap";
 import { Observer } from "gsap/all";
 import { useGSAP } from "@gsap/react";
+import { useRouter } from "next/navigation";
 
 gsap.registerPlugin(Observer, useGSAP);
 
@@ -19,9 +20,10 @@ export default function ContainerBookingCards({
   bookingOptions: BookingOption[] | null;
 }) {
   const [currentSelectionValue, setCurrentSelectionValue] = useState<
-    string | undefined
+    { value: string; at: string } | undefined
   >(undefined);
   const bookingContainer = useRef<HTMLDivElement>(null);
+  const router = useRouter();
 
   useEffect(() => {
     const numBookingEls = document.querySelectorAll(
@@ -83,7 +85,7 @@ export default function ContainerBookingCards({
     };
   }, []);
 
-  function handleChangeSelection(currentValue: string) {
+  function handleChangeSelection(currentValue: { value: string; at: string }) {
     setCurrentSelectionValue(currentValue);
   }
 
@@ -99,8 +101,10 @@ export default function ContainerBookingCards({
                   bookingTypeTitle={bookingCard.bookingTypeTitle}
                   bookingImage={bookingCard.bookingImage}
                   bookingInfoBlock={bookingCard.bookingInfoBlock}
+                  bookingType={bookingCard.appointmentType}
                   isSelected={
-                    currentSelectionValue === bookingCard.bookingTypeTitle
+                    currentSelectionValue?.value ===
+                    bookingCard.bookingTypeTitle
                   }
                   callback={handleChangeSelection}
                 />
@@ -113,10 +117,18 @@ export default function ContainerBookingCards({
             className={`button ${currentSelectionValue ? "bold" : "inactive"}`}
             value={
               currentSelectionValue
-                ? `Book ${currentSelectionValue}`
+                ? `Book ${currentSelectionValue.value}`
                 : `Select Session to Book`
             }
             disabled={currentSelectionValue ? false : true}
+            onClick={(e) => {
+              e.preventDefault();
+              let link = "/bookings";
+              if (currentSelectionValue?.at) {
+                link = link + "?at=" + currentSelectionValue.at;
+              }
+              router.push(link);
+            }}
           />
         </div>
       </form>

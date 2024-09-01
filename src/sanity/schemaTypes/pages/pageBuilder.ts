@@ -31,5 +31,14 @@ export const pageBuilder = defineType({
     defineArrayMember({
       type: "faqSection",
     }),
+    defineArrayMember({
+      type: "buttonWithLink"
+    }),
+    defineArrayMember({
+      type: "contactLinks"
+    }),
+    defineArrayMember({
+      type: "sectionHeader",
+    })
   ],
 });

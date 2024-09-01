@@ -25,7 +25,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
     params: {
       slug: params.slug,
     },
-    tags: ["page"]
+    tags: ["page"],
   });
 
   if (!pageData) {
