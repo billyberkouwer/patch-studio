@@ -1,13 +1,13 @@
 import { DropdownItemType, FAQSectionType } from "@/types";
 import CustomAccordion from "./CustomAccordion";
 import "./faq-accordion-container.scss";
+import FAQBackground from "./FAQBackground";
 
 export default function FAQAccordion({
   faqItems,
 }: {
   faqItems: DropdownItemType[];
 }) {
-
   return (
     <div className="accordion__wrapper">
       <div className="accordion__container">

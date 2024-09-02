@@ -1,0 +1,16 @@
+@import "@/styles/helpers.scss";
+
+.faq-background__wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.faq-background__container {
+    position: relative;
+}
+
+.question-mark {
+    position: absolute;
+    color: $blue;
+    font-size: 3rem;
+}

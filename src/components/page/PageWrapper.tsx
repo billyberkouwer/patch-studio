@@ -12,6 +12,7 @@ import ThreeScrollingImages from "../image/ThreeScrollingImages";
 import { formatContactLink, splitArrayIntoSubArrays } from "@/helpers";
 import ColumnText from "../global/ColumnText";
 import Button from "../global/Button";
+import FAQBackground from "../faq/FAQBackground";
 
 export default function PageWrapper({
   title,
@@ -95,7 +96,8 @@ export default function PageWrapper({
             }
             if (componentData._type === "faqSection") {
               return (
-                <section key={componentData._key}>
+                <section key={componentData._key} style={{overflow: "hidden"}} id="faq-section">
+                  <FAQBackground />
                   <Heading>FAQs</Heading>
                   <FAQAccordion faqItems={componentData.faqItem} />
                 </section>
