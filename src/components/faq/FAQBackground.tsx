@@ -17,11 +17,14 @@ export default function FAQBackground() {
 
     let randomCoords: { x: number; y: number }[] = [];
     const faqHeight = document.getElementById("faq-section")?.clientHeight;
-    console.log(faqHeight)
+    console.log(faqHeight);
     QUESTION_MARKS.forEach(() => {
       randomCoords.push({
-        x: Math.floor(Math.random() * window.window.innerWidth) / 2 ,
-        y: Math.floor(Math.random() * (faqHeight || window.innerHeight / 2)) / 2,
+        x: Math.floor(Math.random() * window.window.innerWidth) / 2,
+        y:
+          Math.floor(
+            Math.random() * (faqHeight || window.innerHeight / 2) - 60
+          ) / 2,
       });
     });
 
@@ -36,10 +39,9 @@ export default function FAQBackground() {
 
       const elapsed = timeStamp * SPEED_FACTOR - start;
       const noiseCoordArr = randomCoords.map((coord, i) => ({
-        x: Math.abs(noise(coord.x + elapsed, coord.x + elapsed)),
-        y: Math.abs(noise(coord.y + elapsed, coord.y + elapsed)),
+        x: Math.abs(noise(coord.x + elapsed, coord.x + elapsed) + 0.5),
+        y: Math.abs(noise(coord.y + elapsed, coord.y + elapsed) + 0.5),
       }));
-
 
       questionMarks.forEach((questionMark, i) => {
         questionMark.style.transform =
@@ -47,9 +49,12 @@ export default function FAQBackground() {
           noiseCoordArr[i].x * window.innerWidth +
           "px" +
           "," +
-          noiseCoordArr[i].y * (faqHeight || window.innerHeight / 2)+
+          noiseCoordArr[i].y * (faqHeight || window.innerHeight / 2) +
           "px" +
-          ")";
+          ") " +
+          "rotate(" +
+          noiseCoordArr[i].x * 360 +
+          "deg)";
       });
 
       requestAnimationFrame(addTimeToCoords);
