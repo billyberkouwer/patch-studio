@@ -39,8 +39,8 @@ export default function FAQBackground() {
 
       const elapsed = timeStamp * SPEED_FACTOR - start;
       const noiseCoordArr = randomCoords.map((coord, i) => ({
-        x: Math.abs(noise(coord.x + elapsed, coord.x + elapsed) + 0.5),
-        y: Math.abs(noise(coord.y + elapsed, coord.y + elapsed) + 0.5),
+        x: Math.abs(noise(coord.x + elapsed, coord.x + elapsed) + 0.5) / 1.5,
+        y: Math.abs(noise(coord.y + elapsed, coord.y + elapsed) + 0.5) / 1.5,
       }));
 
       questionMarks.forEach((questionMark, i) => {
