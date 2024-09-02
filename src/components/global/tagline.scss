@@ -16,11 +16,7 @@
     }
 
     &.small-bottom-margin {
-        margin-bottom: 2rem;
-
-        @include lg {
-            margin-bottom: 5rem;
-        }
+        margin-bottom: 5rem;
     }
 }
 
