@@ -17,21 +17,26 @@
     flex-flow: column;
     justify-content: center;
 
+    p {
+        width: 100%;
+    }
+
     @include xs {
-        gap: 1.6rem;
+        gap: 0.8rem;
     }
 
     @include sm {
-        gap: 2rem;
+        gap: 1.2rem;
         flex-flow: row;
+
+        p {
+            width: 33.3%;
+        }
     }
 
     @include md {
         gap: 3.2rem;
     }
 
-    p {
-        width: fit-content;
-        flex: 1;
-    }
+
 }

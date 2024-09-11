@@ -19,7 +19,7 @@ export const sectionHeader = defineType({
     },
     prepare({ text }) {
       return {
-        title: "Header",
+        title: "Section Header",
         subtitle: text,
       };
     },

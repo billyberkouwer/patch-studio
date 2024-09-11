@@ -38,25 +38,32 @@ export default function Homepage({
           opacity: 0,
           duration: 0.2,
         });
+      } else if (centerTextContent !== "patch studio") {
+        gsap.to("#book-button", {
+          opacity: 1,
+          duration: 0.2,
+        });
       }
     };
 
     document.addEventListener("scroll", scrollEvent);
+    const tl = gsap.timeline();
 
     const ctx = gsap.context(() => {
       if (centerTextContent == "patch studio") {
-        gsap.to("#book-button", {
+        tl.to("#book-button", {
           opacity: 0,
           duration: 0.2,
         });
       } else {
-        gsap.to("#book-button", {
+        tl.to("#book-button", {
           opacity: 1,
           duration: 0.2,
         });
       }
     });
 
+    document.addEventListener("resize", () => tl.invalidate());
     return () => {
       ctx.clear();
       document.removeEventListener("scroll", scrollEvent);
@@ -148,13 +155,15 @@ export default function Homepage({
               );
             }
             if (componentData._type === "taglineHome") {
-              console.log(componentData)
+              console.log(componentData);
               return (
                 <div
                   key={componentData._key}
                   className={`animation-trigger ${assignClasses(componentData)}`}
                 >
-                  <Tagline marginBottom={componentData.marginBottom}>{componentData.taglineText}</Tagline>
+                  <Tagline marginBottom={componentData.marginBottom}>
+                    {componentData.taglineText}
+                  </Tagline>
                 </div>
               );
             }
@@ -174,7 +183,16 @@ export default function Homepage({
           })
         : null}
       <div id="book-button" className="fixed-book-button__wrapper">
-        <Button state="invert" slug="/">
+        <Button
+          state="bold"
+          slug={
+            centerTextContent === "editorial"
+              ? "/editorial#booking"
+              : centerTextContent === "headshots"
+                ? "/headshots#booking"
+                : ""
+          }
+        >
           Book {centerTextContent}
         </Button>
       </div>

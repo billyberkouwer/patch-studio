@@ -34,18 +34,20 @@ export default function BookingCard({
       <div className="booking-card__container">
         <h4>{bookingTypeTitle}</h4>
         <div className="booking-card-image__wrapper">
-          <Image
-            src={bookingImage?.url}
-            alt={shootType + " picture"}
-            placeholder="blur"
-            blurDataURL={bookingImage?.metadata?.lqip}
-            sizes="(max-width: 768px) 200px, 400px"
-            fill
-            onDragStart={(e) => {
-              e.preventDefault();
-              return false;
-            }}
-          />
+          {bookingImage?.url ? (
+            <Image
+              src={bookingImage?.url}
+              alt={shootType + " picture"}
+              placeholder="blur"
+              blurDataURL={bookingImage?.metadata?.lqip || ""}
+              sizes="(max-width: 768px) 200px, 400px"
+              fill
+              onDragStart={(e) => {
+                e.preventDefault();
+                return false;
+              }}
+            />
+          ) : null}
         </div>
         {bookingInfoBlock?.length
           ? bookingInfoBlock.map((bookingBlock, i) => {

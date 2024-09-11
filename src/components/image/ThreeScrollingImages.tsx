@@ -27,6 +27,7 @@ export default function ThreeScrollingImages({
 
   useGSAP(() => {
     const imageContainers = document.querySelectorAll(".images__container");
+    const tl = gsap.timeline();
 
     function calculateScrollAmount(
       container: HTMLDivElement | null,
@@ -45,49 +46,46 @@ export default function ThreeScrollingImages({
       return 0;
     }
 
-    let ctx = gsap.context(() => {
-      if (imageContainers.length) {
-        gsap.fromTo(
-          threeImagesContainer.current,
-          { y: 0 },
+    if (imageContainers.length && imageSlides && imageSlides?.length >= 6) {
+      tl.fromTo(
+        threeImagesContainer.current,
+        { y: 0 },
+        {
+          scrollTrigger: {
+            trigger: imagesWrapperRef.current,
+            start: "50% 50%",
+            pin: true,
+            end: "+=1000",
+            scrub: 0.4,
+            invalidateOnRefresh: true,
+          },
+        }
+      );
+
+      for (let i = 0; i < imageContainers.length; i++) {
+        tl.fromTo(
+          imageContainers,
+          { y: 0, top: "-100%" },
           {
             scrollTrigger: {
               trigger: imagesWrapperRef.current,
               start: "50% 50%",
-              pin: true,
               end: "+=1000",
               scrub: 0.4,
               invalidateOnRefresh: true,
             },
+            y: () =>
+              -calculateScrollAmount(
+                imageContainers[i] as HTMLDivElement,
+                imageRef.current
+              ),
+            stagger: 0.03,
           }
         );
-
-        for (let i = 0; i < imageContainers.length; i++) {
-          gsap.fromTo(
-            imageContainers,
-            { y: 0 },
-            {
-              scrollTrigger: {
-                trigger: imagesWrapperRef.current,
-                start: "50% 50%",
-                end: "+=1000",
-                scrub: 0.4,
-                invalidateOnRefresh: true,
-              },
-              y: () =>
-                -calculateScrollAmount(
-                  imageContainers[i] as HTMLDivElement,
-                  imageRef.current
-                ),
-              stagger: 0.03,
-            }
-          );
-        }
       }
-    });
-
-    return () => ctx.revert();
-  }, [imageSlidesSub]);
+    }
+    window.addEventListener("resize", () => tl.invalidate());
+  }, [imageSlidesSub, imageSlides]);
 
   return (
     <div

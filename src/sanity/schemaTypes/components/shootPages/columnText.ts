@@ -7,7 +7,7 @@ export const columnText = defineType({
   title: "Text Columns",
   icon: ImParagraphJustify,
   description:
-    "The text blocks you add here will automatically be turned into columns. Two blocks will be split in two columns, three in three, etc.",
+    "The text blocks you add here will automatically be turned into columns. Two blocks will be split in two columns, three in three columns, etc.",
   fields: [
     defineField({
       name: "columnText",
@@ -24,13 +24,13 @@ export const columnText = defineType({
   ],
   preview: {
     select: {
-      title: "title",
-      subtitle: "columnText.0"
+      subtitle: "columnText"
     },
-    prepare({ title, subtitle }) {
+    prepare({ subtitle }) {
+      console.log(subtitle)
       return {
-        title: title || "Text Columns",
-        subtitle: subtitle,
+        title: "Text Columns",
+        subtitle: subtitle?.[0],
       };
     },
   },

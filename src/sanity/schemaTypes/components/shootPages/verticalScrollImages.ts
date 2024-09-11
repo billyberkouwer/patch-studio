@@ -20,17 +20,12 @@ export const verticalScrollImages = defineType({
       name: "selectionOfImages",
       title: "Selection of Images",
       validation: (rule) => {
-        return rule.custom((val: SanityImageAssetDocument[]) => {
-          if (!val.length) {
-            return {
-              message: "You must specify at least one image",
-              level: "error",
-            };
-          }
-          if (val.length % 3 !== 0) {
+        return rule.required().custom((val: SanityImageAssetDocument[]) => {
+          console.log(val);
+          if (!val || val?.length % 3 !== 0) {
             return {
               message:
-                "These images are split into 3 so you must have a multiple of 3 images, e.g. 3/6/9/12 images, etc.",
+                "These images are split into 3 blocks so you must have a multiple of 3 images, e.g. 3/6/9/12 images, etc.",
               level: "error",
             };
           }
@@ -42,13 +37,13 @@ export const verticalScrollImages = defineType({
   preview: {
     select: {
       title: "title",
-      image: "selectionOfImages.0.asset",
+      // image: "selectionOfImages.0.asset",
     },
-    prepare({ title, image }) {
+    prepare({ title }) {
       return {
         title: title || "Untitled",
         subtitle: "Three Vertical Scrolling Image Blocks",
-        media: image,
+        // media: image,
       };
     },
   },

@@ -32,7 +32,7 @@ export const tagline = defineType({
     prepare({ text }) {
       return {
         title: "Tagline",
-        subtitle: text,
+        subtitle: "Large centered text: " + text,
       };
     },
   },

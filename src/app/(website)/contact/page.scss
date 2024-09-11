@@ -9,6 +9,7 @@
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr;
     height: 200vh;
+
     @include md {
         height: 100%;
         grid-template-columns: 1fr 1fr;
@@ -30,6 +31,11 @@
     font-style: normal;
     font-size: 1.6rem;
     padding: 0.8rem;
+
+    @include sm {
+        padding: 0 0.8rem 0.8rem 0.8rem;
+    }
+
     order: 0;
 
 }
@@ -44,6 +50,11 @@
 .block-4__wrapper {
     border-bottom: 1px solid $dark;
     padding: 0.8rem;
+
+    @include sm {
+        padding: 0 0.8rem 0.8rem 0.8rem;
+
+    }
 
 }
 

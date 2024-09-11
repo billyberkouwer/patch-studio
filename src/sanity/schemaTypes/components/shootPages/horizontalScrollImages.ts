@@ -37,7 +37,7 @@ export const horizontalScrollImages = defineType({
     prepare({ title, image }) {
       return {
         title: title || "Untitled",
-        subtitle: "Horizontally Scrolling Images",
+        subtitle: "Horizontally scrolling images",
         media: image
       };
     },

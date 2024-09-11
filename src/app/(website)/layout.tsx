@@ -12,6 +12,11 @@ import Button from "@/components/global/Button";
 import LandingPage from "@/components/landing/LandingPage";
 import NavbarWrapper from "@/components/nav/NavbarWrapper";
 import Script from "next/script";
+import { useRouter } from "next/navigation";
+import { Router } from "next/router";
+import { MouseEvent } from "react";
+import { AppRouterInstance } from "next/dist/shared/lib/app-router-context.shared-runtime";
+import DisablePreview from "@/components/global/DisablePreview";
 
 const mFont = localFont({
   src: [{ path: "./fonts/m.ttf", style: "regular" }],
@@ -73,14 +78,7 @@ export default function RootLayout({
         {children}
         <Footer pages={navItems} />
         {draftMode().isEnabled ? <VisualEditing /> : null}
-        {draftMode().isEnabled ? (
-          <div className="disable-preview__wrapper">
-            <p>You are viewing the unpublished preview version of this site</p>
-            <Button state="bold" slug="/api/draft-mode/disable">
-              Disable preview mode
-            </Button>
-          </div>
-        ) : null}
+        {draftMode().isEnabled ? <DisablePreview /> : null}
         {draftMode().isEnabled === false ? <LandingPage /> : null}
       </body>
     </html>

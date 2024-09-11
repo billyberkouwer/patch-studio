@@ -16,28 +16,27 @@ export const page = defineType({
       name: "title",
       type: "string",
       title: "Page Title",
-      description: "N.B. You can set the order pages appear in the navigation bar by dragging the pages in the panel to the left of this one.",
+      description:
+        "(You can set the order pages appear in the navigation bar by dragging the pages in the panel to the left)",
     }),
     defineField({
       name: "slug",
       type: "slug",
       title: "Slug",
       options: {
-        source: 'title',
+        source: "title",
         maxLength: 200, // will be ignored if slugify is set
-        slugify: input => input
-                             .toLowerCase()
-                             .replace(/\s+/g, '-')
-                             .slice(0, 200)
+        slugify: (input) =>
+          input.toLowerCase().replace(/\s+/g, "-").slice(0, 200),
       },
-      description: `A slug is required to display the page on the website. It is used in the URL. For example, if the slug is "editorial", it will be linked under patchstudio.uk/editorial`,
-      validation: Rule => Rule.required()
+      description: `A slug is required to display the page on the website. It is used in the URL. E.g. if the slug is "editorial", the page link will be www.patchstudio.uk/editorial`,
+      validation: (Rule) => Rule.required(),
     }),
-    orderRankField({ type: "project", newItemPosition: "before" }),
     defineField({
       name: "pageBuilder",
       type: "pageBuilder",
       title: "Page Builder",
-    })
+    }),
+    orderRankField({ type: "project", newItemPosition: "before" }),
   ],
 });

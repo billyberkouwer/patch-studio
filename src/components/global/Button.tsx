@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import "./button.scss";
-import { ReactNode } from "react";
+import { MouseEvent, ReactNode } from "react";
 
 const stateStyle = {
   inactive: "inactive",
@@ -17,13 +17,12 @@ export default function Button({
   slug,
   callback,
 }: {
-  children: ReactNode,
+  children: ReactNode;
   state?: "inactive" | "bold" | "invert";
   isLarge?: boolean;
   slug?: string;
-  callback?: () => void;
+  callback?: (e: MouseEvent) => void;
 }) {
-  
   if (slug) {
     return (
       <Link
@@ -38,7 +37,7 @@ export default function Button({
   return (
     <button
       className={`button ${state ? stateStyle[state] : ""} ${isLarge ? "large" : ""}`}
-      onClick={() => (callback ? callback() : null)}
+      onClick={(e) => (callback ? callback(e) : null)}
     >
       {children}
     </button>

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import BookingCard from "./BookingCard";
 import "./container-booking-cards.scss";
 import "@/components/global/button.scss";
@@ -8,7 +8,7 @@ import { BookingOption } from "@/types";
 import gsap from "gsap";
 import { Observer } from "gsap/all";
 import { useGSAP } from "@gsap/react";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 
 gsap.registerPlugin(Observer, useGSAP);
 
@@ -26,18 +26,13 @@ export default function ContainerBookingCards({
   const router = useRouter();
 
   useEffect(() => {
-    const numBookingEls = document.querySelectorAll(
-      ".booking-card__wrapper"
-    ).length;
-  }, []);
-
-  useEffect(() => {
     const bookingEl = document.querySelector(".booking-card__wrapper");
     const swipeAmount = bookingEl?.getBoundingClientRect().width;
     const numBookingEls = document.querySelectorAll(
       ".booking-card__wrapper"
     ).length;
     let swipePosition = Math.floor(numBookingEls / 2);
+    const tl = gsap.timeline();
 
     const ctx = gsap.context(() => {
       let isSwiped = false;
@@ -46,7 +41,7 @@ export default function ContainerBookingCards({
         console.log(swipePosition);
         if (direction === "right" && swipePosition > 0 && !isSwiped) {
           swipePosition = swipePosition - 1;
-          gsap.to(bookingContainer.current, {
+          tl.to(bookingContainer.current, {
             x: "+=" + (parseInt(`${swipeAmount}`) + 8),
           });
           isSwiped = true;
@@ -58,7 +53,7 @@ export default function ContainerBookingCards({
           !isSwiped
         ) {
           swipePosition = swipePosition + 1;
-          gsap.to(bookingContainer.current, {
+          tl.to(bookingContainer.current, {
             x: "-=" + (parseInt(`${swipeAmount}`) + 8),
           });
           isSwiped = true;
@@ -67,18 +62,23 @@ export default function ContainerBookingCards({
       const observer = Observer.create({
         target: bookingContainer.current, // can be any element (selector text is fine)
         type: "pointer,touch", // comma-delimited list of what to listen for ("wheel,touch,scroll,pointer")
-        tolerance: 100,
+        tolerance: 40,
         onRight: (el) => {
+          document.body.style.overflowY = "hidden";
           swipe("right");
         },
         onLeft: (el) => {
+          document.body.style.overflowY = "hidden";
           swipe("left");
         },
         onStop: () => {
+          document.body.style.overflowY = "visible";
           isSwiped = false;
         },
       });
     });
+
+    document.addEventListener("resize", () => tl.invalidate());
 
     return () => {
       ctx.kill();
@@ -90,7 +90,7 @@ export default function ContainerBookingCards({
   }
 
   return (
-    <div className="booking-cards__wrapper">
+    <div className="booking-cards__wrapper" id="booking">
       <form className="booking-cards__form">
         <div className="booking-cards__container" ref={bookingContainer}>
           {bookingOptions?.length

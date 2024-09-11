@@ -37,8 +37,9 @@ export default function ScrollingImages({
       );
     }
 
-    console.log(-calculateScrollAmount(imagesRef.current))
-    gsap.fromTo(
+    const tl = gsap.timeline();
+    
+    tl.fromTo(
       imagesRef.current,
       {
         x:
@@ -62,16 +63,37 @@ export default function ScrollingImages({
             : () => -calculateScrollAmount(imagesRef.current),
       }
     );
+
+    window.addEventListener("resize", () => tl.invalidate());
   }, [scrollDirection]);
 
   return (
     <section className="scrolling-images__wrapper" ref={wrapperRef}>
       <div className={`scrolling-images__container --${size}`} ref={imagesRef}>
-        {images?.length
-          ? images.map((image, i) => (
-              <SizedImage key={image?._id + i} image={image} alt="" />
-            ))
-          : null}
+        {images?.length && !isFixed
+          ? images.map((image, i) => {
+              const length = images.length;
+              const displayedImages = [];
+              const iterations = 10 - length;
+              for (let ii = 0; ii < iterations; ii++) {
+                displayedImages.push(images[(ii % length) - 1]);
+              }
+              if (displayedImages.length < 1) {
+                return <SizedImage key={image?._id + i} image={image} alt="" />;
+              }
+              return displayedImages.map((displayedImage, i) => (
+                <SizedImage
+                  key={displayedImage?._id + i}
+                  image={displayedImage}
+                  alt=""
+                />
+              ));
+            })
+          : images?.length && isFixed
+            ? images.map((image, i) => (
+                <SizedImage key={image?._id + i} image={image} alt="" />
+              ))
+            : null}
       </div>
     </section>
   );

@@ -11,6 +11,8 @@ export const horizontalScrollImagesHome = defineType({
       name: "title",
       type: "string",
       title: "Title",
+      description:
+        "A name for this component. This title doesn't show up on the site - it's just for convenience.",
     }),
     defineField({
       type: "centerTextContent",
