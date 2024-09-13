@@ -26,7 +26,7 @@
         overflow: hidden;
 
         img {
-            transition: filter $slow;
+            // transition: filter $slow;
             filter: blur(10px);
 
             &.--unblur {

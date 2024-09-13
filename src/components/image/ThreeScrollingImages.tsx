@@ -36,11 +36,11 @@ export default function ThreeScrollingImages({
       if (container) {
         console.log(
           parseInt(`${imageEl?.getBoundingClientRect().height}`) *
-            (container.children.length - 2)
+            (container.children.length - 1)
         );
         return (
           parseInt(`${imageEl?.getBoundingClientRect().height}`) *
-          (container.children.length - 2)
+          (container.children.length - 1)
         );
       }
       return 0;
@@ -65,7 +65,7 @@ export default function ThreeScrollingImages({
       for (let i = 0; i < imageContainers.length; i++) {
         tl.fromTo(
           imageContainers,
-          { y: 0, top: "-100%" },
+          { y: 0, top: "0%" },
           {
             scrollTrigger: {
               trigger: imagesWrapperRef.current,
