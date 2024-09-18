@@ -30,12 +30,12 @@ export const structure = (S: any, context: any) => {
         S.listItem().title("Home").id("home").icon(RiHome2Line).child(
           S.document().schemaType("home").documentId("home").title("Home")
         ),
+        S.listItem().title("Contact").id("contact").icon(RiContactsBookLine).child(
+          S.document().schemaType("contact").documentId("contact").title("Contact")
+        ),
         S.listItem().title("Site Meta").id("site-meta").icon(RiSettings2Line).child(
           S.document().schemaType("siteMeta").documentId("site-meta").title("Site Meta")
         ),
-        S.listItem().title("Contact").id("contact").icon(RiContactsBookLine).child(
-          S.document().schemaType("contact").documentId("contact").title("Contact")
-        )
       ]
     );
 };
