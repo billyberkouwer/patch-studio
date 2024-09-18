@@ -3,7 +3,7 @@ import { structureTool } from "sanity/structure";
 import { visionTool } from "@sanity/vision";
 import { schemaTypes } from "@/sanity/schemaTypes";
 import { media } from "sanity-plugin-media";
-import { RiContactsBookLine, RiContactsLine, RiHome2Line } from "react-icons/ri";
+import { RiContactsBookLine, RiContactsLine, RiHome2Line, RiSettings2Line } from "react-icons/ri";
 import { RiPagesLine } from "react-icons/ri";
 import { presentationTool } from 'sanity/presentation';
 import {
@@ -29,6 +29,9 @@ export const structure = (S: any, context: any) => {
         orderableDocumentListDeskItem({ type: "page", title: "Pages", S, context, icon: RiPagesLine }),
         S.listItem().title("Home").id("home").icon(RiHome2Line).child(
           S.document().schemaType("home").documentId("home").title("Home")
+        ),
+        S.listItem().title("Site Meta").id("site-meta").icon(RiSettings2Line).child(
+          S.document().schemaType("siteMeta").documentId("site-meta").title("Site Meta")
         ),
         S.listItem().title("Contact").id("contact").icon(RiContactsBookLine).child(
           S.document().schemaType("contact").documentId("contact").title("Contact")

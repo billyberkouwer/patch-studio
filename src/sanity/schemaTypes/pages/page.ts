@@ -11,11 +11,18 @@ export const page = defineType({
   title: "Page",
   icon: RiPagesLine,
   orderings: [orderRankOrdering],
+  fieldsets: [{ name: "content", title: "Page Content" }],
+  groups: [
+    { name: "content", title: "Page Content", default: true },
+    { name: "pageMeta", title: "Page Meta" },
+  ],
   fields: [
     defineField({
       name: "title",
       type: "string",
       title: "Page Title",
+      group: "content",
+      fieldset: "content",
       description:
         "(You can set the order pages appear in the navigation bar by dragging the pages in the panel to the left)",
     }),
@@ -23,6 +30,8 @@ export const page = defineType({
       name: "slug",
       type: "slug",
       title: "Slug",
+      group: "content",
+      fieldset: "content",
       options: {
         source: "title",
         maxLength: 200, // will be ignored if slugify is set
@@ -36,7 +45,15 @@ export const page = defineType({
       name: "pageBuilder",
       type: "pageBuilder",
       title: "Page Builder",
+      fieldset: "content",
+      group: "content",
     }),
     orderRankField({ type: "project", newItemPosition: "before" }),
+    defineField({
+      name: "pageMeta",
+      title: "Page Meta",
+      type: "pageMeta",
+      group: "pageMeta",
+    }),
   ],
 });

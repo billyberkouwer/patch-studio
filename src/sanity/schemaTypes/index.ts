@@ -28,6 +28,16 @@ import { verticalScrollImages } from "./components/shootPages/verticalScrollImag
 import { contactPage } from "./pages/contact";
 import { contactLinks } from "./objects/contactLinks";
 import { sectionHeader } from "./components/shootPages/sectionHeader";
+import basic from "./objects/opengraph/basic";
+import optional from "./objects/opengraph/optional";
+import openGraph from "./objects/opengraph";
+import Locales from "./objects/locale";
+import WebManifest from "./objects/manifest";
+import Meta from "./objects/meta";
+import SiteSettings from "./objects/siteSettings";
+import GoogleAnalytics from "./objects/googleAnalytics";
+import { siteMeta } from "./documents/siteMeta";
+import { pageMeta } from "./documents/pageMeta";
 
 export const schemaTypes = [
   pageBuilderHome,
@@ -59,5 +69,15 @@ export const schemaTypes = [
   verticalScrollImages,
   contactPage,
   contactLinks,
-  sectionHeader
+  sectionHeader,
+  openGraph,
+  Locales,
+  siteMeta,
+  WebManifest,
+  Meta,
+  SiteSettings,
+  GoogleAnalytics,
+  pageMeta,
+  basic,
+  optional,
 ];
