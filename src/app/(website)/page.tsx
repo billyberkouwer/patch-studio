@@ -4,12 +4,10 @@ import "./page.scss";
 import { HomepageDataType } from "@/types";
 import { fetchHomepageData, fetchSiteMetadata } from "@/sanity/queries";
 import NavbarWrapper from "@/components/nav/NavbarWrapper";
+import { Metadata } from "next";
 
-export async function generateMetadata() {
-  const metadata = await sanityFetch({
-    query: fetchSiteMetadata,
-    tags: ["home"],
-  });
+export const metadata: Metadata = {
+  title: "Home",
 }
 
 export default async function Home() {
