@@ -46,6 +46,7 @@ export default function MouseTrackGradient({
 
   return (
     <div
+      aria-hidden
       ref={gradient}
       className="mouse-track-gradient"
       style={{ zIndex: zIndex }}

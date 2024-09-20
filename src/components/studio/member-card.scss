@@ -1,0 +1,14 @@
+.member-card__wrapper {
+
+
+    .member-card__container {
+        display: flex;
+        flex-direction: column;
+
+        .member-image {
+            object-fit: cover;
+            height: 20rem;
+            width: 20rem;
+        }
+    }
+}

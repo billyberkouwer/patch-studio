@@ -1,0 +1,11 @@
+.member-cards-section__wrapper {
+    display: block;
+    margin-bottom: 10rem;
+
+    .member-cards-section__container {
+        display: flex;
+        width: 100%;
+        height: auto;
+        flex-wrap: wrap;
+    }
+}

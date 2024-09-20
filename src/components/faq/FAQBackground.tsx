@@ -68,7 +68,7 @@ export default function FAQBackground() {
     <div className="faq-background__wrapper">
       <div className="faq-background__container">
         {QUESTION_MARKS.map((questionMark, i) => (
-          <span key={"question mark" + i} className="question-mark">
+          <span key={"question mark" + i} aria-hidden className="question-mark">
             {questionMark}
           </span>
         ))}

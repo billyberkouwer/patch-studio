@@ -17,8 +17,8 @@ type SiteMeta = {
   ogType: string;
   ogTitle: string;
   ogDescription: string;
-  ogImage: SanityImageAssetDocument
-}
+  ogImage: SanityImageAssetDocument;
+};
 
 type PageMeta = {
   title: string;
@@ -26,9 +26,9 @@ type PageMeta = {
   description: string;
   ogType: string;
   ogTitle: string;
-  ogImage: SanityImageAssetDocument
+  ogImage: SanityImageAssetDocument;
   slug: string;
-}
+};
 
 type Images = Image[];
 
@@ -36,14 +36,14 @@ type KeyInfoBlockType = {
   title: string;
   details: string[];
   _key: string;
-  _type: "keyInfoBlock"
+  _type: "keyInfoBlock";
 };
 
 type BookingOption = {
-  bookingImage: SanityImageAssetDocument
+  bookingImage: SanityImageAssetDocument;
   bookingInfoBlock: KeyInfoBlockType[];
   appointmentType: string;
-  _type: 'bookingCard';
+  _type: "bookingCard";
   bookingTypeTitle: string;
   _key: string;
 };
@@ -139,40 +139,39 @@ type KeyInfoBlockType = {
   _key: string;
 };
 
-type HomepageComponentTypes = (
+type HomepageComponentTypes =
   | ParallaxImageHeaderHomeType
   | TaglineHomeType
   | HorizontalScrollImageHomeType
-  | InfoSectionHomeType
-);
+  | InfoSectionHomeType;
 
 type TextColumn = {
   columnText: string[];
   _type: "textColumns";
-  _key: string
-}
+  _key: string;
+};
 
 type BookingSection = {
   title: string;
   _type: "bookingSection";
   _key: string;
-  bookingCards: BookingOption[]
-}
+  bookingCards: BookingOption[];
+};
 
 type DropdownItemType = {
   _type: "dropdownItem";
-  dropdownContent: PortableTextBlock[]
+  dropdownContent: PortableTextBlock[];
   dropdownTitle: string;
   _key: string;
-}
+};
 
 type FAQSectionType = {
   _type: "faqSection";
   faqItem: dropdownItem[];
   _key: string;
-}
+};
 
-type PageComponentTypes = (
+type PageComponentTypes =
   | ParallaxImageHeaderType
   | TaglineType
   | HorizontalScrollImageType
@@ -180,24 +179,24 @@ type PageComponentTypes = (
   | BookingSection
   | FAQSection
   | TextColumn
-  | VerticalScrollImageType
-);
+  | VerticalScrollImageType;
 
 type HomepageDataType = {
-  _type: "home",
+  _type: "home";
   title: string;
-  pageBuilderHome: HomepageComponentTypes[];s
+  pageBuilderHome: HomepageComponentTypes[];
+  s;
   slug: string;
   _rev: string;
-}
+};
 
 type PageDataType = {
-  _type: "page",
+  _type: "page";
   title: string;
   pageBuilder: PageComponentTypes[];
   slug: string;
   _rev: string;
-}
+};
 
 type SocialLink = {
   _key: string;
@@ -205,7 +204,7 @@ type SocialLink = {
   _type: string;
   link: string;
   linkType: string;
-}
+};
 
 type ContactPageData = {
   googleEmbedMap: string;
@@ -213,5 +212,11 @@ type ContactPageData = {
   location: string;
   locationImages: SanityImageAssetDocument[];
   _type: "contact";
-  socialLinks: SocialLink[]
-}
+  socialLinks: SocialLink[];
+};
+
+type MemberCardType = {
+  memberName: string | null;
+  memberImage: SanityImageAssetDocument | null;
+  memberInfo: string | null;
+};
