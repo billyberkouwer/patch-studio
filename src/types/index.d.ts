@@ -8,6 +8,28 @@ type Image = {
   alt: string;
 };
 
+type SiteMeta = {
+  siteName: string;
+  title: string;
+  _updatedAt: string;
+  description: string;
+  isGoogleAnalyticsEnabled: boolean;
+  ogType: string;
+  ogTitle: string;
+  ogDescription: string;
+  ogImage: SanityImageAssetDocument
+}
+
+type PageMeta = {
+  title: string;
+  _updatedAt: string;
+  description: string;
+  ogType: string;
+  ogTitle: string;
+  ogImage: SanityImageAssetDocument
+  slug: string;
+}
+
 type Images = Image[];
 
 type KeyInfoBlockType = {

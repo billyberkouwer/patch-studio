@@ -19,6 +19,6 @@ export default defineType({
       title: 'Social Share Description',
       group: ['og', 'meta'],
     },
-    defineField(locale),
+    // defineField(locale),
   ],
 })

@@ -34,10 +34,6 @@ export default function ThreeScrollingImages({
       imageEl: HTMLDivElement | null
     ): number {
       if (container) {
-        console.log(
-          parseInt(`${imageEl?.getBoundingClientRect().height}`) *
-            (container.children.length - 1)
-        );
         return (
           parseInt(`${imageEl?.getBoundingClientRect().height}`) *
           (container.children.length - 1)

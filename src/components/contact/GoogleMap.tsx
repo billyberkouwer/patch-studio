@@ -4,7 +4,6 @@ import "./google-map.scss";
 export default function GoogleMap({ iframe }: { iframe: string }) {
   const src = filterSrc(iframe);
 
-  console.log(src);
 
   if (src) {
     return (

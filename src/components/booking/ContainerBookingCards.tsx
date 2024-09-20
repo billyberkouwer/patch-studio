@@ -38,7 +38,6 @@ export default function ContainerBookingCards({
       let isSwiped = false;
 
       function swipe(direction: string | undefined) {
-        console.log(swipePosition);
         if (direction === "right" && swipePosition > 0 && !isSwiped) {
           swipePosition = swipePosition - 1;
           tl.to(bookingContainer.current, {

@@ -2,15 +2,14 @@ import GoogleMap from "@/components/contact/GoogleMap";
 import "./page.scss";
 import ContactForm from "@/components/contact/ContactFrom";
 import { sanityFetch } from "@/sanity/config/client";
-import { fetchContactData } from "@/sanity/queries";
+import { fetchContactData, fetchContactMetadata } from "@/sanity/queries";
 import { formatContactLink } from "@/helpers";
 import Link from "next/link";
 import FadingImages from "@/components/image/FadingImages";
-import { ContactPageData } from "@/types";
+import { ContactPageData, PageMeta } from "@/types";
 
 function outputTextWithNewLine(text: string) {
   const split = text.split("\n");
-  console.log(split);
   return split.map((line) => (
     <span key={line}>
       {line} <br />
@@ -18,10 +17,48 @@ function outputTextWithNewLine(text: string) {
   ));
 }
 
+export async function generateMetadata() {
+  const metadata = await sanityFetch<PageMeta>({
+    query: fetchContactMetadata,
+    tags: ["page"],
+  });
+
+  return {
+    robots: {
+      index: true,
+      follow: true,
+      nocache: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        noimageindex: false,
+        "max-video-preview": -1,
+        "max-image-preview": "large",
+        "max-snippet": -1,
+      },
+    },
+    title: "Contact",
+    creator: "Patch Bell",
+    publisher: "Patch Studio",
+    description: metadata.description,
+    alternates: {
+      canonical: "/contact",
+    },
+    openGraph: {
+      images: metadata.ogImage.url,
+      title: metadata.ogTitle,
+      type: metadata.ogType,
+      description: metadata.description,
+      publishedTime: metadata._updatedAt,
+      authors: ["Patch Studio"],
+    },
+  };
+}
+
 export default async function Page() {
   const contactData = await sanityFetch<ContactPageData>({
     query: fetchContactData,
-    tags: ["contact"]
+    tags: ["page"]
   });
 
   return (

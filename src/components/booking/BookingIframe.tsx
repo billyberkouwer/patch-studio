@@ -14,7 +14,6 @@ export default function BookingIframe() {
   const iframeWrapper = useRef<HTMLIFrameElement>(null);
 
   useGSAP(() => {
-    console.log(iframeWrapper);
     gsap.fromTo(
       iframeWrapper.current,
       {

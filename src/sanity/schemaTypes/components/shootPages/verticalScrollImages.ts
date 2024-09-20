@@ -21,7 +21,6 @@ export const verticalScrollImages = defineType({
       title: "Selection of Images",
       validation: (rule) => {
         return rule.required().custom((val: SanityImageAssetDocument[]) => {
-          console.log(val);
           if (!val || val?.length % 3 !== 0) {
             return {
               message:

@@ -17,7 +17,6 @@ export default function FAQBackground() {
 
     let randomCoords: { x: number; y: number }[] = [];
     const faqHeight = document.getElementById("faq-section")?.clientHeight;
-    console.log(faqHeight);
     QUESTION_MARKS.forEach(() => {
       randomCoords.push({
         x: Math.floor(Math.random() * window.window.innerWidth) / 2,

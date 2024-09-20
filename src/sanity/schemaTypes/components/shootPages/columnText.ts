@@ -27,7 +27,6 @@ export const columnText = defineType({
       subtitle: "columnText"
     },
     prepare({ subtitle }) {
-      console.log(subtitle)
       return {
         title: "Text Columns",
         subtitle: subtitle?.[0],

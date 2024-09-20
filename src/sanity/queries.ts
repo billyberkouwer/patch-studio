@@ -21,30 +21,36 @@ export const fetchHomepageData = groq`
     }
 `;
 
+export const fetchSiteMetadata = groq`
+    *[_type == "siteMeta"][0] {
+        ...,
+        _updatedAt,
+        siteName,
+        title,
+        description,
+        isGoogleAnalyticsEnabled,
+        ogType,
+        ogTitle,
+        ogDescription,
+        "ogImage": image.asset->
+    }
+`;
+
 export const fetchContactData = groq`
     *[_type == "contact"][0] {
     ...,
     "locationImages": locationImages[].asset->,
     }
-`
+`;
 
-export const fetchEditorialData = groq`
-    *[_type == "page"][0] {
-        ...,
-        pageBuilder[]{
-            ...,
-            _type == "parallaxImageHeader" => 
-                @{"selectionOfImages": selectionOfImages[].asset->},
-            _type == "horizontalScrollImages" => 
-                @{"selectionOfImages": selectionOfImages[].asset->},
-            _type == "bookingSection" => {
-                ...,
-                bookingCards[] {
-                ...,
-                    "bookingImage": bookingImage.asset->
-                }
-            }
-        },
+export const fetchContactMetadata = groq`
+    *[_type == "contact"][0] {
+        _updatedAt,
+        "ogImage": pageMeta.image.asset->,
+        "ogTitle": pageMeta.ogTitle,
+        "ogType": pageMeta.ogType,
+        "description": pageMeta.description,
+        title,
     }
 `;
 
@@ -67,5 +73,27 @@ export const fetchPageData = groq`
                 }
             }
         },
+    }
+`;
+
+export const fetchPageMetadata = groq`
+    *[_type == "page" && slug.current == $slug][0] {
+        _updatedAt,
+        "ogImage": pageMeta.image.asset->,
+        "ogTitle": pageMeta.ogTitle,
+        "ogType": pageMeta.ogType,
+        "description": pageMeta.description,
+        title,
+        "slug": slug.current
+    }
+`;
+
+export const fetchBookingsMetadata = groq`
+    *[_type == "bookings"][0] {
+        _updatedAt,
+        "ogImage": pageMeta.image.asset->,
+        "ogTitle": pageMeta.ogTitle,
+        "ogType": pageMeta.ogType,
+        "description": pageMeta.description,
     }
 `;

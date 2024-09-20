@@ -36,8 +36,9 @@ import WebManifest from "./objects/manifest";
 import Meta from "./objects/meta";
 import SiteSettings from "./objects/siteSettings";
 import GoogleAnalytics from "./objects/googleAnalytics";
-import { siteMeta } from "./documents/siteMeta";
 import { pageMeta } from "./documents/pageMeta";
+import SiteMeta from "./documents/siteMeta";
+import { bookingsPage } from "./pages/bookings";
 
 export const schemaTypes = [
   pageBuilderHome,
@@ -72,7 +73,7 @@ export const schemaTypes = [
   sectionHeader,
   openGraph,
   Locales,
-  siteMeta,
+  SiteMeta,
   WebManifest,
   Meta,
   SiteSettings,
@@ -80,4 +81,5 @@ export const schemaTypes = [
   pageMeta,
   basic,
   optional,
+  bookingsPage
 ];

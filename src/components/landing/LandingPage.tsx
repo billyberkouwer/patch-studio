@@ -46,8 +46,6 @@ export default function LandingPage() {
           const pageWrapper = document.querySelector(
             ".page__wrapper"
           ) as HTMLDivElement;
-          console.log("firing");
-          console.log(pageWrapper);
           centerText?.classList.add("invert");
           if (pageWrapper) {
             pageWrapper.classList.remove("--no-height");          }

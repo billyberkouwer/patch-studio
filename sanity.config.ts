@@ -36,6 +36,9 @@ export const structure = (S: any, context: any) => {
         S.listItem().title("Site Meta").id("site-meta").icon(RiSettings2Line).child(
           S.document().schemaType("siteMeta").documentId("site-meta").title("Site Meta")
         ),
+        S.listItem().title("Bookings").id("bookings").icon(RiSettings2Line).child(
+          S.document().schemaType("bookings").documentId("bookings").title("Bookings")
+        ),
       ]
     );
 };
