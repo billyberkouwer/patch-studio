@@ -4,7 +4,6 @@ import "./google-map.scss";
 export default function GoogleMap({ iframe }: { iframe: string }) {
   const src = filterSrc(iframe);
 
-
   if (src) {
     return (
       <div className="google-map__wrapper">
@@ -17,7 +16,7 @@ export default function GoogleMap({ iframe }: { iframe: string }) {
           loading="lazy"
           referrerPolicy="no-referrer-when-downgrade"
         ></iframe>
-        <div className="map-overlay" />
+        <div className="map-overlay" aria-hidden />
       </div>
     );
   }
