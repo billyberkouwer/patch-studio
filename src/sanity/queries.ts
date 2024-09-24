@@ -24,6 +24,7 @@ export const fetchHomepageData = groq`
 export const fetchSiteMetadata = groq`
     *[_type == "siteMeta"][0] {
         ...,
+        keywords,
         _updatedAt,
         siteName,
         title,
@@ -45,6 +46,7 @@ export const fetchContactData = groq`
 
 export const fetchContactMetadata = groq`
     *[_type == "contact"][0] {
+        "keywords": pageMeta.keywords,
         _updatedAt,
         "ogImage": pageMeta.image.asset->,
         "ogTitle": pageMeta.ogTitle,
@@ -78,6 +80,7 @@ export const fetchPageData = groq`
 
 export const fetchPageMetadata = groq`
     *[_type == "page" && slug.current == $slug][0] {
+        "keywords": pageMeta.keywords,
         _updatedAt,
         "ogImage": pageMeta.image.asset->,
         "ogTitle": pageMeta.ogTitle,
@@ -90,6 +93,7 @@ export const fetchPageMetadata = groq`
 
 export const fetchBookingsMetadata = groq`
     *[_type == "bookings"][0] {
+        "keywords": pageMeta.keywords,
         _updatedAt,
         "ogImage": pageMeta.image.asset->,
         "ogTitle": pageMeta.ogTitle,

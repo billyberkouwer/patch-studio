@@ -36,7 +36,7 @@ export default function SizedImage({
         <Image
           fill
           ref={nextImage}
-          alt={alt}
+          alt={image?.altText ? image.altText : alt}
           src={image?.url}
           placeholder="blur"
           blurDataURL={image?.metadata?.lqip}

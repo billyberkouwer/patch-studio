@@ -102,7 +102,7 @@ export default function ThreeScrollingImages({
                       <Image
                         fill
                         src={image?.url}
-                        alt=""
+                        alt={image?.altText ? image.altText : "Headshot " + (i + 1)}
                         placeholder={image?.metadata?.lqip ? "blur" : undefined}
                         blurDataURL={image?.metadata?.lqip}
                       />

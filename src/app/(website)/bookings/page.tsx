@@ -28,6 +28,7 @@ export async function generateMetadata({
         "max-snippet": -1,
       },
     },
+    keywords: metadata?.keywords ?? undefined,
     title: metadata?.ogTitle ?? "Bookings",
     creator: "Patch Bell",
     publisher: "Patch Studio",
