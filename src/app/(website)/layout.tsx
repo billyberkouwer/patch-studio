@@ -1,26 +1,18 @@
-import type { Metadata } from "next";
 import "@/styles/global.scss";
 import CSSEnhancements from "@/utils/CSSEnhancements";
-import Navbar from "@/components/nav/Navbar";
 import { navItems } from "@/utils/constants";
 import Footer from "@/components/footer/Footer";
 import localFont from "next/font/local";
 import MouseTrackGradient from "@/components/background/MouseTrackGradient";
 import { VisualEditing } from "next-sanity";
 import { draftMode } from "next/headers";
-import Button from "@/components/global/Button";
 import LandingPage from "@/components/landing/LandingPage";
 import NavbarWrapper from "@/components/nav/NavbarWrapper";
-import Script from "next/script";
-import { useRouter } from "next/navigation";
-import { Router } from "next/router";
-import { MouseEvent } from "react";
-import { AppRouterInstance } from "next/dist/shared/lib/app-router-context.shared-runtime";
 import DisablePreview from "@/components/global/DisablePreview";
 import { sanityFetch } from "@/sanity/config/client";
 import { fetchSiteMetadata } from "@/sanity/queries";
 import { SiteMeta } from "@/types";
-import openGraph from "@/sanity/schemaTypes/objects/opengraph";
+import { GoogleAnalytics } from "@next/third-parties/google";
 
 const mFont = localFont({
   src: [{ path: "./fonts/m.ttf", style: "regular" }],
@@ -81,31 +73,37 @@ export async function generateMetadata() {
       },
     },
     title: {
-      template: "%s | " + metadata.title,
-      default: metadata.title,
+      template: "%s | " + metadata?.title ?? undefined,
+      default: metadata?.title ?? undefined,
     },
+    keywords: metadata?.keywords ?? undefined,
     creator: "Patch Bell",
     publisher: "Patch Studio",
-    description: metadata.description,
+    description: metadata?.description ?? undefined,
     alternates: {
       canonical: "/",
     },
     openGraph: {
-      images: metadata.ogImage.url,
-      title: metadata.ogTitle,
-      type: metadata.ogType,
-      description: metadata.ogDescription,
-      publishedTime: metadata._updatedAt,
+      images: metadata?.ogImage?.url ?? undefined,
+      title: metadata?.ogTitle ?? undefined,
+      type: metadata?.ogType ?? undefined,
+      description: metadata?.ogDescription ?? undefined,
+      publishedTime: metadata?._updatedAt ?? undefined,
       authors: ["Patch Studio"],
     },
   };
 }
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const metadata: SiteMeta = await sanityFetch({
+    query: fetchSiteMetadata,
+    tags: ["home"],
+  });
+
   return (
     <html
       lang="en"
@@ -120,6 +118,10 @@ export default function RootLayout({
         {draftMode().isEnabled ? <VisualEditing /> : null}
         {draftMode().isEnabled ? <DisablePreview /> : null}
         {draftMode().isEnabled === false ? <LandingPage /> : null}
+
+        {metadata?.analyticsId ? (
+          <GoogleAnalytics gaId={metadata?.analyticsId} />
+        ) : null}
       </body>
     </html>
   );

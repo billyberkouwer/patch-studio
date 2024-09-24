@@ -50,6 +50,7 @@ export async function generateMetadata({
         "max-snippet": -1,
       },
     },
+    keywords: metadata?.keywords ?? undefined,
     title: metadata?.title ?? "",
     creator: "Patch Bell",
     publisher: "Patch Studio",

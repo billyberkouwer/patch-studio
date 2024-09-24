@@ -8,16 +8,23 @@
     iframe {
         border: 0;
     }
+}
 
+.map-overlay {
+    margin-top: -2.75px;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    transform: translateY(-100%);
+    background-color: $blue;
+    pointer-events: none;
+    user-select: none;
+    display: none;
+}
+
+@supports (mix-blend-mode: color) {
     .map-overlay {
-        margin-top: -2.75px;
-        height: 100%;
-        width: 100%;
-        position: relative;
-        transform: translateY(-100%);
-        background-color: $blue;
-        mix-blend-mode:color;
-        pointer-events: none;
-        user-select: none;
+        mix-blend-mode: color;
+        display: block;
     }
 }

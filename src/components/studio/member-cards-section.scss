@@ -1,11 +1,13 @@
 .member-cards-section__wrapper {
     display: block;
-    margin-bottom: 10rem;
+    margin: 0 0.5rem 10rem 0.5rem;
 
     .member-cards-section__container {
         display: flex;
         width: 100%;
         height: auto;
         flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
     }
 }

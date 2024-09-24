@@ -44,7 +44,7 @@ export default function FadingImages({
               <Image
                 key={image?._id}
                 src={image?.url}
-                alt={"Image of location " + (i + 1)}
+                alt={image?.altText ? image.altText : "Image of studio location " + (i + 1)}
                 layout="fill"
                 style={{ objectFit: "cover" }}
                 placeholder="blur"

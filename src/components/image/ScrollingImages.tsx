@@ -85,7 +85,7 @@ export default function ScrollingImages({
                 <SizedImage
                   key={displayedImage?._id + i}
                   image={displayedImage}
-                  alt=""
+                  alt={"Scrolling Image " + (i + 1)}
                 />
               ));
             })

@@ -1,14 +1,47 @@
-.member-card__wrapper {
+@import "@/styles/helpers.scss";
 
+.member-card__wrapper {
 
     .member-card__container {
         display: flex;
         flex-direction: column;
+        justify-content: center;
 
-        .member-image {
-            object-fit: cover;
+        .technical-info {
+            font-family: var(--hvFont);
+            font-weight: 500;
+            font-size: 1.4rem;
+        }
+
+        .info__container {
+            display: block;
+            margin-bottom: 1rem;
+
+            p {
+                margin: 0;
+            }
+        }
+
+        h5 {
+            font-family: var(--mFont);
+            font-weight: 500;
+            font-size: 3.2rem;
+            text-transform: uppercase;
+        }
+
+        .member-image__wrapper {
             height: 20rem;
             width: 20rem;
+            position: relative;
+
+            img {
+                object-fit: cover;
+            }
+
+            @include md {
+                height: 30rem;
+                width: 30rem;
+            }
         }
     }
 }

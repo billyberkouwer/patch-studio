@@ -9,26 +9,29 @@ type Image = {
 };
 
 type SiteMeta = {
-  siteName: string;
-  title: string;
-  _updatedAt: string;
-  description: string;
-  isGoogleAnalyticsEnabled: boolean;
-  ogType: string;
-  ogTitle: string;
-  ogDescription: string;
-  ogImage: SanityImageAssetDocument;
-};
+  keywords: string | null | undefined
+  analyticsId: string | null | undefined
+  siteName: string | null | undefined
+  title: string | null | undefined
+  _updatedAt: string | null | undefined
+  description: string | null | undefined
+  isGoogleAnalyticsEnabled: string | null | undefined
+  ogType: string | null | undefined
+  ogTitle: string | null | undefined
+  ogDescription: string | null | undefined
+  ogImage: SanityImageAssetDocument | null | undefined
+}
 
 type PageMeta = {
-  title: string;
-  _updatedAt: string;
-  description: string;
-  ogType: string;
-  ogTitle: string;
-  ogImage: SanityImageAssetDocument;
-  slug: string;
-};
+  keywords: string | null | undefined
+  title: string | null | undefined
+  _updatedAt: string | null | undefined
+  description: string | null | undefined
+  ogType: string | null | undefined
+  ogTitle: string | null | undefined
+  ogImage: SanityImageAssetDocument | null | undefined
+  slug: string | null | undefined
+}
 
 type Images = Image[];
 
@@ -217,6 +220,7 @@ type ContactPageData = {
 
 type MemberCardType = {
   memberName: string | null;
-  memberImage: SanityImageAssetDocument | null;
+  memberImage: null | string;
   memberInfo: string | null;
+  role: string[]
 };
