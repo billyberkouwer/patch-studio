@@ -3,9 +3,14 @@ import { structureTool } from "sanity/structure";
 import { visionTool } from "@sanity/vision";
 import { schemaTypes } from "@/sanity/schemaTypes";
 import { media } from "sanity-plugin-media";
-import { RiContactsBookLine, RiContactsLine, RiHome2Line, RiSettings2Line } from "react-icons/ri";
+import {
+  RiContactsBookLine,
+  RiContactsLine,
+  RiHome2Line,
+  RiSettings2Line,
+} from "react-icons/ri";
 import { RiPagesLine } from "react-icons/ri";
-import { presentationTool } from 'sanity/presentation';
+import { presentationTool } from "sanity/presentation";
 import {
   orderRankField,
   orderRankOrdering,
@@ -24,23 +29,52 @@ const singletonTypes = new Set(["home", "contact"]);
 export const structure = (S: any, context: any) => {
   return S.list()
     .title("Content")
-    .items(
-      [
-        orderableDocumentListDeskItem({ type: "page", title: "Pages", S, context, icon: RiPagesLine }),
-        S.listItem().title("Home").id("home").icon(RiHome2Line).child(
+    .items([
+      orderableDocumentListDeskItem({
+        type: "page",
+        title: "Pages",
+        S,
+        context,
+        icon: RiPagesLine,
+      }),
+      S.listItem()
+        .title("Home")
+        .id("home")
+        .icon(RiHome2Line)
+        .child(
           S.document().schemaType("home").documentId("home").title("Home")
         ),
-        S.listItem().title("Contact").id("contact").icon(RiContactsBookLine).child(
-          S.document().schemaType("contact").documentId("contact").title("Contact")
+      S.listItem()
+        .title("Contact")
+        .id("contact")
+        .icon(RiContactsBookLine)
+        .child(
+          S.document()
+            .schemaType("contact")
+            .documentId("contact")
+            .title("Contact")
         ),
-        S.listItem().title("Site Meta").id("site-meta").icon(RiSettings2Line).child(
-          S.document().schemaType("siteMeta").documentId("site-meta").title("Site Meta")
+      S.listItem()
+        .title("Site Meta")
+        .id("site-meta")
+        .icon(RiSettings2Line)
+        .child(
+          S.document()
+            .schemaType("siteMeta")
+            .documentId("site-meta")
+            .title("Site Meta")
         ),
-        S.listItem().title("Bookings").id("bookings").icon(RiSettings2Line).child(
-          S.document().schemaType("bookings").documentId("bookings").title("Bookings")
+      S.listItem()
+        .title("Bookings")
+        .id("bookings")
+        .icon(RiSettings2Line)
+        .child(
+          S.document()
+            .schemaType("bookings")
+            .documentId("bookings")
+            .title("Bookings")
         ),
-      ]
-    );
+    ]);
 };
 
 export default defineConfig({
@@ -49,13 +83,21 @@ export default defineConfig({
   title: "patch-studio",
   projectId: projectId,
   dataset: dataset,
-  plugins: [structureTool({ structure }), visionTool(), media(), presentationTool({
+  scheduledPublishing: {
+    enabled: false,
+  },
+  plugins: [
+    structureTool({ structure }),
+    // visionTool(),
+    media(),
+    presentationTool({
       previewUrl: {
         draftMode: {
-          enable: '/api/draft-mode/enable',
+          enable: "/api/draft-mode/enable",
         },
       },
-    }),],
+    }),
+  ],
   schema: {
     types: schemaTypes, // Filter out singleton types from the global “New document” menu options
     templates: (templates) =>
