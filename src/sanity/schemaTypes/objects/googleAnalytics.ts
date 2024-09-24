@@ -12,13 +12,6 @@ const GoogleAnalytics = defineType({
       fieldset: 'google',
       group: ['meta', 'google'],
     },
-    {
-      type: 'string',
-      name: 'SiteVerificationId',
-      title: 'Google site Verification ID',
-      fieldset: 'google',
-      group: ['meta', 'google'],
-    },
   ],
 })
 export default GoogleAnalytics
