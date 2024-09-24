@@ -24,7 +24,7 @@ const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET || "production";
 const singletonActions = new Set(["publish", "discardChanges", "restore"]);
 
 // Define the singleton document types
-const singletonTypes = new Set(["home", "contact"]);
+const singletonTypes = new Set(["home", "contact", "bookings", "siteMeta", "site-meta", "pageMeta"]);
 
 export const structure = (S: any, context: any) => {
   return S.list()
