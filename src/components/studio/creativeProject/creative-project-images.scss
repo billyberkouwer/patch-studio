@@ -1,0 +1,27 @@
+.creative-project-images__wrapper {
+    position: relative;
+    margin-bottom: 5rem;
+    
+    .creative-project-images__container {
+        position: relative;
+        display: flex;
+        flex-direction: column-reverse;
+        flex-wrap: wrap;
+        height: 80rem;
+        gap: 1rem;
+
+        .image__wrapper {
+            position: relative;
+            flex: 1 1 39rem;
+            
+            img {
+                position: relative;
+                object-fit: cover;
+            }
+        }
+
+        &:first-child {
+            flex: 1 1 200px;   
+        }
+    }
+}

@@ -1,0 +1,115 @@
+@import "@/styles/helpers.scss";
+
+.creative-project-accordion__container {
+    display: flex;
+    flex-direction: column;
+    color: $dark;
+    padding: 1rem;
+    box-sizing: border-box;
+    background-color: rgb(138, 13, 13);
+}
+
+.creative-project-accordion__header {
+    display: flex;
+    justify-content: space-between;
+    cursor: url("/pointer.svg") 0 0, pointer;
+    align-items: center;
+    gap: 0.4rem;
+
+    button {
+        font-weight: 100 !important;
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        font-size: 5rem;
+        line-height: 1.67rem;
+        min-width: 3rem;
+        max-width: 3rem;
+        height: 3rem;
+
+        @include md {
+            font-size: 10rem;
+            line-height: 4rem;
+            min-width: 6rem;
+            max-width: 6rem;
+            height: 6rem;
+            user-select: none;
+        }
+    }
+
+    .button {
+        background-color: transparent;
+        color: $white;
+        border: none;
+        transition: background-color 0.5s;
+
+        &:hover {
+            background-color: rgba(0, 0, 0, 0.2);
+            color: $white;
+        }
+    }
+
+    h4 {
+        font-weight: 400;
+        font-family: var(--mFont);
+        text-transform: uppercase;
+        color: white;
+
+        @include xs {
+            font-size: 2.25rem;
+        }
+
+        @include sm {
+            font-size: 3rem;
+        }
+
+        @include md {
+            font-size: 5rem;
+        }
+    }
+}
+
+.creative-project-accordion-content__wrapper {
+    display: grid;
+    grid-template-rows: 0fr;
+    overflow: hidden;
+    transition: grid $slow;
+
+    .creative-project-accordion-content__container {
+        min-height: 0;
+        transition: visibility 1s, opacity 1s;
+        visibility: hidden;
+        margin: 0;
+        font-size: 1.6rem;
+        opacity: 1;
+        color: $light;
+
+        .text__content {
+            display: flex;
+            justify-content: space-between;
+            gap: 1rem;
+        }
+
+        .info-text__container {
+            max-width: 80%;
+        }
+
+        .button {
+            background-color: white;
+            color: red;
+            border-color: red
+        }
+
+        &.expanded {
+            grid-template-rows: 1fr;
+            visibility: visible;
+            opacity: 1;
+        }
+    }
+
+    &.expanded {
+        grid-template-rows: 1fr;
+        visibility: visible;
+        opacity: 1;
+    }
+}

@@ -39,6 +39,12 @@ import GoogleAnalytics from "./objects/googleAnalytics";
 import { pageMeta } from "./documents/pageMeta";
 import SiteMeta from "./documents/siteMeta";
 import { bookingsPage } from "./pages/bookings";
+import { creativeProject } from "./components/studio/creativeProject";
+import { creativeProjects } from "./components/studio/creativeProjects";
+import { pageBuilderStudio } from "./components/studio/pageBuilderStudio";
+import { studioPage } from "./pages/studio";
+import { teamMemberCards } from "./components/studio/teamMemberCards";
+import { teamMemberCard } from "./components/studio/teamMemberCard";
 
 export const schemaTypes = [
   pageBuilderHome,
@@ -81,5 +87,11 @@ export const schemaTypes = [
   pageMeta,
   basic,
   optional,
-  bookingsPage
+  bookingsPage,
+  creativeProject,
+  creativeProjects,
+  pageBuilderStudio,
+  studioPage,
+  teamMemberCard,
+  teamMemberCards,
 ];

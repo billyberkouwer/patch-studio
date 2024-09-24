@@ -1,0 +1,53 @@
+@import "@/styles/helpers.scss";
+
+.image-landing-section__wrapper {
+    height: var(--real-viewport-height);
+    width: 100%;
+    margin-bottom: 10rem;
+
+    .image-landing-section__container {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+
+        .image-landing-text__wrapper {
+            mix-blend-mode: difference;
+
+        }
+        .heading__wrapper {
+            position: relative;
+
+            h1 {
+                color: $light;
+            }
+        }
+
+        .text__wrapper {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .tagline__wrapper {
+            position: relative;
+            margin: 0;
+
+            h2 {
+                color: $light;
+            }
+        }
+
+        .image__wrapper {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: calc(var(--real-viewport-height) - var(--nav-height));
+
+            img {
+                object-fit: cover;
+            }
+        }
+    }
+}
