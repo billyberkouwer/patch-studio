@@ -5,8 +5,6 @@ import ShootDetails from "../global/ShootDetails";
 import "./shoot-info-section.scss";
 import { KeyInfoBlockType } from "@/types";
 
-
-
 export default function ShootInfoSection({
   shootDetails,
   description,
@@ -18,8 +16,8 @@ export default function ShootInfoSection({
     _type: "buttonWithLink";
     text: string | undefined;
     isExternalLink: boolean | undefined;
-    internalLink: string | null;
-    externalLink: string | null;
+    internalLink: string | undefined | null;
+    externalLink: string | undefined | null;
   };
 }) {
   return (

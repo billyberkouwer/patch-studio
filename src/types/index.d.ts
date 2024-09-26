@@ -134,7 +134,8 @@ type ButtonWithLinkType = {
   _type: "buttonWithLink";
   text: string | undefined;
   isExternalLink: boolean | undefined;
-  link: string | undefined;
+  internalLink: string | null | undefined;
+  externalLink: string | null | undefined;
 };
 
 type KeyInfoBlockType = {
