@@ -19,8 +19,6 @@ export default async function TermsAndConditions() {
           <PortableText value={data.termsAndConditionsBlock} />
         ) : null}
       </div>
-
-      {/* <PortableText /> */}
     </div>
   );
 }
