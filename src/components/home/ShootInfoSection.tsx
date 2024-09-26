@@ -19,7 +19,7 @@ export default function ShootInfoSection({
           {shootDetails?.length
             ? shootDetails.map((shootDetail, i) => (
                 <ShootDetails
-                  key={shootDetail?.details[0] + shootDetail?.title + i}
+                  key={shootDetail?.details?.[0] + shootDetail?.title + i}
                   title={shootDetail?.title}
                   details={shootDetail?.details}
                 />
