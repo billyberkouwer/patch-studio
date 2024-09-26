@@ -12,7 +12,7 @@ export default async function TermsAndConditions() {
   });
 
   return (
-    <div className="page__wrapper">
+    <div className="page__wrapper --top-padding">
       <Heading>Terms and Conditions</Heading>
       <div className="terms-and-conditions__wrapper">
         {data?.termsAndConditionsBlock ? (
