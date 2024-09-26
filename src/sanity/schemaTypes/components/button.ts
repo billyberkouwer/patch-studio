@@ -13,20 +13,27 @@ export const button = defineType({
       type: "string",
     }),
     defineField({
-      name: "link",
-      title: "Link",
-      type: "array",
-      of: [
-        defineArrayMember({
-          type: "internalLink",
-          title: "Link to a page on your website",
-        }),
-        defineArrayMember({
-          type: "externalLink",
-          title: "Link to an external website",
-        }),
-      ],
-      validation: (Rule) => Rule.length(1),
+      name: "isExternalLink",
+      title: "Is this a link to an external website?",
+      type: "boolean",
+    }),
+    defineField({
+      name: "internalLink",
+      title: "Internal Link",
+      type: "internalLink",
+      options: {
+        collapsed: false
+      },
+      hidden: ({ parent }) => parent.isExternalLink,
+    }),
+    defineField({
+      name: "externalLink",
+      title: "External Link",
+      type: "externalLink",
+      options: {
+        collapsed: false
+      },
+      hidden: ({ parent }) => !parent.isExternalLink,
     }),
   ],
 });

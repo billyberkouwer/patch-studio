@@ -4,19 +4,12 @@ const externalLink = defineField({
 	title: 'External Link',
 	name: 'externalLink',
 	type: 'object',
-	hidden: true,
 	fields: [
 		{
-			name: 'title',
-			title: 'Title',
+			name: 'url',
 			type: 'string',
-			validation: (Rule) => Rule.required()
-		},
-		{
-			name: 'slug',
-			type: 'slug',
-			title: 'Slug',
-			description: 'Add external link'
+			title: 'URL',
+			description: 'Paste the URL of the external web page (e.g. www.google.com)',
 		}
 	]
 });

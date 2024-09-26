@@ -167,6 +167,7 @@ export default function Homepage({
               );
             }
             if (componentData._type === "infoSectionHome") {
+              console.log(componentData.button)
               return (
                 <section
                   key={componentData._key}
@@ -175,6 +176,7 @@ export default function Homepage({
                   <ShootInfoSection
                     shootDetails={componentData.keyInfoBlocks}
                     description={componentData.sectionText}
+                    button={componentData.button}
                   />
                 </section>
               );

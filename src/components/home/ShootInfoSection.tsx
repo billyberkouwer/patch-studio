@@ -5,12 +5,22 @@ import ShootDetails from "../global/ShootDetails";
 import "./shoot-info-section.scss";
 import { KeyInfoBlockType } from "@/types";
 
+
+
 export default function ShootInfoSection({
   shootDetails,
   description,
+  button,
 }: {
   shootDetails: KeyInfoBlockType[] | null;
   description: PortableTextBlock[] | null;
+  button: {
+    _type: "buttonWithLink";
+    text: string | undefined;
+    isExternalLink: boolean | undefined;
+    internalLink: string | null;
+    externalLink: string | null;
+  };
 }) {
   return (
     <section className="shoot-info__wrapper">
@@ -31,7 +41,22 @@ export default function ShootInfoSection({
             {description?.length ? <PortableText value={description} /> : null}
           </ShootDescription>
         </div>
-        <Button state="bold">Learn More</Button>
+        {button?.isExternalLink ? (
+          <Button
+            state="bold"
+            isExternalLink
+            slug={button?.externalLink ? button.externalLink : "/"}
+          >
+            {button?.text ? button.text : "Learn More"}
+          </Button>
+        ) : (
+          <Button
+            state="bold"
+            slug={button?.internalLink ? button.internalLink : "/"}
+          >
+            {button?.text ? button.text : "Learn More"}
+          </Button>
+        )}
       </div>
     </section>
   );

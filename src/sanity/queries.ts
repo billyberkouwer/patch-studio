@@ -10,14 +10,21 @@ export const allProjectSlugs = groq`
 export const fetchHomepageData = groq`
     *[_type == "home"][0] {
         ...,
+
         pageBuilderHome[]{
             ...,
             _type == "parallaxImageHeaderHome" => 
                 @{"selectionOfImages": selectionOfImages[].asset->},
             _type == "horizontalScrollImagesHome" => 
                 @{"selectionOfImages": selectionOfImages[].asset->},
+            "button": {
+                "text": button.text,
+                "_type": button._type,
+                "isExternalLink": button.isExternalLink,
+                "externalLink": button.externalLink.url,
+                "internalLink": button.internalLink.link->slug.current,
+            },
         },
-
     }
 `;
 
