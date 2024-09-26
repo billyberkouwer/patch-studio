@@ -11,7 +11,7 @@ export async function generateMetadata({
 }) {
   const metadata = await sanityFetch<PageMeta>({
     query: fetchBookingsMetadata,
-    tags: ["page"],
+    tags: ["bookings"],
   });
 
   return {

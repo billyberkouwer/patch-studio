@@ -55,7 +55,7 @@ const hvFont = localFont({
 export async function generateMetadata() {
   const metadata: SiteMeta = await sanityFetch({
     query: fetchSiteMetadata,
-    tags: ["home"],
+    tags: ["siteMeta"],
   });
 
   return {

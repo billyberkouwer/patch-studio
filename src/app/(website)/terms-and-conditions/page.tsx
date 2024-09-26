@@ -8,7 +8,7 @@ import { TermsAndConditionsData } from "@/types";
 export default async function TermsAndConditions() {
   const data = await sanityFetch<TermsAndConditionsData>({
     query: fetchTermsAndConditionsData,
-    tags: ["page"],
+    tags: ["termsAndConditions"],
   });
 
   return (

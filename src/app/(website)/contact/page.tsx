@@ -20,7 +20,7 @@ function outputTextWithNewLine(text: string) {
 export async function generateMetadata() {
   const metadata = await sanityFetch<PageMeta>({
     query: fetchContactMetadata,
-    tags: ["page"],
+    tags: ["contact"],
   });
 
   return {
@@ -59,7 +59,7 @@ export async function generateMetadata() {
 export default async function Page() {
   const contactData = await sanityFetch<ContactPageData>({
     query: fetchContactData,
-    tags: ["page"]
+    tags: ["contact"]
   });
 
   return (
