@@ -22,7 +22,6 @@ export default function PageWrapper({
   title: string;
   pageData: PageComponentTypes[];
 }) {
-  
   return (
     <div className="page__wrapper --top-padding">
       <Heading>{title}</Heading>
@@ -81,6 +80,7 @@ export default function PageWrapper({
                   <ShootInfoSection
                     shootDetails={componentData.keyInfoBlocks}
                     description={componentData.sectionText}
+                    button={componentData.button}
                   />
                 </section>
               );
