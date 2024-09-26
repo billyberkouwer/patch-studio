@@ -4,6 +4,7 @@ import { visionTool } from "@sanity/vision";
 import { schemaTypes } from "@/sanity/schemaTypes";
 import { media } from "sanity-plugin-media";
 import {
+  RiBook2Line,
   RiContactsBookLine,
   RiContactsLine,
   RiHome2Line,
@@ -24,7 +25,14 @@ const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET || "production";
 const singletonActions = new Set(["publish", "discardChanges", "restore"]);
 
 // Define the singleton document types
-const singletonTypes = new Set(["home", "contact", "bookings", "siteMeta", "site-meta", "pageMeta"]);
+const singletonTypes = new Set([
+  "home",
+  "contact",
+  "bookings",
+  "siteMeta",
+  "site-meta",
+  "pageMeta",
+]);
 
 export const structure = (S: any, context: any) => {
   return S.list()
@@ -53,6 +61,16 @@ export const structure = (S: any, context: any) => {
             .schemaType("contact")
             .documentId("contact")
             .title("Contact")
+        ),
+      S.listItem()
+        .title("Terms and Conditions")
+        .id("termsAndConditions")
+        .icon(RiBook2Line)
+        .child(
+          S.document()
+            .schemaType("termsAndConditions")
+            .documentId("termsAndConditions")
+            .title("Terms and Conditions")
         ),
       S.listItem()
         .title("Site Meta")

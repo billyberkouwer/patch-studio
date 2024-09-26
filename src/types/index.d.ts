@@ -218,3 +218,7 @@ type ContactPageData = {
   _type: "contact";
   socialLinks: SocialLink[]
 }
+
+type TermsAndConditionsData = {
+  termsAndConditionsBlock: PortableTextBlock[] | PortableTextBlock | undefined
+}

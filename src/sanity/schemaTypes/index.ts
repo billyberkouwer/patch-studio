@@ -39,6 +39,7 @@ import GoogleAnalytics from "./objects/googleAnalytics";
 import { pageMeta } from "./documents/pageMeta";
 import SiteMeta from "./documents/siteMeta";
 import { bookingsPage } from "./pages/bookings";
+import {  termsAndConditions } from "./pages/termsAndConditions";
 
 export const schemaTypes = [
   pageBuilderHome,
@@ -81,5 +82,6 @@ export const schemaTypes = [
   pageMeta,
   basic,
   optional,
-  bookingsPage
+  bookingsPage,
+  termsAndConditions
 ];

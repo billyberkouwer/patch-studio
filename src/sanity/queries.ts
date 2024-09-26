@@ -21,6 +21,12 @@ export const fetchHomepageData = groq`
     }
 `;
 
+export const fetchTermsAndConditionsData = groq`
+    *[_type == "termsAndConditions"][0] {
+        ...,
+    }
+`;
+
 export const fetchSiteMetadata = groq`
     *[_type == "siteMeta"][0] {
         ...,
