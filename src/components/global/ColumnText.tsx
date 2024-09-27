@@ -13,17 +13,26 @@ function createColumns(number: number) {
 
 export default function ColumnText({
   textArr,
+  textSize,
 }: {
   textArr: string[];
+  textSize?: "regular" | "large";
 }) {
   return (
     <div className="column-text__wrapper">
       <div
-        className={`column-text__container`}
+        className={`column-text__container ${textSize === "large" ? "large-text" : ""}`}
       >
-        {textArr.map((text) => (
-          <p key={text}>{text}</p>
-        ))}
+        {textArr?.length
+          ? textArr.map((text, i) => (
+              <p
+                key={text}
+                style={textArr.length === 1 ? { width: "fit-content", maxWidth: "70rem" } : {}}
+              >
+                {text}
+              </p>
+            ))
+          : null}
       </div>
     </div>
   );

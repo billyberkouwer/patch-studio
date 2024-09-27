@@ -32,7 +32,7 @@ export default function SizedImage({
 
   if (image?.metadata?.lqip && image?.url) {
     return (
-      <div ref={wrapper} className="image__wrapper">
+      <div ref={wrapper} className="image__wrapper sized-image">
         <Image
           fill
           ref={nextImage}

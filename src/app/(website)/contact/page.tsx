@@ -20,7 +20,7 @@ function outputTextWithNewLine(text: string) {
 export async function generateMetadata() {
   const metadata = await sanityFetch<PageMeta>({
     query: fetchContactMetadata,
-    tags: ["page"],
+    tags: ["contact"],
   });
 
   return {
@@ -48,7 +48,7 @@ export async function generateMetadata() {
     openGraph: {
       images: metadata.ogImage?.url ?? undefined,
       title: metadata?.ogTitle ?? undefined,
-      type: metadata?.ogType ?? undefined,
+      type: metadata?.ogType ?? "website",
       description: metadata?.description ?? undefined,
       publishedTime: metadata?._updatedAt ?? undefined,
       authors: ["Patch Studio"],
@@ -59,7 +59,7 @@ export async function generateMetadata() {
 export default async function Page() {
   const contactData = await sanityFetch<ContactPageData>({
     query: fetchContactData,
-    tags: ["page"]
+    tags: ["contact"]
   });
 
   return (

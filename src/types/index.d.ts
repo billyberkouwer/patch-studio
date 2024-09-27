@@ -9,29 +9,29 @@ type Image = {
 };
 
 type SiteMeta = {
-  keywords: string | null | undefined
-  analyticsId: string | null | undefined
-  siteName: string | null | undefined
-  title: string | null | undefined
-  _updatedAt: string | null | undefined
-  description: string | null | undefined
-  isGoogleAnalyticsEnabled: string | null | undefined
-  ogType: string | null | undefined
-  ogTitle: string | null | undefined
-  ogDescription: string | null | undefined
-  ogImage: SanityImageAssetDocument | null | undefined
-}
+  keywords: string | null | undefined;
+  analyticsId: string | null | undefined;
+  siteName: string | null | undefined;
+  title: string | null | undefined;
+  _updatedAt: string | null | undefined;
+  description: string | null | undefined;
+  isGoogleAnalyticsEnabled: string | null | undefined;
+  ogType: string | null | undefined;
+  ogTitle: string | null | undefined;
+  ogDescription: string | null | undefined;
+  ogImage: SanityImageAssetDocument | null | undefined;
+};
 
 type PageMeta = {
-  keywords: string | null | undefined
-  title: string | null | undefined
-  _updatedAt: string | null | undefined
-  description: string | null | undefined
-  ogType: string | null | undefined
-  ogTitle: string | null | undefined
-  ogImage: SanityImageAssetDocument | null | undefined
-  slug: string | null | undefined
-}
+  keywords: string | null | undefined;
+  title: string | null | undefined;
+  _updatedAt: string | null | undefined;
+  description: string | null | undefined;
+  ogType: string | null | undefined;
+  ogTitle: string | null | undefined;
+  ogImage: SanityImageAssetDocument | null | undefined;
+  slug: string | null | undefined;
+};
 
 type Images = Image[];
 
@@ -132,7 +132,10 @@ type TaglineType = {
 
 type ButtonWithLinkType = {
   _type: "buttonWithLink";
-  text: string;
+  text: string | undefined;
+  isExternalLink: boolean | undefined;
+  internalLink: string | null | undefined;
+  externalLink: string | null | undefined;
 };
 
 type KeyInfoBlockType = {
@@ -182,7 +185,9 @@ type PageComponentTypes =
   | BookingSection
   | FAQSection
   | TextColumn
-  | VerticalScrollImageType;
+  | VerticalScrollImageType
+  | CreativeProjectType[]
+  | TeamMemberCards[];
 
 type HomepageDataType = {
   _type: "home";
@@ -219,8 +224,35 @@ type ContactPageData = {
 };
 
 type MemberCardType = {
-  memberName: string | null;
-  memberImage: null | string;
-  memberInfo: string | null;
-  role: string[]
+  name: string | null;
+  headshot: null | SanityImageAssetDocument;
+  description: string | null;
+  role: string[];
+};
+
+type TermsAndConditionsData = {
+  termsAndConditionsBlock: PortableTextBlock[] | PortableTextBlock | undefined;
+};
+
+type CreativeProjectType = {
+  title: string;
+  color: string;
+  images: SanityImageAssetDocument[];
+  description: PortableTextBlock[];
+  backgroundColor: {
+    a: number;
+    b: number;
+    r: number;
+    g: number;
+    _type: "rgbaColor";
+  };
+  link: { url: string; _type: string };
+};
+
+type TeamMemberCards = {
+  role: string[];
+  headshot: { _type: "image"; asset: SanityImageAssetDocument[] };
+  _type: "teamMemberCard";
+  name: string;
+  _key: string;
 };

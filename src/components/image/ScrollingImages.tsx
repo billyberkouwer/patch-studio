@@ -38,7 +38,7 @@ export default function ScrollingImages({
     }
 
     const tl = gsap.timeline();
-    
+
     tl.fromTo(
       imagesRef.current,
       {
@@ -74,18 +74,28 @@ export default function ScrollingImages({
           ? images.map((image, i) => {
               const length = images.length;
               const displayedImages = [];
-              const iterations = 10 - length;
-              for (let ii = 0; ii < iterations; ii++) {
-                displayedImages.push(images[(ii % length) - 1]);
+              const iterations = 7 - length;
+              if (iterations !== 1) {
+                for (let ii = 0; ii < iterations; ii++) {
+                  displayedImages.push(images[(ii % length) - 1]);
+                }
               }
-              if (displayedImages.length < 1) {
-                return <SizedImage key={image?._id + i} image={image} alt="" />;
+              if (displayedImages.length === 0) {
+                return (
+                  <SizedImage
+                    key={image?._id + i}
+                    image={image}
+                    alt={image.altText ? image.altText : ""}
+                  />
+                );
               }
               return displayedImages.map((displayedImage, i) => (
                 <SizedImage
                   key={displayedImage?._id + i}
                   image={displayedImage}
-                  alt={"Scrolling Image " + (i + 1)}
+                  alt={
+                    image.altText ? image.altText : "Scrolling Image " + (i + 1)
+                  }
                 />
               ));
             })

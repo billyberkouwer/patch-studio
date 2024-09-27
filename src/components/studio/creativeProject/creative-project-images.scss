@@ -1,27 +1,43 @@
+
+@import "@/styles/helpers.scss";
+
 .creative-project-images__wrapper {
     position: relative;
-    margin-bottom: 5rem;
-    
+    margin-bottom: 1rem;
+
+    @include md {
+        margin-bottom: 5rem;
+    }
+
+
     .creative-project-images__container {
         position: relative;
         display: flex;
-        flex-direction: column-reverse;
         flex-wrap: wrap;
-        height: 80rem;
+        height: min(75vh, 80rem);
         gap: 1rem;
+        max-width: 95vw;
+        @include sm {
+            max-width: unset;
+        }
 
         .image__wrapper {
             position: relative;
-            flex: 1 1 39rem;
-            
+            flex: 1 1 10rem;
+            opacity: 0;
+
+            &.sized-image {
+                max-width: 100%;
+
+                @include md {
+                    flex: unset;
+                }
+            }
+
             img {
                 position: relative;
                 object-fit: cover;
             }
-        }
-
-        &:first-child {
-            flex: 1 1 200px;   
         }
     }
 }

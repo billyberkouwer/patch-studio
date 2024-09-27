@@ -1,19 +1,13 @@
 "use client"
 
+import { CreativeProjectType } from "@/types";
 import CreativeProject from "./CreativeProject";
 import "./creative-project-section.scss";
 
 export default function CreativeProjectSection({
   creativeProjects,
 }: {
-  creativeProjects: {
-    title: string;
-    content: {
-      images: { url: string }[];
-      textContent: string;
-      link: string;
-    };
-  }[];
+  creativeProjects: CreativeProjectType[];
 }) {
   return (
     <div className="creative-project-section__wrapper">

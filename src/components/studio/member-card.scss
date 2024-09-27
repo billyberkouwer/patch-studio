@@ -1,7 +1,6 @@
 @import "@/styles/helpers.scss";
 
 .member-card__wrapper {
-
     .member-card__container {
         display: flex;
         flex-direction: column;
@@ -10,12 +9,21 @@
         .technical-info {
             font-family: var(--hvFont);
             font-weight: 500;
-            font-size: 1.4rem;
+            font-size: 1.25rem;
+
+            @include md {
+                font-size: 1.75rem;
+            }
         }
 
         .info__container {
             display: block;
             margin-bottom: 1rem;
+            font-size: 1rem;
+
+            @include md {
+                font-size: 1.5rem;
+            }
 
             p {
                 margin: 0;
@@ -25,7 +33,12 @@
         h5 {
             font-family: var(--mFont);
             font-weight: 500;
-            font-size: 3.2rem;
+            font-size: 3rem;
+
+            @include md {
+                font-size: 5rem;
+            }
+
             text-transform: uppercase;
         }
 
@@ -33,6 +46,7 @@
             height: 20rem;
             width: 20rem;
             position: relative;
+            @include drop-shadow;
 
             img {
                 object-fit: cover;

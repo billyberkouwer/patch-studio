@@ -27,7 +27,7 @@ export default function Footer({
         </ul>
         <div className="copyright__container">© Patch Studio</div>
         <div className="ts-and-cs2__container">
-          <Link href={"/"}>Terms and Conditions</Link>
+          <Link href={"/terms-and-conditions"}>Terms and Conditions</Link>
         </div>
       </div>
     </nav>

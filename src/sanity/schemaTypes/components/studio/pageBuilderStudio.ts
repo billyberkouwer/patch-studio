@@ -14,6 +14,9 @@ export const pageBuilderStudio = defineType({
       type: "teamMemberCards",
     }),
     defineArrayMember({
+      type: "imageHeader",
+    }),
+    defineArrayMember({
       type: "horizontalScrollImages",
     }),
     defineArrayMember({

@@ -21,10 +21,22 @@ export const columnText = defineType({
         }),
       ],
     }),
+    defineField({
+      name: "textSize",
+      title: "Text Size",
+      type: "string",
+      options: {
+        list: [
+          { title: "Regular", value: "regular" },
+          { title: "Large", value: "large" },
+        ],
+      },
+      initialValue: "regular",
+    }),
   ],
   preview: {
     select: {
-      subtitle: "columnText"
+      subtitle: "columnText",
     },
     prepare({ subtitle }) {
       return {

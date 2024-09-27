@@ -175,6 +175,7 @@ export default function Homepage({
                   <ShootInfoSection
                     shootDetails={componentData.keyInfoBlocks}
                     description={componentData.sectionText}
+                    button={componentData.button}
                   />
                 </section>
               );

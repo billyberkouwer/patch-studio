@@ -10,9 +10,9 @@
     padding: 0;
     opacity: 0;
     background: rgb(255,252,227);
-    background: -moz-radial-gradient(circle, rgba(255,252,227,1) 0%, rgba(227,255,253,0.25) 45%, rgba(227,255,253,0) 50%);
-    background: -webkit-radial-gradient(circle, rgba(255,252,227,1) 0%, rgba(227,255,253,0.25) 45%, rgba(227,255,253,0) 50%);
-    background: radial-gradient(circle, rgba(255,252,227,1) 0%, rgba(227,255,253,0.25) 45%, rgba(227,255,253,0) 50%);
+    background: -moz-radial-gradient(circle, rgb(255, 250, 212) 0%, rgba(186, 235, 255, 0.178) 30%, rgba(188, 255, 251, 0) 50%);
+    background: -webkit-radial-gradient(circle, rgb(255, 250, 212) 0%, rgba(186, 235, 255, 0.178) 30%, rgba(188, 255, 251, 0) 50%);
+    background: radial-gradient(circle, rgb(255, 250, 212) 0%, rgba(186, 235, 255, 0.178) 30%, rgba(188, 255, 251, 0) 50%);
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#fffce3",endColorstr="#e3fffd",GradientType=1);
     z-index: 0;
     pointer-events: none;

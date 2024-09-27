@@ -13,11 +13,11 @@ export default function MemberCardsSection({
       <div className="member-cards-section__container">
         {memberCards?.length
           ? memberCards.map((memberCard, i) => {
-              if (memberCard.memberName) {
+              if (memberCard.name) {
                 return (
                   <MemberCard
                     memberCardData={memberCard}
-                    key={memberCard.memberName + i}
+                    key={memberCard.name + i}
                   />
                 );
               }

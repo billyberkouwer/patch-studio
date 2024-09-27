@@ -55,7 +55,7 @@ const hvFont = localFont({
 export async function generateMetadata() {
   const metadata: SiteMeta = await sanityFetch({
     query: fetchSiteMetadata,
-    tags: ["home"],
+    tags: ["siteMeta"],
   });
 
   return {
@@ -86,7 +86,7 @@ export async function generateMetadata() {
     openGraph: {
       images: metadata?.ogImage?.url ?? undefined,
       title: metadata?.ogTitle ?? undefined,
-      type: metadata?.ogType ?? undefined,
+      type: metadata?.ogType ?? "website",
       description: metadata?.ogDescription ?? undefined,
       publishedTime: metadata?._updatedAt ?? undefined,
       authors: ["Patch Studio"],
@@ -118,7 +118,6 @@ export default async function RootLayout({
         {draftMode().isEnabled ? <VisualEditing /> : null}
         {draftMode().isEnabled ? <DisablePreview /> : null}
         {draftMode().isEnabled === false ? <LandingPage /> : null}
-
         {metadata?.analyticsId ? (
           <GoogleAnalytics gaId={metadata?.analyticsId} />
         ) : null}

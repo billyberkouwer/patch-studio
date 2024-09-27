@@ -9,7 +9,7 @@ export const sectionHeader = defineType({
   fields: [
     defineField({
       name: "header",
-      title: "Header",
+      title: "Header Text",
       type: "string",
     }),
   ],
@@ -19,8 +19,8 @@ export const sectionHeader = defineType({
     },
     prepare({ text }) {
       return {
-        title: "Section Header",
-        subtitle: text,
+        title: text,
+        subtitle: "Section Header",
       };
     },
   },

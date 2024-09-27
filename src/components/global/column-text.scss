@@ -38,5 +38,18 @@
         gap: 3.2rem;
     }
 
+    &.large-text {
+        font-size: 2rem;
+        @include md {
+            font-size: 3rem;
+        }
+
+        p {
+            margin: 1rem 0;
+            @include md {
+                margin: 2rem 0;
+            }
+        }
+    }
 
 }

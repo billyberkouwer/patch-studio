@@ -12,5 +12,29 @@
 .footer__container {
     display: flex;
     justify-content: space-between;
-    align-items:flex-end;
+    align-items: flex-end;
+    gap: 0.5rem;
+    font-size: 1rem;
+
+    @include md {
+        font-size: 1.5rem;
+    }
+
+    .page-links__container {
+        text-align: left;
+        flex: 1 1 0px;
+
+    }
+
+    .copyright__container {
+        text-align: center;
+        flex: 1 1 0px;
+
+    }
+
+    .ts-and-cs2__container {
+        text-align: right;
+        flex: 1 1 0px;
+
+    }
 }

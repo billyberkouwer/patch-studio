@@ -64,6 +64,8 @@ a {
 .page__wrapper {
     overflow: hidden;
     box-sizing: border-box;
+    min-height: var(--real-viewport-height);
+    z-index: 1;
 
     &.--hide-navbar {
 
@@ -93,6 +95,7 @@ a {
 
     &.--no-height {
         height: 0px;
+        min-height: 0px;
     }
 }
 

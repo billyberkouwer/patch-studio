@@ -4,6 +4,7 @@ import { visionTool } from "@sanity/vision";
 import { schemaTypes } from "@/sanity/schemaTypes";
 import { media } from "sanity-plugin-media";
 import {
+  RiBook2Line,
   RiBrushLine,
   RiCameraLine,
   RiContactsBookLine,
@@ -14,6 +15,7 @@ import {
 import { RiPagesLine } from "react-icons/ri";
 import { presentationTool } from "sanity/presentation";
 import { orderableDocumentListDeskItem } from "@sanity/orderable-document-list";
+import { colorInput } from "@sanity/color-input";
 
 const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || "";
 const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET || "production";
@@ -64,6 +66,16 @@ export const structure = (S: any, context: any) => {
         .icon(RiBrushLine)
         .child(S.documentTypeList("creativeProject")),
       S.listItem()
+        .title("Terms and Conditions")
+        .id("termsAndConditions")
+        .icon(RiBook2Line)
+        .child(
+          S.document()
+            .schemaType("termsAndConditions")
+            .documentId("termsAndConditions")
+            .title("Terms and Conditions")
+        ),
+      S.listItem()
         .title("Site Meta")
         .id("site-meta")
         .icon(RiSettings2Line)
@@ -98,6 +110,7 @@ export default defineConfig({
   plugins: [
     structureTool({ structure }),
     // visionTool(),
+    colorInput(),
     media(),
     presentationTool({
       previewUrl: {

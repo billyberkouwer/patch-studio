@@ -8,6 +8,12 @@ export const creativeProject = defineType({
     "Document a creative project the Patch Studio team has worked on.",
   fields: [
     defineField({
+      name: "title",
+      type: "string",
+      description: "The title for the creative project",
+      title: "Project Title",
+    }),
+    defineField({
       name: "images",
       type: "array",
       of: [
@@ -18,14 +24,13 @@ export const creativeProject = defineType({
       description: "Images of the creative project",
       title: "Project Images",
     }),
-    defineField({
-      name: "title",
-      type: "string",
-      description: "The title for the creative project",
-      title: "Project Title",
+    defineField(  {
+      name: 'backgroundColor',
+      title: 'Background Color',
+      type: 'color',
     }),
     defineField({
-      name: "decription",
+      name: "description",
       type: "array",
       of: [
         {

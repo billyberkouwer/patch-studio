@@ -19,7 +19,7 @@ export default function ThreeScrollingImages({
   marginBottom?: "small" | "medium" | "large";
 }) {
   const imagesWrapperRef = useRef<HTMLDivElement>(null);
-  const threeImagesContainer = useRef(null);
+  const threeImagesContainer = useRef<HTMLDivElement>(null);
   const imageRef = useRef<HTMLDivElement>(null);
   const [imageSlidesSub, setImageSlidesSub] = useState(
     imageSlides?.length ? splitArrayIntoSubArrays(imageSlides, 3) : null
@@ -27,6 +27,7 @@ export default function ThreeScrollingImages({
 
   useGSAP(() => {
     const imageContainers = document.querySelectorAll(".images__container");
+    const imageWrappers = document.querySelectorAll(".images__wrapper");
     const tl = gsap.timeline();
 
     function calculateScrollAmount(
@@ -58,27 +59,23 @@ export default function ThreeScrollingImages({
         }
       );
 
-      for (let i = 0; i < imageContainers.length; i++) {
-        tl.fromTo(
-          imageContainers,
-          { y: 0, top: "0%" },
-          {
-            scrollTrigger: {
-              trigger: imagesWrapperRef.current,
-              start: "50% 50%",
-              end: "+=1000",
-              scrub: 0.4,
-              invalidateOnRefresh: true,
-            },
-            y: () =>
-              -calculateScrollAmount(
-                imageContainers[i] as HTMLDivElement,
-                imageRef.current
-              ),
-            stagger: 0.03,
-          }
-        );
-      }
+      tl.fromTo(
+        imageContainers,
+        { y: 0, top: "0%" },
+        {
+          scrollTrigger: {
+            trigger: imagesWrapperRef.current,
+            start: "50% 50%",
+            end: "+=1000",
+            scrub: 0.4,
+            invalidateOnRefresh: true,
+          },
+          y: (index) =>
+            -imageContainers[index].clientHeight +
+            imageWrappers[index].clientHeight,
+          stagger: 0.03,
+        }
+      );
     }
     window.addEventListener("resize", () => tl.invalidate());
   }, [imageSlidesSub, imageSlides]);
@@ -92,7 +89,7 @@ export default function ThreeScrollingImages({
         {imageSlidesSub?.length
           ? imageSlidesSub.map((images, i) => (
               <div key={images[i]?._id} className="images__wrapper">
-                <div className="images__container">
+                <div className="images__container" id={"images-container-" + i}>
                   {images.map((image) => (
                     <div
                       className="image__wrapper"
@@ -102,7 +99,9 @@ export default function ThreeScrollingImages({
                       <Image
                         fill
                         src={image?.url}
-                        alt={image?.altText ? image.altText : "Headshot " + (i + 1)}
+                        alt={
+                          image?.altText ? image.altText : "Headshot " + (i + 1)
+                        }
                         placeholder={image?.metadata?.lqip ? "blur" : undefined}
                         blurDataURL={image?.metadata?.lqip}
                       />

@@ -14,18 +14,22 @@ import ColumnText from "../global/ColumnText";
 import Button from "../global/Button";
 import FAQBackground from "../faq/FAQBackground";
 import { useLayoutEffect } from "react";
+import CreativeProjectSection from "../studio/creativeProject/CreativeProjectsSection";
+import MemberCardsSection from "../studio/MemberCardsSection";
+import ImageLandingSection from "../studio/ImageLandingSection";
 
 export default function PageWrapper({
   title,
   pageData,
+  noTopPadding,
 }: {
   title: string;
   pageData: PageComponentTypes[];
+  noTopPadding?: boolean;
 }) {
-  
   return (
-    <div className="page__wrapper --top-padding">
-      <Heading>{title}</Heading>
+    <div className={`page__wrapper ${noTopPadding ? "" : "--top-padding"}`}>
+      {title ? <Heading>{title}</Heading> : null}
       {pageData?.length
         ? pageData.map((componentData) => {
             if (componentData._type === "horizontalScrollImages") {
@@ -38,6 +42,31 @@ export default function PageWrapper({
                     images={componentData.selectionOfImages}
                     title={componentData.title}
                   />
+                </div>
+              );
+            }
+            if (componentData._type === "creativeProjectsSelection") {
+              return (
+                <div key={componentData._key}>
+                  <CreativeProjectSection
+                    creativeProjects={componentData.creativeProjects}
+                  />
+                </div>
+              );
+            }
+            if (componentData._type === "teamMemberCards") {
+              return (
+                <div key={componentData._key}>
+                  <MemberCardsSection
+                    memberCards={componentData.teamMemberCards}
+                  />
+                </div>
+              );
+            }
+            if (componentData._type === "imageHeader") {
+              return (
+                <div key={componentData._key}>
+                  <ImageLandingSection imageLandingData={componentData} />
                 </div>
               );
             }
@@ -71,7 +100,7 @@ export default function PageWrapper({
             if (componentData._type === "textColumns") {
               return (
                 <div key={componentData._key}>
-                  <ColumnText textArr={componentData.columnText}></ColumnText>
+                  <ColumnText textSize={componentData?.textSize} textArr={componentData.columnText}></ColumnText>
                 </div>
               );
             }
@@ -81,6 +110,7 @@ export default function PageWrapper({
                   <ShootInfoSection
                     shootDetails={componentData.keyInfoBlocks}
                     description={componentData.sectionText}
+                    button={componentData.button}
                   />
                 </section>
               );

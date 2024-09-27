@@ -1,12 +1,16 @@
 @import "@/styles/helpers.scss";
 
+
+
 .creative-project-accordion__container {
     display: flex;
     flex-direction: column;
-    color: $dark;
-    padding: 1rem;
     box-sizing: border-box;
-    background-color: rgb(138, 13, 13);
+    padding: 2.5rem 1rem;
+
+    @include md {
+        padding: 5rem 1rem;
+    }
 }
 
 .creative-project-accordion__header {
@@ -39,13 +43,11 @@
 
     .button {
         background-color: transparent;
-        color: $white;
         border: none;
         transition: background-color 0.5s;
 
         &:hover {
             background-color: rgba(0, 0, 0, 0.2);
-            color: $white;
         }
     }
 
@@ -53,14 +55,14 @@
         font-weight: 400;
         font-family: var(--mFont);
         text-transform: uppercase;
-        color: white;
+        font-size: 2.5rem;
 
         @include xs {
-            font-size: 2.25rem;
+            font-size: 3.5rem;
         }
 
         @include sm {
-            font-size: 3rem;
+            font-size: 4.25rem;
         }
 
         @include md {
@@ -74,6 +76,7 @@
     grid-template-rows: 0fr;
     overflow: hidden;
     transition: grid $slow;
+    box-sizing: border-box;
 
     .creative-project-accordion-content__container {
         min-height: 0;
@@ -82,22 +85,32 @@
         margin: 0;
         font-size: 1.6rem;
         opacity: 1;
-        color: $light;
+        box-sizing: border-box;
+
 
         .text__content {
             display: flex;
             justify-content: space-between;
-            gap: 1rem;
+            align-items: flex-end;
+            gap: 2rem;
+            flex-direction: column;
+
+            @include md {
+                flex-direction: row;
+            }
+            box-sizing: border-box;
+
         }
 
         .info-text__container {
-            max-width: 80%;
-        }
+            max-width: 120rem;
+            font-size: 1rem;
+            box-sizing: border-box;
 
-        .button {
-            background-color: white;
-            color: red;
-            border-color: red
+
+            @include md {
+                font-size: 1.6rem;
+            }
         }
 
         &.expanded {

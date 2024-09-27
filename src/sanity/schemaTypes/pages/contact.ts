@@ -5,11 +5,28 @@ export const contactPage = defineType({
   title: "Contact",
   name: "contact",
   fieldsets: [{ name: "content", title: "Page Content" }],
+  initialValue: {
+    slug: { _type: "slug", current: "contact" },
+  },
   groups: [
     { name: "content", title: "Page Content", default: true },
     { name: "pageMeta", title: "Page Meta" },
   ],
   fields: [
+    defineField({
+      name: "slug",
+      type: "slug",
+      title: "Slug",
+      group: "content",
+      fieldset: "content",
+      readOnly: true,
+      options: {
+        slugify: (input) =>
+          input.toLowerCase().replace(/\s+/g, "-").slice(0, 200),
+      },
+      description: `The slug of this page is fixed to /contact`,
+      validation: (Rule) => Rule.required(),
+    }),
     defineField({
       name: "location",
       title: "Location Info",

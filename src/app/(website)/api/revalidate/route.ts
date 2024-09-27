@@ -19,8 +19,19 @@ export async function POST(req: NextRequest) {
       return new Response("Bad Request", { status: 400 });
     }
 
+    console.log(body?._type, body?.slug);
+
     revalidateTag(body._type);
-    revalidatePath(`/${body.slug}`);
+
+    if (body?._type === "termsAndConditions") {
+      revalidatePath(`/terms-and-conditions`);
+    } else if (body?._type === "siteMeta") {
+      revalidatePath(`/`);
+    } else if (body?._type === "bookings") {
+      revalidatePath(`/bookings`);
+    } else if (body?.slug) {
+      revalidatePath(`/${body.slug}`);
+    }
 
     return NextResponse.json({
       status: 200,

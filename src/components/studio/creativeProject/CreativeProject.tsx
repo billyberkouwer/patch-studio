@@ -4,20 +4,20 @@ import { useState } from "react";
 import "./creative-project-accordion.scss";
 import Button from "@/components/global/Button";
 import CreativeProjectImages from "./CreativeProjectImages";
+import { CreativeProjectType } from "@/types";
+import { lightOrDark } from "@/helpers";
+import { PortableText } from "next-sanity";
 
 export default function CreativeProject({
   creativeProject,
 }: {
-  creativeProject: {
-    title: string;
-    content: {
-      images: { url: string }[];
-      textContent: string;
-      link: string;
-    };
-  };
+  creativeProject: CreativeProjectType;
 }) {
-  const [isExpanded, setIsExpanded] = useState(false);
+  const [isExpanded, setIsExpanded] = useState(true);
+  const [backgroundColor, setBackgroundColor] = useState(
+    `rgb(${creativeProject.backgroundColor?.r},${creativeProject.backgroundColor?.g},${creativeProject.backgroundColor?.b})`
+  );
+  
 
   function handleExpansion() {
     setIsExpanded(!isExpanded);
@@ -25,14 +25,34 @@ export default function CreativeProject({
 
   return (
     <div className="creative-project-accordion__wrapper">
-      <div className={`creative-project-accordion__container`}>
+      <div
+        className={`creative-project-accordion__container`}
+        style={{
+          backgroundColor: creativeProject?.backgroundColor
+            ? backgroundColor
+            : undefined,
+          color:
+            lightOrDark(backgroundColor) === "dark" ? "#FAFAFA" : "#242145",
+        }}
+      >
         <div
           className="creative-project-accordion__header"
           aria-controls="open-panel"
           onClick={handleExpansion}
         >
           {creativeProject?.title ? <h4>{creativeProject.title}</h4> : null}
-          <Button callback={handleExpansion}>{isExpanded ? "-" : "+"}</Button>
+          <Button
+            inlineStyle={{
+              backgroundColor: creativeProject?.backgroundColor
+                ? backgroundColor
+                : undefined,
+              color:
+                lightOrDark(backgroundColor) === "dark" ? "#FAFAFA" : "#242145",
+            }}
+            callback={handleExpansion}
+          >
+            {isExpanded ? "-" : "+"}
+          </Button>
         </div>
         <div
           className={`creative-project-accordion-content__wrapper ${isExpanded ? "expanded" : ""}`}
@@ -40,17 +60,34 @@ export default function CreativeProject({
           <div
             className={`creative-project-accordion-content__container ${isExpanded ? "expanded" : ""}`}
           >
-            {creativeProject?.content.images ? (
-              <CreativeProjectImages images={creativeProject.content.images} />
+            {creativeProject?.images ? (
+              <CreativeProjectImages
+                title={creativeProject.title}
+                images={creativeProject.images}
+              />
             ) : null}
             <div className="text__content">
-              {creativeProject?.content.textContent ? (
+              {creativeProject?.description ? (
                 <div className="info-text__container">
-                  <p>{creativeProject.content.textContent}</p>
+                  <PortableText value={creativeProject.description} />
                 </div>
               ) : null}
-              {creativeProject?.content.link ? (
-                <Button isLarge slug={creativeProject.content.link}>
+              {creativeProject?.link ? (
+                <Button
+                  inlineStyle={{
+                    backgroundColor: "rgba(255, 255, 255, 0.2)",
+                    color:
+                      lightOrDark(backgroundColor) === "dark"
+                        ? "#FAFAFA"
+                        : "#242145",
+                    borderColor:
+                      lightOrDark(backgroundColor) === "dark"
+                        ? "#FAFAFA"
+                        : "#242145",
+                  }}
+                  isLarge
+                  slug={creativeProject.link.url}
+                >
                   View
                 </Button>
               ) : null}

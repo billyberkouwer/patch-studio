@@ -12,19 +12,25 @@ export default function MemberCard({
   return (
     <div className="member-card__wrapper">
       <div className="member-card__container">
-        {memberCardData.memberImage ? (
+        {memberCardData.headshot?.url ? (
           <div className="member-image__wrapper">
             <Image
-              src={memberCardData.memberImage}
+              src={memberCardData.headshot.url}
+              placeholder="blur"
+              blurDataURL={memberCardData.headshot.metadata.lqip}
               fill
               sizes="200px"
-              alt="member"
+              alt={
+                memberCardData.headshot.altText
+                  ? memberCardData.headshot.altText
+                  : memberCardData.name
+              }
             />
           </div>
         ) : null}
-        {memberCardData.memberName ? (
+        {memberCardData.name ? (
           <div className="member-name">
-            <h5>{memberCardData.memberName}</h5>
+            <h5>{memberCardData.name}</h5>
           </div>
         ) : null}
         {memberCardData.role ? (
@@ -37,11 +43,11 @@ export default function MemberCard({
             </ul>
           </div>
         ) : null}
-        {memberCardData.memberInfo ? (
+        {memberCardData.description ? (
           <div className="info__container">
             <h6 className="technical-info">About: </h6>
             <div className="member-info">
-              <p>{memberCardData.memberInfo}</p>
+              <p>{memberCardData.description}</p>
             </div>
           </div>
         ) : null}

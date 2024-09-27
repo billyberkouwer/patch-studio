@@ -45,6 +45,8 @@ import { pageBuilderStudio } from "./components/studio/pageBuilderStudio";
 import { studioPage } from "./pages/studio";
 import { teamMemberCards } from "./components/studio/teamMemberCards";
 import { teamMemberCard } from "./components/studio/teamMemberCard";
+import {  termsAndConditions } from "./pages/termsAndConditions";
+import { imageHeader } from "./components/studio/imageHeader";
 
 export const schemaTypes = [
   pageBuilderHome,
@@ -94,4 +96,6 @@ export const schemaTypes = [
   studioPage,
   teamMemberCard,
   teamMemberCards,
+  termsAndConditions,
+  imageHeader,
 ];
