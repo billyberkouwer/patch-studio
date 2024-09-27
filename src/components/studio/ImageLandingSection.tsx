@@ -60,7 +60,7 @@ export default function ImageLandingSection({
             />
           </div>
         ) : null}
-        <div className="image-landing-text__wrapper">
+        <div className={`image-landing-text__wrapper ${isLoaded ? "blend-mode" : ""}`}>
           {imageLandingData.header ? (
             <Heading>{imageLandingData.header.header}</Heading>
           ) : null}

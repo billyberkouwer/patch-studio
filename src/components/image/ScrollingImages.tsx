@@ -54,7 +54,7 @@ export default function ScrollingImages({
           pin: isFixed,
           end: () =>
             "+=" + 2000 * (window.innerHeight / window.innerWidth / 3 + 0.5),
-          scrub: 0.4,
+          scrub: 0.2,
           invalidateOnRefresh: true,
         },
         x:

@@ -14,30 +14,49 @@
         position: relative;
 
         .image-landing-text__wrapper {
-            mix-blend-mode: difference;
+            .heading__wrapper {
+                position: relative;
+    
+                h1 {
+                    color: $blue;
+                }
+            }
+    
+            .text__wrapper {
+                opacity: 0;
+                visibility: hidden;
+            }
+    
+            .tagline__wrapper {
+                position: relative;
+                margin: 0;
+    
+                h2 {
+                    color: $blue;
+                }
+            }
 
-        }
-        .heading__wrapper {
-            position: relative;
+            &.blend-mode {
+                mix-blend-mode: difference;
 
-            h1 {
-                color: $light;
+                .heading__wrapper {
+
+                    h1 {
+                        color: $light;
+
+                    }
+                }
+
+                .tagline__wrapper {
+
+                    h2 {
+                        color: $light;
+
+                    }
+                }
             }
         }
-
-        .text__wrapper {
-            opacity: 0;
-            visibility: hidden;
-        }
-
-        .tagline__wrapper {
-            position: relative;
-            margin: 0;
-
-            h2 {
-                color: $light;
-            }
-        }
+        
 
         .image__wrapper {
             position: absolute;

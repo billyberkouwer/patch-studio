@@ -52,8 +52,8 @@ export default function ThreeScrollingImages({
             trigger: imagesWrapperRef.current,
             start: "50% 50%",
             pin: true,
-            end: "+=1000",
-            scrub: 0.4,
+            end: "+=1500",
+            scrub: 0.2,
             invalidateOnRefresh: true,
           },
         }
@@ -66,8 +66,8 @@ export default function ThreeScrollingImages({
           scrollTrigger: {
             trigger: imagesWrapperRef.current,
             start: "50% 50%",
-            end: "+=1000",
-            scrub: 0.4,
+            end: "+=1500",
+            scrub: 0.2,
             invalidateOnRefresh: true,
           },
           y: (index) =>
