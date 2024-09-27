@@ -17,24 +17,22 @@ export default function CreativeProject({
   const [backgroundColor, setBackgroundColor] = useState(
     `rgb(${creativeProject.backgroundColor?.r},${creativeProject.backgroundColor?.g},${creativeProject.backgroundColor?.b})`
   );
-  
 
   function handleExpansion() {
     setIsExpanded(!isExpanded);
   }
 
   return (
-    <div className="creative-project-accordion__wrapper">
-      <div
-        className={`creative-project-accordion__container`}
-        style={{
-          backgroundColor: creativeProject?.backgroundColor
-            ? backgroundColor
-            : undefined,
-          color:
-            lightOrDark(backgroundColor) === "dark" ? "#FAFAFA" : "#242145",
-        }}
-      >
+    <div
+      className="creative-project-accordion__wrapper"
+      style={{
+        backgroundColor: creativeProject?.backgroundColor
+          ? backgroundColor
+          : undefined,
+        color: lightOrDark(backgroundColor) === "dark" ? "#FAFAFA" : "#242145",
+      }}
+    >
+      <div className={`creative-project-accordion__container`}>
         <div
           className="creative-project-accordion__header"
           aria-controls="open-panel"

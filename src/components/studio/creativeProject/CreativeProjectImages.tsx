@@ -41,32 +41,24 @@ export default function CreativeProjectImages({
     <div className="creative-project-images__wrapper">
       <div ref={container} className="creative-project-images__container">
         {images?.length
-          ? images.map((image, i) =>
-              i === 0 ? (
-                <SizedImage
-                  key={image._id + i}
-                  image={image}
-                  alt={image.altText}
+          ? images.map((image, i) => (
+              <div key={image._id + i} className="image__wrapper">
+                <Image
+                  src={image.url}
+                  alt={image?.alt ? image.alt : title + " " + i}
+                  placeholder="blur"
+                  blurDataURL={image.metadata.lqip}
+                  fill
+                  sizes={
+                    images.length === 1
+                      ? "100vw"
+                      : images.length === 2
+                        ? "50vw"
+                        : "25vw"
+                  }
                 />
-              ) : (
-                <div key={image._id + i} className="image__wrapper">
-                  <Image
-                    src={image.url}
-                    alt={image?.alt ? image.alt : title + " " + i}
-                    placeholder="blur"
-                    blurDataURL={image.metadata.lqip}
-                    fill
-                    sizes={
-                      images.length === 1
-                        ? "100vw"
-                        : images.length === 2
-                          ? "50vw"
-                          : "25vw"
-                    }
-                  />
-                </div>
-              )
-            )
+              </div>
+            ))
           : null}
       </div>
     </div>

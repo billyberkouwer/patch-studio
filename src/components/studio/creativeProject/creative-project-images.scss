@@ -1,4 +1,3 @@
-
 @import "@/styles/helpers.scss";
 
 .creative-project-images__wrapper {
@@ -17,14 +16,24 @@
         height: min(75vh, 80rem);
         gap: 1rem;
         max-width: 95vw;
+
         @include sm {
             max-width: unset;
         }
 
         .image__wrapper {
             position: relative;
-            flex: 1 1 10rem;
+            flex: 1 1 40%;
+            transition: flex 1s;
             opacity: 0;
+
+            @include md {
+                flex: 1 1 10%;
+
+                &:hover {
+                    flex: 1 1 44%;
+                }
+            }
 
             &.sized-image {
                 max-width: 100%;
