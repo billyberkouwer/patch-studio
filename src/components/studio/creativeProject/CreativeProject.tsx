@@ -84,7 +84,11 @@ export default function CreativeProject({
                         : "#242145",
                   }}
                   isLarge
-                  slug={creativeProject.link.url}
+                  slug={
+                    creativeProject.link.url.includes("http")
+                      ? creativeProject.link.url
+                      : "https://" + creativeProject.link.url
+                  }
                 >
                   View
                 </Button>
