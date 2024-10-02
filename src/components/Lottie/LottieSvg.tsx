@@ -47,10 +47,9 @@ export default function LottieSvg({
       renderer="svg"
       speed={4}
       loop={false}
-      
       onEvent={(event) => {
         if (event === "load") {
-            player.current?.play();
+          player.current?.play();
         }
         if (event === "frame") {
           if (player.current?.state?.instance) {

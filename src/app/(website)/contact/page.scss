@@ -33,6 +33,10 @@
     padding: 0.8rem;
     overflow-y: auto;
 
+    .text-content {
+        margin-bottom: 2rem;
+    }
+
     @include sm {
         padding: 0 0.8rem 0.8rem 0.8rem;
     }
@@ -63,5 +67,10 @@
     a {
         display: block;
         font-size: 1.6rem;
+        color: $blue;
+        
+        &:hover {
+            opacity: 0.8;
+        }
     }
 }

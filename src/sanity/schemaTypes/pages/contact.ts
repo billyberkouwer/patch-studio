@@ -30,7 +30,8 @@ export const contactPage = defineType({
     defineField({
       name: "location",
       title: "Location Info",
-      type: "text",
+      type: "array",
+      of: [defineArrayMember({ type: "block" })],
       fieldset: "content",
       group: "content",
     }),

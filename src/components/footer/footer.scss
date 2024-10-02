@@ -29,7 +29,9 @@
     .copyright__container {
         text-align: center;
         flex: 1 1 0px;
-
+        a {
+            display: block;
+        }
     }
 
     .ts-and-cs2__container {

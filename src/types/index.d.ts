@@ -217,7 +217,7 @@ type SocialLink = {
 type ContactPageData = {
   googleEmbedMap: string;
   _id: string;
-  location: string;
+  location: PortableTextBlock[];
   locationImages: SanityImageAssetDocument[];
   _type: "contact";
   socialLinks: SocialLink[];

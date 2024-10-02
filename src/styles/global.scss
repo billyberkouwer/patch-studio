@@ -9,7 +9,7 @@
 
 html {
     font-size: var(--rem-size);
-    cursor: url("/cursor.svg") 0 0,
+    cursor: url("/cursor.svg") 32 32,
         default;
 
     &.--hide-scrollbar {
@@ -32,6 +32,8 @@ body {
     background-color: $light;
     font-family: var(--nhFont);
     color: $dark;
+    cursor: url("/cursor.svg") 0 0,
+    default;
 }
 
 ul {

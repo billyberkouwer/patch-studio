@@ -7,6 +7,7 @@ import { formatContactLink } from "@/helpers";
 import Link from "next/link";
 import FadingImages from "@/components/image/FadingImages";
 import { ContactPageData, PageMeta } from "@/types";
+import { PortableText } from "next-sanity";
 
 function outputTextWithNewLine(text: string) {
   const split = text.split("\n");
@@ -59,7 +60,7 @@ export async function generateMetadata() {
 export default async function Page() {
   const contactData = await sanityFetch<ContactPageData>({
     query: fetchContactData,
-    tags: ["contact"]
+    tags: ["contact"],
   });
 
   return (
@@ -70,14 +71,17 @@ export default async function Page() {
             <FadingImages images={contactData?.locationImages} />
           </div>
           <div className="block-2__wrapper">
-            <div>
-              {contactData?.location
-                ? outputTextWithNewLine(contactData.location)
-                : null}
+            <div className="text-content">
+              {contactData?.location ? (
+                <PortableText value={contactData.location} />
+              ) : null}
             </div>
             <div className="social-links__wrapper">
               {contactData?.socialLinks?.map((link, i) => (
-                <Link key={link.link + i} href={formatContactLink(link.link, link.linkType)}>
+                <Link
+                  key={link.link + i}
+                  href={formatContactLink(link.link, link.linkType)}
+                >
                   {link.title}
                 </Link>
               ))}

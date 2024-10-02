@@ -25,7 +25,11 @@ export default function Footer({
             </li>
           ))}
         </ul>
-        <div className="copyright__container">© Patch Studio</div>
+        <div className="copyright__container">
+          <a href="https://www.instagram.com/patch_studio__">Instagram</a>
+          <a href="mailto:info@patchstudio.uk">Email</a>
+          <span>© Patch Studio</span>
+        </div>
         <div className="ts-and-cs2__container">
           <Link href={"/terms-and-conditions"}>Terms and Conditions</Link>
         </div>
