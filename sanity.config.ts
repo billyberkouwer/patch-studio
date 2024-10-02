@@ -32,7 +32,7 @@ export const structure = (S: any, context: any) => {
     .items([
       orderableDocumentListDeskItem({
         type: "page",
-        title: "Pages",
+        title: "Custom Pages",
         S,
         context,
         icon: RiPagesLine,
@@ -62,10 +62,6 @@ export const structure = (S: any, context: any) => {
           S.document().schemaType("studio").documentId("studio").title("Studio")
         ),
       S.listItem()
-        .title("Creative Projects")
-        .icon(RiBrushLine)
-        .child(S.documentTypeList("creativeProject")),
-      S.listItem()
         .title("Terms and Conditions")
         .id("termsAndConditions")
         .icon(RiBook2Line)
@@ -75,6 +71,12 @@ export const structure = (S: any, context: any) => {
             .documentId("termsAndConditions")
             .title("Terms and Conditions")
         ),
+      S.divider(),
+      S.listItem()
+        .title("Creative Projects")
+        .icon(RiBrushLine)
+        .child(S.documentTypeList("creativeProject")),
+      S.divider(),
       S.listItem()
         .title("Site Meta")
         .id("site-meta")
