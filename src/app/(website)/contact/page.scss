@@ -35,6 +35,10 @@
 
     .text-content {
         margin-bottom: 2rem;
+
+        p {
+            margin: 0;
+        }
     }
 
     @include sm {

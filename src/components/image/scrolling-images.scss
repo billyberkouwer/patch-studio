@@ -3,7 +3,7 @@
 .scrolling-images__wrapper {
     margin-top: 0.8rem;
     overflow: visible;
-    margin-bottom: 10rem;
+    margin-bottom: 5rem;
 
     @include lg {
         margin-bottom: 15rem;
@@ -48,7 +48,7 @@
     &.--medium {
 
         .image__wrapper {
-            height: 40rem;
+            height: 30rem;
 
             @include md {
                 height: 50rem;

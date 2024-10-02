@@ -20,5 +20,10 @@
 }
 
 .shoot-details__wrapper {
+    width: 100%;
+
+    @include md {
+        width: unset;
+    }
     max-width: 400px;
 }

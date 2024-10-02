@@ -2,7 +2,7 @@
 
 .shoot-details__container {
     display: block;
-    margin-bottom: 3rem;
+    margin-bottom: 0.5rem;
 
     &.centered {
         text-align: center;
@@ -15,6 +15,10 @@
     }
 
     li {
-        font-size: 3rem;
+        font-size: 2rem;
+
+        @include md {
+            font-size: 3rem;
+        }
     }
 }
