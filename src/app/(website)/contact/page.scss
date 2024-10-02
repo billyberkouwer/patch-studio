@@ -29,7 +29,6 @@
     flex-direction: column;
     justify-content: space-between;
     font-style: normal;
-    font-size: 1.6rem;
     padding: 0.8rem;
     overflow-y: auto;
 
@@ -70,7 +69,6 @@
 .social-links__wrapper {
     a {
         display: block;
-        font-size: 1.6rem;
         color: $blue;
         
         &:hover {

@@ -63,6 +63,18 @@ a {
     cursor: url("/pointer.svg") 0 0, pointer;
 }
 
+p, a {
+    font-size: 1.1rem;
+
+    @include sm {
+        font-size: 1.2rem;
+    }
+
+    @include md {
+        font-size: 1.6rem;
+    }
+}
+
 .page__wrapper {
     overflow: hidden;
     box-sizing: border-box;
