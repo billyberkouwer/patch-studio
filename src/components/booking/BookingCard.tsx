@@ -37,7 +37,7 @@ export default function BookingCard({
           {bookingImage?.url ? (
             <Image
               src={bookingImage?.url}
-              alt={shootType + " picture"}
+              alt={bookingImage?.altText ? bookingImage.altText : shootType + " picture"}
               placeholder="blur"
               blurDataURL={bookingImage?.metadata?.lqip || ""}
               sizes="(max-width: 768px) 200px, 400px"

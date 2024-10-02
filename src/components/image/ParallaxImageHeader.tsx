@@ -72,7 +72,7 @@ export default function ParallaxImageHeader({
                 <SizedImage
                   key={image?._id + i}
                   image={image}
-                  alt={"Selected portfolio image " + (i + 1)}
+                  alt={image?.altText ? image.altText : "Selected portfolio image " + (i + 1)}
                   size="large"
                   quality={90}
                 />

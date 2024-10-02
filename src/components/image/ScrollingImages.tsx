@@ -101,7 +101,15 @@ export default function ScrollingImages({
             })
           : images?.length && isFixed
             ? images.map((image, i) => (
-                <SizedImage key={image?._id + i} image={image} alt="" />
+                <SizedImage
+                  key={image?._id + i}
+                  image={image}
+                  alt={
+                    image?.altText
+                      ? image.altText
+                      : "Scrolling selection of images " + (i + 1)
+                  }
+                />
               ))
             : null}
       </div>

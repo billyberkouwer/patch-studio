@@ -21,7 +21,7 @@ export default function MemberCard({
               fill
               sizes="200px"
               alt={
-                memberCardData.headshot.altText
+                memberCardData.headshot?.altText
                   ? memberCardData.headshot.altText
                   : memberCardData.name
               }

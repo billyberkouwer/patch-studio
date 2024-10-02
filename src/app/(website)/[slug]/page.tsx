@@ -1,4 +1,4 @@
-import PageWrapper from "@/components/page/PageWrapper";
+import PageComposer from "@/components/page/PageComposer";
 import { client, sanityFetch } from "@/sanity/config/client";
 import {
   allProjectSlugs,
@@ -82,5 +82,5 @@ export default async function Page({ params }: { params: { slug: string } }) {
     return notFound();
   }
 
-  return <PageWrapper title={pageData.title} pageData={pageData.pageBuilder} />;
+  return <PageComposer title={pageData.title} pageData={pageData.pageBuilder} />;
 }

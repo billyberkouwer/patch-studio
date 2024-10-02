@@ -45,7 +45,7 @@ export default function CreativeProjectImages({
               <div key={image._id + i} className="image__wrapper">
                 <Image
                   src={image.url}
-                  alt={image?.alt ? image.alt : title + " " + i}
+                  alt={image?.altText ? image.altText : title + " " + i}
                   placeholder="blur"
                   blurDataURL={image.metadata.lqip}
                   fill

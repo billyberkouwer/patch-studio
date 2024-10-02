@@ -1,4 +1,4 @@
-import PageWrapper from "@/components/page/PageWrapper";
+import PageComposer from "@/components/page/PageComposer";
 import CreativeProject from "@/components/studio/creativeProject/CreativeProject";
 import CreativeProjectSection from "@/components/studio/creativeProject/CreativeProjectsSection";
 import ImageLandingSection from "@/components/studio/ImageLandingSection";
@@ -126,6 +126,6 @@ export default async function Studio() {
   }
 
   return (
-    <PageWrapper noTopPadding title={pageData.title} pageData={pageData.pageBuilder} />
+    <PageComposer noTopPadding title={pageData.title} pageData={pageData.pageBuilder} />
   );
 }

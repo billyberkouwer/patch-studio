@@ -18,7 +18,7 @@ import CreativeProjectSection from "../studio/creativeProject/CreativeProjectsSe
 import MemberCardsSection from "../studio/MemberCardsSection";
 import ImageLandingSection from "../studio/ImageLandingSection";
 
-export default function PageWrapper({
+export default function PageComposer({
   title,
   pageData,
   noTopPadding,
