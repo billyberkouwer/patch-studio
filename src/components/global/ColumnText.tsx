@@ -24,14 +24,31 @@ export default function ColumnText({
         className={`column-text__container ${textSize === "large" ? "large-text" : ""}`}
       >
         {textArr?.length
-          ? textArr.map((text, i) => (
-              <p
-                key={text}
-                style={textArr.length === 1 ? { width: "fit-content", maxWidth: "70rem" } : {}}
-              >
-                {text}
-              </p>
-            ))
+          ? textArr.map((text, i) =>
+              textSize === "large" ? (
+                <h3
+                  key={text}
+                  style={
+                    textArr.length === 1
+                      ? { width: "fit-content", maxWidth: "70rem" }
+                      : {}
+                  }
+                >
+                  {text}
+                </h3>
+              ) : (
+                <p
+                  key={text}
+                  style={
+                    textArr.length === 1
+                      ? { width: "fit-content", maxWidth: "70rem" }
+                      : {}
+                  }
+                >
+                  {text}
+                </p>
+              )
+            )
           : null}
       </div>
     </div>

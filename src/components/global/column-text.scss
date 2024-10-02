@@ -5,20 +5,29 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 5rem;
+    margin-bottom: 2.5rem;
+
+    @include md {
+        margin-bottom: 5rem;
+    }
 }
 
 .column-text__container {
     display: flex;
     gap: 0.8rem;
     width: 1600px;
-    font-size: 1.6rem;
+    font-size: 1rem;
     padding: 0.8rem;
     flex-flow: column;
     justify-content: center;
 
     p {
+        margin: 1rem 0;
         width: 100%;
+
+        @include md {
+            margin: 2rem 0;
+        }
     }
 
     @include xs {
@@ -35,17 +44,20 @@
     }
 
     @include md {
+        font-size: 1.6rem;
         gap: 3.2rem;
     }
 
     &.large-text {
         font-size: 2rem;
+
         @include md {
             font-size: 3rem;
         }
 
-        p {
+        p, h3 {
             margin: 1rem 0;
+            font-weight: 300;
             @include md {
                 margin: 2rem 0;
             }

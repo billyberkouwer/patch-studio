@@ -119,8 +119,6 @@ export default async function Studio() {
     tags: ["page"],
   });
 
-  console.log(pageData?.pageBuilder[0])
-
   if (!pageData) {
     return notFound();
   }

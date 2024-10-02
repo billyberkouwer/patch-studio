@@ -1,8 +1,13 @@
 @import "@/styles/helpers.scss";
 
 .three-images__wrapper {
-    margin-bottom: 10rem;
+    margin-bottom: 5rem;
     box-sizing: border-box;
+
+    @include md {
+        margin-bottom: 10rem;
+
+    }
 
     @include lg {
         margin-bottom: 20rem;
@@ -39,7 +44,8 @@
             gap: 3rem;
         }
 
-        :nth-child(1), :nth-child(2) {
+        :nth-child(1),
+        :nth-child(2) {
             width: calc(50% - 0.5rem);
         }
 

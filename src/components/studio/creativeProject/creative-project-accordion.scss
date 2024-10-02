@@ -94,14 +94,18 @@
             display: flex;
             justify-content: space-between;
             align-items: flex-end;
-            gap: 2rem;
+            gap: 1rem;
             flex-direction: column;
 
             @include md {
                 flex-direction: row;
+                gap: 5rem;
             }
             box-sizing: border-box;
 
+            p {
+                margin-bottom: 0;
+            }
         }
 
         .info-text__container {

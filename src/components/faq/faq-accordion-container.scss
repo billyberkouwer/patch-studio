@@ -1,3 +1,5 @@
+@import "@/styles/helpers.scss";
+
 .accordion__wrapper {
     display: flex;
     justify-content: center;
@@ -9,5 +11,10 @@
     gap: 0.8rem;
     flex-direction: column;
     max-width: 600px;
-    padding: 1rem;
+    padding: 0.8rem;
+
+    @include md {
+        padding: 1rem;
+
+    }
 }

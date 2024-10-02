@@ -1,8 +1,14 @@
+@import "@/styles/helpers.scss";
+
 .shoot-description__container {
-    max-width: 600px;
+    max-width: 400px;
     // padding-right: 0.8rem;
     // padding-left: 0.8rem;
     box-sizing: border-box;
+
+    @include md {
+        max-width: 600px;
+    }
 
     p {
         font-size: 1.6rem;

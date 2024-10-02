@@ -25,8 +25,12 @@
 
     h2 {
         font-weight: 300;
-        font-size: 3rem;
+        font-size: 2rem;
         text-align: center;
+
+        @include sm {
+            font-size: 3.5rem;
+        }
 
         @include md {
             font-size: 5rem;
