@@ -10,10 +10,12 @@
     backdrop-filter: blur(2px);
     font-size: 1.6rem;
     cursor: url("/pointer.svg") 0 0, pointer;
-    height: fit-content;
+    // height: fit-content;
     text-transform: uppercase;
     box-sizing: border-box;
-    display: block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: fit-content;
     border-radius: 0;
 

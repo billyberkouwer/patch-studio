@@ -7,6 +7,7 @@ import CreativeProjectImages from "./CreativeProjectImages";
 import { CreativeProjectType } from "@/types";
 import { lightOrDark } from "@/helpers";
 import { PortableText } from "next-sanity";
+import LottieSvg from "@/components/Lottie/LottieSvg";
 
 export default function CreativeProject({
   creativeProject,
@@ -49,7 +50,11 @@ export default function CreativeProject({
             }}
             callback={handleExpansion}
           >
-            {isExpanded ? "-" : "+"}
+            <LottieSvg
+              direction={isExpanded ? 1 : -1}
+              isExpanded={isExpanded}
+              src={"/lottie/patch-close-button.json"}
+            />
           </Button>
         </div>
         <div
