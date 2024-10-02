@@ -9,7 +9,7 @@
     background-color: $light-75;
     backdrop-filter: blur(2px);
     font-size: 1.6rem;
-    cursor: url("/pointer.svg") 32 32, pointer;
+    cursor: url("/pointer.svg") 0 0, pointer;
     // height: fit-content;
     text-transform: uppercase;
     box-sizing: border-box;
@@ -35,8 +35,7 @@
         background-color: $blue;
         color: $white;
         font-weight: 500;
-        cursor: url("/pointer.svg") 32 32, pointer;
-
+        cursor: url("/pointer.svg") 0 0, pointer;
     }
 
     &.bold {
