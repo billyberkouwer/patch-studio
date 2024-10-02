@@ -7,7 +7,7 @@ import CreativeProjectImages from "./CreativeProjectImages";
 import { CreativeProjectType } from "@/types";
 import { lightOrDark } from "@/helpers";
 import { PortableText } from "next-sanity";
-import LottieSvg from "@/components/lottie/LottieSvg";
+import LottieSvg from "@/components/Lottie/LottieSvg";
 
 export default function CreativeProject({
   creativeProject,

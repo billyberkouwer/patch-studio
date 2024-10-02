@@ -5,7 +5,7 @@ import "./custom-accordion.scss";
 import Button from "../global/Button";
 import { DropdownItemType } from "@/types";
 import { PortableText } from "next-sanity";
-import ReactLottie from "@/components/lottie/LottieSvg";
+import ReactLottie from "@/components/Lottie/LottieSvg";
 
 export default function CustomAccordion({
   faqItem,
