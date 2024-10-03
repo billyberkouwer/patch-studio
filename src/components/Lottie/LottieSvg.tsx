@@ -55,9 +55,10 @@ export default function LottieSvg({
           if (player.current?.state?.instance) {
             if (
               player.current.state.seeker >
-                player.current.state.instance.totalFrames - 5 &&
+                player.current.state.instance.totalFrames - 10 &&
               direction === 1
             ) {
+              console.log("pause")
               player.current?.pause();
             }
           }

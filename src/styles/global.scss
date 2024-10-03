@@ -48,6 +48,7 @@ h3,
 h4,
 h5,
 h6 {
+    font-size: 2rem;
     margin: 0;
 }
 
@@ -111,18 +112,6 @@ p, a {
         height: 0px;
         min-height: 0px;
     }
-}
-
-.see-portfolio__wrapper {
-    display: flex;
-    align-content: center;
-    justify-content: center;
-    width: 100%;
-    position: fixed;
-    bottom: 0;
-    padding: 0.8rem;
-    box-sizing: border-box;
-    z-index: 9;
 }
 
 section,

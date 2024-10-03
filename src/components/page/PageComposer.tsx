@@ -17,6 +17,8 @@ import { useLayoutEffect } from "react";
 import CreativeProjectSection from "../studio/creativeProject/CreativeProjectsSection";
 import MemberCardsSection from "../studio/MemberCardsSection";
 import ImageLandingSection from "../studio/ImageLandingSection";
+import SeePortfolioButton from "../portfolio/SeePortfolioButton";
+import Portfolio from "../portfolio/Portfolio";
 
 export default function PageComposer({
   title,
@@ -170,7 +172,7 @@ export default function PageComposer({
             }
           })
         : null}
-
+        <Portfolio />
     </div>
   );
 }

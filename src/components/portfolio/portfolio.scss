@@ -1,0 +1,19 @@
+@import "@/styles/helpers.scss";
+
+.portfolio__wrapper {
+    position: fixed;
+    top: 0;
+    transform: translateY(100%);
+    background-color: $white;
+    border-top: solid 1px $blue;
+    width: 100%;
+    height: var(--real-viewport-height);
+    overflow-y: auto;
+    z-index: 2;
+
+    .portfolio__container {
+        // height: 200vh;
+
+    }
+
+}
