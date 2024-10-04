@@ -48,15 +48,17 @@
     }
 
     &.large-text {
-        font-size: 2rem;
-
-        @include md {
-            font-size: 3rem;
-        }
-
-        p, h3 {
+        p,
+        h3 {
             margin: 1rem 0;
             font-weight: 300;
+
+            font-size: 2rem;
+
+            @include md {
+                font-size: 3rem;
+            }
+
             @include md {
                 margin: 2rem 0;
             }
