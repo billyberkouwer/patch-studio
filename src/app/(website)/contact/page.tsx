@@ -9,14 +9,7 @@ import FadingImages from "@/components/image/FadingImages";
 import { ContactPageData, PageMeta } from "@/types";
 import { PortableText } from "next-sanity";
 
-function outputTextWithNewLine(text: string) {
-  const split = text.split("\n");
-  return split.map((line) => (
-    <span key={line}>
-      {line} <br />
-    </span>
-  ));
-}
+
 
 export async function generateMetadata() {
   const metadata = await sanityFetch<PageMeta>({

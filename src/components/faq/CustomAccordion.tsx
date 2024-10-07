@@ -38,7 +38,9 @@ export default function CustomAccordion({
         <div
           className={`custom-accordion__body ${isExpanded ? "expanded" : ""}`}
         >
-          <PortableText value={faqItem.dropdownContent} />
+          <div className="accordion-content__container">
+            <PortableText value={faqItem.dropdownContent} />
+          </div>
         </div>
       </div>
     </div>

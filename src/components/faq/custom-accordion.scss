@@ -59,7 +59,7 @@
     overflow: hidden;
     transition: grid $fast;
 
-    p {
+    .accordion-content__container {
         min-height: 0;
         transition: visibility 1s, opacity 1s;
         visibility: hidden;
@@ -70,7 +70,7 @@
     &.expanded {
         grid-template-rows: 1fr;
 
-        p {
+        .accordion-content__container {
             visibility: visible;
             opacity: 1;
         }

@@ -11,6 +11,15 @@ function createColumns(number: number) {
   return columnSizes.join(" ");
 }
 
+export function outputTextWithNewLine(text: string) {
+  const split = text.split("\n");
+  return split.map((line) => (
+    <span key={line}>
+      {line} <br />
+    </span>
+  ));
+}
+
 export default function ColumnText({
   textArr,
   textSize,
@@ -34,7 +43,7 @@ export default function ColumnText({
                       : {}
                   }
                 >
-                  {text}
+                  {outputTextWithNewLine(text)}
                 </h3>
               ) : (
                 <p
@@ -45,7 +54,7 @@ export default function ColumnText({
                       : {}
                   }
                 >
-                  {text}
+                  {outputTextWithNewLine(text)}
                 </p>
               )
             )
