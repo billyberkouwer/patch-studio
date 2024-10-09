@@ -30,19 +30,6 @@ export default function ThreeScrollingImages({
     const imageWrappers = document.querySelectorAll(".images__wrapper");
     const tl = gsap.timeline();
 
-    function calculateScrollAmount(
-      container: HTMLDivElement | null,
-      imageEl: HTMLDivElement | null
-    ): number {
-      if (container) {
-        return (
-          parseInt(`${imageEl?.getBoundingClientRect().height}`) *
-          (container.children.length - 1)
-        );
-      }
-      return 0;
-    }
-
     if (imageContainers.length && imageSlides && imageSlides?.length >= 6) {
       tl.fromTo(
         threeImagesContainer.current,
