@@ -33,8 +33,7 @@ export default function Portfolio({
         {
           opacity: 1,
           stagger: 0.03,
-          duration: 0.75
-
+          duration: 0.75,
         }
       );
       gsap.to(portfolioWrapperRef.current, {
@@ -53,14 +52,16 @@ export default function Portfolio({
     <>
       <div ref={portfolioWrapperRef} className="portfolio__wrapper">
         <div className="portfolio__container">
-          {images?.map((image, i) => (
-            <SizedImage
-              className="portfolio-image"
-              image={image}
-              key={image._id}
-              alt={"Portfolio Image " + (i + 1)}
-            />
-          ))}
+          {images?.length
+            ? images?.map((image, i) => (
+                <SizedImage
+                  className="portfolio-image"
+                  image={image}
+                  key={image._id}
+                  alt={"Portfolio Image " + (i + 1)}
+                />
+              ))
+            : null}
         </div>
       </div>
       <SeePortfolioButton callback={handlePortfolioVisibility}>
