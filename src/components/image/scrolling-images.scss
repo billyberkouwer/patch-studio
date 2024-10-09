@@ -24,15 +24,6 @@
         margin-right: 1rem;
         @include drop-shadow;
         overflow: hidden;
-
-        img {
-            // transition: filter $slow;
-            filter: blur(10px);
-
-            &.--unblur {
-                filter: unset;
-            }
-        }
     }
 
     &.--small {

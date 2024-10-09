@@ -43,9 +43,6 @@ export default function SizedImage({
           placeholder="blur"
           blurDataURL={image?.metadata?.lqip}
           quality={quality}
-          onLoad={(e) => {
-            (e.target as HTMLImageElement).classList.add("--unblur");
-          }}
           sizes={getNextImageSizes(size)}
         />
       </div>

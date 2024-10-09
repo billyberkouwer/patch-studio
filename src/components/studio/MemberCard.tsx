@@ -19,7 +19,6 @@ export default function MemberCard({
               placeholder="blur"
               blurDataURL={memberCardData.headshot.metadata.lqip}
               fill
-              quality={90}
               sizes="(max-width: 768px) 200px, 400px"
               alt={
                 memberCardData.headshot?.altText

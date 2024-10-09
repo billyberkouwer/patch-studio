@@ -13,7 +13,7 @@ gsap.registerPlugin(useGSAP, ScrollTrigger);
 
 export default function ScrollingImages({
   images,
-  scrollDirection = "left",
+  scrollDirection,
   isFixed,
   title,
   size = "medium",
@@ -36,35 +36,65 @@ export default function ScrollingImages({
         window.innerWidth
       );
     }
-
-    const tl = gsap.timeline();
-
-    tl.fromTo(
-      imagesRef.current,
-      {
-        x:
-          scrollDirection === "right"
-            ? () => -calculateScrollAmount(imagesRef.current)
-            : "0px",
-      },
-      {
-        scrollTrigger: {
-          trigger: wrapperRef.current,
-          start: isFixed ? "50% 50%" : "top 50%",
-          pin: isFixed,
-          end: () =>
-            "+=" + 2000 * (window.innerHeight / window.innerWidth / 3 + 0.5),
-          scrub: 0.2,
-          invalidateOnRefresh: true,
+    let mm = gsap.matchMedia();
+    mm.add("(min-width: 768px)", () => {
+      const tl = gsap.timeline();
+      tl.fromTo(
+        imagesRef.current,
+        {
+          x:
+            scrollDirection === "right"
+              ? () => -calculateScrollAmount(imagesRef.current)
+              : "0px",
         },
-        x:
-          scrollDirection === "right"
-            ? "0px"
-            : () => -calculateScrollAmount(imagesRef.current),
-      }
-    );
-
-    window.addEventListener("resize", () => tl.invalidate());
+        {
+          scrollTrigger: {
+            trigger: wrapperRef.current,
+            start: isFixed ? "50% 50%" : "top 50%",
+            pin: isFixed,
+            end: () =>
+              "+=" + 2000 * (window.innerHeight / window.innerWidth / 3 + 0.5),
+            scrub: true,
+            invalidateOnRefresh: true,
+          },
+          ease: "none",
+          x:
+            scrollDirection === "right"
+              ? "0px"
+              : () => -calculateScrollAmount(imagesRef.current),
+        }
+      );
+    });
+    mm.add("(max-width: 767px)", () => {
+      const tl = gsap.timeline();
+      tl.fromTo(
+        imagesRef.current,
+        {
+          x:
+            scrollDirection === "right"
+              ? () => -calculateScrollAmount(imagesRef.current)
+              : "0px",
+          y: isFixed ? "30vh" : undefined,
+        },
+        {
+          scrollTrigger: {
+            trigger: wrapperRef.current,
+            start: isFixed ? "25% 50%" : "top 50%",
+            pin: isFixed,
+            end: () =>
+              "+=" + 2000 * (window.innerHeight / window.innerWidth / 3 + 0.5),
+            scrub: true,
+            invalidateOnRefresh: true,
+          },
+          ease: "none",
+          y: isFixed ? "-30vh" : undefined,
+          x:
+            scrollDirection === "right"
+              ? "0px"
+              : () => -calculateScrollAmount(imagesRef.current),
+        }
+      );
+    });
   }, [scrollDirection]);
 
   return (
