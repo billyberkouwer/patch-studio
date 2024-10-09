@@ -6,11 +6,13 @@ import { useEffect, useLayoutEffect, useRef, useState } from "react";
 export default function SizedImage({
   image,
   alt,
+  className,
   size = "medium",
   quality = 80,
 }: {
   image: SanityImageAssetDocument | null;
-  alt: string;
+  className?: string;
+  alt?: string;
   size?: "small" | "medium" | "large";
   quality?: number;
 }) {
@@ -32,7 +34,7 @@ export default function SizedImage({
 
   if (image?.metadata?.lqip && image?.url) {
     return (
-      <div ref={wrapper} className="image__wrapper sized-image">
+      <div ref={wrapper} className={`image__wrapper sized-image ${className ? className : ""}`}>
         <Image
           fill
           ref={nextImage}

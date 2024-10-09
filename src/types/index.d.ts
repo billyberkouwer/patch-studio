@@ -198,10 +198,16 @@ type HomepageDataType = {
   _rev: string;
 };
 
+type PortfolioType = {
+  hasPortfolio: boolean;
+  portfolioImages: SanityImageAssetDocument[]
+}
+
 type PageDataType = {
   _type: "page";
   title: string;
   pageBuilder: PageComponentTypes[];
+  portfolio: PortfolioType;
   slug: string;
   _rev: string;
 };

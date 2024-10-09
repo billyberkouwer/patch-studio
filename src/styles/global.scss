@@ -7,10 +7,39 @@
     --rem-size: 10px;
 }
 
+* {
+
+    /* width */
+    ::-webkit-scrollbar {
+        width: 0.5rem;
+    }
+
+    /* Track */
+    ::-webkit-scrollbar-track {
+        background: $light;
+        border-left: 1px solid $blue;
+    }
+
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+        background: $blue;
+    }
+
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+        background: $blue;
+    }
+
+    /* IE and Edge */
+    scrollbar-width: 0.5rem;
+}
+
 html {
     font-size: var(--rem-size);
     cursor: url("/cursor.svg") 0 0,
         default;
+
+
 
     &.--hide-scrollbar {
 
@@ -28,12 +57,13 @@ html {
 }
 
 body {
+
     margin: 0px;
     background-color: $light;
     font-family: var(--nhFont);
     color: $dark;
     cursor: url("/cursor.svg") 0 0,
-    default;
+        default;
 }
 
 ul {
@@ -64,7 +94,8 @@ a {
     cursor: url("/pointer.svg") 0 0, pointer;
 }
 
-p, a {
+p,
+a {
     font-size: 1.1rem;
 
     @include sm {
@@ -109,8 +140,8 @@ p, a {
     }
 
     &.--no-height {
-        height: 0px;
-        min-height: 0px;
+        // height: 0px;
+        // min-height: 0px;
     }
 }
 

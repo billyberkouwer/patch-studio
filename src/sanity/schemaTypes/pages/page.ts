@@ -48,6 +48,12 @@ export const page = defineType({
       fieldset: "content",
       group: "content",
     }),
+    defineField({
+      type: "portfolio",
+      name: "portfolio",
+      fieldset: "content",
+      group: "content",
+    }),
     orderRankField({ type: "project", newItemPosition: "before" }),
     defineField({
       name: "pageMeta",

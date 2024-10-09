@@ -102,7 +102,10 @@ export default function PageComposer({
             if (componentData._type === "textColumns") {
               return (
                 <div key={componentData._key}>
-                  <ColumnText textSize={componentData?.textSize} textArr={componentData.columnText}></ColumnText>
+                  <ColumnText
+                    textSize={componentData?.textSize}
+                    textArr={componentData.columnText}
+                  ></ColumnText>
                 </div>
               );
             }
@@ -172,7 +175,6 @@ export default function PageComposer({
             }
           })
         : null}
-        <Portfolio />
     </div>
   );
 }

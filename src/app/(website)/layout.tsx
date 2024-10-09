@@ -73,7 +73,7 @@ export async function generateMetadata() {
       },
     },
     title: {
-      template: "%s | " + metadata?.title ?? undefined,
+      template: "%s | " + metadata?.title,
       default: metadata?.title ?? undefined,
     },
     keywords: metadata?.keywords ?? undefined,

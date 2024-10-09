@@ -72,6 +72,10 @@ export const fetchContactMetadata = groq`
 export const fetchPageData = groq`
     *[_type == "page" && slug.current == $slug][0] {
         ...,
+        "portfolio": {
+            "hasPortfolio": portfolio.hasPortfolio,
+            "portfolioImages": portfolio.portfolioImages[].asset->,
+        },
         pageBuilder[]{
             ...,
             _type == "parallaxImageHeader" => 

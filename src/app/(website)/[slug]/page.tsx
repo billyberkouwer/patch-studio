@@ -1,4 +1,5 @@
 import PageComposer from "@/components/page/PageComposer";
+import Portfolio from "@/components/portfolio/Portfolio";
 import { client, sanityFetch } from "@/sanity/config/client";
 import {
   allProjectSlugs,
@@ -78,9 +79,20 @@ export default async function Page({ params }: { params: { slug: string } }) {
     tags: ["page"],
   });
 
+  console.log(pageData);
+
   if (!pageData) {
     return notFound();
   }
 
-  return <PageComposer title={pageData.title} pageData={pageData.pageBuilder} />;
+  return (
+    <>
+      <PageComposer title={pageData.title} pageData={pageData.pageBuilder} />
+      {pageData?.portfolio?.hasPortfolio ? (
+        <Portfolio
+          images={pageData?.portfolio?.portfolioImages}
+        />
+      ) : null}
+    </>
+  );
 }
