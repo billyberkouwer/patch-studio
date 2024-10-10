@@ -122,6 +122,7 @@ export const fetchStudioData = groq`
             },
             _type == "imageHeader" => {
                 ...,
+                "placeholderImage": loadingImagePlaceholder.asset->,
                 "backgroundImage": backgroundImage.asset->
             },
             _type == "creativeProjectsSelection" => {

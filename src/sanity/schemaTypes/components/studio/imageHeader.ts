@@ -16,6 +16,13 @@ export const imageHeader = defineType({
       validation: (Rule) => Rule.required(),
     }),
     defineField({
+      type: "image",
+      name: "loadingImagePlaceholder",
+      title: "Loading Image Placeholder",
+      description:
+        "If the background image has a large file size, upload an image here to use as a placeholder while the image loads.",
+    }),
+    defineField({
       type: "sectionHeader",
       name: "header",
       title: "Header",
@@ -37,7 +44,7 @@ export const imageHeader = defineType({
       return {
         title: title || "Untitled",
         subtitle: "Image Header",
-        media: image
+        media: image,
       };
     },
   },

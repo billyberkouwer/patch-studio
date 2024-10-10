@@ -14,6 +14,7 @@ export default function ImageLandingSection({
 }: {
   imageLandingData: {
     backgroundImage: SanityImageAssetDocument | null;
+    placeholderImage: SanityImageAssetDocument | null;
     header: { header: string; _type: "sectionHeader" } | null;
     tagline: {
       taglineText: string | undefined | null;
@@ -22,7 +23,7 @@ export default function ImageLandingSection({
     } | null;
   };
 }) {
-  const [isLoaded, setIsLoaded] = useState(false)
+  const [isLoaded, setIsLoaded] = useState(false);
   // useGSAP(() => {
   //   const children = document.querySelector(
   //     ".image-landing-text__wrapper"
@@ -45,26 +46,51 @@ export default function ImageLandingSection({
   //     );
   //   }
   // }, []);
+  console.log(imageLandingData);
   return (
     <div className="image-landing-section__wrapper">
       <div className="image-landing-section__container">
-        {imageLandingData.backgroundImage ? (
-          <div className="image__wrapper" style={{opacity: isLoaded ? 1 : 0, transition: "opacity 0.75s"}}>
+        {imageLandingData?.backgroundImage ? (
+          <div
+            className="image__wrapper"
+          >
+            {imageLandingData?.placeholderImage?.url ? (
+              <Image
+                src={imageLandingData.placeholderImage?.url}
+                fill
+                priority
+                quality={50}
+                sizes="100vw"
+                alt={
+                  imageLandingData?.backgroundImage?.altText
+                    ? imageLandingData?.backgroundImage?.altText
+                    : "Header Image"
+                }
+              />
+            ) : null}
             <Image
               unoptimized
               src={imageLandingData.backgroundImage.url}
+              style={{ opacity: isLoaded ? 1 : 0, transition: "opacity 0.75s" }}
               onLoadingComplete={() => setIsLoaded(true)}
               fill
+              priority
               sizes="100vw"
-              alt={imageLandingData?.backgroundImage?.altText ? imageLandingData?.backgroundImage?.altText : "Header Image"}
+              alt={
+                imageLandingData?.backgroundImage?.altText
+                  ? imageLandingData?.backgroundImage?.altText
+                  : "Header Image"
+              }
             />
           </div>
         ) : null}
-        <div className={`image-landing-text__wrapper ${isLoaded ? "blend-mode" : ""}`}>
-          {imageLandingData.header ? (
+        <div
+          className={`image-landing-text__wrapper blend-mode`}
+        >
+          {imageLandingData?.header ? (
             <Heading>{imageLandingData.header.header}</Heading>
           ) : null}
-          {imageLandingData.tagline?.taglineText ? (
+          {imageLandingData?.tagline?.taglineText ? (
             <Tagline>{imageLandingData.tagline?.taglineText}</Tagline>
           ) : null}
         </div>
