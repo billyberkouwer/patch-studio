@@ -17,9 +17,11 @@
 .shoot-info__container {
     display: flex;
     align-items: center;
-    gap: 5rem;
+    gap: 2rem;
+
     flex-direction: column;
     @include md {
+        gap: 5rem;
         flex-direction: unset;
     }
 }
