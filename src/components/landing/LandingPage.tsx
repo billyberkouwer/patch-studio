@@ -13,22 +13,22 @@ export default function LandingPage() {
   const pathname = usePathname();
   const [isFirstLoad, setIsFirstLoad] = useState(true);
 
-  // useGSAP(() => {
-  //   gsap.fromTo(
-  //     wrapper.current,
-  //     {
-  //       opacity: 1,
-  //     },
-  //     {
-  //       opacity: 0,
-  //       duration: 2,
-  //       delay: pathname === "/" ? 3 : 0,
-  //       autoAlpha: 1,
-  //     }
-  //   );
-  // });
+  useGSAP(() => {
+    gsap.fromTo(
+      wrapper.current,
+      {
+        opacity: 1,
+      },
+      {
+        opacity: 0,
+        duration: 2,
+        delay: pathname === "/" ? 1 : 0,
+        autoAlpha: 1,
+      }
+    );
+  });
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     if (isFirstLoad) {
       const centerText = document.querySelector(".center-logo__wrapper");
       const pageWrapper = document.querySelector(
@@ -50,7 +50,7 @@ export default function LandingPage() {
           if (pageWrapper) {
             pageWrapper.classList.remove("--no-height");          }
         },
-        pathname === "/" ? 3000 : 10
+        pathname === "/" ? 1000 : 0
       );
     }
   }, [pathname, isFirstLoad]);

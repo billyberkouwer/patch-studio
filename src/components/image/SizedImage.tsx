@@ -5,12 +5,14 @@ import { useEffect, useLayoutEffect, useRef, useState } from "react";
 
 export default function SizedImage({
   image,
+  priority = false,
   alt,
   className,
   size = "medium",
   quality = 80,
 }: {
   image: SanityImageAssetDocument | null;
+  priority?: boolean;
   className?: string;
   alt?: string;
   size?: "small" | "medium" | "large";
@@ -40,6 +42,7 @@ export default function SizedImage({
           ref={nextImage}
           alt={image?.altText ? image.altText : alt}
           src={image?.url}
+          priority={priority}
           placeholder="blur"
           blurDataURL={image?.metadata?.lqip}
           quality={quality}
