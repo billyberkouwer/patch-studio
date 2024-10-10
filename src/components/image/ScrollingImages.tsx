@@ -103,7 +103,7 @@ export default function ScrollingImages({
   return (
     <section className="scrolling-images__wrapper" ref={wrapperRef}>
       <div className={`scrolling-images__container --${size}`} ref={imagesRef}>
-        {images?.length && !isFixed
+        {images?.length
           ? images.map((image, i) => {
               return (
                 <SizedImage
