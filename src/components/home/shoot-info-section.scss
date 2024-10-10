@@ -3,10 +3,15 @@
 .shoot-info__wrapper {
     display: flex;
     justify-content: center;
-    margin-bottom: 20rem;
+    margin-bottom: 5rem;
     padding-right: 0.8rem;
     padding-left: 0.8rem;
     box-sizing: border-box;
+
+    @include md {
+    margin-bottom: 20rem;
+
+    }
 }
 
 .shoot-info__container {

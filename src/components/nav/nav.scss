@@ -31,7 +31,6 @@ nav {
 }
 
 .nav-item {
-    font-size: 3rem;
     list-style-type: none;
     text-transform: uppercase;
     text-align: center;
@@ -41,6 +40,7 @@ nav {
     }
 
     a {
+        font-size: 2rem;
         text-decoration: none;
     }
 

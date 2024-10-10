@@ -11,9 +11,11 @@ gsap.registerPlugin(ScrollTrigger, useGSAP);
 
 export default function SeePortfolioButton({
   callback,
+  isVisible,
   children,
 }: {
   callback: () => void;
+  isVisible: boolean;
   children: ReactNode | ReactNode[];
 }) {
   useGSAP(() => {
@@ -31,7 +33,11 @@ export default function SeePortfolioButton({
     }
   }, []);
   return (
-    <div id="see-portfolio-button" className="see-portfolio-button__wrapper">
+    <div
+      id="see-portfolio-button"
+      className="see-portfolio-button__wrapper"
+      style={{ zIndex: isVisible ? 9 : 8 }}
+    >
       <Button callback={callback} state="bold">
         {children}
       </Button>

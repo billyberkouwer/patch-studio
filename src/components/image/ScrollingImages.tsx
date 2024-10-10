@@ -39,21 +39,34 @@ export default function ScrollingImages({
     let mm = gsap.matchMedia();
 
     if (isFixed) {
+      let scrollAmount = 0;
       Observer.create({
         target: imagesRef.current,
         type: "touch",
         onChangeX: (e) => {
           const scrollEl = document.scrollingElement;
-          function scrollAmount() {
+          function calculateScrollAmount() {
             if (scrollDirection === "left") {
               return -e.deltaX * 2;
             } else {
               return e.deltaX * 2;
             }
           }
-          if (scrollEl && Math.abs(e.deltaX) > 5) {
-            console.log(e);
-            scrollEl.scrollTop += scrollAmount();
+          scrollAmount = calculateScrollAmount();
+
+          if (scrollEl && Math.abs(scrollAmount) > 10) {
+            scrollEl.scrollTop += scrollAmount;
+          }
+        },
+        onDragEnd: (e) => {
+          console.log(e)
+          const scrollEl = document.scrollingElement;
+          const scrollTop = scrollEl?.scrollTop;
+          if (scrollTop && Math.abs(scrollAmount) > 10) {
+            gsap.to(scrollEl, {
+              scrollTop: "+=" + scrollAmount * 4,
+              duration: 0.25,
+            });
           }
         },
       });

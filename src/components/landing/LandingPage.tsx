@@ -13,20 +13,20 @@ export default function LandingPage() {
   const pathname = usePathname();
   const [isFirstLoad, setIsFirstLoad] = useState(true);
 
-  useGSAP(() => {
-    gsap.fromTo(
-      wrapper.current,
-      {
-        opacity: 1,
-      },
-      {
-        opacity: 0,
-        duration: 2,
-        delay: pathname === "/" ? 3 : 0,
-        autoAlpha: 1,
-      }
-    );
-  });
+  // useGSAP(() => {
+  //   gsap.fromTo(
+  //     wrapper.current,
+  //     {
+  //       opacity: 1,
+  //     },
+  //     {
+  //       opacity: 0,
+  //       duration: 2,
+  //       delay: pathname === "/" ? 3 : 0,
+  //       autoAlpha: 1,
+  //     }
+  //   );
+  // });
 
   useLayoutEffect(() => {
     if (isFirstLoad) {

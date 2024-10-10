@@ -64,7 +64,7 @@ export default function Portfolio({
             : null}
         </div>
       </div>
-      <SeePortfolioButton callback={handlePortfolioVisibility}>
+      <SeePortfolioButton isVisible={isPortfolioVisible} callback={handlePortfolioVisibility}>
         {isPortfolioVisible ? "Close" : "See"} Portfolio
       </SeePortfolioButton>
     </>

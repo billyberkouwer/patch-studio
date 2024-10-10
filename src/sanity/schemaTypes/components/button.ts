@@ -24,7 +24,7 @@ export const button = defineType({
       options: {
         collapsed: false
       },
-      hidden: ({ parent }) => parent.isExternalLink,
+      hidden: ({ parent }) => parent?.isExternalLink,
     }),
     defineField({
       name: "externalLink",
@@ -33,7 +33,7 @@ export const button = defineType({
       options: {
         collapsed: false
       },
-      hidden: ({ parent }) => !parent.isExternalLink,
+      hidden: ({ parent }) => !parent?.isExternalLink,
     }),
   ],
 });
