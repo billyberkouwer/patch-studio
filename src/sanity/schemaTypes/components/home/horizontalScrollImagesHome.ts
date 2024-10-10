@@ -25,11 +25,17 @@ export const horizontalScrollImagesHome = defineType({
       type: "imageArray",
     }),
     defineField({
+      name: "isFixed",
+      title: "Are the horizontal images fixed in place?",
+      type: "boolean",
+      initialValue: false,
+    }),
+    defineField({
       name: "sizeOfHorizontalScrollImages",
       title: "Size of horizontal scroll images",
       type: "sizeOfObject",
-      description: "Choose a size for these images on the page. Larger images will automatically convert to higher resolution."
-
+      description:
+        "Choose a size for these images on the page. Larger images will automatically convert to higher resolution.",
     }),
     defineField({
       name: "directionOfHorizontalImageScroll",
@@ -41,13 +47,12 @@ export const horizontalScrollImagesHome = defineType({
     select: {
       title: "title",
       image: "selectionOfImages.0.asset",
-
     },
     prepare({ title, image }) {
       return {
         title: title || "Untitled",
         subtitle: "Horizontally Scrolling Images",
-        media: image
+        media: image,
       };
     },
   },

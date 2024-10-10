@@ -64,6 +64,7 @@ type HorizontalScrollImageHomeType = {
   sizeOfHorizontalScrollImages: "small" | "medium" | "large";
   selectionOfImages: SanityImageAssetDocument[];
   centerTextContent: string | undefined;
+  isFixed: boolean;
   title: string;
   _type: "horizontalScrollImagesHome";
   _key: string;

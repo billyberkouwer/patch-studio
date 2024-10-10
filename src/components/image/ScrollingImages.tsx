@@ -84,7 +84,7 @@ export default function ScrollingImages({
       {
         scrollTrigger: {
           trigger: wrapperRef.current,
-          start: isFixed ? "50% 50%" : "top 50%",
+          start: isFixed ? "50% 50%" : "top 100%",
           pin: isFixed,
           end: () =>
             "+=" + 2000 * (window.innerHeight / window.innerWidth / 3 + 0.5),
@@ -105,35 +105,7 @@ export default function ScrollingImages({
       <div className={`scrolling-images__container --${size}`} ref={imagesRef}>
         {images?.length && !isFixed
           ? images.map((image, i) => {
-              const length = images.length;
-              const displayedImages = [];
-              const iterations = 7 - length;
-              if (iterations !== 1) {
-                for (let ii = 0; ii < iterations; ii++) {
-                  displayedImages.push(images[(ii % length) - 1]);
-                }
-              }
-              if (displayedImages.length === 0) {
-                return (
-                  <SizedImage
-                    key={image?._id + i}
-                    image={image}
-                    alt={image.altText ? image.altText : ""}
-                  />
-                );
-              }
-              return displayedImages.map((displayedImage, i) => (
-                <SizedImage
-                  key={displayedImage?._id + i}
-                  image={displayedImage}
-                  alt={
-                    image.altText ? image.altText : "Scrolling Image " + (i + 1)
-                  }
-                />
-              ));
-            })
-          : images?.length && isFixed
-            ? images.map((image, i) => (
+              return (
                 <SizedImage
                   key={image?._id + i}
                   image={image}
@@ -143,8 +115,9 @@ export default function ScrollingImages({
                       : "Scrolling selection of images " + (i + 1)
                   }
                 />
-              ))
-            : null}
+              );
+            })
+          : null}
       </div>
     </section>
   );

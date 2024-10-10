@@ -137,7 +137,7 @@ export default function Homepage({
                     }
                     images={componentData.selectionOfImages}
                     title={componentData.title}
-                    isFixed
+                    isFixed={componentData.isFixed}
                   />
                 </div>
               );
