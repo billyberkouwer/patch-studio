@@ -1,14 +1,8 @@
 @import "@/styles/helpers.scss";
 
 .scrolling-images__wrapper {
-    margin-top: 0.8rem;
     overflow: visible;
-    margin-bottom: 5rem;
-
-    @include lg {
-        margin-bottom: 15rem;
-
-    }
+    @include spacer-large;
 }
 
 .scrolling-images__container {

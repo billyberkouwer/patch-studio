@@ -10,6 +10,27 @@
     color: $black;
 }
 
+@mixin spacer-large {
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+
+    @include md {
+        margin-top: 10rem;
+        margin-bottom: 10rem;
+    }
+}
+
+@mixin spacer-small {
+    margin-top: 2.5rem;
+    margin-bottom: 2.5rem;
+
+    @include md {
+        margin-top: 5rem;
+        margin-bottom: 5rem;
+    }
+}
+
+
 @mixin section-height-100 {
     height: calc(75vh - 2em);
     height: calc(75dvh - 2em);

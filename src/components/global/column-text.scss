@@ -5,11 +5,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 2.5rem;
-
-    @include md {
-        margin-bottom: 5rem;
-    }
+    @include spacer-small;
 }
 
 .column-text__container {
@@ -23,7 +19,7 @@
 
     p {
         margin: 1rem 0;
-        width: 100%;
+        max-width: 100%;
 
         @include md {
             margin: 2rem 0;
@@ -39,7 +35,7 @@
         flex-flow: row;
 
         p {
-            width: 33.3%;
+            max-width: 33.3%;
         }
     }
 

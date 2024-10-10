@@ -58,17 +58,17 @@ export default function ScrollingImages({
             scrollEl.scrollTop += scrollAmount;
           }
         },
-        onDragEnd: (e) => {
-          console.log(e)
-          const scrollEl = document.scrollingElement;
-          const scrollTop = scrollEl?.scrollTop;
-          if (scrollTop && Math.abs(scrollAmount) > 10) {
-            gsap.to(scrollEl, {
-              scrollTop: "+=" + scrollAmount * 4,
-              duration: 0.25,
-            });
-          }
-        },
+        // onDragEnd: (e) => {
+        //   console.log(e)
+        //   const scrollEl = document.scrollingElement;
+        //   const scrollTop = scrollEl?.scrollTop;
+        //   if (scrollTop && Math.abs(scrollAmount) > 10) {
+        //     gsap.to(scrollEl, {
+        //       scrollTop: "+=" + scrollAmount * 4,
+        //       duration: 0.25,
+        //     });
+        //   }
+        // },
       });
     }
 

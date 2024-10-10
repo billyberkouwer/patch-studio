@@ -54,9 +54,5 @@
 }
 
 .submit__wrapper {
-    margin: 5rem 0 0 0;
-
-    @include md {
-        margin: 10rem 0 0 0;
-    }
+    @include spacer-large;
 }
