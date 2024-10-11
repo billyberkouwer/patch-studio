@@ -43,6 +43,7 @@ export default function SizedImage({
         className={`image__wrapper sized-image ${className ? className : ""}`}
       >
         <Image
+          style={{objectFit: "cover"}}
           fill
           ref={nextImage}
           alt={image?.altText ? image.altText : alt}
