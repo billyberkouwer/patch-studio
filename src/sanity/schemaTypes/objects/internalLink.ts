@@ -17,6 +17,9 @@ const internalLink = defineField({
           type: "contact",
         },
         {
+          type: "studio",
+        },
+        {
           type: "termsAndConditions",
         },
         {
