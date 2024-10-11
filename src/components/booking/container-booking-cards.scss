@@ -3,7 +3,7 @@
 .booking-cards__wrapper {
     display: flex;
     justify-content: center;
-    margin-bottom: 10rem;
+    @include spacer-large;
 }
 
 .booking-cards__form {

@@ -1,0 +1,11 @@
+@import "@/styles/helpers.scss";
+
+.solo-button__wrapper {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 5rem;
+
+    @include md {
+        margin-bottom: 10rem;
+    }
+}

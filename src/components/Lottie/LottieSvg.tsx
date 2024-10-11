@@ -6,10 +6,14 @@ export default function LottieSvg({
   src,
   isExpanded,
   direction,
+  strokeWidth,
+  color,
 }: {
   src: any;
   isExpanded: boolean;
   direction: 1 | -1;
+  strokeWidth?: number;
+  color?: string;
 }) {
   const [lottieInstance, setLottieInstance] = useState<any>(null);
   const player = useRef<Player>(null);
@@ -19,12 +23,15 @@ export default function LottieSvg({
     const paths = svg?.querySelectorAll("path");
     if (paths) {
       paths.forEach((path: SVGPathElement) => {
-        path.setAttribute("stroke", "white");
-        path.setAttribute("stroke-width", "20");
+        path.setAttribute("stroke", color ? color : "white");
+        path.setAttribute(
+          "stroke-width",
+          strokeWidth ? `${strokeWidth}` : "20"
+        );
         path.setAttribute("stroke-linecap", "square");
       });
     }
-  }, [lottieInstance]);
+  }, [lottieInstance, color, strokeWidth]);
 
   useEffect(() => {
     player.current?.setPlayerDirection(direction);
@@ -58,7 +65,7 @@ export default function LottieSvg({
                 player.current.state.instance.totalFrames - 10 &&
               direction === 1
             ) {
-              console.log("pause")
+              console.log("pause");
               player.current?.pause();
             }
           }

@@ -25,6 +25,20 @@
     right: 0;
     margin-right: 0.8rem;
 
+    button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+    }
+    span {
+        font-size: 1.6rem;
+    }
+
+    div {
+        max-width: 1.6rem;
+    }
+
     @include md {
         display: none;
     }
@@ -82,5 +96,12 @@
         &.--visible {
             color: $blue;
         }
+    }
+}
+
+.bookings-nav-item {
+    display: block;
+    @include md {
+        display: none;
     }
 }

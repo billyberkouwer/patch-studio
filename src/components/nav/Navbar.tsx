@@ -8,6 +8,7 @@ import "./navbar.scss";
 import { usePathname } from "next/navigation";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
+import LottieSvg from "../Lottie/LottieSvg";
 
 gsap.registerPlugin(useGSAP);
 
@@ -36,12 +37,9 @@ export default function Navbar({
             }
           );
         } else {
-          gsap.to(
-            nav,
-            {
-              y: "-100%",
-            }
-          );
+          gsap.to(nav, {
+            y: "-100%",
+          });
         }
       });
 
@@ -81,7 +79,14 @@ export default function Navbar({
       </div>
       <div className="mobile-menu-button__wrapper">
         <Button state="bold" callback={handleSetIsMenuOpen}>
-          Menu +
+          <span>Menu</span>
+          <LottieSvg
+            strokeWidth={40}
+            color={isMenuOpen ? "white" : "#1700FF"}
+            direction={isMenuOpen ? 1 : -1}
+            isExpanded={isMenuOpen}
+            src={"/lottie/patch-close-button.json"}
+          />
         </Button>
       </div>
       <div className="bookings-button__wrapper">

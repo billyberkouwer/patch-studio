@@ -19,6 +19,7 @@ import MemberCardsSection from "../studio/MemberCardsSection";
 import ImageLandingSection from "../studio/ImageLandingSection";
 import SeePortfolioButton from "../portfolio/SeePortfolioButton";
 import Portfolio from "../portfolio/Portfolio";
+import ButtonWrapper from "../global/ButtonWrapper";
 
 export default function PageComposer({
   title,
@@ -153,14 +154,7 @@ export default function PageComposer({
             }
             if (componentData._type === "contactLinks") {
               return (
-                <div
-                  key={componentData._key}
-                  style={{
-                    display: "flex",
-                    justifyContent: "center",
-                    marginBottom: "10rem",
-                  }}
-                >
+                <ButtonWrapper key={componentData._key}>
                   <Button
                     isLarge
                     slug={formatContactLink(
@@ -170,7 +164,7 @@ export default function PageComposer({
                   >
                     {componentData.title}
                   </Button>
-                </div>
+                </ButtonWrapper>
               );
             }
           })

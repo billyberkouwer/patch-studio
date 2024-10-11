@@ -26,6 +26,12 @@ export default function Nav({
             <Link href={navItem.slug}>{navItem.title}</Link>
           </li>
         ))}
+        <li
+          key={"bookings nav item"}
+          className={`nav-item ${pathname === "/bookings" ? "active" : ""} bookings-nav-item`}
+        >
+          <Link href={"/bookings"}>Bookings</Link>
+        </li>
       </ul>
     </nav>
   );
