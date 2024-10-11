@@ -38,12 +38,18 @@ export function getCenterTextFromClasslist(classList: DOMTokenList) {
 export function ImageSizing(
   image: SanityImageAssetDocument | null,
   wrapper: HTMLDivElement | null,
-  size: "small" | "medium" | "large"
+  size: "small" | "medium" | "large",
+  dimension?: "width" | "height"
 ) {
-  if (wrapper && image) {
+  if (wrapper && image && (dimension === "width" || !dimension)) {
     wrapper.classList.add("--" + size);
     const height = Math.round(parseInt(getComputedStyle(wrapper).height));
     wrapper.style.width = image.metadata.dimensions.aspectRatio * height + "px";
+  }
+  if (wrapper && image && dimension === "height") {
+    wrapper.classList.add("--" + size);
+    const width = Math.round(parseInt(getComputedStyle(wrapper).width));
+    wrapper.style.height = width / image.metadata.dimensions.aspectRatio  + "px";
   }
 }
 

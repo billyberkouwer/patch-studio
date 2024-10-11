@@ -55,6 +55,7 @@ export default function Portfolio({
           {images?.length
             ? images?.map((image, i) => (
                 <SizedImage
+                  sizeDimension="height"
                   className="portfolio-image"
                   image={image}
                   key={image._id}

@@ -5,6 +5,7 @@ import { useEffect, useLayoutEffect, useRef, useState } from "react";
 
 export default function SizedImage({
   image,
+  sizeDimension,
   priority = false,
   alt,
   className,
@@ -12,6 +13,7 @@ export default function SizedImage({
   quality = 80,
 }: {
   image: SanityImageAssetDocument | null;
+  sizeDimension?: "width" | "height";
   priority?: boolean;
   className?: string;
   alt?: string;
@@ -23,20 +25,23 @@ export default function SizedImage({
 
   useLayoutEffect(() => {
     function handleResize() {
-      ImageSizing(image, wrapper.current, size);
+      ImageSizing(image, wrapper.current, size, sizeDimension);
     }
 
-    ImageSizing(image, wrapper.current, size);
+    ImageSizing(image, wrapper.current, size, sizeDimension);
 
     window.addEventListener("resize", handleResize);
     return () => {
       window.removeEventListener("resize", handleResize);
     };
-  }, [image, size]);
+  }, [image, size, sizeDimension]);
 
   if (image?.metadata?.lqip && image?.url) {
     return (
-      <div ref={wrapper} className={`image__wrapper sized-image ${className ? className : ""}`}>
+      <div
+        ref={wrapper}
+        className={`image__wrapper sized-image ${className ? className : ""}`}
+      >
         <Image
           fill
           ref={nextImage}

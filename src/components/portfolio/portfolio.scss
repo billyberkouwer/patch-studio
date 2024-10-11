@@ -31,15 +31,15 @@
 
         .image__wrapper {
             position: relative;
-            height: 15rem;
+            flex-grow: 1;
+            flex-shrink: 1;
+            flex-basis: 40%;
 
-            @include sm {
-                height: 20rem;
-            }
-
-            @include md {
-                height: 35rem;
-
+            @include lg {
+                flex-grow: unset;
+                flex-basis: unset;
+                flex-shrink: unset;
+                width: 35rem;
             }
         }
     }
