@@ -101,7 +101,7 @@ export default function ScrollingImages({
   }, [scrollDirection]);
 
   return (
-    <section className="scrolling-images__wrapper" ref={wrapperRef}>
+    <section className={`scrolling-images__wrapper --${size}`} ref={wrapperRef}>
       <div className={`scrolling-images__container --${size}`} ref={imagesRef}>
         {images?.length
           ? images.map((image, i) => {
