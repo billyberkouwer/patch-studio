@@ -46,8 +46,6 @@ export default function Portfolio({
     }
   }, [isPortfolioVisible]);
 
-  console.log(images);
-
   return (
     <>
       <div ref={portfolioWrapperRef} className="portfolio__wrapper">

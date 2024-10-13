@@ -35,16 +35,16 @@ export default function ColumnText({
         {textArr?.length
           ? textArr.map((text, i) =>
               textSize === "large" ? (
-                <h3
+                <p
                   key={text}
                   style={
                     textArr.length === 1
                       ? { width: "fit-content", maxWidth: "70rem" }
-                      : {}
+                    : textArr.length > 1 ? { textAlign: "left"} : {textAlign: "center"}
                   }
                 >
                   {outputTextWithNewLine(text)}
-                </h3>
+                </p>
               ) : (
                 <p
                   key={text}

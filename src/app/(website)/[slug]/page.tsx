@@ -79,8 +79,6 @@ export default async function Page({ params }: { params: { slug: string } }) {
     tags: ["page"],
   });
 
-  console.log(pageData);
-
   if (!pageData) {
     return notFound();
   }

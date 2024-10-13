@@ -65,7 +65,6 @@ export default function LottieSvg({
                 player.current.state.instance.totalFrames - 10 &&
               direction === 1
             ) {
-              console.log("pause");
               player.current?.pause();
             }
           }

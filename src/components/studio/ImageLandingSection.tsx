@@ -46,7 +46,6 @@ export default function ImageLandingSection({
   //     );
   //   }
   // }, []);
-  console.log(imageLandingData);
   return (
     <div className="image-landing-section__wrapper">
       <div className="image-landing-section__container">

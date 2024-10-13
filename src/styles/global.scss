@@ -95,15 +95,15 @@ a {
 }
 
 p,
-a, span {
-    font-size: 1.3rem;
+a, span, li {
+    font-size: 1.4rem;
 
     @include sm {
         font-size: 1.5rem;
     }
 
     @include md {
-        font-size: 1.6rem;
+        font-size: 1.7rem;
     }
 }
 

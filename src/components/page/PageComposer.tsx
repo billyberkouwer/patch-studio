@@ -36,7 +36,6 @@ export default function PageComposer({
       {pageData?.length
         ? pageData.map((componentData) => {
             if (componentData._type === "horizontalScrollImages") {
-              console.log(componentData);
               return (
                 <div key={componentData._key}>
                   <ScrollingImages

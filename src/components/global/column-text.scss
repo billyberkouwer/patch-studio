@@ -45,12 +45,12 @@
 
     &.large-text {
         p,
-        h3, span {
+        span {
             margin: 1rem 0;
             font-weight: 300;
             font-size: 2rem;
             text-align: center;
-            line-height: 1.6rem;
+            line-height: 2rem;
 
             @include md {
                 font-size: 3rem;
