@@ -136,7 +136,6 @@ export default function Homepage({
                       componentData.directionOfHorizontalImageScroll
                     }
                     images={componentData.selectionOfImages}
-                    title={componentData.title}
                     isFixed={componentData.isFixed}
                   />
                 </div>
