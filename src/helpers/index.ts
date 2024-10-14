@@ -38,7 +38,7 @@ export function getCenterTextFromClasslist(classList: DOMTokenList) {
 export function ImageSizing(
   image: SanityImageAssetDocument | null,
   wrapper: HTMLDivElement | null,
-  size: "small" | "medium" | "large",
+  size: "extra-small" |  "small" | "medium" | "large" ,
   dimension?: "width" | "height"
 ) {
   if (wrapper && image && (dimension === "width" || !dimension)) {
@@ -53,20 +53,10 @@ export function ImageSizing(
   }
 }
 
-export function getSizeFromString(size: "small" | "medium" | "large"): number {
-  if (size === "small") {
-    return 30;
+export function getNextImageSizes(size: "extra-small" | "small" | "medium" | "large"): string {
+  if (size === "extra-small") {
+    return "(max-width: 768px) 40vw, (max-width: 1200px) 12vw, 5vw";
   }
-  if (size === "medium") {
-    return 50;
-  }
-  if (size === "large") {
-    return 70;
-  }
-  return 30;
-}
-
-export function getNextImageSizes(size: "small" | "medium" | "large"): string {
   if (size === "small") {
     return "(max-width: 768px) 60vw, (max-width: 1200px) 15vw, 5vw";
   }

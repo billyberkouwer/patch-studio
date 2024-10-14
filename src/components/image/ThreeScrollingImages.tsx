@@ -16,7 +16,7 @@ export default function ThreeScrollingImages({
   marginBottom,
 }: {
   imageSlides: SanityImageAssetDocument[] | null;
-  marginBottom?: "small" | "medium" | "large";
+  marginBottom?: "extra-small" | "small" | "medium" | "large";
 }) {
   const imagesWrapperRef = useRef<HTMLDivElement>(null);
   const threeImagesContainer = useRef<HTMLDivElement>(null);

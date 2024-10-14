@@ -10,6 +10,7 @@ export const sizeOfObject = defineType({
       { title: "Large", value: "large" },
       { title: "Medium", value: "medium" },
       { title: "Small", value: "small" },
+      { title: "Extra small", value: "extra-small" },
     ],
   },
 });

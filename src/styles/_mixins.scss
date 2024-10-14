@@ -30,6 +30,16 @@
     }
 }
 
+@mixin spacer-extra-small {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+
+    @include md {
+        margin-top: 2rem;
+        margin-bottom: 3rem;
+    }
+}
+
 
 @mixin section-height-100 {
     height: calc(75vh - 2em);

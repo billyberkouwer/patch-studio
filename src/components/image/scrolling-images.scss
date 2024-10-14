@@ -4,6 +4,10 @@
     overflow: visible;
     @include spacer-large;
 
+    &.--extra-small {
+        @include spacer-extra-small;
+    }
+
     &.--small {
         @include spacer-small;
     }
@@ -24,6 +28,16 @@
         margin-right: 1rem;
         @include drop-shadow;
         overflow: hidden;
+    }
+
+    &.--extra-small {
+        .image__wrapper {
+            height: 8rem;
+
+            @include md {
+                height: 13rem;
+            }
+        }
     }
 
     &.--small {

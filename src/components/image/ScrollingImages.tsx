@@ -7,7 +7,6 @@ import gsap, { Observer, ScrollTrigger } from "gsap/all";
 import { useGSAP } from "@gsap/react";
 import { SanityImageAssetDocument } from "next-sanity";
 import SizedImage from "./SizedImage";
-import { getSizeFromString } from "@/helpers";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
@@ -15,16 +14,12 @@ export default function ScrollingImages({
   images,
   scrollDirection,
   isFixed,
-  title,
   size = "medium",
-  isContained,
 }: {
   images: SanityImageAssetDocument[] | null;
-  title: string;
   isFixed?: boolean;
   scrollDirection?: undefined | null | "left" | "right";
-  size?: "small" | "medium" | "large";
-  isContained?: boolean;
+  size?: "extra-small" | "small" | "medium" | "large";
 }) {
   const wrapperRef = useRef<HTMLDivElement>(null);
   const imagesRef = useRef<HTMLDivElement>(null);

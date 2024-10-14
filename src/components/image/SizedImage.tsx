@@ -17,7 +17,7 @@ export default function SizedImage({
   priority?: boolean;
   className?: string;
   alt?: string;
-  size?: "small" | "medium" | "large";
+  size?: "extra-small" | "small" | "medium" | "large";
   quality?: number;
 }) {
   const wrapper = useRef<HTMLDivElement>(null);

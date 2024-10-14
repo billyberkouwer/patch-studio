@@ -48,7 +48,6 @@ export default function PageComposer({
                         : "medium"
                     }
                     images={componentData.selectionOfImages}
-                    title={componentData.title}
                   />
                 </div>
               );
