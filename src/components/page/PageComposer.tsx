@@ -13,12 +13,9 @@ import { formatContactLink, splitArrayIntoSubArrays } from "@/helpers";
 import ColumnText from "../global/ColumnText";
 import Button from "../global/Button";
 import FAQBackground from "../faq/FAQBackground";
-import { useLayoutEffect } from "react";
 import CreativeProjectSection from "../studio/creativeProject/CreativeProjectsSection";
 import MemberCardsSection from "../studio/MemberCardsSection";
 import ImageLandingSection from "../studio/ImageLandingSection";
-import SeePortfolioButton from "../portfolio/SeePortfolioButton";
-import Portfolio from "../portfolio/Portfolio";
 import ButtonWrapper from "../global/ButtonWrapper";
 
 export default function PageComposer({
@@ -156,7 +153,12 @@ export default function PageComposer({
                 </Heading>
               );
             }
-            if (componentData._type === "contactLinks") {
+            if (
+              componentData._type === "contactLinks" &&
+              componentData?.link &&
+              componentData?.linkType &&
+              componentData?.title
+            ) {
               return (
                 <ButtonWrapper key={componentData._key}>
                   <Button

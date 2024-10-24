@@ -38,7 +38,7 @@
     &:hover,
     &.invert {
         background-color: $blue;
-        color: $white;
+        color: $light;
         font-weight: 500;
         cursor: url("/pointer.svg") 0 0, pointer;
     }

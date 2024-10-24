@@ -76,6 +76,7 @@ export async function generateMetadata() {
       template: "%s | " + metadata?.title,
       default: metadata?.title ?? undefined,
     },
+    themeColor: "#1700FF",
     keywords: metadata?.keywords ?? undefined,
     creator: "Patch Bell",
     publisher: "Patch Studio",

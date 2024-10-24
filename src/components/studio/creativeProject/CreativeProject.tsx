@@ -16,7 +16,7 @@ export default function CreativeProject({
 }) {
   const [isExpanded, setIsExpanded] = useState(true);
   const [backgroundColor, setBackgroundColor] = useState(
-    `rgb(${creativeProject.backgroundColor?.r},${creativeProject.backgroundColor?.g},${creativeProject.backgroundColor?.b})`
+    `rgb(${creativeProject?.backgroundColor?.r},${creativeProject?.backgroundColor?.g},${creativeProject?.backgroundColor?.b})`
   );
 
   function handleExpansion() {
