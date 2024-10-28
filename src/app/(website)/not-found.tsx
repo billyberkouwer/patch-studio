@@ -13,11 +13,12 @@ export default function NotFound() {
         justifyContent: "center",
         flexDirection: "column",
         alignItems: "center",
-        gap: "2rem",
+        gap: "1rem",
         position: "relative",
       }}
     >
-      <h2>The page you are looking for doesn&apos;t exist.</h2>
+      <h2>The page you are trying to access does not exist.</h2>
+      <p>You can still take a look at our work though!</p>
       <Button callback={() => router.replace("/")}>Return Home</Button>
     </div>
   );

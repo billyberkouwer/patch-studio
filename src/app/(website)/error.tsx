@@ -24,7 +24,7 @@ export default function Error({
       }}
     >
       <h2>Sorry - something went wrong!</h2>
-      <p>There was an error with the website.</p>
+      <p>There was an error on this page. You can still see the rest of our site though!</p>
       <Button callback={() => router.replace("/")}>Return Home</Button>
     </div>
   );
