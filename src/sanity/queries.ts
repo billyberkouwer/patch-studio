@@ -34,6 +34,10 @@ export const fetchTermsAndConditionsData = groq`
     }
 `;
 
+export const queryCustomPageSlugs = groq`
+    *[_type == 'page'] | order(projectDate desc) [].slug.current
+`
+
 export const fetchSiteMetadata = groq`
     *[_type == "siteMeta"][0] {
         ...,

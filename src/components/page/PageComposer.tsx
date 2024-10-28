@@ -31,10 +31,11 @@ export default function PageComposer({
     <div className={`page__wrapper ${noTopPadding ? "" : "--top-padding"}`}>
       {title ? <Heading>{title}</Heading> : null}
       {pageData?.length
-        ? pageData.map((componentData) => {
+        ? pageData.map((componentData, i) => {
+          
             if (componentData._type === "horizontalScrollImages") {
               return (
-                <div key={componentData._key}>
+                <div key={componentData._key + i}>
                   <ScrollingImages
                     scrollDirection={
                       componentData.directionOfHorizontalImageScroll
@@ -51,7 +52,7 @@ export default function PageComposer({
             }
             if (componentData._type === "creativeProjectsSelection") {
               return (
-                <div key={componentData._key}>
+                <div key={componentData._key + i}>
                   <CreativeProjectSection
                     creativeProjects={componentData.creativeProjects}
                   />
@@ -60,7 +61,7 @@ export default function PageComposer({
             }
             if (componentData._type === "teamMemberCards") {
               return (
-                <div key={componentData._key}>
+                <div key={componentData._key + i}>
                   <MemberCardsSection
                     memberCards={componentData.teamMemberCards}
                   />
@@ -69,14 +70,14 @@ export default function PageComposer({
             }
             if (componentData._type === "imageHeader") {
               return (
-                <div key={componentData._key}>
+                <div key={componentData._key + i}>
                   <ImageLandingSection imageLandingData={componentData} />
                 </div>
               );
             }
             if (componentData._type === "parallaxImageHeader") {
               return (
-                <div key={componentData._key}>
+                <div key={componentData._key + i}>
                   <ParallaxImageHeader
                     images={componentData.selectionOfImages}
                   />
@@ -85,7 +86,7 @@ export default function PageComposer({
             }
             if (componentData._type === "verticalScrollImages") {
               return (
-                <div key={componentData._key}>
+                <div key={componentData._key + i}>
                   <ThreeScrollingImages
                     imageSlides={componentData.selectionOfImages}
                   />
@@ -94,7 +95,7 @@ export default function PageComposer({
             }
             if (componentData._type === "tagline") {
               return (
-                <div key={componentData._key}>
+                <div key={componentData._key + i}>
                   <Tagline marginBottom={componentData.marginBottom}>
                     {componentData.taglineText}
                   </Tagline>
@@ -102,8 +103,10 @@ export default function PageComposer({
               );
             }
             if (componentData._type === "textColumns") {
+              console.log(componentData._key)
+
               return (
-                <div key={componentData._key}>
+                <div key={"text column" + i}>
                   <ColumnText
                     textSize={componentData?.textSize}
                     textArr={componentData.columnText}
@@ -113,7 +116,7 @@ export default function PageComposer({
             }
             if (componentData._type === "infoSection") {
               return (
-                <section key={componentData._key}>
+                <section key={componentData._key + i}>
                   <ShootInfoSection
                     shootDetails={componentData.keyInfoBlocks}
                     description={componentData.sectionText}
@@ -124,7 +127,7 @@ export default function PageComposer({
             }
             if (componentData._type === "bookingSection") {
               return (
-                <div key={componentData._key}>
+                <div key={componentData._key + i}>
                   <Heading>{componentData.title}</Heading>
                   <ContainerBookingCards
                     shootType="editorial"
@@ -136,7 +139,7 @@ export default function PageComposer({
             if (componentData._type === "faqSection") {
               return (
                 <section
-                  key={componentData._key}
+                  key={componentData._key + i}
                   style={{ overflow: "hidden" }}
                   id="faq-section"
                 >
@@ -148,7 +151,7 @@ export default function PageComposer({
             }
             if (componentData._type === "sectionHeader") {
               return (
-                <Heading key={componentData._key}>
+                <Heading key={componentData._key + i}>
                   {componentData.header}
                 </Heading>
               );
@@ -160,7 +163,7 @@ export default function PageComposer({
               componentData?.title
             ) {
               return (
-                <ButtonWrapper key={componentData._key}>
+                <ButtonWrapper key={componentData._key + i}>
                   <Button
                     isLarge
                     slug={formatContactLink(

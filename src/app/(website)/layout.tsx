@@ -76,7 +76,7 @@ export async function generateMetadata() {
       template: "%s | " + metadata?.title,
       default: metadata?.title ?? undefined,
     },
-    themeColor: "#1700FF",
+    googleSiteVerification: "A4BUKww9p_hSfiLNezBr---5yAa_a6_id8dMCmHgWDg",
     keywords: metadata?.keywords ?? undefined,
     creator: "Patch Bell",
     publisher: "Patch Studio",
@@ -110,6 +110,10 @@ export default async function RootLayout({
       lang="en"
       className={`${nhFont.variable} ${hvFont.variable} ${mFont.variable}`}
     >
+      <head>
+        <meta name="google-site-verification" content="A4BUKww9p_hSfiLNezBr---5yAa_a6_id8dMCmHgWDg" />
+        <meta name="theme-color" content="#1700FF" />
+      </head>
       <body>
         <MouseTrackGradient />
         <CSSEnhancements />
