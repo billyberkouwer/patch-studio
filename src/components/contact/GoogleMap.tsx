@@ -7,6 +7,7 @@ export default function GoogleMap({ iframe }: { iframe: string }) {
   if (src) {
     return (
       <div className="google-map__wrapper">
+        <div className="map-overlay" aria-hidden />
         <iframe
           src={src}
           width="100%"
@@ -16,7 +17,6 @@ export default function GoogleMap({ iframe }: { iframe: string }) {
           loading="lazy"
           referrerPolicy="no-referrer-when-downgrade"
         ></iframe>
-        <div className="map-overlay" aria-hidden />
       </div>
     );
   }
