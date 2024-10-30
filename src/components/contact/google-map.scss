@@ -9,7 +9,9 @@
     iframe {
         border: 0;
         position: relative;
-        transform: translateY(-100%);
+        display: block;
+        mix-blend-mode:luminosity;
+
 
         &:active {
             border: 0;
@@ -21,6 +23,8 @@
     margin-top: -2.75px;
     top: 0;
     position: relative;
+    z-index: 0;
+    opacity: 1;
     height: 100%;
     width: 100%;
     background-color: $blue;
@@ -30,8 +34,10 @@
 }
 
 @supports (mix-blend-mode: color) {
+    iframe {
+        transform: translateY(-100%);
+    }
     .map-overlay {
-        mix-blend-mode: color;
         display: block;
     }
 }
