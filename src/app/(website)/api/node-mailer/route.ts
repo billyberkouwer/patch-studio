@@ -38,8 +38,7 @@ export async function POST(req: Request, res: Response) {
         subject: subject,
         html: `<html>
                   <body>
-                    <h3>You have a new message sent from your website contact form.</h3>
-                    <h1>${subject}</h1>
+                    <h2>You have a new message sent from your website contact form.</h2>
                     <h3>${firstName + " " + lastName}</h3>
                     <h3>${email}</h3>
                     <p>${message}</p>
