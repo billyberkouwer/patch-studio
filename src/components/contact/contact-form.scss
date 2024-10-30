@@ -33,7 +33,7 @@
     flex-direction: column;
     height: 100%;
     gap: 0.8rem;
-
+    transition: opacity $fast;
 
     .name__container {
         display: flex;
@@ -45,6 +45,12 @@
         .last-name {
             width: 100%;
         }
+    }
+
+    .--hdn {
+        opacity: 0;
+        pointer-events: none;
+        position: absolute;
     }
 
     .email {
