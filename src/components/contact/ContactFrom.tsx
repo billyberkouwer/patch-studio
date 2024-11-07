@@ -28,6 +28,7 @@ type FormDataType = {
 
 export default function ContactForm() {
   const [hasSubmitted, setHasSubmitted] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [emailSendSuccess, setEmailSendSuccess] = useState<null | boolean>(
     null
   );
@@ -84,7 +85,7 @@ export default function ContactForm() {
         {emailSendSuccess === null ? (
           <form
             style={{ opacity: hasSubmitted ? 0 : 1 }}
-            className="contact-form"
+            className={`contact-form has-submitted ${isLoading ? "has-submitted" : ""}`}
             onSubmit={(e) => {
               e.preventDefault();
               if (
@@ -152,7 +153,22 @@ export default function ContactForm() {
                 handleFormStateUpdate("message", e.target.value, setFormData)
               }
             ></textarea>
-            <input type="submit" className="button bold" value="send" />
+            <input
+              onClick={(e) => {
+                if (
+                  formData.firstName &&
+                  formData.lastName &&
+                  formData.message &&
+                  formData.subject &&
+                  !formData.hdn
+                ) {
+                  setIsLoading(true);
+                }
+              }}
+              type="submit"
+              className="button bold"
+              value="send"
+            />
           </form>
         ) : emailSendSuccess === true ? (
           <div className="email-response__container">

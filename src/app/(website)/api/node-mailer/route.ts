@@ -77,8 +77,6 @@ export async function POST(req: Request, res: Response) {
           error: "There was an error sending the email,",
         })
       );
-
-      console.log(promise);
     }
     return NextResponse.json({
       status: 500,

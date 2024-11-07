@@ -28,12 +28,32 @@
     box-sizing: border-box;
 }
 
+@keyframes loading {
+    0% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0 50%;
+    }
+}
+
 .contact-form {
     display: flex;
     flex-direction: column;
     height: 100%;
     gap: 0.8rem;
     transition: opacity $fast;
+
+    &.has-submitted {
+        input,
+        textarea {
+            color: transparent;
+            background: linear-gradient(100deg, #eceff1 30%, #1700FF50 50%, #eceff1 70%);
+            background-size: 400%;
+            animation: loading 1.2s ease-in-out infinite;
+        }
+    }
 
     .name__container {
         display: flex;
@@ -68,7 +88,6 @@
 
 
     .message {
-
         flex-grow: 20;
         align-content: baseline;
         justify-content: center;
