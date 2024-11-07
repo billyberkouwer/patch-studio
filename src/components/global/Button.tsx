@@ -26,7 +26,7 @@ export default function Button({
   state?: "inactive" | "bold" | "invert";
   isExternalLink?: boolean;
   isLarge?: boolean;
-  slug?: string;
+  slug?: string | null;
   callback?: (e: MouseEvent) => void;
 }) {
   if (slug) {

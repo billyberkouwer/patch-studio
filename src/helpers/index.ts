@@ -1,13 +1,6 @@
 import { HomepageComponentTypes } from "@/types";
 import { SanityImageAssetDocument } from "next-sanity";
 
-export function assignClasses(componentData: HomepageComponentTypes) {
-  return componentData.centerTextContent !== "patch-studio" &&
-    componentData.centerTextContent
-    ? componentData.centerTextContent
-    : "hide-button patch-studio";
-}
-
 export function extractNumbersFromArray(stringsArray: string[]) {
   const numbers = [];
 

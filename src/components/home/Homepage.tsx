@@ -7,7 +7,6 @@ import ShootInfoSection from "@/components/home/ShootInfoSection";
 import ParallaxImageHeader from "@/components/image/ParallaxImageHeader";
 import ScrollingImages from "@/components/image/ScrollingImages";
 import {
-  assignClasses,
   getCenterTextFromClasslist,
   getEndPositionFromClasslist,
 } from "@/helpers";
@@ -28,7 +27,7 @@ export default function Homepage({
   const [centerTextContent, setCenterTextContent] = useState("Patch Studio");
   const [centerTextLink, setCenterTextLink] = useState<string | null>(null);
 
-  console.log(pageData)
+  console.log(pageData);
   useEffect(() => {
     const scrollEvent = () => {
       const pxToScrollBottom =
@@ -106,16 +105,36 @@ export default function Homepage({
           start: "top 50%",
           end: "bottom 50%",
           onEnterBack: () => {
-            const currentComponentData = pageData?.filter((component) => component._key === gsapSections[i].id)[0];
-            console.log(currentComponentData?.centerText)
-            setCenterTextContent(currentComponentData?.centerText?.centerTextContent ? currentComponentData?.centerText?.centerTextContent : "Patch Studio");
-            setCenterTextLink(currentComponentData?.centerText?.link ? currentComponentData?.centerText?.link : null);
+            const currentComponentData = pageData?.filter(
+              (component) => component._key === gsapSections[i].id
+            )[0];
+            console.log(currentComponentData?.centerText);
+            setCenterTextContent(
+              currentComponentData?.centerText?.centerTextContent
+                ? currentComponentData?.centerText?.centerTextContent
+                : "Patch Studio"
+            );
+            setCenterTextLink(
+              currentComponentData?.centerText?.link
+                ? currentComponentData?.centerText?.link
+                : null
+            );
           },
           onEnter: () => {
-            const currentComponentData = pageData?.filter((component) => component._key === gsapSections[i].id)[0];
-            console.log(currentComponentData?.centerText)
-            setCenterTextContent(currentComponentData?.centerText?.centerTextContent ? currentComponentData?.centerText?.centerTextContent : "Patch Studio");
-            setCenterTextLink(currentComponentData?.centerText?.link ? currentComponentData?.centerText?.link : null);
+            const currentComponentData = pageData?.filter(
+              (component) => component._key === gsapSections[i].id
+            )[0];
+            console.log(currentComponentData?.centerText);
+            setCenterTextContent(
+              currentComponentData?.centerText?.centerTextContent
+                ? currentComponentData?.centerText?.centerTextContent
+                : "Patch Studio"
+            );
+            setCenterTextLink(
+              currentComponentData?.centerText?.link
+                ? currentComponentData?.centerText?.link
+                : null
+            );
           },
         },
       });
@@ -124,14 +143,18 @@ export default function Homepage({
 
   return (
     <div className="page__wrapper" id="page-wrapper">
-      <CenterLogo isLogoBlue={isLogoBlue} text={centerTextContent} link={centerTextLink} />
+      <CenterLogo
+        isLogoBlue={isLogoBlue}
+        text={centerTextContent}
+        link={centerTextLink}
+      />
       {pageData?.length
         ? pageData.map((componentData) => {
             if (componentData._type === "horizontalScrollImagesHome") {
               return (
                 <div
                   key={componentData._key}
-                  className={`animation-trigger is-colorful ${assignClasses(componentData)}`}
+                  className={`animation-trigger is-colorful`}
                   id={componentData._key}
                 >
                   <ScrollingImages
@@ -148,7 +171,7 @@ export default function Homepage({
               return (
                 <div
                   key={componentData._key}
-                  className={`animation-trigger is-colorful scales-65 ${assignClasses(componentData)}`}
+                  className={`animation-trigger is-colorful scales-65`}
                   id={componentData._key}
                 >
                   <ParallaxImageHeader
@@ -161,7 +184,7 @@ export default function Homepage({
               return (
                 <div
                   key={componentData._key}
-                  className={`animation-trigger ${assignClasses(componentData)}`}
+                  className={`animation-trigger`}
                   id={componentData._key}
                 >
                   <Tagline marginBottom={componentData.marginBottom}>
@@ -174,7 +197,7 @@ export default function Homepage({
               return (
                 <section
                   key={componentData._key}
-                  className={`animation-trigger ${assignClasses(componentData)}`}
+                  className={`animation-trigger`}
                   id={componentData._key}
                 >
                   <ShootInfoSection
@@ -188,16 +211,7 @@ export default function Homepage({
           })
         : null}
       <div id="book-button" className="fixed-book-button__wrapper">
-        <Button
-          state="bold"
-          slug={
-            centerTextContent === "editorial"
-              ? "/editorial#booking"
-              : centerTextContent === "headshots"
-                ? "/headshots#booking"
-                : ""
-          }
-        >
+        <Button state="bold" slug={centerTextLink}>
           Book {centerTextContent}
         </Button>
       </div>
