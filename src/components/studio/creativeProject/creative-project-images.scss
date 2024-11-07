@@ -13,23 +13,20 @@
         position: relative;
         display: flex;
         flex-wrap: wrap;
-        height: min(50vh, 50rem);
         gap: 1rem;
         max-width: 95vw;
 
         @include sm {
             max-width: unset;
         }
-
-        @include lg {
-            height: min(75vh, 80rem);
-        }
-
         .image__wrapper {
             position: relative;
             flex: 1 1 40%;
             transition: flex 1s;
+            height: min(25vh, 50rem);
             opacity: 0;
+            max-width: 50%;
+            justify-self: center;
 
             @include md {
                 flex: 1 25%;
@@ -37,6 +34,11 @@
                 &:hover {
                     flex: 1 40%;
                 }
+            }
+
+            @include lg {
+                height: min(75vh, 80rem);
+
             }
 
             &.sized-image {
