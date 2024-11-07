@@ -27,11 +27,12 @@ export async function POST(req: Request, res: Response) {
       const transporter = nodemailer.createTransport({
         host: process.env.MAILTRAP_HOST,
         port: 587,
-        secure: true,
+        secure: false,
         auth: {
           user: process.env.MAILTRAP_USER,
           pass: process.env.MAILTRAP_PASS,
         },
+        requireTLS: true,
         tls: {
           ciphers: "SSLv3",
         },
