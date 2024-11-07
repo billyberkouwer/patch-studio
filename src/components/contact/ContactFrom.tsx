@@ -85,7 +85,7 @@ export default function ContactForm() {
         {emailSendSuccess === null ? (
           <form
             style={{ opacity: hasSubmitted ? 0 : 1 }}
-            className={`contact-form has-submitted ${isLoading ? "has-submitted" : ""}`}
+            className={`contact-form ${isLoading ? "has-submitted" : ""}`}
             onSubmit={(e) => {
               e.preventDefault();
               if (
