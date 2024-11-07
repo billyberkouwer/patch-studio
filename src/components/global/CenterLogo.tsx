@@ -1,3 +1,4 @@
+import Link from "next/link";
 import "./center-logo.scss";
 
 export default function CenterLogo({
@@ -9,7 +10,7 @@ export default function CenterLogo({
 }) {
   return (
     <div className={`center-logo__wrapper ${isLogoBlue ? "" : "invert"}`}>
-      <h1 className={`center-logo`}>{text}</h1>
+      <Link href={"/"}><h1 className={`center-logo`}>{text}</h1></Link>
     </div>
   );
 }

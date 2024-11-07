@@ -48,14 +48,9 @@ export default function CreativeProjectImages({
                   alt={image?.altText ? image.altText : title + " " + i}
                   placeholder="blur"
                   blurDataURL={image.metadata.lqip}
+                  unoptimized={image.extension === "gif"}
                   fill
-                  sizes={
-                    images.length === 1
-                      ? "100vw"
-                      : images.length === 2
-                        ? "50vw"
-                        : "25vw"
-                  }
+                  sizes="(max-width: 768px) 50vw; 1024px"
                 />
               </div>
             ))

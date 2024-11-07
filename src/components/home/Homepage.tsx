@@ -110,6 +110,8 @@ export default function Homepage({
             setCenterTextContent(centerTextContent);
           },
           onEnter: () => {
+            const currentComponentData = pageData?.filter((component) => component._key === gsapSections[i].id) 
+            console.log(currentComponentData)
             const centerTextContent = getCenterTextFromClasslist(
               gsapSections[i].classList
             );
@@ -130,6 +132,7 @@ export default function Homepage({
                 <div
                   key={componentData._key}
                   className={`animation-trigger is-colorful ${assignClasses(componentData)}`}
+                  id={componentData._key}
                 >
                   <ScrollingImages
                     scrollDirection={
@@ -146,6 +149,7 @@ export default function Homepage({
                 <div
                   key={componentData._key}
                   className={`animation-trigger is-colorful scales-65 ${assignClasses(componentData)}`}
+                  id={componentData._key}
                 >
                   <ParallaxImageHeader
                     images={componentData.selectionOfImages}
@@ -158,6 +162,7 @@ export default function Homepage({
                 <div
                   key={componentData._key}
                   className={`animation-trigger ${assignClasses(componentData)}`}
+                  id={componentData._key}
                 >
                   <Tagline marginBottom={componentData.marginBottom}>
                     {componentData.taglineText}
@@ -170,6 +175,7 @@ export default function Homepage({
                 <section
                   key={componentData._key}
                   className={`animation-trigger ${assignClasses(componentData)}`}
+                  id={componentData._key}
                 >
                   <ShootInfoSection
                     shootDetails={componentData.keyInfoBlocks}

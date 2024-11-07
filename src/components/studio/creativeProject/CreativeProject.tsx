@@ -16,12 +16,16 @@ export default function CreativeProject({
 }) {
   const [isExpanded, setIsExpanded] = useState(true);
   const [backgroundColor, setBackgroundColor] = useState(
-    `rgb(${creativeProject?.backgroundColor?.r},${creativeProject?.backgroundColor?.g},${creativeProject?.backgroundColor?.b})`
+    typeof creativeProject?.backgroundColor?.r === "number"
+      ? `rgb(${creativeProject?.backgroundColor?.r},${creativeProject?.backgroundColor?.g},${creativeProject?.backgroundColor?.b})`
+      : undefined
   );
 
   function handleExpansion() {
     setIsExpanded(!isExpanded);
   }
+
+  console.log(backgroundColor);
 
   return (
     <div
@@ -30,7 +34,11 @@ export default function CreativeProject({
         backgroundColor: creativeProject?.backgroundColor
           ? backgroundColor
           : undefined,
-        color: lightOrDark(backgroundColor) === "dark" ? "#FAFAFA" : "#242145",
+        color: backgroundColor
+          ? lightOrDark(backgroundColor) === "dark"
+            ? "#FAFAFA"
+            : "#242145"
+          : "#242145",
       }}
     >
       <div className={`creative-project-accordion__container`}>
@@ -45,8 +53,11 @@ export default function CreativeProject({
               backgroundColor: creativeProject?.backgroundColor
                 ? backgroundColor
                 : undefined,
-              color:
-                lightOrDark(backgroundColor) === "dark" ? "#FAFAFA" : "#242145",
+              color: backgroundColor
+                ? lightOrDark(backgroundColor) === "dark"
+                  ? "#FAFAFA"
+                  : "#242145"
+                : "#242145",
             }}
             callback={handleExpansion}
           >
