@@ -25,8 +25,10 @@ export default function Homepage({
   pageData: HomepageComponentTypes[] | null;
 }) {
   const [isLogoBlue, setIsLogoBlue] = useState(false);
-  const [centerTextContent, setCenterTextContent] = useState("patch studio");
+  const [centerTextContent, setCenterTextContent] = useState("Patch Studio");
+  const [centerTextLink, setCenterTextLink] = useState<string | null>(null);
 
+  console.log(pageData)
   useEffect(() => {
     const scrollEvent = () => {
       const pxToScrollBottom =
@@ -38,7 +40,7 @@ export default function Homepage({
           opacity: 0,
           duration: 0.2,
         });
-      } else if (centerTextContent !== "patch studio") {
+      } else if (centerTextContent !== "Patch Studio") {
         gsap.to("#book-button", {
           opacity: 1,
           duration: 0.2,
@@ -50,7 +52,7 @@ export default function Homepage({
     const tl = gsap.timeline();
 
     const ctx = gsap.context(() => {
-      if (centerTextContent == "patch studio") {
+      if (centerTextContent === "Patch Studio") {
         tl.to("#book-button", {
           opacity: 0,
           duration: 0.2,
@@ -104,18 +106,16 @@ export default function Homepage({
           start: "top 50%",
           end: "bottom 50%",
           onEnterBack: () => {
-            const centerTextContent = getCenterTextFromClasslist(
-              gsapSections[i].classList
-            );
-            setCenterTextContent(centerTextContent);
+            const currentComponentData = pageData?.filter((component) => component._key === gsapSections[i].id)[0];
+            console.log(currentComponentData?.centerText)
+            setCenterTextContent(currentComponentData?.centerText?.centerTextContent ? currentComponentData?.centerText?.centerTextContent : "Patch Studio");
+            setCenterTextLink(currentComponentData?.centerText?.link ? currentComponentData?.centerText?.link : null);
           },
           onEnter: () => {
-            const currentComponentData = pageData?.filter((component) => component._key === gsapSections[i].id) 
-            console.log(currentComponentData)
-            const centerTextContent = getCenterTextFromClasslist(
-              gsapSections[i].classList
-            );
-            setCenterTextContent(centerTextContent);
+            const currentComponentData = pageData?.filter((component) => component._key === gsapSections[i].id)[0];
+            console.log(currentComponentData?.centerText)
+            setCenterTextContent(currentComponentData?.centerText?.centerTextContent ? currentComponentData?.centerText?.centerTextContent : "Patch Studio");
+            setCenterTextLink(currentComponentData?.centerText?.link ? currentComponentData?.centerText?.link : null);
           },
         },
       });
@@ -124,7 +124,7 @@ export default function Homepage({
 
   return (
     <div className="page__wrapper" id="page-wrapper">
-      <CenterLogo isLogoBlue={isLogoBlue} text={centerTextContent} />
+      <CenterLogo isLogoBlue={isLogoBlue} text={centerTextContent} link={centerTextLink} />
       {pageData?.length
         ? pageData.map((componentData) => {
             if (componentData._type === "horizontalScrollImagesHome") {

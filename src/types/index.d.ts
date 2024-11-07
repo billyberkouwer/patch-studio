@@ -51,19 +51,24 @@ type BookingOption = {
   _key: string;
 };
 
+type CenterText = {
+  centerTextContent: string,
+  link: string
+}
+
 type ParallaxImageHeaderHomeType = {
   selectionOfImages: SanityImageAssetDocument[];
   title: string;
   _type: "parallaxImageHeaderHome";
   _key: string;
-  centerTextContent: string | undefined;
+  centerText: CenterText
 };
 
 type HorizontalScrollImageHomeType = {
   directionOfHorizontalImageScroll: "left" | "right";
   sizeOfHorizontalScrollImages: "small" | "medium" | "large";
   selectionOfImages: SanityImageAssetDocument[];
-  centerTextContent: string | undefined;
+  centerText: CenterText
   isFixed: boolean;
   title: string;
   _type: "horizontalScrollImagesHome";
@@ -77,14 +82,14 @@ type InfoSectionHomeType = {
   keyInfoBlocks: KeyInfoBlockType[];
   button: ButtonWithLinkType;
   sectionText: PortableTextBlock[];
-  centerTextContent: string | undefined;
+  centerText: CenterText
 };
 
 type TaglineHomeType = {
   taglineText: string;
   _key: string;
   _type: "taglineHome";
-  centerTextContent: string | undefined;
+  centerText: CenterText;
   marginBottom: "normal" | "small" | undefined;
 };
 
@@ -93,7 +98,7 @@ type ParallaxImageHeaderType = {
   title: string;
   _type: "parallaxImageHeader";
   _key: string;
-  centerTextContent: string | undefined;
+  centerText: CenterText
 };
 
 type HorizontalScrollImageType = {
@@ -120,14 +125,14 @@ type InfoSectionType = {
   keyInfoBlocks: KeyInfoBlockType[];
   button: ButtonWithLinkType;
   sectionText: PortableTextBlock[];
-  centerTextContent: string | undefined;
+  centerText: CenterText
 };
 
 type TaglineType = {
   taglineText: string;
   _key: string;
   _type: "tagline";
-  centerTextContent: string | undefined;
+  centerText: CenterText
   marginBottom: "normal" | "small" | undefined;
 };
 

@@ -14,8 +14,8 @@ export const taglineHome = defineType({
       type: "text",
     }),
     defineField({
-      type: "centerTextContent",
-      name: "centerTextContent",
+      type: "centerText",
+      name: "centerText",
       title: "Center Text Content Overlay",
     }),
   ],

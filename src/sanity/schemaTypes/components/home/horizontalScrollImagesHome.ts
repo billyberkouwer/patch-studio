@@ -15,8 +15,8 @@ export const horizontalScrollImagesHome = defineType({
         "A name for this component. This title doesn't show up on the site - it's just for convenience.",
     }),
     defineField({
-      type: "centerTextContent",
-      name: "centerTextContent",
+      type: "centerText",
+      name: "centerText",
       title: "Center Text Content Overlay",
     }),
     defineField({

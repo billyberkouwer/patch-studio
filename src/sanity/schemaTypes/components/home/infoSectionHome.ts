@@ -13,8 +13,8 @@ export const infoSectionHome = defineType({
       title: "Title",
     }),
     defineField({
-      type: "centerTextContent",
-      name: "centerTextContent",
+      type: "centerText",
+      name: "centerText",
       title: "Center Text Content Overlay",
     }),
     defineField({

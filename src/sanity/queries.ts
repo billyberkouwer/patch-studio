@@ -10,9 +10,12 @@ export const allProjectSlugs = groq`
 export const fetchHomepageData = groq`
     *[_type == "home"][0] {
         ...,
-
         pageBuilderHome[]{
             ...,
+            "centerText": {
+                "centerTextContent": centerText.centerTextContent,
+                "link": centerText.link.link->slug.current 
+            },
             _type == "parallaxImageHeaderHome" => 
                 @{"selectionOfImages": selectionOfImages[].asset->},
             _type == "horizontalScrollImagesHome" => 

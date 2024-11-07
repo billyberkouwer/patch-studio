@@ -48,6 +48,7 @@ import { teamMemberCard } from "./components/studio/teamMemberCard";
 import {  termsAndConditions } from "./pages/termsAndConditions";
 import { imageHeader } from "./components/studio/imageHeader";
 import { portfolio } from "./objects/portfolio";
+import { centerText } from "./objects/centerText";
 
 export const schemaTypes = [
   pageBuilderHome,
@@ -99,5 +100,6 @@ export const schemaTypes = [
   teamMemberCards,
   termsAndConditions,
   imageHeader,
-  portfolio
+  portfolio,
+  centerText
 ];
