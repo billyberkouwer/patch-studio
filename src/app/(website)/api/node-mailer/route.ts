@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { validate } from "deep-email-validator";
 import nodemailer from "nodemailer";
 
+export const dynamic = "force-dynamic"
 export async function POST(req: Request, res: Response) {
   const formData = await req.formData();
   const email = formData.get("email") as string | undefined;

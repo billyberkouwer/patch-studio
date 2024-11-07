@@ -56,6 +56,8 @@ export default function ContactForm() {
         .then((res) => {
           if (res.status === 200) {
             setEmailSendSuccess(true);
+          } else {
+            setEmailSendSuccess(false);
           }
         })
         .catch((err) => {
