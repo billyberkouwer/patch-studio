@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import { validate } from "deep-email-validator";
 import nodemailer from "nodemailer";
 
-export const dynamic = "force-dynamic"
+export const dynamic = "force-dynamic";
 export async function POST(req: Request, res: Response) {
   const formData = await req.formData();
   const email = formData.get("email") as string | undefined;
@@ -54,33 +54,29 @@ export async function POST(req: Request, res: Response) {
                 </html>`,
       };
 
-      new Promise((resolve, reject) => {
+      const promise = new Promise(async (resolve, reject) => {
         transporter.sendMail(mailOptions, (error: any, info: any) => {
           if (error) {
             console.log("Error:" + error);
             reject(error);
-            return NextResponse.json({ status: 500, error: { ...error } });
+            // return NextResponse.json({ status: 500, error: { ...error } });
           } else {
             console.log("Message sent: " + info.response);
             resolve(info.response);
-            return NextResponse.json({
-              status: 200,
-              message: "Message sent! " + info.response,
-            });
+            // return NextResponse.json({
+            //   status: 200,
+            //   message: "Message sent! " + info.response,
+            // });
           }
         });
       });
-    } else if (hdn) {
-      return NextResponse.json({
-        status: 500,
-        message: "The hidden field was filled in - this is probably a bot.",
-      });
-    } else {
-      return NextResponse.json({
-        status: 500,
-        message: "A field was missing or the email was invalid.",
-      });
+
+      console.log(await promise)
     }
+    return NextResponse.json({
+      status: 500,
+      message: "A field was missing or the email was invalid.",
+    });
   }
 
   return NextResponse.json({
