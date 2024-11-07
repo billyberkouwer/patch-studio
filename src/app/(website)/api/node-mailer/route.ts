@@ -13,9 +13,11 @@ export async function POST(req: Request, res: Response) {
 
   if (email) {
     let validateEmail = await validate(email);
-    console.log(validateEmail)
+    console.log(validateEmail);
     if (
-      (!validateEmail?.reason || validateEmail?.reason === "smtp" || validateEmail?.reason === "typo") &&
+      (!validateEmail?.reason ||
+        validateEmail?.reason === "smtp" ||
+        validateEmail?.reason === "typo") &&
       !hdn &&
       firstName &&
       lastName &&
@@ -29,6 +31,9 @@ export async function POST(req: Request, res: Response) {
         auth: {
           user: process.env.MAILTRAP_USER,
           pass: process.env.MAILTRAP_PASS,
+        },
+        tls: {
+          ciphers: "SSLv3",
         },
       });
 
@@ -55,14 +60,14 @@ export async function POST(req: Request, res: Response) {
             return NextResponse.json({ status: 500, error: { ...error } });
           } else {
             console.log("Message sent: " + info.response);
-            resolve(info.response)
+            resolve(info.response);
             return NextResponse.json({
               status: 200,
               message: "Message sent! " + info.response,
             });
           }
         });
-      })
+      });
     } else if (hdn) {
       return NextResponse.json({
         status: 500,
