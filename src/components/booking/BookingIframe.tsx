@@ -31,7 +31,7 @@ export default function BookingIframe() {
     <div className="page__wrapper --top-padding --hide-navbar">
       <div ref={iframeWrapper} className="iframe__wrapper">
         <iframe
-          src={`https://app.acuityscheduling.com/schedule.php?owner=33617904&ref=embedded_csp${searchParams.get("at") ? "&appointmentType=" + searchParams.get("at") : ""}`}
+          src={`https://app.acuityscheduling.com/schedule.php?owner=${process.env.NEXT_PUBLIC_ACUITY_SCHEDULING_LINK_ID}&ref=embedded_csp${searchParams.get("at") ? "&appointmentType=" + searchParams.get("at") : ""}`}
           title="Schedule Appointment"
           width="100%"
           height={"100%"}
