@@ -3,7 +3,7 @@ import { validate } from "deep-email-validator";
 import nodemailer from "nodemailer";
 
 export const dynamic = "force-dynamic";
-export const fetchCache = 'force-no-store'
+export const fetchCache = "force-no-store";
 export const maxDuration = 30;
 export async function POST(req: Request, res: Response) {
   const formData = await req.formData();
@@ -56,22 +56,29 @@ export async function POST(req: Request, res: Response) {
                 </html>`,
       };
 
-      return await new Promise(async (resolve, reject) => {
+      const promise = await new Promise(async (resolve, reject) => {
         transporter.sendMail(mailOptions, (error: any, info: any) => {
           if (error) {
             console.log("Error:" + error);
             reject(error);
-            // return NextResponse.json({ status: 500, error: { ...error } });
+            return NextResponse.json({ status: 500, error: { ...error } });
           } else {
             console.log("Message sent: " + info.response);
             resolve(info.response);
-            // return NextResponse.json({
-            //   status: 200,
-            //   message: "Message sent! " + info.response,
-            // });
+            return NextResponse.json({
+              status: 200,
+              message: "Message sent! " + info.response,
+            });
           }
         });
-      });
+      }).catch(() =>
+        NextResponse.json({
+          status: 500,
+          error: "There was an error sending the email,",
+        })
+      );
+
+      console.log(promise);
     }
     return NextResponse.json({
       status: 500,
