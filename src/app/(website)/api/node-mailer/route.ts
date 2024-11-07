@@ -56,7 +56,7 @@ export async function POST(req: Request, res: Response) {
                 </html>`,
       };
 
-      new Promise(async (resolve, reject) => {
+      return await new Promise(async (resolve, reject) => {
         transporter.sendMail(mailOptions, (error: any, info: any) => {
           if (error) {
             console.log("Error:" + error);
