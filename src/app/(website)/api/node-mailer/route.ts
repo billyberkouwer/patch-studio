@@ -4,7 +4,7 @@ import nodemailer from "nodemailer";
 
 export const dynamic = "force-dynamic";
 export const fetchCache = 'force-no-store'
-export const maxDuration = "30"
+export const maxDuration = 30;
 export async function POST(req: Request, res: Response) {
   const formData = await req.formData();
   const email = formData.get("email") as string | undefined;
@@ -56,7 +56,7 @@ export async function POST(req: Request, res: Response) {
                 </html>`,
       };
 
-      const promise = new Promise(async (resolve, reject) => {
+      new Promise(async (resolve, reject) => {
         transporter.sendMail(mailOptions, (error: any, info: any) => {
           if (error) {
             console.log("Error:" + error);
@@ -72,8 +72,6 @@ export async function POST(req: Request, res: Response) {
           }
         });
       });
-
-      console.log(await promise)
     }
     return NextResponse.json({
       status: 500,
