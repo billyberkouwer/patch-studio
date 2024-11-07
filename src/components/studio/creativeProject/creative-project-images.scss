@@ -19,17 +19,19 @@
         @include sm {
             max-width: unset;
         }
+        
         .image__wrapper {
             position: relative;
             flex: 1 1 40%;
             transition: flex 1s;
-            height: min(25vh, 50rem);
+            height: min(30vh, 40rem);
             opacity: 0;
-            max-width: 50%;
+            // max-width: 50%;
             justify-self: center;
 
             @include md {
                 flex: 1 25%;
+                height: min(50vh, 55rem);
 
                 &:hover {
                     flex: 1 40%;
