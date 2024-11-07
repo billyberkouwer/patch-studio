@@ -4,6 +4,7 @@ import nodemailer from "nodemailer";
 
 export const dynamic = "force-dynamic";
 export const fetchCache = 'force-no-store'
+export const maxDuration = "30"
 export async function POST(req: Request, res: Response) {
   const formData = await req.formData();
   const email = formData.get("email") as string | undefined;
