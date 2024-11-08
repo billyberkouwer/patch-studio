@@ -27,6 +27,8 @@ export async function POST(req: NextRequest) {
       revalidatePath(`/terms-and-conditions`);
     } else if (body?._type === "siteMeta") {
       revalidatePath(`/`);
+    } else if (body?._type === "home") {
+      revalidatePath(`/`);
     } else if (body?._type === "bookings") {
       revalidatePath(`/bookings`);
     } else if (body?._type === "studio") {
