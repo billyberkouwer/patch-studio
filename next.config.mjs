@@ -13,7 +13,7 @@ const nextConfig = {
                 permanent: true,
             },
             {
-                source: '/book-appointments',
+                source: '/book-appointment',
                 destination: '/bookings',
                 permanent: true,
             },
