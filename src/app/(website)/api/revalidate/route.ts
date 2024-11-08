@@ -29,6 +29,10 @@ export async function POST(req: NextRequest) {
       revalidatePath(`/`);
     } else if (body?._type === "bookings") {
       revalidatePath(`/bookings`);
+    } else if (body?._type === "studio") {
+      revalidatePath(`/studio`);
+    } else if (body?._type === "contact") {
+      revalidatePath(`/contact`);
     } else if (body?.slug) {
       revalidatePath(`/${body.slug}`);
     }
