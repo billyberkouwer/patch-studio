@@ -21,20 +21,18 @@ export default function BookingIframe() {
 
   useEffect(() => {
     function resizeIframe() {
-      const navbar = document.getElementById("navbar");
+      const navHeight = parseInt(getComputedStyle(document.body).getPropertyValue('--nav-height'));
+      const viewportHeight = parseInt(getComputedStyle(document.body).getPropertyValue('--real-viewport-height'));
       let iframeHeight;
       if (iframeWrapper.current) {
-        iframeHeight = iframeWrapper.current.clientHeight;
-        if (navbar) {
-          const navHeight = navbar.getBoundingClientRect().height;
+        iframeHeight = viewportHeight;
+        if (navHeight) {
           if (iframeWrapper.current) {
-            iframeHeight -= navHeight * 2;
+            iframeHeight -= navHeight;
           }
         }
         setIframeHeight(iframeHeight);
-      }
-
-
+      };
     }
 
     resizeIframe();
