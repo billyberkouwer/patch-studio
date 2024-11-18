@@ -4,7 +4,7 @@ import CreativeProjectSection from "@/components/studio/creativeProject/Creative
 import ImageLandingSection from "@/components/studio/ImageLandingSection";
 import MemberCardsSection from "@/components/studio/MemberCardsSection";
 import { sanityFetch } from "@/sanity/config/client";
-import { fetchPageData, fetchStudioData, fetchStudioMetadata } from "@/sanity/queries";
+import { fetchPageData, fetchStudioData } from "@/sanity/queries";
 import { CreativeProjectType, MemberCardType, PageDataType, PageMeta } from "@/types";
 import { notFound } from "next/navigation";
 
@@ -76,7 +76,7 @@ const imageLandingSection = {
 
 export async function generateMetadata() {
   const metadata = await sanityFetch<PageMeta>({
-    query: fetchStudioMetadata,
+    query: fetchStudioData,
     tags: ["studio"],
   });
 
