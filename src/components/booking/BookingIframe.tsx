@@ -21,8 +21,14 @@ export default function BookingIframe() {
 
   useEffect(() => {
     function resizeIframe() {
-      const navHeight = parseInt(getComputedStyle(document.body).getPropertyValue('--nav-height'));
-      const viewportHeight = parseInt(getComputedStyle(document.body).getPropertyValue('--real-viewport-height'));
+      const navHeight = parseInt(
+        getComputedStyle(document.body).getPropertyValue("--nav-height")
+      );
+      const viewportHeight = parseInt(
+        getComputedStyle(document.body).getPropertyValue(
+          "--real-viewport-height"
+        )
+      );
       let iframeHeight;
       if (iframeWrapper.current) {
         iframeHeight = viewportHeight;
@@ -32,16 +38,10 @@ export default function BookingIframe() {
           }
         }
         setIframeHeight(iframeHeight);
-      };
+      }
     }
 
     resizeIframe();
-
-    window.addEventListener("resize", resizeIframe);
-
-    return () => {
-      window.removeEventListener("resize", resizeIframe);
-    };
   }, []);
 
   useEffect(() => {
@@ -73,8 +73,7 @@ export default function BookingIframe() {
   return (
     <div className={`page__wrapper --hide-navbar`}>
       <div ref={iframeWrapper} className="iframe__wrapper">
-        {!hasIframeLoaded ? <LoadingBookings /> : null}
-        {iframeSrc ? (
+        {iframeSrc && iframeHeight ? (
           <iframe
             src={iframeSrc}
             title="Schedule Appointment"
@@ -82,7 +81,11 @@ export default function BookingIframe() {
             height={iframeHeight}
             className="acuity-iframe"
             id="iframe"
-            onLoad={() => setHasIframeLoaded(true)}
+            onLoad={(el) => {
+              setHasIframeLoaded(true);
+              (el.target as HTMLIFrameElement).height = `${iframeHeight}`;
+              (el.target as HTMLIFrameElement).style.height = `${iframeHeight}px`;
+            }}
           ></iframe>
         ) : null}
       </div>
