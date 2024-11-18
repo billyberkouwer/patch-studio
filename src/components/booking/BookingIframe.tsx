@@ -39,8 +39,8 @@ export default function BookingIframe() {
         }
         setIframeHeight(iframeHeight);
       }
+      console.log(iframeHeight);
     }
-
     resizeIframe();
   }, []);
 
@@ -71,7 +71,7 @@ export default function BookingIframe() {
   }, []);
 
   return (
-    <div className={`page__wrapper --hide-navbar`}>
+    <div className={`page__wrapper --fixed-height --hide-navbar`}>
       <div ref={iframeWrapper} className="iframe__wrapper">
         {iframeSrc && iframeHeight ? (
           <iframe
@@ -79,12 +79,13 @@ export default function BookingIframe() {
             title="Schedule Appointment"
             width="100%"
             height={iframeHeight}
+            style={{height: iframeHeight + "px"}}
             className="acuity-iframe"
             id="iframe"
             onLoad={(el) => {
               setHasIframeLoaded(true);
               (el.target as HTMLIFrameElement).height = `${iframeHeight}`;
-              (el.target as HTMLIFrameElement).style.height = `${iframeHeight}px`;
+              (el.target as HTMLIFrameElement).style.maxHeight = `${iframeHeight}px`;
             }}
           ></iframe>
         ) : null}
