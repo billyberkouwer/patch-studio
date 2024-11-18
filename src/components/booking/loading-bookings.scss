@@ -1,0 +1,41 @@
+@import "@/styles/helpers.scss";
+
+.loading-bookings__wrapper {
+    position: relative;
+}
+
+.loading-bookings__container {
+    position: relative;
+    color: $blue;
+
+    h2 {
+        font-size: 4rem;
+        text-transform: uppercase;
+    }
+
+    h4 {
+        font-size: 3rem;
+    }
+
+    h2,
+    h4 {
+        font-family: var(--mFont);
+        text-align: center;
+    }
+
+    animation: fade 2s linear infinite;
+}
+
+
+
+@keyframes fade {
+
+    0%,
+    100% {
+        opacity: 0
+    }
+
+    50% {
+        opacity: 1
+    }
+}

@@ -9,10 +9,9 @@
     overflow-y: scroll;
     justify-content: center;
     min-height: var(--real-viewport-height);
-    padding: 0 0.8rem;
     box-sizing: border-box;
     align-items: safe center;
-    padding: 5rem 0;
+    padding: 5rem 0.8rem;
 
     /* Hide scrollbar for Chrome, Safari and Opera */
     &::-webkit-scrollbar {
@@ -34,7 +33,7 @@
         border: none;
         max-width: 1200px;
         height: inherit;
-        overflow: hidden;
+        overflow: auto;
         @include drop-shadow;
     }
 }
