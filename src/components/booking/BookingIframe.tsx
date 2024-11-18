@@ -14,11 +14,49 @@ export default function BookingIframe() {
   const searchParams = useSearchParams();
   const [hasIframeLoaded, setHasIframeLoaded] = useState(false);
   const iframeWrapper = useRef<HTMLIFrameElement>(null);
+  const [iframeSrc, setIframeSrc] = useState("");
+  const [iframeHeight, setIframeHeight] = useState<number | undefined>(
+    undefined
+  );
 
-  function resizeIframe(obj: HTMLIFrameElement) {
-    console.log(obj.contentWindow);
-    obj.style.height = obj?.contentWindow?.document.body.scrollHeight + "px";
-  }
+  useEffect(() => {
+    function resizeIframe() {
+      const navbar = document.getElementById("navbar");
+      let iframeHeight;
+      if (iframeWrapper.current) {
+        iframeHeight = iframeWrapper.current.clientHeight;
+        if (navbar) {
+          const navHeight = navbar.getBoundingClientRect().height;
+          if (iframeWrapper.current) {
+            iframeHeight -= navHeight * 2;
+          }
+        }
+        setIframeHeight(iframeHeight);
+      }
+
+
+    }
+
+    resizeIframe();
+
+    window.addEventListener("resize", resizeIframe);
+
+    return () => {
+      window.removeEventListener("resize", resizeIframe);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (searchParams.get("at")) {
+      setIframeSrc(
+        `https://app.acuityscheduling.com/schedule.php?owner=${process.env.NEXT_PUBLIC_ACUITY_SCHEDULING_LINK_ID}&ref=embedded_csp&appointmentType=${searchParams.get("at")}`
+      );
+    } else {
+      setIframeSrc(
+        `https://app.acuityscheduling.com/schedule.php?owner=${process.env.NEXT_PUBLIC_ACUITY_SCHEDULING_LINK_ID}&ref=embedded_csp`
+      );
+    }
+  }, [searchParams]);
 
   useGSAP(() => {
     gsap.fromTo(
@@ -35,20 +73,20 @@ export default function BookingIframe() {
   }, []);
 
   return (
-    <div
-      className={`page__wrapper --hide-navbar ${hasIframeLoaded ? "--top-padding" : ""}`}
-    >
+    <div className={`page__wrapper --hide-navbar`}>
       <div ref={iframeWrapper} className="iframe__wrapper">
-        <iframe
-          src={`https://app.acuityscheduling.com/schedule.php?owner=${process.env.NEXT_PUBLIC_ACUITY_SCHEDULING_LINK_ID}&ref=embedded_csp${searchParams.get("at") ? "&appointmentType=" + searchParams.get("at") : ""}`}
-          title="Schedule Appointment"
-          width="100%"
-          height="800"
-          className="acuity-iframe"
-          id="iframe"
-          onLoad={() => setHasIframeLoaded(true)}
-        ></iframe>
         {!hasIframeLoaded ? <LoadingBookings /> : null}
+        {iframeSrc ? (
+          <iframe
+            src={iframeSrc}
+            title="Schedule Appointment"
+            width="100%"
+            height={iframeHeight}
+            className="acuity-iframe"
+            id="iframe"
+            onLoad={() => setHasIframeLoaded(true)}
+          ></iframe>
+        ) : null}
       </div>
     </div>
   );

@@ -1,7 +1,8 @@
 @import "@/styles/helpers.scss";
 
 .loading-bookings__wrapper {
-    position: relative;
+    position: absolute;
+    z-index: 0;
 }
 
 .loading-bookings__container {
@@ -19,6 +20,7 @@
 
     h2,
     h4 {
+        font-weight: 300;
         font-family: var(--mFont);
         text-align: center;
     }
