@@ -81,7 +81,7 @@ export default function BookingIframe() {
             height={iframeHeight}
             style={{height: iframeHeight + "px"}}
             className="acuity-iframe"
-            id="iframe"
+            id="booking-iframe"
             onLoad={(el) => {
               setHasIframeLoaded(true);
               (el.target as HTMLIFrameElement).height = `${iframeHeight}`;

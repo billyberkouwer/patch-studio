@@ -33,7 +33,7 @@
 }
 
 @supports (mix-blend-mode: color) {
-    iframe {
+    #map-iframe {
         transform: translateY(-100%);
     }
     .map-overlay {

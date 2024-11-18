@@ -16,6 +16,7 @@ export default function GoogleMap({ iframe }: { iframe: string }) {
           allowFullScreen={false}
           loading="lazy"
           referrerPolicy="no-referrer-when-downgrade"
+          id="map-iframe"
         ></iframe>
       </div>
     );
