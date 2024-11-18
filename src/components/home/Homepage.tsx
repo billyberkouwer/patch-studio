@@ -27,7 +27,6 @@ export default function Homepage({
   const [centerTextContent, setCenterTextContent] = useState("Patch Studio");
   const [centerTextLink, setCenterTextLink] = useState<string | null>(null);
 
-  console.log(pageData);
   useEffect(() => {
     const scrollEvent = () => {
       const pxToScrollBottom =
@@ -108,7 +107,6 @@ export default function Homepage({
             const currentComponentData = pageData?.filter(
               (component) => component._key === gsapSections[i].id
             )[0];
-            console.log(currentComponentData?.centerText);
             setCenterTextContent(
               currentComponentData?.centerText?.centerTextContent
                 ? currentComponentData?.centerText?.centerTextContent
@@ -124,7 +122,6 @@ export default function Homepage({
             const currentComponentData = pageData?.filter(
               (component) => component._key === gsapSections[i].id
             )[0];
-            console.log(currentComponentData?.centerText);
             setCenterTextContent(
               currentComponentData?.centerText?.centerTextContent
                 ? currentComponentData?.centerText?.centerTextContent

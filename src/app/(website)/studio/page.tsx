@@ -80,8 +80,6 @@ export async function generateMetadata() {
     tags: ["studio"],
   });
 
-  console.log(metadata)
-
   return {
     robots: {
       index: true,

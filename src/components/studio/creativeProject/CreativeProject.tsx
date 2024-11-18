@@ -25,8 +25,6 @@ export default function CreativeProject({
     setIsExpanded(!isExpanded);
   }
 
-  console.log(backgroundColor);
-
   return (
     <div
       className="creative-project-accordion__wrapper"

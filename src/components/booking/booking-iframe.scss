@@ -2,7 +2,7 @@
 
 .iframe__wrapper {
     display: flex;
-    height: 100%;
+    height: auto;
     width: 100%;
     flex-grow: 1;
     position: relative;
@@ -30,9 +30,10 @@
         z-index: 0;
         outline: none;
         margin: 0;
+        top: 0;
         border: none;
         max-width: 1200px;
-        height: 100%;
+        height: inherit;
         overflow: hidden;
         @include drop-shadow;
     }

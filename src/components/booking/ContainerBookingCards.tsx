@@ -86,14 +86,12 @@ export default function ContainerBookingCards({
 
   function handleChangeSelection(currentValue: { value: string; at: string }) {
     if (currentValue.at == currentSelectionValue?.at) {
-      console.log("is the same")
       let link = "/bookings";
       if (currentSelectionValue?.at) {
         link = link + "?at=" + currentSelectionValue.at;
       }
       router.push(link);
     }
-    console.log(currentSelectionValue, currentValue)
     setCurrentSelectionValue(currentValue);
   }
 

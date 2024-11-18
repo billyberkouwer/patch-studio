@@ -103,8 +103,6 @@ export default function PageComposer({
               );
             }
             if (componentData._type === "textColumns") {
-              console.log(componentData._key)
-
               return (
                 <div key={"text column" + i}>
                   <ColumnText

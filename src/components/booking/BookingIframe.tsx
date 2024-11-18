@@ -34,7 +34,7 @@ export default function BookingIframe() {
           src={`https://app.acuityscheduling.com/schedule.php?owner=${process.env.NEXT_PUBLIC_ACUITY_SCHEDULING_LINK_ID}&ref=embedded_csp${searchParams.get("at") ? "&appointmentType=" + searchParams.get("at") : ""}`}
           title="Schedule Appointment"
           width="100%"
-          height={"100%"}
+          height="100%"
           className="acuity-iframe"
           id="iframe"
         ></iframe>
