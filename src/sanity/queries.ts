@@ -144,6 +144,19 @@ export const fetchStudioData = groq`
     }
 `;
 
+export const fetchStudioMetadata = groq`
+    *[_type == "studio"][0] {
+        ...,
+        "keywords": pageMeta.keywords,
+        _updatedAt,
+        "ogImage": pageMeta.image.asset->,
+        "ogTitle": pageMeta.ogTitle,
+        "ogType": pageMeta.ogType,
+        "description": pageMeta.description,
+        title,
+    }
+`;
+
 export const fetchPageMetadata = groq`
     *[_type == "page" && slug.current == $slug][0] {
         "keywords": pageMeta.keywords,

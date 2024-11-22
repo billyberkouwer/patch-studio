@@ -4,79 +4,13 @@ import CreativeProjectSection from "@/components/studio/creativeProject/Creative
 import ImageLandingSection from "@/components/studio/ImageLandingSection";
 import MemberCardsSection from "@/components/studio/MemberCardsSection";
 import { sanityFetch } from "@/sanity/config/client";
-import { fetchPageData, fetchStudioData } from "@/sanity/queries";
+import { fetchPageData, fetchStudioData, fetchStudioMetadata } from "@/sanity/queries";
 import { CreativeProjectType, MemberCardType, PageDataType, PageMeta } from "@/types";
 import { notFound } from "next/navigation";
 
-// const testMemberCards: MemberCardType[] = [
-//   {
-//     memberName: "Patch",
-//     memberImage: "/images/member-image-placeholder.jpg",
-//     memberInfo: "Some text",
-//     role: ["Director", "Photographer"],
-//   },
-//   {
-//     memberName: "Patch",
-//     memberImage: "/images/member-image-placeholder.jpg",
-//     memberInfo: "Some text",
-//     role: ["Director", "Photographer"],
-//   },
-//   {
-//     memberName: "Patch",
-//     memberImage: "/images/member-image-placeholder.jpg",
-//     memberInfo: "Some text",
-//     role: ["Director", "Photographer"],
-//   },
-//   {
-//     memberName: "Patch",
-//     memberImage: "/images/member-image-placeholder.jpg",
-//     memberInfo: "Some text",
-//     role: ["Director", "Photographer"],
-//   },
-//   {
-//     memberName: "Patch",
-//     memberImage: "/images/member-image-placeholder.jpg",
-//     memberInfo: "Some text",
-//     role: ["Director", "Photographer"],
-//   },
-// ];
-
-const imageLandingSection = {
-  image: "/images/patch-gif-vid.gif",
-  title: "Studio",
-  text: "Some text",
-};
-
-// const creativeProject: CreativeProjectType = {
-//   title: "The Project Title",
-//   color: "rgb(138, 13, 13)",
-//   content: {
-//     images: [
-//       { url: "/images/member-image-placeholder.jpg" },
-//       { url: "/images/member-image-placeholder.jpg" },
-//       { url: "/images/member-image-placeholder.jpg" },
-//       { url: "/images/member-image-placeholder.jpg" },
-//       { url: "/images/member-image-placeholder.jpg" },
-//       { url: "/images/member-image-placeholder.jpg" },
-//       { url: "/images/member-image-placeholder.jpg" },
-//       { url: "/images/member-image-placeholder.jpg" },
-//       { url: "/images/member-image-placeholder.jpg" },
-//     ],
-//     textContent:
-//       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat, doloremque. Velit magni officiis maxime asperiores quam veniam, eaque in ipsa vero quod tempora non expedita totam dolore minima beatae assumenda. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat, doloremque. Velit magni officiis maxime asperiores quam veniam, eaque in ipsa vero quod tempora non expedita totam dolore minima beatae assumenda.",
-//     link: "https://www.patchstudio.uk",
-//   },
-// };
-
-// const creativeProjects = [
-//     creativeProject,
-//     creativeProject,
-//     creativeProject,
-// ]
-
 export async function generateMetadata() {
   const metadata = await sanityFetch<PageMeta>({
-    query: fetchStudioData,
+    query: fetchStudioMetadata,
     tags: ["studio"],
   });
 
