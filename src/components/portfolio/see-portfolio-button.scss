@@ -1,3 +1,5 @@
+    @import "@/styles/helpers.scss";
+
     .see-portfolio-button__wrapper {
         display: flex;
         align-content: center;
@@ -5,10 +7,25 @@
         width: 100%;
         position: fixed;
         bottom: 0;
-        padding: 0.8rem;
+        padding: 1.6rem;
         box-sizing: border-box;
         z-index: 8;
         pointer-events: none;
 
-        .see-portfolio-button__container {}
+        .button {
+            animation-duration: 3s;
+            animation-name: glow;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+        }
+    }
+
+    @keyframes glow {
+        from {
+            filter: drop-shadow(0 0 1.5rem $blue);
+        }
+
+        to {
+            filter: drop-shadow(0 0 3rem $blue);
+        }
     }

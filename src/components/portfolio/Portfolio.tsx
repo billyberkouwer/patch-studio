@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import SeePortfolioButton from "./SeePortfolioButton";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
@@ -22,6 +22,17 @@ export default function Portfolio({
     setIsPortfolioVisible(!isPortfolioVisible);
   }
 
+  useEffect(() => {
+    const pageWrapper = document?.body;
+
+    if (isPortfolioVisible && pageWrapper) {
+      pageWrapper.classList.add("stop-scrolling");
+    }
+    if (!isPortfolioVisible && pageWrapper) {
+      pageWrapper.classList.remove("stop-scrolling");
+    }
+  }, [isPortfolioVisible]);
+
   useGSAP(() => {
     if (isPortfolioVisible) {
       const portfolioImages = document.querySelectorAll(".portfolio-image");
@@ -38,10 +49,12 @@ export default function Portfolio({
       );
       gsap.to(portfolioWrapperRef.current, {
         y: "0%",
+        duration: 1
       });
     } else {
       gsap.to(portfolioWrapperRef.current, {
-        y: "100%",
+        y: "130%",
+        duration: 1
       });
     }
   }, [isPortfolioVisible]);
@@ -63,7 +76,10 @@ export default function Portfolio({
             : null}
         </div>
       </div>
-      <SeePortfolioButton isVisible={isPortfolioVisible} callback={handlePortfolioVisibility}>
+      <SeePortfolioButton
+        isVisible={isPortfolioVisible}
+        callback={handlePortfolioVisibility}
+      >
         {isPortfolioVisible ? "Close" : "See"} Portfolio
       </SeePortfolioButton>
     </>

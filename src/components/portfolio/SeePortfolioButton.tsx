@@ -38,9 +38,12 @@ export default function SeePortfolioButton({
       className="see-portfolio-button__wrapper"
       style={{ zIndex: isVisible ? 9 : 8 }}
     >
-      <Button callback={callback} state="bold">
-        {children}
-      </Button>
+      <div className="see-portfolio-button__container">
+        <div className="glow" />
+        <Button callback={callback} state="bold">
+          {children}
+        </Button>
+      </div>
     </div>
   );
 }
