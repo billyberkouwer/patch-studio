@@ -50,7 +50,7 @@ export default function CreativeProjectImages({
                   blurDataURL={image.metadata.lqip}
                   unoptimized={image.extension === "gif"}
                   fill
-                  sizes="(max-width: 768px) 50vw; 1024px"
+                  sizes="(max-width: 768px) 50vw; 20vw"
                 />
               </div>
             ))

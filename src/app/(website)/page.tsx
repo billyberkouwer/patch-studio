@@ -3,8 +3,6 @@ import { client, sanityFetch } from "@/sanity/config/client";
 import "./page.scss";
 import { HomepageDataType, SiteMeta } from "@/types";
 import { fetchHomepageData, fetchSiteMetadata } from "@/sanity/queries";
-import NavbarWrapper from "@/components/nav/NavbarWrapper";
-import { Metadata } from "next";
 
 export async function generateMetadata() {
   const metadata: SiteMeta = await sanityFetch({

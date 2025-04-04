@@ -89,6 +89,7 @@ export default function ThreeScrollingImages({
                         alt={
                           image?.altText ? image.altText : "Headshot " + (i + 1)
                         }
+                        sizes="(max-width: 768px) 90vw, 70vw"
                         placeholder={image?.metadata?.lqip ? "blur" : undefined}
                         blurDataURL={image?.metadata?.lqip}
                       />

@@ -78,7 +78,7 @@ export default function ParallaxImageHeader({
                       : "Selected portfolio image " + (i + 1)
                   }
                   size="large"
-                  priority={i < 3}
+                  priority={true}
                   quality={90}
                 />
               ))

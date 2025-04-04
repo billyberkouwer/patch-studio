@@ -43,15 +43,15 @@ export default function SizedImage({
         className={`image__wrapper sized-image ${className ? className : ""}`}
       >
         <Image
-          style={{objectFit: "cover"}}
+          style={{ objectFit: "cover" }}
           fill
           ref={nextImage}
           alt={image?.altText ? image.altText : alt}
           src={image?.url}
-          priority={priority}
+          loading="lazy"
           placeholder="blur"
           blurDataURL={image?.metadata?.lqip}
-          quality={quality}
+          quality={50}
           sizes={getNextImageSizes(size)}
         />
       </div>

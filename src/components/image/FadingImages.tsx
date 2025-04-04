@@ -48,6 +48,7 @@ export default function FadingImages({
                 layout="fill"
                 style={{ objectFit: "cover" }}
                 placeholder="blur"
+                sizes="(max-width: 768px) 90vw, 50vw"
                 blurDataURL={image?.metadata?.lqip}
               />
             ))

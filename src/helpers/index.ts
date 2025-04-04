@@ -51,13 +51,13 @@ export function getNextImageSizes(size: "extra-small" | "small" | "medium" | "la
     return "(max-width: 768px) 40vw, (max-width: 1200px) 12vw, 5vw";
   }
   if (size === "small") {
-    return "(max-width: 768px) 60vw, (max-width: 1200px) 15vw, 5vw";
+    return "(max-width: 768px) 60vw, (max-width: 1200px) 20vw, 20vw";
   }
   if (size === "medium") {
-    return "(max-width: 768px) 70vw, (max-width: 1200px) 50vw, 33vw";
+    return "(max-width: 768px) 60vw, (max-width: 1200px) 40vw, 20vw";
   }
   if (size === "large") {
-    return "(max-width: 768px) 90vw, (max-width: 1200px) 30vw, 15vw";
+    return "(max-width: 768px) 90vw, (max-width: 1200px) 50vw, 30vw";
   }
   return "(max-width: 768px) 70vw, (max-width: 1200px) 20vw, 10vw";
 }

@@ -104,6 +104,7 @@ export default function ScrollingImages({
                 <SizedImage
                   key={image?._id + i}
                   image={image}
+                  size="small"
                   alt={
                     image?.altText
                       ? image.altText
