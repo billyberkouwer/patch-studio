@@ -51,7 +51,7 @@ export function getNextImageSizes(size: "extra-small" | "small" | "medium" | "la
     return "(max-width: 768px) 40vw, (max-width: 1200px) 12vw, 5vw";
   }
   if (size === "small") {
-    return "(max-width: 768px) 60vw, (max-width: 1200px) 20vw, 20vw";
+    return "(max-width: 768px) 40vw, (max-width: 1200px) 20vw, 20vw";
   }
   if (size === "medium") {
     return "(max-width: 768px) 60vw, (max-width: 1200px) 40vw, 20vw";

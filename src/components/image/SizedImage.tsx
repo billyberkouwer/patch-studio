@@ -51,7 +51,7 @@ export default function SizedImage({
           loading="lazy"
           placeholder="blur"
           blurDataURL={image?.metadata?.lqip}
-          quality={50}
+          quality={60}
           sizes={getNextImageSizes(size)}
         />
       </div>
